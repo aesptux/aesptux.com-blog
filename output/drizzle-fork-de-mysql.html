@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="con, datos, diferencias, drizzle, eliminadas, estable, fork, funciones, mysql, objetos, primera, tipos, version">
+
+  <title>
+Drizzle. Fork de MySQL  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Mon 21 March 2011</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/drizzle-fork-de-mysql.html">Drizzle. Fork de MySQL</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Como bien indica el título Drizzle es un fork de MySQL, concretamente de
+la versión 6.0.</p>
+<p>Desde entonces ha habido muchos cambios, como los siguientes:</p>
+<div class="section" id="uso">
+<h2>Uso</h2>
+<ul class="simple">
+<li>No hay un servidor embebido. El servidor Drizzle no se puede cargar
+como librería compartida</li>
+<li>Drizzle está optimizado para entornos concurrentes masivos</li>
+<li>Diseñado para sistemas POSIX modernos</li>
+<li>Windows, HP-UX e IRIX no son soportados</li>
+<li>Drizzle no utiliza timezones. Todo es UTC</li>
+</ul>
+</div>
+<div class="section" id="instalacion">
+<h2>Instalación</h2>
+<ul class="simple">
+<li>No hay scripts/mysql_install_db o similar. Drizzle se basa en una
+instalación conocida como &quot;just works&quot; (simplemente funciona)</li>
+<li>Drizzle puede escuchar en el puerto Drizzle (4427) y/o en el puerto
+MySQL (3306) y entender los respectivos protocolos</li>
+</ul>
+</div>
+<div class="section" id="procedimientos-almacenados">
+<h2>Procedimientos Almacenados</h2>
+<p>Drizzle actualmente no tiene ningún plugin que implemente procedimientos
+almacenados. La implementación en MySQL no era óptima</p>
+</div>
+<div class="section" id="comandos-eliminados">
+<h2>Comandos eliminados</h2>
+<ul class="simple">
+<li>ALTER TABLE UPGRADE</li>
+<li>REPAIR TABLE</li>
+<li>CREATE FUNCTION</li>
+<li>CONVERT</li>
+<li>SET NAMES</li>
+<li>Borrado y actualizado multi-tabla</li>
+</ul>
+</div>
+<div class="section" id="funciones-eliminadas">
+<h2>Funciones eliminadas</h2>
+<ul class="simple">
+<li>crypt()</li>
+<li>bit_length()</li>
+<li>bit_count()</li>
+</ul>
+</div>
+<div class="section" id="palabras-clave-eliminadas">
+<h2>Palabras clave eliminadas</h2>
+<ul class="simple">
+<li>CIPHER</li>
+<li>CLIENTE</li>
+<li>CODE</li>
+<li>CONTRIBUTORS</li>
+<li>CPU</li>
+<li>DEFINER</li>
+<li>DES_KEY_FILE</li>
+<li>ENGINES</li>
+<li>EVERY</li>
+<li>IO</li>
+<li>IPC</li>
+<li>ISSUER</li>
+</ul>
+</div>
+<div class="section" id="objetos-eliminados">
+<h2>Objetos eliminados</h2>
+<ul class="simple">
+<li>No hay requerimiento de un schema mysql</li>
+<li>No hay SET datatype, hay que usar ENUM</li>
+<li>No hay comando SET NAMES, UTF-8 por defecto</li>
+<li>No hay CHARACTER o CHARACTER SET, todo está por defecto en UTF-8</li>
+<li>No hay TIME, DATETIME o INT</li>
+<li>No hay TINYINT, SMALLINT o MEDIUMINT. Las operaciones de enteros han
+sido optimizadas para 32 y 64 bits</li>
+<li>No hay TINYBLOB, MEDIUMBLOB o LONGBLOB. Hay un BLOB optimizado</li>
+<li>No hay TINYTEXT, MEDIUMTEXT o LONGTEXT. Usar TEXT o BLOB</li>
+<li>No hay UNSIGNED</li>
+<li>No hay tipos de datos espaciales (GEOMETRY, POINT, LINESTRING,
+POLYGON)</li>
+</ul>
+<p>Hay bastantes más cambios, pero con estos nos hacemos una idea de más o
+menos lo que ha cambiado en este nuevo fork que acaba de publicar su
+primera versión estable.</p>
+<p>Podéis ver la lista de cambios completos aquí (inglés): <a class="reference external" href="http://docs.drizzle.org/mysql_differences.html">Drizzle
+differences</a></p>
+</div>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/databases-drizzle-mysql.html">Databases, Drizzle, MySQL</a></p>
+    <p>Tags:
+      <a href="/tag/con.html">con</a>,      <a href="/tag/datos.html">datos</a>,      <a href="/tag/diferencias.html">diferencias</a>,      <a href="/tag/drizzle.html">drizzle</a>,      <a href="/tag/eliminadas.html">eliminadas</a>,      <a href="/tag/estable.html">estable</a>,      <a href="/tag/fork.html">fork</a>,      <a href="/tag/funciones.html">funciones</a>,      <a href="/tag/mysql.html">mysql</a>,      <a href="/tag/objetos.html">objetos</a>,      <a href="/tag/primera.html">primera</a>,      <a href="/tag/tipos.html">tipos</a>,      <a href="/tag/version.html">version</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "drizzle-fork-de-mysql.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

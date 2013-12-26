@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+
+  <title>
+Tag: debian  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Tag: debian
+</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/utilizar-las-fonts-de-ubuntu-en-debian.html">Utilizar las fonts de Ubuntu en Debian.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Las fonts que utiliza Ubuntu son bastante bonitas en mi opinión,
+instalarlas en Debian es bastante sencillo:</p>
+<p>Nos descargamos las fonts de
+aquí:&nbsp;<a class="reference external" href="http://dl.dropbox.com/u/1301915/ubuntu-font-family.tar.gz">http://dl.dropbox.com/u/1301915/ubuntu-font-family.tar.gz</a></p>
+<p>Ahora extraemos:</p>
+<blockquote>
+tar -xvzf ubuntu-font-family.tar.gz -C&nbsp;/usr/share/fonts/truetype</blockquote>
+<p>Ahora tenemos que ir a Sistema ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/%c2%bfproblemas-al-compilar-driver-fglrx-10-9-solucion-aqui.html">¿Problemas al compilar driver fglrx 10.9? Solución aquí.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Los desarrolladores del kernel han solucionado una vulnerabilidad
+crítica y una librería que utilizaba fglrx ha sido eliminada.</p>
+<p>El error puede ser algo así:</p>
+<pre class="literal-block">
+/usr/src/kernel-modules/fglrx /
+make: Entering directory `/usr/src/packages/BUILD/kernel-2.6.35.50.3desktop'
+  LD      /usr/src/kernel-modules/fglrx/built-in.o
+  CC [M]  /usr ...</pre>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/optimizar-debian.html">Optimizar Debian.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Antes de realizar cualquier cambio en el sistema, recomiendo hacer una
+copia de seguridad de vuestra configuración actual, por lo que puediera
+pasar.</p>
+<p>Comenzamos:</p>
+<p>El arranque secuencial tiene un pequeño problemilla: Si un servicio
+tarda demasiado en arrancar, retrasará a los demás servicios.</p>
+<p>La solución a esto es el <em>arranque ...</em></p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/habilitar-usbs-en-virtualbox-debian.html">Habilitar USB's en Virtualbox para Windows en Debian</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Antes de empezar, asegúrate de que tienes la máquina virtual Windows
+correctamente instalada con los Guest Additions instalados también</p>
+<p>Primero, hay que añadir nuestro usuario actual (no root) al grupo
+vboxusers</p>
+<blockquote>
+# adduser usuario vboxusers</blockquote>
+<p>Si no sabes cuál es tu usuario puedes hacer:</p>
+<blockquote>
+$ whoami</blockquote>
+<p>En el siguiente paso, tenemos que ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/como-montar-imagenes-iso-en-debian.html">Cómo montar imágenes .iso en Debian</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Montar una imagen .iso en Debian, es muy sencillito, basta con un par de
+líneas:</p>
+<p>Primero creamos el directorio donde vamos a montar la imagen .iso:</p>
+<blockquote>
+# mkdir /mnt/directorio</blockquote>
+<p>Y luego simplemente montar el archivo:</p>
+<blockquote>
+# mount -t iso9660 -o loop archivo.iso /mnt/directorio</blockquote>
+<p>Donde -t indica el tipo y ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/mantenimiento-de-paquetes-en-distribuciones-basadas-en-debian.html">Mantenimiento de paquetes en distribuciones basadas en Debian.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Buscar paquetes descargados sin instalar:</p>
+<blockquote>
+dpkg --yet-to-unpack</blockquote>
+<p>Comprobar dependencias rotas:</p>
+<blockquote>
+apt-get check</blockquote>
+<p>Eliminar paquetes de la caché:</p>
+<blockquote>
+apt-cache clean</blockquote>
+<p>Ver qué paquetes hay instalados parcialmente:</p>
+<blockquote>
+dpkg --audit</blockquote>
+
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/actualizacion-de-paquetes-en-distribuciones-basadas-en-debian.html">Actualización de paquetes en distribuciones basadas en Debian</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Lo más esencial, actualizar la lista de paquetes:</p>
+<blockquote>
+apt-get update</blockquote>
+<p>Actualizar todos los paquetes instalados, pero sin eliminar paquetes
+para resolver dependencias:</p>
+<blockquote>
+apt-get -u upgrade</blockquote>
+<p>Actualizar todos los paquetes que hay instalados, eliminando o bien
+instalando paquetes nuevos según se necesite para satisfacer todas las
+dependencias:</p>
+<blockquote>
+apt-get -u dist-upgrade</blockquote>
+<p>El ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/eliminacion-de-paquetes-en-distribuciones-basadas-en-debian.html">Eliminación de paquetes en distribuciones basadas en Debian.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Para eliminar:</p>
+<blockquote>
+apt-get remove paquete</blockquote>
+<p>Para probar el comando antes de ejecutarlo:</p>
+<blockquote>
+apt-get remove paquete --dry-run</blockquote>
+<p>Para eliminar todo el rastro del paquete, incluyendo archivos de
+configuración:</p>
+<blockquote>
+apt-get remove --purge paquete</blockquote>
+<p>Para eliminar varios paquetes, proporcione una lista separada por
+espacios:</p>
+<blockquote>
+apt-get remove paquete1 paquete2 paquete3</blockquote>
+
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/instalacion-de-paquetes-en-distribuciones-basadas-en-debian.html">Instalación de paquetes en distribuciones basadas en Debian.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Para instalar un paquete:</p>
+<blockquote>
+apt-get install paquete</blockquote>
+<p>Para reinstalar un paquete, sobreescribiendo los archivos, haga esto:</p>
+<blockquote>
+apt-get install --reinstall paquete</blockquote>
+<p>También puede instalar varios paquetes a la vez, separados por un
+espacio:</p>
+<blockquote>
+apt-get install paquete1 paquete2 paquete3 paquete4</blockquote>
+<p>Para descargar sin instalar o desempaquetar:</p>
+<blockquote>
+apt-get -d install paquete</blockquote>
+<p>Para probar ...</p>
+  </div>
+</article>
+
+    <footer>
+<div id="paginator">
+
+</div>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="actualizar, backups, copias, cuentas, hardware, instalar, kernel, monitorizar, operativos, problemas, resolucion, Security, sistemas, software, unix, usuario">
+
+  <title>
+Labores esenciales de un administrador de sistemas  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Fri 08 July 2011</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/labores-esenciales-de-un-administrador-de-sistemas-2.html">Labores esenciales de un administrador de sistemas</a></h3>
+  </div>
+  <div id="article_text">
+    <ul class="simple">
+<li><strong>Aprovisionamiento de cuentas</strong></li>
+</ul>
+<p>El administrador de sistemas añade cuentas para los nuevos usuarios,
+elimina las cuentas de los usuarios que ya no están activos y gestiona
+todos los problemas posibles en relación a las cuentas, como por ejemplo
+contraseñas olvidadas. El proceso de añadir y eliminar puede ser
+automatizado, pero algunas decisiones (donde poner el home del usuario,
+en que máquina, etc) deben hacerse antes &nbsp;de añadir el usuario.</p>
+<p>Cuando un usuario deje de pertenecer al sistema, su cuenta debe ser
+deshabilitada. Se debe hacer una copia de seguridad de sus archivos y
+sacarlos fuera del sistema para no acumular basura.</p>
+<ul class="simple">
+<li>&nbsp;<strong>Añadir y eliminar hardware</strong></li>
+</ul>
+<p>Cuando se compra nuevo hardware o cuando el hardware es movido de una
+máquina a otra, el sistema debe ser configurado para que reconozca y
+utilice ese hardware. La dificultad de esta tarea puede variar por
+ejemplo, desde instalar una impresora, hasta configurar un array de
+discos.</p>
+<p>Ahora con la virtualización, las configuraciones de hardware se
+complican todavía más.</p>
+<ul class="simple">
+<li><strong>Realizar copias de seguridad</strong></li>
+</ul>
+<p>Quizás sea la tarea más importante del administrador de sistemas, y
+también es la tarea más ignorada y que da más pereza realizar. Hacer
+backups es aburrido y consume tiempo, pero son increíblemente
+necesarias. Se pueden automatizar o delegar, pero sigue siendo
+responsabilidad del administrador de sistemas cerciorarse de que se
+ejectuan correctamente y en el tiempo planeado.</p>
+<ul class="simple">
+<li>&nbsp;<strong>Instalar y actualizar software</strong></li>
+</ul>
+<p>Cuando se adquiere nuevo software, debe instalarse y probarse, a menudo
+bajo diferentes sistemas operativos y diferente hardware.&nbsp; Cuando el
+software funciona correctamente, los usuarios deben ser informados de su
+disponibilidad y localización. Si se trata de parches y actualizaciones
+de seguridad, deben implementarse gentilmente en el entorno local.</p>
+<p>El software local y los scripts administrativos deberían ser gestionados
+de manera que sean compatibles con los procedimientos de actualización
+utilizados.</p>
+<ul class="simple">
+<li><strong>Monitorizar el sistema</strong></li>
+</ul>
+<p>Las instalaciones grandes requieren de supervisión. No esperes que los
+usuarios reporten sus problemas a no ser que sean graves. Regularmente
+comprueba que el correo y servicio web funcionan correctamente, revisa
+los ficheros log en busca de fallos o problemas, cerciórate de que las
+redes locales están conectadas correctamente y mantén un ojo a la
+disponibilidad de recursos en el sistema, como el espacio en disco. Todo
+esto, se puede automatizar.</p>
+<ul class="simple">
+<li><strong>Resolución de problemas</strong></li>
+</ul>
+<p>Los fallos en el sistema son inevitables. Es el trabajo de un
+administrador diagnosticar estos problemas y llamar a expertos si es
+necesario. Normalmente es más difícil encontrar el problema que
+solucionarlo.</p>
+<ul class="simple">
+<li><strong>Mantener una documentación local</strong></li>
+</ul>
+<p>Un sistema suele variar con las necesidades de la organización, y
+comienza a diferir de lo que inicialmente se documentó. Como el
+administrador de sistemas es responsable de estos cambios, también lo es
+documentar los cambios.</p>
+<ul class="simple">
+<li>&nbsp;<strong>Seguridad</strong></li>
+</ul>
+<p>El administrador es responsable de implementar una política de seguridad
+y comprobar periódicamente que la seguridad no ha sido violada.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/unix.html">Unix</a></p>
+    <p>Tags:
+      <a href="/tag/actualizar.html">actualizar</a>,      <a href="/tag/backups.html">backups</a>,      <a href="/tag/copias.html">copias</a>,      <a href="/tag/cuentas.html">cuentas</a>,      <a href="/tag/hardware.html">hardware</a>,      <a href="/tag/instalar.html">instalar</a>,      <a href="/tag/kernel.html">kernel</a>,      <a href="/tag/monitorizar.html">monitorizar</a>,      <a href="/tag/operativos.html">operativos</a>,      <a href="/tag/problemas.html">problemas</a>,      <a href="/tag/resolucion.html">resolucion</a>,      <a href="/tag/security.html">Security</a>,      <a href="/tag/sistemas.html">sistemas</a>,      <a href="/tag/software.html">software</a>,      <a href="/tag/unix.html">unix</a>,      <a href="/tag/usuario.html">usuario</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "labores-esenciales-de-un-administrador-de-sistemas-2.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

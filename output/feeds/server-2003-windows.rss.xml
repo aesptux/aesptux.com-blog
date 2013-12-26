@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/server-2003-windows.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 07 Oct 2011 00:43:00 +0200</lastBuildDate><item><title>Active Directory - Concepts.</title><link>/active-directory-concepts.html</link><description>&lt;p&gt;Active Directory is the central repository of information on a Windows
+2003 based network. It stores information about all resources that are
+used on the network, like user and group accounts, shared folders,
+computers, printers, etc.&lt;/p&gt;
+&lt;p&gt;Active Directory can be used to locate this resources quickly so that
+Administrators can create, configure, delete and maintain them as
+needed.&lt;/p&gt;
+&lt;div class="section" id="logical-structure-of-active-directory"&gt;
+&lt;h2&gt;Logical structure of Active Directory&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;strong&gt;Forest&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;A forest is a collection of domain trees linked together at their
+roots by transitive trusts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tree&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;Also called a domain tree, a hierarchical grouping of domains
+beggining with a root domain and branching out to child domains. Must
+have a contiguous DNS namespace&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Domain&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;The primary administrative boundary for WS2003 networks. Domains are
+named using DNS, and a tree consists of one or more domains
+hierarchically joined by transitive trusts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Organizational Unit (OU)&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;Logical containers you can use to group objects in a domain for
+security and administration purposes. For example you can reflect
+your company's geographical, organizational or administrative
+structure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Object&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;A user, group, computer, printer, shared folder or anything else
+which can be contained within a domain or OU.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Trust&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;Secure communications between domains, domains trees, or forests&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/ul&gt;&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Fri, 07 Oct 2011 00:43:00 +0200</pubDate><guid>tag:,2011-10-07:active-directory-concepts.html</guid><category>2003</category><category>active directory</category><category>concepts</category><category>domain</category><category>forest</category><category>objects</category><category>organizational</category><category>ou</category><category>server</category><category>tree</category><category>trusts</category><category>unit</category><category>Windows</category></item></channel></rss>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="dns, montar, que es, servidor, teoria">
+
+  <title>
+Servidor DNS  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Wed 17 March 2010</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/servidor-dns.html">Servidor DNS</a></h3>
+  </div>
+  <div id="article_text">
+    <p>7 SERVICIO DNS</p>
+<ol class="arabic simple">
+<li><ol class="first arabic">
+<li><strong>¿Qué es el servicio DNS?</strong></li>
+</ol>
+</li>
+</ol>
+<p>El servicio DNS (Domain Name System), o servicio de nombre de dominio,
+gestiona y mantiene de forma distribuida las direcciones de Internet y
+los nombres de sistema.</p>
+<p>En una red TCP/IP las máquinas se identifican mediante su dirección de
+red o número IP. Sin embargo, para las personas resulta mucho más cómodo
+recordar un nombre que se asocia a una máquina concreta, ya que la
+dirección IP puede cambiar.</p>
+<p>Esto hace necesario establecer un mecanismo de traducción de nombres de
+maquinas a direcciones IP. DNS es el servicio que proporciona este
+mecanismo de traducción.</p>
+<ol class="arabic simple">
+<li><ol class="first arabic">
+<li><strong>El espacio de nombres de dominio</strong></li>
+</ol>
+</li>
+</ol>
+<p>El servicio DNS se compone de una base de datos distribuida. En esta
+base de datos se almacenan las asociaciones de nombres de dominios y
+direcciones IP.</p>
+<p>La base de datos de DNS está clasificada por nombres de dominio, donde
+cada nombre de dominio es una rama en un árbol invertido llamado espacio
+de nombres de dominio. El árbol comienza en el nodo raíz situado en el
+nivel superior. Por debajo de él pueden existir un número indeterminado
+de nodos de nivel inferior.</p>
+<p>Los nodos se identifican mediante nombres no nulos. El nombre completo
+de un nodo está formado por el conjunto de de nombres que forman la
+trayectoria desde ese nodo hasta el nodo raíz. Este nombre de dominio
+completo se llama nombre de dominio completamente cualificado o Fully
+Qualified Domain Name. El FQDN de cualquier nodo del árbol debe acabar
+siempre con un punto.</p>
+<p>Los diferentes servidores DNS que existen en la red almacenan la
+información relativa a los nombres de dominio DNS en los llamados
+registros de recursos. Le permiten responder a las peticiones de nombres
+relativas a la parte del espacio de nombres de dominio.</p>
+<p>Los principales TLD son: .com, .edu, .net, .org, .gov.</p>
+<p>Como parte del espacio de nombres de dominio también existen dominios de
+primer nivel que designan zonas geográficas.</p>
+<p>Organismo en España ? ESNIC</p>
+<ol class="arabic simple">
+<li><ol class="first arabic">
+<li><strong>¿Cuándo se necesita DNS?</strong></li>
+</ol>
+</li>
+</ol>
+<p>Un servicio DNS se define como:</p>
+<ul class="simple">
+<li>Un espacio de nombres jerárquico para las máquinas y las direcciones
+IP.</li>
+<li>Una base de datos distribuida que contiene asociaciones de nombres de
+dominios a direcciones IP.</li>
+<li>Un resolvedor (resolver) o biblioteca de rutinas que permite realizar
+consultas a esa base de datos.</li>
+<li>Un protocolo para intercambiar información de nombres.</li>
+</ul>
+<p>Los sitios web utilizan el servicio DNS ya que mantener un archivo local
+/etc/hosts con una relación de todas las máquinas no es viable.</p>
+<p>Cada servidor de DNS mantiene uno o varios elementos de la base de datos
+distribuida que componen el servicio DNS.</p>
+<p>Si la red es pequeña se puede configurar un servidor en uno de los
+equipos o pedir al ISP que proporcione este servicio en su nombre.</p>
+<p>Si es el sistema es muy grande, debe tener varios dominios DNS.</p>
+<ol class="arabic simple">
+<li><ol class="first arabic">
+<li><strong>¿Qué es la delegación?</strong></li>
+</ol>
+</li>
+</ol>
+<p>DNS es una base de datos distribuida y por lo tanto permite su
+administración descentralizada.</p>
+<p>La delegación de dominios es el mecanismo que permite llevar a cabo es
+administración descentralizada. Es decir, el dominio puede ser divido en
+subdominios y el control de cada subdominio puede ser delegado. Debe
+asumir también la responsabilidad de mantener los datos actualizados.</p>
+<p>La división de un dominio en subdominios no implica siempre la cesión de
+la autoridad sobre ellos.</p>
+<ol class="arabic simple">
+<li><ol class="first arabic">
+<li><strong>Dominios y zonas</strong></li>
+</ol>
+</li>
+</ol>
+<p>El servidor de nombres almacena información acerca de algunas partes del
+espacio de nombres de dominio. Cada una de esas partes se llama zona, y
+se dice que el servidor de nombres tiene autoridad sobre una zona.</p>
+<p>La zona es un archivo que contiene determinados registros de la base de
+datos del espacio de nombres de dominio.</p>
+<p><strong>Diferencia entre dominio y zona: El dominio es un subárbol del espacio
+de nombres de dominio, es decir, un nodo con todos los nodos por debajo
+de él.</strong></p>
+<p><strong>La zona es un archivo que contiene determinados registros de la base
+de datos del espacio de nombres de dominio.</strong></p>
+<p>Un servidor de nombres de dice que es primario cuando obtiene la
+información de sus zonas de sus archivos locales. Todas las
+modificaciones sobre una zona, como añadir dominios, se llevan a cabo en
+el servidor primario.</p>
+<p>Un servidor de nombres se dice que es secundario cuando obtiene la
+información de su zona o zonas de otro servidor de nombres.</p>
+<p>Las transferencias de zona son solicitadas por servidores de nombre
+secundarios con el objetivo de mantener actualizada la información
+acerca de la zona para tenerla así correctamente duplicada. Es
+interesante que, para cada zona, exista al menos un servidor primario y
+otro secundario. En el caso de fallo de alguno de ellos, el otro atiende
+las peticiones de resolución de nombres.</p>
+<p>Un servidor de nombres de nombres se dice que es caché cuando sólo
+atiende consultas de los clientes DNS.</p>
+<ol class="arabic simple">
+<li><ol class="first arabic">
+<li><strong>Servidor de nombres autoritario</strong></li>
+</ol>
+</li>
+</ol>
+<p>Se define un servidor de nombres de dominios DNS autoritario para una
+zona como aquel que contiene los registros de recursos para dicha zona.
+Para ello se utilizan los registros de recursos SOA y NS.</p>
+<p>Si el servidor es secundario, los registros de recursos de la zona se
+cargan desde otro servidor de nombres utilizando el proceso de
+transferencia de zona.</p>
+<p><strong>7.9Base de datos del protocolo DNS</strong></p>
+<p>Cada servidor de nombres de dominio mantiene una base de datos que sirve
+para asociar los nombres de dominios con direcciones IP llamada archivos
+de la zona, y una base de datos de resolución inversa llamada archivos
+de resolución inversa de la zona. El formato de estas bases de datos es
+de archivos de textos.</p>
+<p>Para resolver nombres los servidores DNS consultan las zonas, las cuales
+contienen los registros de recursos (RR) que describen la información
+relativa al dominio DNS.</p>
+<p>La descripción de cada uno de los campos es:</p>
+<ul class="simple">
+<li><strong>Propietario:</strong>nombre de máquina o dominio DNS al que pertenece el
+recurso. Puede contener un nombre de máquina/dominio.</li>
+<li><strong>TTL:</strong>(Time To Live) tiempo de vida o número de segundos que
+puede estar el registro en la caché. Si contiene un '0' indica que no
+tiene que ser almacenado en caché.</li>
+<li><strong>Clase:</strong>define la familia de protocolos en uso. Suele ser siempre
+'IN' de Internet, que representa una red TCP/IP.</li>
+<li><strong>Tipo:</strong>identifica el tipo de registro.</li>
+<li><strong>RDATA:</strong>información específica del tipo de recurso.</li>
+</ul>
+<p>TIPOS DE REGISTRO</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="18%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><strong>Nombre del recurso</strong></td>
+<td><strong>Tipo de registro</strong></td>
+<td><strong>Función</strong></td>
+</tr>
+<tr><td>Inicio de autoridad</td>
+<td>SOA</td>
+<td>Identifica al servidor autoritario de una zona y sus parámetros de configuración.</td>
+</tr>
+<tr><td>Servidor de nombres</td>
+<td>NS</td>
+<td>Identifica servidores de nombres autorizados para una zona.</td>
+</tr>
+<tr><td>Dirección</td>
+<td>A</td>
+<td>Asocia un nombre de dominio FQDN con una dirección IP</td>
+</tr>
+<tr><td>Puntero</td>
+<td>PTR</td>
+<td>Asocia una IP a un dominio FQDN. Para búsquedas inversas</td>
+</tr>
+<tr><td>Registro de correo</td>
+<td>MX</td>
+<td>Indica máquinas encargadas de la entrega de correo en el dominio</td>
+</tr>
+<tr><td>Nombre canónico</td>
+<td>CNAME</td>
+<td>Permite asignar uno o más nombres a una máquina</td>
+</tr>
+<tr><td>Text</td>
+<td>TXT</td>
+<td>Almacena cualquier información</td>
+</tr>
+<tr><td>Servicio</td>
+<td>SRV</td>
+<td>Ubicación de los servidores para un servicio.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>A) Registro de recurso SOA</strong></p>
+<p>La configuración de cada zona comienza con el registro de recursos de
+Inicio de Autoridad o SOA (Start of Authority).</p>
+<ul class="simple">
+<li><strong>Propietario:</strong>nombre de dominio de la zona</li>
+<li><strong>Tipo:</strong>SOA</li>
+<li><strong>Persona responsable:</strong>contiene la dirección de correo electrónico
+del responsable de la zona.</li>
+<li><strong>Número de serie:</strong>Número de versión de la zona. Sirve de
+referencia a los servidores secundarios de la zona para saber cuando
+deben hacer una transferencia (actualizar la base). Si el número de
+serie del servidor secundario es menor que el número de serie del
+primario, significa que en el primario ha cambiado la información de
+la zona, y por tanto el secundario debe solicitar al primario una
+transferencia de zona. Este número debe ser incrementado de forma
+manual por el administrador de la zona cada vez que realiza un cambio
+en algún registro de la zona. Se suele utilizar el formato
+AAAA/MM/DD/NN.</li>
+<li><strong>Actualización (Refresh Time):</strong>indica cada cuánto tiempo un
+servidor secundario debe contactar con el servidor primario para
+comprobar los cambios en la zona.</li>
+<li><strong>Reintentos (Retry time):</strong>si la transferencia de zona ha fallado,
+este parámetro indica el tiempo que espera el servidor secundario
+antes de volver a intentarlo.</li>
+<li><strong>Caducidad (Expire Time):</strong>indica el tiempo de caducidad, en
+segundos de la información acerca de la zona en un servidor
+secundario.</li>
+<li><strong>TTL Mínimo (Minimal Time To Live):</strong>indica el tiempo de validez
+del registro SOA, número de segundos que la información sobre el
+registro se mantiene en el servidor de nombres de dominio.</li>
+</ul>
+<p>Ejemplo:</p>
+<p>aulaESI.com. IN SOA servidor.aulaESI.com.</p>
+<p>( 200051701; número de serie</p>
+<p>10800; actualización</p>
+<p>900; reintentos</p>
+<p>604800; caducidad</p>
+<p>86400; valor TTL</p>
+<p>)</p>
+<p><strong>B) Registro de recurso NS (NameServer)</strong></p>
+<p>El registro de recurso NS establece los servidores de nombres
+autorizados para la zona. Cada zona debe contener registros indicando
+tanto los servidores primarios como los secundarios. Por tanto, cada
+zona debe contener registros indicando tanto los servidores primarios
+como los secundarios. Como mínimo un registro NS por zona.</p>
+<p>Ejemplo:</p>
+<p>aulaESI.com. IN NS servidor.aulaESI.com.</p>
+<p><strong>C)Registro de recurso A (Address)</strong></p>
+<p>Establece una correspondencia entre un FQDN y una dirección IP. Cada
+registro A identifica un nombre de máquina y el cliente DNS puede
+obtener a través de él su dirección IP.</p>
+<p>Ejemplo de registro que se asigna una dirección a la maquina pc02:</p>
+<p>pc02.aulaESI.com. IN A 192.168.1.2</p>
+<p><strong>D)Registro de recurso PTR (PoinTeR)</strong></p>
+<p>El registro de recurso PTR hace lo contrario que el registro A, es decir
+asigna una dirección IP a un FQDN. Este tipo de recursos se utilizan en
+la resolución inversa.</p>
+<p>Ejemplo:</p>
+<p>2.1.168.192.in-addr-arpa IN PTR pc02.aulaESI.com.</p>
+<p><strong>E)Registro de recurso CNAME (Nombre canónico)</strong></p>
+<p>Crea un alias para el nombre de dominio especificado.</p>
+<p>Por ejemplo, a la maquina pc02 se le asigna el alias prueba:</p>
+<p>prueba.aulaESI.com. IN CNAME pc02.aulaESI.com.</p>
+<p><strong>F)Registro de recurso MX (Mail eXchange)</strong></p>
+<p>Es un registro de correo, e indica una o varias máquinas encargadas de
+la entrega de correo en el dominio. Si el dominio tiene varias máquinas
+como registros MX se puede indicar, mediante un valor numérico, el orden
+de preferencia de máquina que seguirá el servidor que envía el correo
+para hacer la entrega del mismo.</p>
+<p>Ejemplo:</p>
+<p>AulaESI.com. IN MX 0 mail.aulaESI.com.</p>
+<p>AulaESI.com. IN MX 1 maildos.aulaESI.com.</p>
+<p><strong>G)Registro de recurso SRV (SeRVice)</strong></p>
+<p>Los registros de recursos SRV especifican los servidores disponibles
+para un servicio o protocolo determinados, como www o FTP.</p>
+<p>http.tcp.aulaESI.com. IN SRV 0 0 80 www.aulaESI.com</p>
+<p>ftp.tcp.aulaESI.com. IN SRV0 0 80 ftp.aulaESI.com.</p>
+<ol class="arabic simple">
+<li><ol class="first arabic">
+<li><strong>Métodos de búsqueda</strong><ol class="arabic">
+<li><strong>Resolución de nombres</strong></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>La resolución de nombres es un mecanismo por el que se traducen los
+nombres de máquinas, dados por los usuarios al conectarse a servidores
+remotos, a direcciones IP.</p>
+<ul class="simple">
+<li><strong>Búsqueda recursiva:</strong>Se realiza una petición de resolución de
+nombre al servidor DNS local, y si el servidor no dispone de la
+información solicitada va a buscarla al servidor de nombres con
+autoridad que la contiene. Para ello, el servidor de nombres local
+necesita consultar a un servidor raíz y éste le dará la información
+acerca de aquellos servidores de nombres autoritarios intermedios
+hasta llegar al servidor que contiene el nombre del dominio objeto de
+la consulta. En este caso, el servidor local asume la responsabilidad
+de dar una respuesta al cliente y él consulta a los otros servidores
+en nombre del cliente.</li>
+<li><strong>Búsqueda iterativa:</strong> el servidor DNS local devuelve la mejor
+respuesta que puede ofrecer al cliente en función del contenido de su
+caché, pero si el servidor no dispone de la información solicitada
+indica la ip del siguiente servidor de nombres autorizado a
+preguntar, comenzando siempre por un servidor raíz. Éste le refiere
+al servidor del nivel siguiente que lo contiene, y el servidor local
+vuelve a lanzar la petición (iteración) al servidor referido, el
+cual, si no dispone de la información solicitada, le refiere al
+servidor del nivel siguiente que lo contiene; a continuación, el
+servidor DNS local vuelve a lanzar la petición al servidor referido y
+así sucesivamente hasta llegar al servidor de nombres que contiene la
+información acerca del dominio solicitado.</li>
+</ul>
+<ol class="arabic simple">
+<li><ol class="first arabic">
+<li><strong>Configuración de un servidor DNS en Debian GNU/Linux</strong></li>
+</ol>
+</li>
+</ol>
+<p>El servicio DNS está compuesto por dos programas.</p>
+<ul class="simple">
+<li>El demonio named: es el servidor de nombres de dominio, el que
+contiene la base de datos y responde a las peticiones</li>
+<li>el resolver (cliente): es el que genera las peticiones. Es un
+conjunto de rutinas que permiten que los clientes accedan a los
+servidores de nombres para resolver la búsqueda de una dirección ip
+asociada a un nombre</li>
+</ul>
+<p>El archivo de configuración del demonio named es /etc/bind/named.conf.</p>
+<p>Las zonas específicas del servidor DNS se definen en
+/etc/bind/named.conf.local</p>
+<p>Para lanzar el servicio: /etc/init.d/bind9 start</p>
+<p>Archivos de configuración implicados:</p>
+<ul class="simple">
+<li>/etc/bind/named.conf</li>
+<li>/etc/bind/named.conf.local</li>
+<li>/etc/bind/db.aulaESI.com</li>
+<li>/etc/bind/db.192.168.1</li>
+</ul>
+<p><strong>EJEMPLO NAMED.CONF.LOCAL</strong></p>
+<p>/* resolución normal */</p>
+<p>zone “aulaESI.com” {</p>
+<p>type master;</p>
+<p>allow-query {127.0.0.1 ; 192.168.1.1/24; }</p>
+<p>allow-transfer { slaves;}</p>
+<p>file “/etc/bind/db.aulaESI.com”;</p>
+<p>};</p>
+<p>/*resolucion inversa */</p>
+<p>zona “1.168.192.in-addr.arpa” {</p>
+<p>type master;</p>
+<p>allow-query {127.0.0.1 ; 192.168.1.1/24; }</p>
+<p>allow-transfer { slaves;}</p>
+<p>file “/etc/bind/db.192.168.1”;</p>
+<p>};</p>
+<p><strong>EJEMPLO DB.AULAESI.COM</strong></p>
+<p>aulaESI.com. IN SOA servidor.aulaESI.com.</p>
+<p>( 1;</p>
+<p>10800;</p>
+<p>900;</p>
+<p>604800;</p>
+<p>86400;)</p>
+<p>aulaESI.com. IN A 192.168.1.1</p>
+<p>aulaESI.com. IN NS servidor.aulaESI.com.</p>
+<p>servidor IN A 192.168.1.1</p>
+<p>cups IN CNAME servidor</p>
+<p>www in CNAME servidor</p>
+<p>pc02 IN A 192.168.1.2</p>
+<p>pc03 IN A 192.168.1.3</p>
+<p><strong>EJEMPLO DB.192.168.1</strong></p>
+<p>aulaESI.com. IN SOA servidor.aulaESI.com.</p>
+<p>(1;</p>
+<p>10800;</p>
+<p>900;</p>
+<p>604800;</p>
+<p>86400;)</p>
+<p>aulaESI.com. IN NS servidor.aulaESI.com.</p>
+<p>1 IN PTR gateway.aulaESI.com.</p>
+<p>1 IN PTR servidor.aulaESI.com.</p>
+<p>2 IN PTR pc02.aulaESI.com.</p>
+<p>3 IN PTR pc03.aulaESI.com.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/linux-networking-tutorial.html">Linux, Networking, Tutorial</a></p>
+    <p>Tags:
+      <a href="/tag/dns.html">dns</a>,      <a href="/tag/montar.html">montar</a>,      <a href="/tag/que-es.html">que es</a>,      <a href="/tag/servidor.html">servidor</a>,      <a href="/tag/teoria.html">teoria</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "servidor-dns.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

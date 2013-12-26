@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/linux-tutorial-windows.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 10 Sep 2010 13:15:00 +0200</lastBuildDate><item><title>Habilitar USB's en Virtualbox para Windows en Debian</title><link>/habilitar-usbs-en-virtualbox-debian.html</link><description>&lt;p&gt;Antes de empezar, asegúrate de que tienes la máquina virtual Windows
+correctamente instalada con los Guest Additions instalados también&lt;/p&gt;
+&lt;p&gt;Primero, hay que añadir nuestro usuario actual (no root) al grupo
+vboxusers&lt;/p&gt;
+&lt;blockquote&gt;
+# adduser usuario vboxusers&lt;/blockquote&gt;
+&lt;p&gt;Si no sabes cuál es tu usuario puedes hacer:&lt;/p&gt;
+&lt;blockquote&gt;
+$ whoami&lt;/blockquote&gt;
+&lt;p&gt;En el siguiente paso, tenemos que cambiar el grupo el cual tiene
+permisos para montar USB's, que por defecto es root.&lt;/p&gt;
+&lt;p&gt;Nos vamos al siguiente archivo:&lt;/p&gt;
+&lt;blockquote&gt;
+# vim /etc/udev/rules.d/10-vboxdrv.rules&lt;/blockquote&gt;
+&lt;p&gt;Buscamos la siguiente línea:&lt;/p&gt;
+&lt;blockquote&gt;
+KERNEL==&amp;quot;vboxdrv&amp;quot;, NAME=&amp;quot;vboxdrv&amp;quot;, OWNER=&amp;quot;root&amp;quot;, GROUP=&amp;quot;&lt;strong&gt;root&lt;/strong&gt;&amp;quot;,
+MODE=&amp;quot;0600&amp;quot;&lt;/blockquote&gt;
+&lt;p&gt;Y ahora hay que cambiar el atributo de GROUP a vboxusers, quedando así:&lt;/p&gt;
+&lt;blockquote&gt;
+KERNEL==&amp;quot;vboxdrv&amp;quot;, NAME=&amp;quot;vboxdrv&amp;quot;, OWNER=&amp;quot;root&amp;quot;,
+GROUP=&amp;quot;&lt;strong&gt;vboxusers&lt;/strong&gt;&amp;quot;, MODE=&amp;quot;0600&amp;quot;&lt;/blockquote&gt;
+&lt;p&gt;Ya entramos en la recta final de la configuración, el siguiente paso es
+en Virtualbox hacer &amp;nbsp;click en Settings y en USB, activar los que sea
+necesario y ya está!&lt;/p&gt;
+&lt;p&gt;Al encender nuestra máquina virtual, tendremos en funcionamiento los
+USB's.&lt;/p&gt;
+&lt;p&gt;Vía | &lt;a class="reference external" href="http://www.esdebian.org/wiki/habilitar-puertos-usb-virtualbox-3010-windows-debian"&gt;Wiki esdebian&lt;/a&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Fri, 10 Sep 2010 13:15:00 +0200</pubDate><guid>tag:,2010-09-10:habilitar-usbs-en-virtualbox-debian.html</guid><category>debian</category><category>habilitar</category><category>usb</category><category>virtualbox</category><category>Windows</category></item></channel></rss>

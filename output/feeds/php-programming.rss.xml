@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/php-programming.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 06 May 2012 12:24:00 +0200</lastBuildDate><item><title>Quick tip: Adding and substracting dates in PHP</title><link>/quick-tip-adding-and-substracting-dates-in-php.html</link><description>&lt;p&gt;More simple than it may seems. It will take care of adjusting months and
+days automatically:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Working with days:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+// My date Y-m-d
+$mydate = &amp;quot;2012-05-06&amp;quot;;
+//Adding five days
+$newdate = date(“Y-m-d”, strtotime($mydate. &amp;quot; +5 days”));
+// Substracting five days
+$newdate = date(“Y-m-d”, strtotime($mydate. &amp;quot; -5 days”));
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Working with weeks:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+// My date Y-m-d
+$mydate = &amp;quot;2012-05-06&amp;quot;;
+//Adding two weeks
+$newdate = date(“Y-m-d”, strtotime($mydate. &amp;quot; +2 weeks”));
+// Substracting one week
+$newdate = date(“Y-m-d”, strtotime($mydate. &amp;quot; -1 week”));
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Working with months&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+// My date Y-m-d
+$mydate = &amp;quot;2012-05-06&amp;quot;;
+//Adding six months
+$newdate = date(“Y-m-d”, strtotime($mydate. &amp;quot; +6 months”));
+// Substracting three months
+$newdate = date(“Y-m-d”, strtotime($mydate. &amp;quot; -3 months”));
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Working with years&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+// My date Y-m-d
+$mydate = &amp;quot;2012-05-06&amp;quot;;
+//Adding ten years
+$newdate = date(“Y-m-d”, strtotime($mydate. &amp;quot; +10 years”));
+// Substracting two years
+$newdate = date(“Y-m-d”, strtotime($mydate. &amp;quot; -2 years”));
+&lt;/pre&gt;
+&lt;p&gt;Be aware of the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Year_2038_problem"&gt;Unix Millenium Bug&lt;/a&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Sun, 06 May 2012 12:24:00 +0200</pubDate><guid>tag:,2012-05-06:quick-tip-adding-and-substracting-dates-in-php.html</guid><category>add</category><category>bug</category><category>date</category><category>dates</category><category>easy</category><category>function</category><category>php</category><category>substract</category><category>unix</category></item><item><title>Condiciones en PHP.</title><link>/condiciones-en-php.html</link><description>&lt;p&gt;Una condición es básicamente una decisión, resultado de una condición
+específica. Por ejemplo:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;?php
+    $edad = 16;
+    print &amp;quot;Tu edad es $edad\n&amp;quot;;
+    if ($edad &amp;lt; 18 ) {
+        print &amp;quot;Eres joven, disfruta.\n&amp;quot;;
+    } else {
+        print &amp;quot;No eres menor de 18\n&amp;quot;;
+    }
+
+    if ($edad  &amp;gt;= 18 &amp;amp;&amp;amp; $edad &amp;lt; 50) {
+        print &amp;quot;Estas en la flor de la vida!\n&amp;quot;;
+    } else {
+        print &amp;quot;No estas en la flor de la vida\n&amp;quot;;
+    }
+
+    if ($edad &amp;gt;= 50) {
+        print &amp;quot;Te queda poco para retirarte\n&amp;quot;;
+    } else {
+        print &amp;quot;No te queda poco para retirarte\n&amp;quot;;
+    }
+?&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;&amp;nbsp;Se entiende fácilmente, pero aún así lo explico un poco.&lt;/p&gt;
+&lt;p&gt;Es una simple condición que evalúa una edad y muestra unos mensajes en
+función de la edad.&lt;/p&gt;
+&lt;p&gt;La condición del medio, lleva el operador lógico AND. Si quieres saber
+más sobre los operadores de php, en &lt;a class="reference external" href="http://aesptux.com/2011/07/11/operadores-en-php/"&gt;esta entrada&lt;/a&gt;&amp;nbsp;hablo un poco sobre
+ellos.&lt;/p&gt;
+&lt;p&gt;Si (if) se cumple la condición, ejecuta el primer bloque de
+instrucciones, si no se cumple (else) ejecuta el segundo bloque.&lt;/p&gt;
+&lt;p&gt;También podemos utilizar esta forma:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;?php
+    $edad = 23;
+
+    if ($edad &amp;lt; 10) {
+        echo &amp;quot;Tienes menos de 10.&amp;quot;;
+    } elseif ($edad &amp;lt; 20 ) {
+        echo &amp;quot;Tienes menos de 20.&amp;quot;;
+    } elseif ($edad &amp;lt; 30 ) {
+        echo &amp;quot;Tienes menos de 30.&amp;quot;;
+    } elseif ($edad &amp;lt; 40 ) {
+        echo &amp;quot;Tienes menos de 40.&amp;quot;;
+    } elseif ($edad &amp;lt; 40 ) {
+        echo &amp;quot;Tienes menos de 40.&amp;quot;;
+    } else {
+        echo &amp;quot;Tienes mas de 40&amp;quot;;
+    }
+
+?&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;Con la instrucción &lt;strong&gt;elif&lt;/strong&gt;nos ahorramos hacer varios bloques.&lt;/p&gt;
+&lt;p&gt;Sin embargo cuando nos encontramos con que tenemos que trabajar con
+numerosos elif, la cosa puede complicarse y podemos liarnos. Para ello
+tenemos la instrucción case, los dos siguientes ejemplos, actúan de la
+misma manera:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;?php
+    $nombre = &amp;quot;Bob&amp;quot;;
+    if ($nombre == &amp;quot;Bob&amp;quot;) {
+        echo &amp;quot;Te llamas Bob\n&amp;quot;;
+    } elseif ($nombre == &amp;quot;Linda&amp;quot;) {
+        echo &amp;quot;Te llamas Linda\n&amp;quot;;
+    } elseif ($nombre == &amp;quot;Jim&amp;quot;) {
+        echo &amp;quot;Te llamas Jim\n&amp;quot;;
+    } elseif ($nombre == &amp;quot;Sally&amp;quot;) {
+        echo &amp;quot;Te llamas Sally\n&amp;quot;;
+    } else {
+        echo &amp;quot;No se como te llamas&amp;quot;;
+    }
+
+?&amp;gt;
+&lt;/pre&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;?php
+    $nombre = &amp;quot;Linda&amp;quot;;
+    switch($nombre){
+        case &amp;quot;Bob&amp;quot;:
+            echo &amp;quot;Te llamas Bob\n&amp;quot;;
+            break;
+        case &amp;quot;Linda&amp;quot;:
+            echo &amp;quot;Te llamas Linda\n&amp;quot;;
+            break;
+        case &amp;quot;Jim&amp;quot;:
+            echo &amp;quot;Te llamas Jim\n&amp;quot;;
+            break;
+        case &amp;quot;Sally&amp;quot;:
+            echo &amp;quot;Te llamas Sally\n&amp;quot;;
+            break;
+        default:
+            echo &amp;quot;No se como te llamas&amp;quot;;
+    }
+
+?&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;Como podemos observar, cuando se trata de varios elif, utilizar case
+queda más ordenado y es de más fácil lectura.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Wed, 13 Jul 2011 13:03:00 +0200</pubDate><guid>tag:,2011-07-13:condiciones-en-php.html</guid><category>case</category><category>condiciones</category><category>elif</category><category>else</category><category>if</category><category>limpio</category><category>operador</category><category>ordenado</category><category>php</category><category>si</category><category>si no</category><category>switch</category></item><item><title>Operadores en PHP.</title><link>/operadores-en-php.html</link><description>&lt;p&gt;&lt;strong&gt;Operadores aritméticos&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+// Suma
+$a + $b;
+
+// Resta
+$a - $b;
+
+// Multiplicación
+$a * $b;
+
+// División
+$a / $b;
+
+// Módulo
+$a % $b;
+
+// Sumar y asignar
+// Para sumar $b al valor actual de $a, hariamos
+$a = $a + $b;
+// Pues con este operador podría hacerse así
+$a += $b;
+
+// Restar y asignar
+$a -= $b;
+
+//Multiplicar y asignar
+$a *= $b;
+
+//Dividir y asignar
+$a /= $b;
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;**Operadores de asignación&lt;/strong&gt;
+&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;**&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/operadores-en-php.rst&lt;/tt&gt;, line 43); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+// Asignación
+// Asigna el valor de una variable a otra
+$a = $b;
+
+// Referencia
+// Una referencia es como un enlace
+$a =&amp;amp; $b;
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Operadores de cadenas&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+// Concatenación
+// Concatena la segunda variable a la primera
+$a = &amp;quot;Hola &amp;quot;;
+$b = &amp;quot;Mundo&amp;quot;;
+$c = $a . $b;
+//la salida de $c será &amp;quot;Hola Mundo&amp;quot;
+
+// Concatenar y asignar
+// Lo mismo que los operadores aritméticos
+$d = &amp;quot;Adrian&amp;quot;;
+$a .= $d;
+// Ahora, el valor de $a es &amp;quot;Hola Adrian&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Operadores de comparación&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+// Es igual
+$a == $b;
+
+// Identico
+// Son iguales y además son del mismo tipo
+$a === $b;
+
+// No son iguales
+$a != $b;
+$a &amp;lt;&amp;gt; $b;
+
+// No son identicos
+// No son iguales y no son del mismo tipo
+$a !== $b;
+
+// Menor que
+$a &amp;lt; $b;
+
+// Mayor que
+$a &amp;gt; $b;
+
+// Menor o igual que
+$a &amp;lt;= $b;
+
+// Mayor o igual que
+$a &amp;gt;= $b;
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Operadores de incremento y decremento&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+// Pre-incremento
+// Incrementa en uno, y devuelve el valor
+++$a;
+
+// Post-incremento
+// Devuelve el valor, e incrementa en uno
+$a++;
+
+// Pre-decremento
+// Decrementa en uno, y devuelve el valor
+--$a;
+
+// Post-decremento
+// Devuelve el valor, y decrementa en uno
+$a--;
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Operadores lógicos&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+// AND lógico
+$a &amp;amp;&amp;amp; $b;
+$a AND $b;
+
+// OR lógico
+$a || $b;
+$a OR $b;
+
+// NOT lógico
+!$a;
+&lt;/pre&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Mon, 11 Jul 2011 12:24:00 +0200</pubDate><guid>tag:,2011-07-11:operadores-en-php.html</guid><category>and</category><category>aritméticos</category><category>asignación</category><category>cadenas</category><category>concatenación</category><category>división</category><category>igual</category><category>logico</category><category>mayor</category><category>menos</category><category>módulo</category><category>multiplicación</category><category>not</category><category>operadores</category><category>or</category><category>php</category><category>referencia</category><category>resta</category><category>strings</category><category>suma</category></item><item><title>Matrices en Php (II)</title><link>/matrices-en-php-ii.html</link><description>&lt;p&gt;Recorrido por las matrices&lt;/p&gt;
+&lt;p&gt;El método apropiado para recorrer una matriz es utilizar la sentencia
+foreach(), cuya sintaxis es la siguiente:&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/matrices-en-php-ii.rst&lt;/tt&gt;, line 13)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;foreach(matriz as $clave =&amp;gt; $valor) { ... ... ... }&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;p&gt;El parámetro matriz representa la matriz por la que realizaremos el
+recorrido y $clave/$valor representan respectivamente el par individual
+clave/valor por el que pasamos.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/matrices-en-php-ii.rst&lt;/tt&gt;, line 18)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;$matriz = &lt;span class="pre"&gt;array('el',&lt;/span&gt; 'coche', 'es', &lt;span class="pre"&gt;'azul');&lt;/span&gt;&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;/* Obtener tanto&amp;nbsp; la clave como el valor */ &lt;span class="pre"&gt;foreach($matriz&lt;/span&gt; as $clave =&amp;gt; $valor) { echo &amp;quot;El valor de $clave es: $valor&amp;quot;; }&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;/*Obtener solamente el valor */ &lt;span class="pre"&gt;foreach($matriz&lt;/span&gt; as $valor) { echo &amp;quot;El valor es: $valor&amp;quot;; }&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;`` ``&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Wed, 09 Sep 2009 10:19:00 +0200</pubDate><guid>tag:,2009-09-09:matrices-en-php-ii.html</guid><category>matrices</category><category>php</category><category>recorrer</category></item><item><title>Matrices en Php (I)</title><link>/matrices-en-php-i.html</link><description>&lt;p&gt;En PHP, podemos crear una variable de matriz de varias formas. La más
+sencilla:&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/matrices-en-php-i.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;$variable[expr clave] = expr;&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Expr clave&lt;/em&gt;es una expresión que se evalúa para una cadena o cualquier
+entero no negativo y &lt;em&gt;expr&lt;/em&gt; representa la expresión cuyo valor se
+asociará con la clave.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/matrices-en-php-i.rst&lt;/tt&gt;, line 16)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$var['a']&lt;/span&gt; = 1; &lt;span class="pre"&gt;$var['b']&lt;/span&gt; = 2; &lt;span class="pre"&gt;$var['c']&lt;/span&gt; = 3; &lt;span class="pre"&gt;$var['d']&lt;/span&gt; = 4;&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;p&gt;Si &lt;em&gt;expr clave&lt;/em&gt; no se especifica, PHP utilizará &lt;strong&gt;automáticamente el
+siguiente entero disponible&lt;/strong&gt; como clave.&lt;/p&gt;
+&lt;p&gt;Cuando definamos una matriz dentro de una secuencia de comandos
+manualmente, utilizar esta sintaxis puede ser difícil. En estos casos es
+mejor utilizar la sintaxis formal para las matrices; la sentencia
+array(). La sintaxis general es la siguiente:&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/matrices-en-php-i.rst&lt;/tt&gt;, line 25)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;tt class="docutils literal"&gt;$variable = &lt;span class="pre"&gt;array([mixto]);&lt;/span&gt;&lt;/tt&gt;&lt;/blockquote&gt;
+&lt;p&gt;En la sintaxis anterior, &lt;em&gt;mixto&lt;/em&gt;representa los distintos pares de
+claves/valores definidos en este formato:&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/matrices-en-php-i.rst&lt;/tt&gt;, line 29)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+`` expr clave =&amp;gt; expr valor; expr clave =&amp;gt; expr valor;``&lt;/blockquote&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Por ejemplo:&lt;/dt&gt;
+&lt;dd&gt;&lt;tt class="docutils literal"&gt;$hola = &lt;span class="pre"&gt;array('a'&lt;/span&gt; =&amp;gt; 1, 'b' =&amp;gt; 2, 'c' =&amp;gt; 3);&lt;/tt&gt;
+Es lo mismo que:
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$hola['a']&lt;/span&gt; = 1; &lt;span class="pre"&gt;$hola['b']&lt;/span&gt; = 2; &lt;span class="pre"&gt;$hola['c']&lt;/span&gt; = 3;&lt;/tt&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Matriz que asigna claves del 1 al 12 a los meses del año:&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;$meses = &lt;span class="pre"&gt;array(1=&amp;gt;&amp;quot;Enero&amp;quot;,&lt;/span&gt; &amp;quot;Febrero&amp;quot;, &amp;quot;Marzo&amp;quot;, &amp;quot;Abril&amp;quot;, &amp;quot;Mayo&amp;quot;, &amp;quot;Junio&amp;quot;, &amp;quot;Julio&amp;quot;, &amp;quot;Agosto&amp;quot;, &amp;quot;Septiembre&amp;quot;, &amp;quot;Octubre&amp;quot;, &amp;quot;Noviembre&amp;quot;, &lt;span class="pre"&gt;&amp;quot;Diciembre&amp;quot;);&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Tue, 08 Sep 2009 12:25:00 +0200</pubDate><guid>tag:,2009-09-08:matrices-en-php-i.html</guid><category>matrices</category><category>php</category><category>sintaxis</category></item><item><title>Buscar y reemplazar cadenas en php</title><link>/buscar-y-reemplazar-cadenas-en-php.html</link><description>&lt;p&gt;Esta tarea normalmente se realiza a través de la función
+strpos(cadena_donde_se_busca,subcadena_a_buscar) que devuelve false
+si no encuentra nada, o devuelve la posión del primer carácter buscado
+dentro de la cadena.&lt;/p&gt;
+&lt;p&gt;`` $cadena = &amp;quot;Hola que tal estoy probando las cadenas&amp;quot; $pos = strpos($cadena, &amp;quot;estoy&amp;quot;); if (!$pos) echo &amp;quot;No se ha encontrado nadan&amp;quot;); else echo &amp;quot;Posición: $posn&amp;quot;);``&lt;/p&gt;
+&lt;p&gt;Eso devolvería el valor 13.&lt;/p&gt;
+&lt;p&gt;También se puede indicar que empiece a buscar desde la derecha, para
+ello existe la función strrpos(). Como ya esperabas, strpos() es
+sensible a las mayúscualas y minúsculas, pero curiosamente no hay otra
+alternativa para esta función. Pero en php existe la función strstr()
+que funciona de manera similar a strpos() y tiene una variante sin
+sensibilidad a mayúsculas denominada stristr(). La diferencia entre
+strstr() y strpos(), es que strstr() devuelve la parte posterior de la
+subcadena buscada. En el ejemplo anterior, strpos() devolvía 13, pues
+bien, utilizando la función strstr():&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;`` $cadena = &amp;quot;Hola que tal estoy probando las cadenas&amp;quot; $pos = strstr($cadena, &amp;quot;estoy&amp;quot;); if (!$pos) echo &amp;quot;No se ha encontrado nadan&amp;quot;); else echo &amp;quot;Posición: $posn&amp;quot;);``&lt;/dt&gt;
+&lt;dd&gt;Eso devolvería &amp;quot;estoy probando las cadenas&amp;quot;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Para reemplazar cadenas existen dos funcionaes. Una de ellas es
+substr_replace, que podrá ser utilizada siempre que conozcamos la
+posición y la longitud de la sub cadena a reemplazar.&lt;/p&gt;
+&lt;p&gt;`` $cadena = &amp;quot;Hola que tal estoy probando las cadenas&amp;quot;; $nueva = substr_replace($cadena, &amp;quot;estoy&amp;quot;, 13, 5); echo &amp;quot;$nuevan&amp;quot;;``&lt;/p&gt;
+&lt;p&gt;Pero no tenemos porque conocer la longitud ni la posición, para estos
+casos tenemos la función str_replace(subcadena_buscada,
+subcadena_nueva, cadena)&lt;/p&gt;
+&lt;p&gt;`` $cadena = &amp;quot;Hola que tal estoy probando las cadenas&amp;quot;; $nueva = str_replace(&amp;quot;probando&amp;quot;, &amp;quot;quemando&amp;quot;, $cadena); echo &amp;quot;$nuevan&amp;quot;;``&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Sat, 11 Jul 2009 18:53:00 +0200</pubDate><guid>tag:,2009-07-11:buscar-y-reemplazar-cadenas-en-php.html</guid><category>buscar</category><category>cadenas</category><category>php</category><category>reemplazar</category></item></channel></rss>

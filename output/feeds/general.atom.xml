@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/general.atom.xml" rel="self"></link><id>/</id><updated>2011-11-29T17:06:00+01:00</updated><entry><title>Videogame hacking. Cheat on almost every offline game.</title><link href="/videogame-hacking-cheat-on-almost-every-offline-game.html" rel="alternate"></link><updated>2011-11-29T17:06:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2011-11-29:videogame-hacking-cheat-on-almost-every-offline-game.html</id><summary type="html">&lt;p&gt;Sometimes we get stuck on a game, and we use &lt;strong&gt;cheats&lt;/strong&gt;, that is ok. But
+in certain cases there is no cheats or are very limited.&lt;/p&gt;
+&lt;p&gt;In games like Dead Space 2 it is not possible, I did not find any cheat.&lt;/p&gt;
+&lt;p&gt;We can use &amp;nbsp;&lt;a class="reference external" href="http://www.cheatengine.org/downloads.php"&gt;Cheat Engine&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Brief explanation:&lt;/p&gt;
+&lt;p&gt;When a game is running, the process is loaded into the &lt;strong&gt;RAM&lt;/strong&gt;. This
+process reserves some space on the memory for the variables. A variable
+is like a box, it stores a value which can be integer, string, float,
+etc. Well, this variables can be for example, our money or ammunition,
+or even life and can be edited with &lt;strong&gt;Cheat Engine&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#id21"&gt;&lt;span class="problematic" id="id22"&gt;`|image0|`_&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is the interface of Cheat Engine. Clicking on the button with green
+borders, will open a process selector, in which we have to select our
+game process.&lt;/p&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;p&gt;1- Open our desired game, in this case Dead Space 2&lt;/p&gt;
+&lt;p&gt;&lt;a href="#id23"&gt;&lt;span class="problematic" id="id24"&gt;`|Ammo before editing|`_&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2- Open Cheat Engine and select the correct process.&lt;/p&gt;
+&lt;p&gt;&lt;a href="#id25"&gt;&lt;span class="problematic" id="id26"&gt;`|image2|`_&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3- We know we have 9 shoots available, we are going to search that
+number on the browser. We will see thousands of results, that is not
+interesting because we do not know what variable is.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Warning: Editing an unknown variable can result in a game crash.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So now we go back to the game and shoot just one time, now our ammo will
+be 8. &amp;nbsp;On Cheat Engine, put 8 and click &lt;strong&gt;Next scan&lt;/strong&gt;, to indicate we
+are still scanning for the same variable with before was 9, but now it
+is 8. And so on, until we isolate our variable(s) (maybe two or three).&lt;/p&gt;
+&lt;div class="mceTemp mceIEcenter"&gt;&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;a href="#id27"&gt;&lt;span class="problematic" id="id28"&gt;`|Isolated variable|`_&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Isolated variable&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;&lt;p&gt;4- Once it is isolated, we drag to the underneath field and click with
+right button to drop the menu and then click on Change Record --&amp;gt; Value.&lt;/p&gt;
+&lt;div class="mceTemp mceIEcenter"&gt;&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;a href="#id29"&gt;&lt;span class="problematic" id="id30"&gt;`|Changing the value|`_&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Changing the value&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;&lt;p&gt;5- We set up a new value, not to high, we can provoke an overflow and
+crash the game. I put 999 and it worked fine.Now we go back to the game
+and see the result.&amp;nbsp;&lt;strong&gt;¡999 ammo!&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="mceTemp mceIEcenter"&gt;&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;a href="#id31"&gt;&lt;span class="problematic" id="id32"&gt;`|Final result|`_&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Final result&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;&lt;p&gt;6 - Play!&lt;/p&gt;
+&lt;p&gt;I have tested it with Counter Strike (offline) modifying money and ammo.
+Also with Modern Warfare 2, Mass Effect, Crysis, and more games.&lt;/p&gt;
+&lt;p&gt;In Dead Space 2 I have modified ammo of all weapons, money and node
+quantity.&lt;/p&gt;
+&lt;p&gt;It may be a bit thorny, but useful if there is no other way.&lt;/p&gt;
+&lt;!-- |Ammo before --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 112)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;editing| image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/Wv2E.screenshot_01-02-2011_1-11.png"&gt;http://files.droplr.com/files/21931279/Wv2E.screenshot_01-02-2011_1-11.png&lt;/a&gt;
+.. &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|image2|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/QtTI.screenshot_01-02-2011_1-13.png"&gt;http://files.droplr.com/files/21931279/QtTI.screenshot_01-02-2011_1-13.png&lt;/a&gt;
+.. &lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;|Isolated
+variable|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/zO9s.screenshot_01-02-2011_1-17.png"&gt;http://files.droplr.com/files/21931279/zO9s.screenshot_01-02-2011_1-17.png&lt;/a&gt;
+.. &lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;|Changing the
+value|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/rFq1.screenshot_01-02-2011_1-20.png"&gt;http://files.droplr.com/files/21931279/rFq1.screenshot_01-02-2011_1-20.png&lt;/a&gt;
+.. &lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;|Final
+result|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/cdtH.screenshot_01-02-2011_1-23.png"&gt;http://files.droplr.com/files/21931279/cdtH.screenshot_01-02-2011_1-23.png&lt;/a&gt;
+.. &lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;|image6|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/JCYt.screenshot_01-02-2011_0-35.png"&gt;http://files.droplr.com/files/21931279/JCYt.screenshot_01-02-2011_0-35.png&lt;/a&gt;
+.. &lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;|image7|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/Wv2E.screenshot_01-02-2011_1-11.png"&gt;http://files.droplr.com/files/21931279/Wv2E.screenshot_01-02-2011_1-11.png&lt;/a&gt;
+.. &lt;a href="#id13"&gt;&lt;span class="problematic" id="id14"&gt;|image8|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/QtTI.screenshot_01-02-2011_1-13.png"&gt;http://files.droplr.com/files/21931279/QtTI.screenshot_01-02-2011_1-13.png&lt;/a&gt;
+.. &lt;a href="#id15"&gt;&lt;span class="problematic" id="id16"&gt;|image9|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/zO9s.screenshot_01-02-2011_1-17.png"&gt;http://files.droplr.com/files/21931279/zO9s.screenshot_01-02-2011_1-17.png&lt;/a&gt;
+.. &lt;a href="#id17"&gt;&lt;span class="problematic" id="id18"&gt;|image10|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/rFq1.screenshot_01-02-2011_1-20.png"&gt;http://files.droplr.com/files/21931279/rFq1.screenshot_01-02-2011_1-20.png&lt;/a&gt;
+.. &lt;a href="#id19"&gt;&lt;span class="problematic" id="id20"&gt;|image11|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://files.droplr.com/files/21931279/cdtH.screenshot_01-02-2011_1-23.png"&gt;http://files.droplr.com/files/21931279/cdtH.screenshot_01-02-2011_1-23.png&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image2&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Isolated variable&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Changing the value&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Final result&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id9"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image6&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id11"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image7&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id13"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id14"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image8&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id15"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id16"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image9&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id17"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id18"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image10&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id19"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 113); &lt;em&gt;&lt;a href="#id20"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image11&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id21"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 24); &lt;em&gt;&lt;a href="#id22"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image0|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id23"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 34); &lt;em&gt;&lt;a href="#id24"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|ammo before editing|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id25"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 38); &lt;em&gt;&lt;a href="#id26"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image2|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id27"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 56); &lt;em&gt;&lt;a href="#id28"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|isolated variable|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id29"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 70); &lt;em&gt;&lt;a href="#id30"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|changing the value|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id31"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst&lt;/tt&gt;, line 85); &lt;em&gt;&lt;a href="#id32"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|final result|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="2"></category><category term="ammo"></category><category term="be"></category><category term="call"></category><category term="cheat"></category><category term="counter strike"></category><category term="crysis"></category><category term="dead space"></category><category term="duty"></category><category term="effect"></category><category term="engine"></category><category term="game"></category><category term="hacking"></category><category term="life"></category><category term="mass"></category><category term="modern"></category><category term="money"></category><category term="succesfull"></category><category term="videogame"></category><category term="warfare"></category></entry><entry><title>Manifiesto por una Red Neutral</title><link href="/manifiesto-por-una-red-neutral.html" rel="alternate"></link><updated>2010-11-30T14:23:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2010-11-30:manifiesto-por-una-red-neutral.html</id><summary type="html">&lt;p&gt;Los ciudadanos y las empresas usuarias de Internet adheridas a este
+texto manifestamos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Que Internet es una Red Neutral por diseño, desde su creación hasta
+su actual implementación, en la que la información fluye de manera
+libre, sin discriminación alguna en función de origen, destino,
+protocolo o contenido.&lt;/li&gt;
+&lt;li&gt;Que las empresas, emprendedores y usuarios de Internet han podido
+crear servicios y productos en esa Red Neutral sin necesidad de
+autorizaciones ni acuerdos previos, dando lugar a una barrera de
+entrada prácticamente inexistente que ha permitido la explosión
+creativa, de innovación y de servicios que define el estado de la red
+actual.&lt;/li&gt;
+&lt;li&gt;Que todos los usuarios, emprendedores y empresas de Internet han
+podido definir y ofrecer sus servicios en condiciones de igualdad
+llevando el concepto de la libre competencia hasta extremos nunca
+antes conocidos.&lt;/li&gt;
+&lt;li&gt;Que Internet es el vehículo de libre expresión, libre información y
+desarrollo social más importante con el que cuentan ciudadanos y
+empresas. Su naturaleza no debe ser puesta en riesgo bajo ningún
+concepto.&lt;/li&gt;
+&lt;li&gt;Que para posibilitar esa Red Neutral las operadoras deben transportar
+paquetes de datos de manera neutral sin erigirse en “aduaneros” del
+tráfico y sin favorecer o perjudicar a unos contenidos por encima de
+otros.&lt;/li&gt;
+&lt;li&gt;Que la gestión del tráfico en situaciones puntuales y excepcionales
+de saturación de las redes debe acometerse de forma transparente, de
+acuerdo a criterios homogéneos de interés público y no
+discriminatorios ni comerciales.&lt;/li&gt;
+&lt;li&gt;Que dicha restricción excepcional del tráfico por parte de las
+operadoras no puede convertirse en una alternativa sostenida a la
+inversión en redes.&lt;/li&gt;
+&lt;li&gt;Que dicha Red Neutral se ve amenazada por operadoras interesadas en
+llegar a acuerdos comerciales por los que se privilegie o degrade el
+contenido según su relación comercial con la operadora.&lt;/li&gt;
+&lt;li&gt;Que algunos operadores del mercado quieren “redefinir” la Red Neutral
+para manejarla de acuerdo con sus intereses, y esa pretensión debe
+ser evitada; la definición de las reglas fundamentales del
+funcionamiento de Internet debe basarse en el interés de quienes la
+usan, no de quienes la proveen.&lt;/li&gt;
+&lt;li&gt;Que la respuesta ante esta amenaza para la red no puede ser la
+inacción: no hacer nada equivale a permitir que intereses privados
+puedan de facto llevar a cabo prácticas que afectan a las libertades
+fundamentales de los ciudadanos y la capacidad de las empresas para
+competir en igualdad de condiciones.&lt;/li&gt;
+&lt;li&gt;Que es preciso y urgente instar al Gobierno a proteger de manera
+clara e inequívoca la Red Neutral, con el fin de proteger el valor de
+Internet de cara al desarrollo de una economía más productiva,
+moderna, eficiente y libre de injerencias e intromisiones indebidas.
+Para ello es preciso que cualquier moción que se apruebe vincule de
+manera indisoluble la definición de Red Neutral en el contenido de la
+futura ley que se promueve, y no condicione su aplicación a
+cuestiones que poco tienen que ver con ésta.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;La Red Neutral es un concepto claro y definido en el ámbito académico,
+donde no suscita debate:&amp;nbsp;&lt;strong&gt;los ciudadanos y las empresas tienen
+derecho a que el tráfico de datos recibido o generado no sea manipulado,
+tergiversado, impedido, desviado, priorizado o retrasado en función del
+tipo de contenido, del protocolo o aplicación utilizado, del origen o
+destino de la comunicación ni de cualquier otra consideración ajena a la
+de su propia voluntad. Ese tráfico se tratará como una comunicación
+privada y exclusivamente bajo mandato judicial podrá ser espiado,
+trazado, archivado o analizado en su contenido, como correspondencia
+privada que es en realidad&lt;/strong&gt;.&lt;/p&gt;
+</summary><category term="manifiesto"></category><category term="neutral"></category><category term="red"></category></entry><entry><title>Cambiar el idioma del sistema en Debian.</title><link href="/cambiar-el-idioma-del-sistema-en-debian.html" rel="alternate"></link><updated>2010-07-20T13:00:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2010-07-20:cambiar-el-idioma-del-sistema-en-debian.html</id><summary type="html">&lt;p&gt;Cambiar el idioma del sistema en Debian, es realmente sencillo.&lt;/p&gt;
+&lt;p&gt;Hay que reconfigurar los locales, para ello:&lt;/p&gt;
+&lt;blockquote&gt;
+# dpkg-reconfigure locales&lt;/blockquote&gt;
+&lt;p&gt;Elegimos los idiomas que nos interesen y aceptamos.&lt;/p&gt;
+&lt;p&gt;En el siguiente paso, nos dará a elegir cual será el idioma por defecto
+en el sistema.&lt;/p&gt;
+&lt;p&gt;Y eso es todo, ahora ver los cambios debemos reiniciar el sistema.&lt;/p&gt;
+</summary></entry><entry><title>Ya soy técnico.</title><link href="/ya-soy-tecnico.html" rel="alternate"></link><updated>2010-06-16T17:20:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2010-06-16:ya-soy-tecnico.html</id><summary type="html">&lt;p&gt;Ayer terminé las prácticas del CFGM que estaba cursando con la
+calificación de APTO. Así que, ya soy &lt;strong&gt;Técnico en Informática&lt;/strong&gt;:)&lt;/p&gt;
+&lt;p&gt;Sólo me queda pagar el título y pasados unos meses lo tendré en mis
+manos.&lt;/p&gt;
+&lt;p&gt;Han sido dos años de estudio, en los cuáles he adquirido muchos
+conocimientos que espero aprovechar para mi siguiente meta: El CFGS de
+Administración de Sistemas Informáticos en Red.&lt;/p&gt;
+&lt;p&gt;Estos dos años, creo que han sido los mejores de mi vida. El ambiente en
+clase por lo general, era bastante bueno y había muy buen rollito. Como
+casi siempre, el primer curso, fue como un filtro, éramos casi 30
+personas en clase, de las cuáles al final terminamos siendo 16 en el
+segundo curso. Mucha gente abandonó porque no era lo que se esperaban de
+la informática, otros porque no podían, y otros repitieron.&lt;/p&gt;
+&lt;p&gt;De éstos 16, fuimos 11 a las prácticas. Y ahora, muchos tenemos la meta
+de, como he dicho antes cursar el CFGS.&lt;/p&gt;
+&lt;p&gt;Me gustaría nombrar en especial a un profesor que tuve en la asignatura
+de sistemas operativos en el primer curso, &lt;strong&gt;Daniel Pons Betrián.&lt;/strong&gt;Un
+buen profesor, siempre dispuesto a ayudar a sus alumnos con cualquier
+duda, ya sea temario de clase o no.&lt;/p&gt;
+&lt;p&gt;Fue una lástima que no estuviese en segundo.&lt;/p&gt;
+&lt;p&gt;También agradecer a mi tutor del segundo curso, su apoyo, consejos y
+opiniones sobre mi trayectoria profesional.&lt;/p&gt;
+&lt;p&gt;Ahora me espera un verano de estudiar el acceso al CFGS, no es que sea
+una pasada, pero estoy motivado, porque ya me fijé unas metas que estoy
+dispuesto a cumplir.&lt;/p&gt;
+&lt;p&gt;A partir de ahora es cuando empezarán los años de estudiar &amp;nbsp;y estudiar
+mucho, y conseguir experiencia laboral.&lt;/p&gt;
+&lt;p&gt;No me queda mucho más por decir, así que eso es todo.&lt;/p&gt;
+</summary><category term="informática"></category><category term="técnico"></category><category term="titulado"></category></entry><entry><title>Interrupciones</title><link href="/interrupciones.html" rel="alternate"></link><updated>2009-11-12T14:33:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2009-11-12:interrupciones.html</id><summary type="html">&lt;p&gt;Dos opciones para que los perifericos interactuen:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Cada cierto tiempo el ordenador (S.O) controla si existe alguna
+operación pendiente con alguno de los periféricos genera mucha
+perdida de tiempo&lt;/li&gt;
+&lt;li&gt;Cuando un periférico necesita comunicar con el ordenador se genera
+una petición de interrupción IRQ en el sentido de la comunicación que
+sigue una serie de patrones.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Interrupción: Es una comunicación especial ordenador periférico para
+indicar que dicho dispositivo necesita atención inmediata. Entonces en
+ese momento suspende lo que estuviera haciendo para atender siempre y
+cuando no exista petición anterior de mayor prioridad pendiente.&lt;/p&gt;
+&lt;p&gt;Prioridad de las IRQ:&lt;/p&gt;
+&lt;p&gt;De mayor a menor importancia:&lt;/p&gt;
+&lt;p&gt;Excepciones de la CPU (error en tiempo de ejecución)&lt;/p&gt;
+&lt;p&gt;Interrupción software&lt;/p&gt;
+&lt;p&gt;Interrupciones hardware (no enmascarables)&lt;/p&gt;
+&lt;p&gt;Interrupciones Hardware (enmascarables)&lt;/p&gt;
+&lt;p&gt;Funcionamiento:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Se genera la petición de interrupción&lt;/li&gt;
+&lt;li&gt;CPU STOP y gestiona la IRQ a través de lo que se llama ISR (Routine
+Service Interruption) vía un programa cargado en la ram o en la bios.
+A este programa se apunta con el lector de interrupción (este lector
+depende de cada de interrupción). La información de los vectores de
+interrupción apuntando al programa que gestiona dicha interrupción se
+carga al iniciar el sistema operativo. (BIOS: Sistema que se encarga
+de realizar las funciones básicas para que el ordenador arranque con
+determinado sistema operativo)&lt;/li&gt;
+&lt;li&gt;Se ejecuta el programa y una vez terminado la CPU continuará por
+donde iba.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Algunos vectores de interrupción:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vector Interrupción&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;3 -&amp;gt; Punto de ruptura de interrupción&lt;/p&gt;
+&lt;p&gt;4-&amp;gt; Desbordamiento&lt;/p&gt;
+&lt;p&gt;9-&amp;gt; Teclado&lt;/p&gt;
+&lt;p&gt;14-&amp;gt; Fallo de página (MP)&lt;/p&gt;
+&lt;p&gt;32+255-&amp;gt;libres&lt;/p&gt;
+&lt;p&gt;¿Cómo llega la IRQ a la CPU?&lt;/p&gt;
+&lt;p&gt;A través del bus de control y llegan a un controlador de interrupciones
+que también es un dispositivo hardware, de aquí a la CPU.&lt;/p&gt;
+&lt;p&gt;Proceso más detallado&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Dispositivo de E/S quiere interrumpir se le asigna una línea de
+interrupción en el bus&lt;/li&gt;
+&lt;li&gt;Envía la interrupción vía IRQ&lt;/li&gt;
+&lt;li&gt;Señal recogida, pasa al controlador de interrupciones (PIC) este lo
+que hace es que primero clasifica y segunda lo envía a la CPU&lt;/li&gt;
+&lt;li&gt;La cpu pregunta porque tipo de interrupción al PIC&lt;/li&gt;
+&lt;li&gt;El PIC contesta&lt;/li&gt;
+&lt;li&gt;Se genera el vector de interrupción y se sirve la interrupción.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Líneas de petición de interrupción&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Existe un estándar de facto donde se asignan una serie de líneas de
+interrupción donde se especifica el nombre de la interrupción, el
+hexadecimal como código de la interrupción, y la descripción..&lt;/p&gt;
+&lt;p&gt;La instalación de un nuevo dispositivo de E/S en nuestro sistema
+internamente ocurre:&lt;/p&gt;
+&lt;p&gt;Se realiza la asignación de una IRQ del sistema para dicho dispositivo.&lt;/p&gt;
+&lt;p&gt;¿Cómo se hace esto?&lt;/p&gt;
+&lt;p&gt;Antiguamente-&amp;gt; Conectar un jumper la placa base y el dispositivo&lt;/p&gt;
+&lt;p&gt;Hoy día-&amp;gt; Se resuelve vía driver o bien si el dispositivo es PnP.&lt;/p&gt;
+</summary><category term="interrupciones"></category><category term="irq"></category></entry><entry><title>El despertador definitivo</title><link href="/el-despertador-definitivo.html" rel="alternate"></link><updated>2009-06-29T02:53:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-06-29:el-despertador-definitivo.html</id><summary type="html">&lt;p&gt;Este despertador seguro que no falla nunca.&lt;/p&gt;
+&lt;p&gt;[youtube=http://www.youtube.com/watch?v=kQ-l5PlDa-k]&lt;/p&gt;
+&lt;p&gt;¿Ahora entiendes por qué? xD&lt;/p&gt;
+&lt;p&gt;A mi no me importaría tener uno así, con un despertador como ese estaría
+francamente seguro de que no me voy a dormir.&lt;/p&gt;
+&lt;p&gt;Sé que tengo el blog&amp;nbsp; un poco abandonado, pero es que no hay mucho que
+contar ahora que no hay clase.&lt;/p&gt;
+</summary><category term="curioso"></category><category term="definitivo"></category><category term="despertador"></category></entry><entry><title>Fin de los exámenes</title><link href="/fin-de-los-examenes.html" rel="alternate"></link><updated>2009-06-10T23:35:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-06-10:fin-de-los-examenes.html</id><summary type="html">&lt;p&gt;&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|Por fin|&lt;/span&gt;&lt;/a&gt; Hoy he tenido el último examen del curso, así que oficialmente
+se podría decir que ya he&amp;nbsp;&amp;nbsp; terminado. Hoy tuve el examen sobre Linux.
+El examen era bastante fácil, constaba de un cuestionario con 15
+preguntas y una segunda parte que eran un par de ejercicios prácticos.&lt;/p&gt;
+&lt;p&gt;También nos dijeron las notas del exámen de C, y yo tengo un 10. El
+ejercicio era diferente para cada uno, y a mi me tocó un programa que
+imprima en pantalla todas las tabla de multiplicar, que más adelante lo
+publicaré aquí.&lt;/p&gt;
+&lt;p&gt;Aunque haya terminado el curso, no dejaré de escribir en el blog,
+seguiré poniendo ejercicios y manuales como hasta ahora.&lt;/p&gt;
+&lt;p&gt;Un saludo.&lt;/p&gt;
+&lt;!-- |Por --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/fin-de-los-examenes.rst&lt;/tt&gt;, line 24)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/fin-de-los-examenes.rst&lt;/tt&gt;, line 25)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;fin| image:: &lt;a class="reference external" href="http://mortuux.files.wordpress.com/2009/06/por-fin.jpg?w=133"&gt;http://mortuux.files.wordpress.com/2009/06/por-fin.jpg?w=133&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/fin-de-los-examenes.rst&lt;/tt&gt;, line 9); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Por fin&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="curso"></category><category term="examenes"></category><category term="fin"></category></entry></feed>

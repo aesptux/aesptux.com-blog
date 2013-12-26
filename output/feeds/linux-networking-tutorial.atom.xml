@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/linux-networking-tutorial.atom.xml" rel="self"></link><id>/</id><updated>2010-03-17T11:49:00+01:00</updated><entry><title>Servidor DNS</title><link href="/servidor-dns.html" rel="alternate"></link><updated>2010-03-17T11:49:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2010-03-17:servidor-dns.html</id><summary type="html">&lt;p&gt;7 SERVICIO DNS&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;¿Qué es el servicio DNS?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;El servicio DNS (Domain Name System), o servicio de nombre de dominio,
+gestiona y mantiene de forma distribuida las direcciones de Internet y
+los nombres de sistema.&lt;/p&gt;
+&lt;p&gt;En una red TCP/IP las máquinas se identifican mediante su dirección de
+red o número IP. Sin embargo, para las personas resulta mucho más cómodo
+recordar un nombre que se asocia a una máquina concreta, ya que la
+dirección IP puede cambiar.&lt;/p&gt;
+&lt;p&gt;Esto hace necesario establecer un mecanismo de traducción de nombres de
+maquinas a direcciones IP. DNS es el servicio que proporciona este
+mecanismo de traducción.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;El espacio de nombres de dominio&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;El servicio DNS se compone de una base de datos distribuida. En esta
+base de datos se almacenan las asociaciones de nombres de dominios y
+direcciones IP.&lt;/p&gt;
+&lt;p&gt;La base de datos de DNS está clasificada por nombres de dominio, donde
+cada nombre de dominio es una rama en un árbol invertido llamado espacio
+de nombres de dominio. El árbol comienza en el nodo raíz situado en el
+nivel superior. Por debajo de él pueden existir un número indeterminado
+de nodos de nivel inferior.&lt;/p&gt;
+&lt;p&gt;Los nodos se identifican mediante nombres no nulos. El nombre completo
+de un nodo está formado por el conjunto de de nombres que forman la
+trayectoria desde ese nodo hasta el nodo raíz. Este nombre de dominio
+completo se llama nombre de dominio completamente cualificado o Fully
+Qualified Domain Name. El FQDN de cualquier nodo del árbol debe acabar
+siempre con un punto.&lt;/p&gt;
+&lt;p&gt;Los diferentes servidores DNS que existen en la red almacenan la
+información relativa a los nombres de dominio DNS en los llamados
+registros de recursos. Le permiten responder a las peticiones de nombres
+relativas a la parte del espacio de nombres de dominio.&lt;/p&gt;
+&lt;p&gt;Los principales TLD son: .com, .edu, .net, .org, .gov.&lt;/p&gt;
+&lt;p&gt;Como parte del espacio de nombres de dominio también existen dominios de
+primer nivel que designan zonas geográficas.&lt;/p&gt;
+&lt;p&gt;Organismo en España ? ESNIC&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;¿Cuándo se necesita DNS?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Un servicio DNS se define como:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Un espacio de nombres jerárquico para las máquinas y las direcciones
+IP.&lt;/li&gt;
+&lt;li&gt;Una base de datos distribuida que contiene asociaciones de nombres de
+dominios a direcciones IP.&lt;/li&gt;
+&lt;li&gt;Un resolvedor (resolver) o biblioteca de rutinas que permite realizar
+consultas a esa base de datos.&lt;/li&gt;
+&lt;li&gt;Un protocolo para intercambiar información de nombres.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Los sitios web utilizan el servicio DNS ya que mantener un archivo local
+/etc/hosts con una relación de todas las máquinas no es viable.&lt;/p&gt;
+&lt;p&gt;Cada servidor de DNS mantiene uno o varios elementos de la base de datos
+distribuida que componen el servicio DNS.&lt;/p&gt;
+&lt;p&gt;Si la red es pequeña se puede configurar un servidor en uno de los
+equipos o pedir al ISP que proporcione este servicio en su nombre.&lt;/p&gt;
+&lt;p&gt;Si es el sistema es muy grande, debe tener varios dominios DNS.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;¿Qué es la delegación?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;DNS es una base de datos distribuida y por lo tanto permite su
+administración descentralizada.&lt;/p&gt;
+&lt;p&gt;La delegación de dominios es el mecanismo que permite llevar a cabo es
+administración descentralizada. Es decir, el dominio puede ser divido en
+subdominios y el control de cada subdominio puede ser delegado. Debe
+asumir también la responsabilidad de mantener los datos actualizados.&lt;/p&gt;
+&lt;p&gt;La división de un dominio en subdominios no implica siempre la cesión de
+la autoridad sobre ellos.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;Dominios y zonas&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;El servidor de nombres almacena información acerca de algunas partes del
+espacio de nombres de dominio. Cada una de esas partes se llama zona, y
+se dice que el servidor de nombres tiene autoridad sobre una zona.&lt;/p&gt;
+&lt;p&gt;La zona es un archivo que contiene determinados registros de la base de
+datos del espacio de nombres de dominio.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Diferencia entre dominio y zona: El dominio es un subárbol del espacio
+de nombres de dominio, es decir, un nodo con todos los nodos por debajo
+de él.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;La zona es un archivo que contiene determinados registros de la base
+de datos del espacio de nombres de dominio.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Un servidor de nombres de dice que es primario cuando obtiene la
+información de sus zonas de sus archivos locales. Todas las
+modificaciones sobre una zona, como añadir dominios, se llevan a cabo en
+el servidor primario.&lt;/p&gt;
+&lt;p&gt;Un servidor de nombres se dice que es secundario cuando obtiene la
+información de su zona o zonas de otro servidor de nombres.&lt;/p&gt;
+&lt;p&gt;Las transferencias de zona son solicitadas por servidores de nombre
+secundarios con el objetivo de mantener actualizada la información
+acerca de la zona para tenerla así correctamente duplicada. Es
+interesante que, para cada zona, exista al menos un servidor primario y
+otro secundario. En el caso de fallo de alguno de ellos, el otro atiende
+las peticiones de resolución de nombres.&lt;/p&gt;
+&lt;p&gt;Un servidor de nombres de nombres se dice que es caché cuando sólo
+atiende consultas de los clientes DNS.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;Servidor de nombres autoritario&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Se define un servidor de nombres de dominios DNS autoritario para una
+zona como aquel que contiene los registros de recursos para dicha zona.
+Para ello se utilizan los registros de recursos SOA y NS.&lt;/p&gt;
+&lt;p&gt;Si el servidor es secundario, los registros de recursos de la zona se
+cargan desde otro servidor de nombres utilizando el proceso de
+transferencia de zona.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7.9Base de datos del protocolo DNS&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Cada servidor de nombres de dominio mantiene una base de datos que sirve
+para asociar los nombres de dominios con direcciones IP llamada archivos
+de la zona, y una base de datos de resolución inversa llamada archivos
+de resolución inversa de la zona. El formato de estas bases de datos es
+de archivos de textos.&lt;/p&gt;
+&lt;p&gt;Para resolver nombres los servidores DNS consultan las zonas, las cuales
+contienen los registros de recursos (RR) que describen la información
+relativa al dominio DNS.&lt;/p&gt;
+&lt;p&gt;La descripción de cada uno de los campos es:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Propietario:&lt;/strong&gt;nombre de máquina o dominio DNS al que pertenece el
+recurso. Puede contener un nombre de máquina/dominio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TTL:&lt;/strong&gt;(Time To Live) tiempo de vida o número de segundos que
+puede estar el registro en la caché. Si contiene un '0' indica que no
+tiene que ser almacenado en caché.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clase:&lt;/strong&gt;define la familia de protocolos en uso. Suele ser siempre
+'IN' de Internet, que representa una red TCP/IP.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tipo:&lt;/strong&gt;identifica el tipo de registro.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RDATA:&lt;/strong&gt;información específica del tipo de recurso.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TIPOS DE REGISTRO&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="19%" /&gt;
+&lt;col width="18%" /&gt;
+&lt;col width="63%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Nombre del recurso&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Tipo de registro&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Función&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Inicio de autoridad&lt;/td&gt;
+&lt;td&gt;SOA&lt;/td&gt;
+&lt;td&gt;Identifica al servidor autoritario de una zona y sus parámetros de configuración.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Servidor de nombres&lt;/td&gt;
+&lt;td&gt;NS&lt;/td&gt;
+&lt;td&gt;Identifica servidores de nombres autorizados para una zona.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Dirección&lt;/td&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;Asocia un nombre de dominio FQDN con una dirección IP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Puntero&lt;/td&gt;
+&lt;td&gt;PTR&lt;/td&gt;
+&lt;td&gt;Asocia una IP a un dominio FQDN. Para búsquedas inversas&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Registro de correo&lt;/td&gt;
+&lt;td&gt;MX&lt;/td&gt;
+&lt;td&gt;Indica máquinas encargadas de la entrega de correo en el dominio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Nombre canónico&lt;/td&gt;
+&lt;td&gt;CNAME&lt;/td&gt;
+&lt;td&gt;Permite asignar uno o más nombres a una máquina&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;TXT&lt;/td&gt;
+&lt;td&gt;Almacena cualquier información&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Servicio&lt;/td&gt;
+&lt;td&gt;SRV&lt;/td&gt;
+&lt;td&gt;Ubicación de los servidores para un servicio.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;A) Registro de recurso SOA&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;La configuración de cada zona comienza con el registro de recursos de
+Inicio de Autoridad o SOA (Start of Authority).&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Propietario:&lt;/strong&gt;nombre de dominio de la zona&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tipo:&lt;/strong&gt;SOA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Persona responsable:&lt;/strong&gt;contiene la dirección de correo electrónico
+del responsable de la zona.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Número de serie:&lt;/strong&gt;Número de versión de la zona. Sirve de
+referencia a los servidores secundarios de la zona para saber cuando
+deben hacer una transferencia (actualizar la base). Si el número de
+serie del servidor secundario es menor que el número de serie del
+primario, significa que en el primario ha cambiado la información de
+la zona, y por tanto el secundario debe solicitar al primario una
+transferencia de zona. Este número debe ser incrementado de forma
+manual por el administrador de la zona cada vez que realiza un cambio
+en algún registro de la zona. Se suele utilizar el formato
+AAAA/MM/DD/NN.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Actualización (Refresh Time):&lt;/strong&gt;indica cada cuánto tiempo un
+servidor secundario debe contactar con el servidor primario para
+comprobar los cambios en la zona.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reintentos (Retry time):&lt;/strong&gt;si la transferencia de zona ha fallado,
+este parámetro indica el tiempo que espera el servidor secundario
+antes de volver a intentarlo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Caducidad (Expire Time):&lt;/strong&gt;indica el tiempo de caducidad, en
+segundos de la información acerca de la zona en un servidor
+secundario.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TTL Mínimo (Minimal Time To Live):&lt;/strong&gt;indica el tiempo de validez
+del registro SOA, número de segundos que la información sobre el
+registro se mantiene en el servidor de nombres de dominio.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ejemplo:&lt;/p&gt;
+&lt;p&gt;aulaESI.com. IN SOA servidor.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;( 200051701; número de serie&lt;/p&gt;
+&lt;p&gt;10800; actualización&lt;/p&gt;
+&lt;p&gt;900; reintentos&lt;/p&gt;
+&lt;p&gt;604800; caducidad&lt;/p&gt;
+&lt;p&gt;86400; valor TTL&lt;/p&gt;
+&lt;p&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;B) Registro de recurso NS (NameServer)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El registro de recurso NS establece los servidores de nombres
+autorizados para la zona. Cada zona debe contener registros indicando
+tanto los servidores primarios como los secundarios. Por tanto, cada
+zona debe contener registros indicando tanto los servidores primarios
+como los secundarios. Como mínimo un registro NS por zona.&lt;/p&gt;
+&lt;p&gt;Ejemplo:&lt;/p&gt;
+&lt;p&gt;aulaESI.com. IN NS servidor.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;C)Registro de recurso A (Address)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Establece una correspondencia entre un FQDN y una dirección IP. Cada
+registro A identifica un nombre de máquina y el cliente DNS puede
+obtener a través de él su dirección IP.&lt;/p&gt;
+&lt;p&gt;Ejemplo de registro que se asigna una dirección a la maquina pc02:&lt;/p&gt;
+&lt;p&gt;pc02.aulaESI.com. IN A 192.168.1.2&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;D)Registro de recurso PTR (PoinTeR)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El registro de recurso PTR hace lo contrario que el registro A, es decir
+asigna una dirección IP a un FQDN. Este tipo de recursos se utilizan en
+la resolución inversa.&lt;/p&gt;
+&lt;p&gt;Ejemplo:&lt;/p&gt;
+&lt;p&gt;2.1.168.192.in-addr-arpa IN PTR pc02.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;E)Registro de recurso CNAME (Nombre canónico)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Crea un alias para el nombre de dominio especificado.&lt;/p&gt;
+&lt;p&gt;Por ejemplo, a la maquina pc02 se le asigna el alias prueba:&lt;/p&gt;
+&lt;p&gt;prueba.aulaESI.com. IN CNAME pc02.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;F)Registro de recurso MX (Mail eXchange)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Es un registro de correo, e indica una o varias máquinas encargadas de
+la entrega de correo en el dominio. Si el dominio tiene varias máquinas
+como registros MX se puede indicar, mediante un valor numérico, el orden
+de preferencia de máquina que seguirá el servidor que envía el correo
+para hacer la entrega del mismo.&lt;/p&gt;
+&lt;p&gt;Ejemplo:&lt;/p&gt;
+&lt;p&gt;AulaESI.com. IN MX 0 mail.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;AulaESI.com. IN MX 1 maildos.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;G)Registro de recurso SRV (SeRVice)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Los registros de recursos SRV especifican los servidores disponibles
+para un servicio o protocolo determinados, como www o FTP.&lt;/p&gt;
+&lt;p&gt;http.tcp.aulaESI.com. IN SRV 0 0 80 www.aulaESI.com&lt;/p&gt;
+&lt;p&gt;ftp.tcp.aulaESI.com. IN SRV0 0 80 ftp.aulaESI.com.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;Métodos de búsqueda&lt;/strong&gt;&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;strong&gt;Resolución de nombres&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La resolución de nombres es un mecanismo por el que se traducen los
+nombres de máquinas, dados por los usuarios al conectarse a servidores
+remotos, a direcciones IP.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Búsqueda recursiva:&lt;/strong&gt;Se realiza una petición de resolución de
+nombre al servidor DNS local, y si el servidor no dispone de la
+información solicitada va a buscarla al servidor de nombres con
+autoridad que la contiene. Para ello, el servidor de nombres local
+necesita consultar a un servidor raíz y éste le dará la información
+acerca de aquellos servidores de nombres autoritarios intermedios
+hasta llegar al servidor que contiene el nombre del dominio objeto de
+la consulta. En este caso, el servidor local asume la responsabilidad
+de dar una respuesta al cliente y él consulta a los otros servidores
+en nombre del cliente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Búsqueda iterativa:&lt;/strong&gt; el servidor DNS local devuelve la mejor
+respuesta que puede ofrecer al cliente en función del contenido de su
+caché, pero si el servidor no dispone de la información solicitada
+indica la ip del siguiente servidor de nombres autorizado a
+preguntar, comenzando siempre por un servidor raíz. Éste le refiere
+al servidor del nivel siguiente que lo contiene, y el servidor local
+vuelve a lanzar la petición (iteración) al servidor referido, el
+cual, si no dispone de la información solicitada, le refiere al
+servidor del nivel siguiente que lo contiene; a continuación, el
+servidor DNS local vuelve a lanzar la petición al servidor referido y
+así sucesivamente hasta llegar al servidor de nombres que contiene la
+información acerca del dominio solicitado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;Configuración de un servidor DNS en Debian GNU/Linux&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;El servicio DNS está compuesto por dos programas.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;El demonio named: es el servidor de nombres de dominio, el que
+contiene la base de datos y responde a las peticiones&lt;/li&gt;
+&lt;li&gt;el resolver (cliente): es el que genera las peticiones. Es un
+conjunto de rutinas que permiten que los clientes accedan a los
+servidores de nombres para resolver la búsqueda de una dirección ip
+asociada a un nombre&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El archivo de configuración del demonio named es /etc/bind/named.conf.&lt;/p&gt;
+&lt;p&gt;Las zonas específicas del servidor DNS se definen en
+/etc/bind/named.conf.local&lt;/p&gt;
+&lt;p&gt;Para lanzar el servicio: /etc/init.d/bind9 start&lt;/p&gt;
+&lt;p&gt;Archivos de configuración implicados:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;/etc/bind/named.conf&lt;/li&gt;
+&lt;li&gt;/etc/bind/named.conf.local&lt;/li&gt;
+&lt;li&gt;/etc/bind/db.aulaESI.com&lt;/li&gt;
+&lt;li&gt;/etc/bind/db.192.168.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;EJEMPLO NAMED.CONF.LOCAL&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;/* resolución normal */&lt;/p&gt;
+&lt;p&gt;zone “aulaESI.com” {&lt;/p&gt;
+&lt;p&gt;type master;&lt;/p&gt;
+&lt;p&gt;allow-query {127.0.0.1 ; 192.168.1.1/24; }&lt;/p&gt;
+&lt;p&gt;allow-transfer { slaves;}&lt;/p&gt;
+&lt;p&gt;file “/etc/bind/db.aulaESI.com”;&lt;/p&gt;
+&lt;p&gt;};&lt;/p&gt;
+&lt;p&gt;/*resolucion inversa */&lt;/p&gt;
+&lt;p&gt;zona “1.168.192.in-addr.arpa” {&lt;/p&gt;
+&lt;p&gt;type master;&lt;/p&gt;
+&lt;p&gt;allow-query {127.0.0.1 ; 192.168.1.1/24; }&lt;/p&gt;
+&lt;p&gt;allow-transfer { slaves;}&lt;/p&gt;
+&lt;p&gt;file “/etc/bind/db.192.168.1”;&lt;/p&gt;
+&lt;p&gt;};&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;EJEMPLO DB.AULAESI.COM&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;aulaESI.com. IN SOA servidor.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;( 1;&lt;/p&gt;
+&lt;p&gt;10800;&lt;/p&gt;
+&lt;p&gt;900;&lt;/p&gt;
+&lt;p&gt;604800;&lt;/p&gt;
+&lt;p&gt;86400;)&lt;/p&gt;
+&lt;p&gt;aulaESI.com. IN A 192.168.1.1&lt;/p&gt;
+&lt;p&gt;aulaESI.com. IN NS servidor.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;servidor IN A 192.168.1.1&lt;/p&gt;
+&lt;p&gt;cups IN CNAME servidor&lt;/p&gt;
+&lt;p&gt;www in CNAME servidor&lt;/p&gt;
+&lt;p&gt;pc02 IN A 192.168.1.2&lt;/p&gt;
+&lt;p&gt;pc03 IN A 192.168.1.3&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;EJEMPLO DB.192.168.1&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;aulaESI.com. IN SOA servidor.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;(1;&lt;/p&gt;
+&lt;p&gt;10800;&lt;/p&gt;
+&lt;p&gt;900;&lt;/p&gt;
+&lt;p&gt;604800;&lt;/p&gt;
+&lt;p&gt;86400;)&lt;/p&gt;
+&lt;p&gt;aulaESI.com. IN NS servidor.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;1 IN PTR gateway.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;1 IN PTR servidor.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;2 IN PTR pc02.aulaESI.com.&lt;/p&gt;
+&lt;p&gt;3 IN PTR pc03.aulaESI.com.&lt;/p&gt;
+</summary><category term="dns"></category><category term="montar"></category><category term="que es"></category><category term="servidor"></category><category term="teoria"></category></entry><entry><title>Manual SSH</title><link href="/manual-ssh.html" rel="alternate"></link><updated>2009-06-13T11:23:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-06-13:manual-ssh.html</id><summary type="html">&lt;p&gt;SSH son las siglas de &lt;strong&gt;S&lt;/strong&gt;ecure &lt;strong&gt;SH&lt;/strong&gt;ell. Lo que te ofrece es una
+consola en un ordenador remoto con los privilegios que tenga la cuenta
+con la que conectes. Es decir, si en tu PC tienes varias cuentas, puedes
+conectar desde otro ordenador al tuyo con cualquiera de esas cuentas y
+sus respectivos privilegios, como pudiera ser la cuenta root, la de tu
+administrador sudo o la de un usuario normal sin poder de
+administración. Y todo esto con encriptación de datos.&lt;/p&gt;
+&lt;p&gt;Mola ¿No?&lt;/p&gt;
+&lt;p&gt;También cabe decir que tener un servidor SSH en funcionamiento, tiene un
+cierto riesgo, pero vamos configurarlo para que el riesgo sea muy
+reducido.&lt;/p&gt;
+&lt;p&gt;Lo primero es instalarlo&lt;/p&gt;
+&lt;div id="content_view"&gt;&lt;/p&gt;&lt;pre class="literal-block"&gt;
+$ sudo aptitude install ssh
+&lt;/pre&gt;
+&lt;p&gt;Ahora una vez instalado, vamos a configurarlo:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ sudo gedit /etc/ssh/sshd_config
+&lt;/pre&gt;
+&lt;p&gt;Si alguna de las opciones que diga no os aparece, podeis añadirlo
+libremente al final del documento de configuración.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/manual-ssh.rst&lt;/tt&gt;, line 45)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+La primera opción a modificar es el puerto por defecto.
+Podemos poner por ejemplo el puerto:&lt;/blockquote&gt;
+&lt;pre class="literal-block"&gt;
+port 2413
+&lt;/pre&gt;
+&lt;p&gt;Más abajo está la opcion Protocol, que debe estar a 2. Si no es así,
+ponedlo a 2.&lt;/p&gt;
+&lt;p&gt;LoginGraceTime es el tiempo que tendrá el usuario para escribir su
+login, si sabemos la contraseña y usuario, no tardaremos mucho en poner
+el login así que este valor debe ser de pocos segundos por ejemplo 20&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+LoginGraceTime 20
+&lt;/pre&gt;
+&lt;p&gt;Justo debajo, está una de las opciones más importantes PermitRootLogin.
+Esta opción permitirá loguearse como root, pero esto es muy inseguro
+porque si alguien quiere entrar en nuestro ordenador ya tendría el
+usuario (que siempre es root) y sólo le faltaría la contraseña, por eso
+debemos deshabilitarlo, nosotros podremos usar sudo para tareas
+administrativas.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+PermitRootLogin no
+&lt;/pre&gt;
+&lt;p&gt;también podremos establecer una &amp;quot;dedocracia&amp;quot; y seleccionar que usuarios
+queremos que se conecten&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+AllowUsers mortuus amigo&amp;#64;83.45.258.21
+&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Donde mortuus es nuestro usuario (al que permitimos que se conecte) y
+amigo el usuario de la persona que damos permiso.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Otra interesantísima opcion es MaxAuthTries, que es el número máximo de
+intentos que tendrá el usuario para introducir su login o será
+desconectado. En mi opinión con un valor de 2, es suficiente. Así
+evitamos posibles crackeos por fuerza bruta.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+MaxAuthTries 2
+&lt;/pre&gt;
+&lt;p&gt;Podemos establecer el número de conexiones paralelas. Este valor
+dependerá de nuestro interés y de la función que vaya a tener el
+ordenador, si es personal con un valor de 1 o 2 vamos bien&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+MaxStartups 1
+&lt;/pre&gt;
+&lt;p&gt;Ahora ya podemos cerrar el editor y reiniciar el servidor ssh&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ sudo /etc/init.d/ssh restart
+&lt;/pre&gt;
+&lt;p&gt;Para añadir más seguridad, la contraseña debe ser segura. Es decir
+contraseñas como &amp;quot;1&amp;quot;, &amp;quot;123456&amp;quot;, &amp;quot;god&amp;quot;, &amp;quot;contraseña&amp;quot;, &amp;quot;hola&amp;quot;... etc son
+inseguras.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/manual-ssh.rst&lt;/tt&gt;, line 110)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+Se recomienda usar un mínimo de 6 caracteres y no usar palabras que&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/manual-ssh.rst&lt;/tt&gt;, line 111)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;aparezcan en el diccionario (imaginad porque xD)&lt;/dt&gt;
+&lt;dd&gt;Una contraseña realmente segura podría ser algo así:&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/manual-ssh.rst&lt;/tt&gt;, line 113)&lt;/p&gt;
+Definition list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;*$M0rT[]Us*-*rUl3s$*&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Uso de SSH&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para conectar:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ ssh -p puerto tu_cuenta&amp;#64;ip_del_ordenador_remoto
+&lt;/pre&gt;
+&lt;p&gt;Para copiar archivos:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ scp ruta/archivo cuenta_en_ordenador_presente&amp;#64;ip_ordenador_presente:ruta/fichero
+&lt;/pre&gt;
+&lt;p&gt;Un poco lioso, vamos a verlo con un ejemplo&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ scp /home/casa/Desktop/xxx.jpg familia&amp;#64;192.168.1.6:/home/familia/pokemon.jpg
+&lt;/pre&gt;
+&lt;p&gt;Como estamos conectados a casa, queremos copiar el archivo xxx.jpg, pues
+tendremos que indicar cual es nuestra ubicación &amp;quot;real&amp;quot;, estamos en la
+cuenta familia, en la ip 192.168.1.6 y lo vamos a copiar a /home/familia
+y de paso lo renombramos a pokemon.jpg&lt;/p&gt;
+&lt;/div&gt;</summary><category term="ssh"></category><category term="Tutorial"></category></entry></feed>

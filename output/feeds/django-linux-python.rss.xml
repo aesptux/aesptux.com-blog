@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/django-linux-python.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 23 Oct 2012 21:43:00 +0200</lastBuildDate><item><title>How to deploy django with nginx + gunicorn</title><link>/how-to-deploy-django-with-nginx-gunicorn.html</link><description>&lt;p&gt;Django is a great web framework and we have several ways to deploy it in
+production.&lt;/p&gt;
+&lt;p&gt;You can use apache too for example, but for django my favorite is nginx
++ gunicorn.&lt;/p&gt;
+&lt;p&gt;Nginx is a well-known player and it will be used as front-end. Gunicorn
+is not as well-known, but it has proved to be quite stable (instagram
+and pinterest use it).&lt;/p&gt;
+&lt;p&gt;Installation:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+yum install nginx
+pip install gunicorn
+&lt;/pre&gt;
+&lt;p&gt;Previously you have to have installed python pip and epel repository.&lt;/p&gt;
+&lt;p&gt;Next step is to run gunicorn, which is quite easy. As we are going to
+run it with a django project, it is possible to use &lt;em&gt;gunicorn_django&amp;nbsp;&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+cd /path/to/your/django/project
+gunicorn_django --workers=4 -b 127.0.0.1:8888 -D
+&lt;/pre&gt;
+&lt;p&gt;And that is it. We have told gunicorn to run with 4 workers (processes),
+to listen on localhost:8888 and to run in background with -D.&lt;/p&gt;
+&lt;p&gt;Last step is to configure a server for nginx:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+upstream app_server_djangoapp {
+    server localhost:8888 fail_timeout=0;
+}
+
+server {
+        listen 80;
+        server_name  server.com;
+
+        access_log  /path/log/access.log;
+        error_log  /path/log/error.log info;
+
+    keepalive_timeout 5;
+
+    # path for static folder
+    location /static {
+        root /path/to/static/;
+    }
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+
+        if (!-f $request_filename) {
+            proxy_pass http://app_server_djangoapp;
+            break;
+        }
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;Restart nginx:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+service nginx restart
+&lt;/pre&gt;
+&lt;p&gt;Our django site is deployed, as easy as that.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Tue, 23 Oct 2012 21:43:00 +0200</pubDate><guid>tag:,2012-10-23:how-to-deploy-django-with-nginx-gunicorn.html</guid><category>centos</category><category>deploy</category><category>django</category><category>fedora</category><category>gunicorn</category><category>nginx</category><category>python</category></item></channel></rss>

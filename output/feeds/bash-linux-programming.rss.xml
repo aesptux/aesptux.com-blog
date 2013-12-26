@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/bash-linux-programming.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 10 May 2012 13:32:00 +0200</lastBuildDate><item><title>Convert m4a files to mp3 with this script.</title><link>/convert-m4a-files-to-mp3-with-this-script.html</link><description>&lt;p&gt;Some of my library was in m4a files, which I have problems to play,
+furthermore I prefer having everything in mp3 format.&lt;/p&gt;
+&lt;p&gt;So I wrote the following script:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+echo &amp;quot;Dependencies: mplayer and lame&amp;quot;
+if [ $# -lt 1 ]; then
+    echo &amp;quot;Usage: sh m4a2mp3.sh '/path/to/files'&amp;quot;
+else
+    echo &amp;quot;This could take sometime. Converting to 320kbps MP3 files...&amp;quot;
+    sleep 1
+    cd &amp;quot;$1&amp;quot;
+    for i in *.m4a; do mplayer -ao pcm &amp;quot;$i&amp;quot; -ao pcm:file=&amp;quot;$i.wav&amp;quot;; done
+    for i in *.wav; do lame -h -b 320 &amp;quot;$i&amp;quot; &amp;quot;$i.mp3&amp;quot;; done
+    echo &amp;quot;Cleaning the house...&amp;quot;
+    rm -rf *.m4a
+    rm -rf *.wav
+fi
+echo &amp;quot;All files converted. Thank you.&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;Usage is pretty straightforward:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sh m4a2mp3.sh /path/to/your/songs
+&lt;/pre&gt;
+&lt;p&gt;The only dependencies, as you can see also in the script are mplayer and
+lame&lt;/p&gt;
+&lt;p&gt;You can install them with the following command:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# Yum based (Fedora, CentOS, SuSE)
+yum install mplayer lame
+# Apt based (Debian, Ubuntu, Mint) (NOT TESTED)
+apt-get install mplayer lame
+&lt;/pre&gt;
+&lt;p&gt;As always, you also can find the script on my Github.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Thu, 10 May 2012 13:32:00 +0200</pubDate><guid>tag:,2012-05-10:convert-m4a-files-to-mp3-with-this-script.html</guid><category>bash</category><category>convert</category><category>files</category><category>Linux</category><category>m4a</category><category>mp3</category><category>play</category><category>script</category><category>shell</category><category>transform</category><category>wav</category></item><item><title>Bash script que busca hosts en tu red, sincroniza carpetas y después apaga los hosts.</title><link>/bash-script-que-busca-hosts-en-tu-red-sincroniza-carpetas-y-despues-apaga-los-hosts.html</link><description>&lt;p&gt;En clase nos pidieron hacer un script que buscase hosts en tu red para
+después apagarlos, o que incluso antes de apagarse sincronizasen unas
+carpetas.&lt;/p&gt;
+&lt;p&gt;He tratado de automatizarlo todo lo que he podido, en mi red funciona
+perfectamente, y el único requerimiento previo es que todos los hosts
+tengan instalado un servidor SSH. Este script esta pensado para hosts
+Linux, pero con algunos pequeños cambios se podría adaptar para Windows
+también.&lt;/p&gt;
+&lt;p&gt;El código es el siguiente:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+#!/bin/bash
+# Find online hosts on your network, backup a directory and halt them
+# Copyright (C) &amp;lt;2011&amp;gt; &amp;lt;Adrian Espinosa&amp;gt;
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+# If you don't want to write every password, you should add the hosts keys to your machine.
+clear
+f=`echo networkscanned_$(date +%Y%m%d)`
+me=`echo $(whoami)`
+DIR=&amp;quot;put_here_your_dir_to_sync&amp;quot;
+DEST=&amp;quot;put_here_your_destination&amp;quot;
+if [ $UID -ne 0 ]
+then
+   echo &amp;quot;Sorry, you have to run this script as root&amp;quot;
+else
+   net=`ip route show | grep / | cut -d &amp;quot; &amp;quot; -f1`
+   echo &amp;quot;Please, wait while your network is scanned&amp;quot;
+   completescan=`nmap -sP $net | grep &amp;quot;is up&amp;quot; | cut -d &amp;quot; &amp;quot; -f2`
+   clear
+   echo &amp;quot;$completescan&amp;quot; &amp;gt; $f
+   gateway=`ip route show | grep via | cut -d &amp;quot; &amp;quot; -f3`
+   cat $f | egrep -v `echo $gateway$` &amp;gt; /tmp/net
+   cat /tmp/net &amp;gt; $f
+   rm -rf /tmp/net
+   ownip=`ip route show | grep src | cut -d &amp;quot; &amp;quot; -f12`
+   cat $f | grep -v $ownip &amp;gt; /tmp/net
+   cat /tmp/net &amp;gt; $f
+   rm -rf /tmp/net
+   echo &amp;quot;Starting synchronization&amp;quot;
+   for host in $(cat $f)
+   do
+     echo &amp;quot;Syncing with $host&amp;quot;
+     rsync --progress -avhe ssh $me&amp;#64;$host:$DIR $DEST &amp;amp;&amp;gt; backup.log
+     ssh $me&amp;#64;$host &amp;quot;shutdown -h now&amp;quot; &amp;amp;&amp;gt; backup.log
+   done
+   echo &amp;quot;Done. You may check backup.log to see if there are any errors&amp;quot;
+   rm -rf $f
+   exit 0
+fi # END
+&lt;/pre&gt;
+&lt;p&gt;Hay que ser root para ejecutarlo y básicamente lo que hace es lo
+siguiente&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Si NO eres root&lt;ul&gt;
+&lt;li&gt;Sale del programa&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Si eres root&lt;ul&gt;
+&lt;li&gt;Detecta tu red y máscara&lt;/li&gt;
+&lt;li&gt;Escanea con nmap y recoge sólo la IP de los hosts y la guarda en
+fichero&lt;/li&gt;
+&lt;li&gt;Detecta cuál es tu ip y tu gateway y los elimina del fichero
+anterior&lt;/li&gt;
+&lt;li&gt;Recorre el fichero leyendo cada hosts y haciendo las
+correspondientes operaciones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;p&gt;Este script lo he probado en Debian, y como digo funciona correctamente.
+En ubuntu hay que hacer unos pequeños cambios que podéis encontrar en
+mi&amp;nbsp;&lt;a class="reference external" href="https://github.com/aesptux"&gt;github&lt;/a&gt;, también está publicado este script.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Wed, 30 Mar 2011 13:30:00 +0200</pubDate><guid>tag:,2011-03-30:bash-script-que-busca-hosts-en-tu-red-sincroniza-carpetas-y-despues-apaga-los-hosts.html</guid><category>apagar</category><category>bash</category><category>buscar</category><category>carpetas</category><category>hosts</category><category>nmap</category><category>red</category><category>remotamente</category><category>remoto</category><category>script</category><category>sincronizar</category></item></channel></rss>

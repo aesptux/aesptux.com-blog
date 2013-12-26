@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/linux-programming.atom.xml" rel="self"></link><id>/</id><updated>2009-04-03T10:39:00+02:00</updated><entry><title>Optativa a la librería conio.h en Linux</title><link href="/optativa-a-la-libreria-conio-h-en-linux.html" rel="alternate"></link><updated>2009-04-03T10:39:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-04-03:optativa-a-la-libreria-conio-h-en-linux.html</id><summary type="html">&lt;p&gt;Bien es sabido por los programadores, que la librería conio.h es
+exclusiva de Borland, y contiene las famosas funciones gotoxy(x,y),
+clrscr(), getch()... que son tan usadas en programas en modo texto.&lt;/p&gt;
+&lt;p&gt;Pues bien, la librería conio.h no está disponible para GNU/Linux, pero
+la alternativa es la librería ncurses.h. Esta librería no viene por
+defecto instalada, pero su instalación en distribuciones basadas en
+debian es bien sencilla, basta con esto:&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;apt-get update&lt;/dt&gt;
+&lt;dd&gt;apt-get install ncurses*&lt;/dd&gt;
+&lt;dt&gt;Y voilà! Ya tenemos instalado ncurses.h&lt;/dt&gt;
+&lt;dd&gt;Esta librería, incluye las librerías stdio.h y conio.h. Bien ahora&lt;/dd&gt;
+&lt;dt&gt;vamos a ver como sería un programilla sencillo:&lt;/dt&gt;
+&lt;dd&gt;¿Qué es lo primero que hay que incluir?
+Obviamente, la librería ncurses.h&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;#include ncurses.h&lt;/p&gt;
+&lt;p&gt;Ahora se declararía la función principal, como siempre. Pero ahora, hay
+incluir initscr(), para iniciar la pantalla. La sintaxis de algunas
+funciones son diferentes: printw(), equivale a printf(), para borrar la
+pantalla erase(), que equivaldría a clrscr(), scanw() equivale a
+scanf(),. Entonces un pequeño programa que muestre un texto por pantalla
+y nos pida dos números para hacer una operación, quedaría así:&lt;/p&gt;
+&lt;p&gt;#include ncurses.h&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;int main()&lt;/dt&gt;
+&lt;dd&gt;{
+initscr();
+printw(&amp;quot;Hola mundo!&amp;quot;);
+getch();
+erase();&lt;/dd&gt;
+&lt;dt&gt;printw(&amp;quot;Escribe dos numeros para que sean sumados&amp;quot;);&lt;/dt&gt;
+&lt;dd&gt;int a;
+scanw(&amp;quot;%d&amp;quot;, &amp;amp;a);
+int b;&lt;/dd&gt;
+&lt;/dl&gt;
+  &lt;div style="text-align:left;"&gt;
+
+scanw("%d", &amp;b);  &lt;/div&gt;
+
+int c = a + b;
+printw("El resultado de la suma es: %dn", c);
+getch();
+
+endwin();
+
+return 0;
+}
+Es importante cerrar la aplicacion endwin();&lt;p&gt;A la hora de compilarlo, es la misma orden de siempre, pero añadiendo un
+parámetro:&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/optativa-a-la-libreria-conio-h-en-linux.rst&lt;/tt&gt;, line 72)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+gcc archivo.c -o archivo -lncurses&lt;/blockquote&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Con ese último parámetro, indicamos al compilador use esa librería.&lt;/dt&gt;
+&lt;dd&gt;Y eso es todo por hoy.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Un saludo,&lt;/p&gt;
+&lt;p&gt;Mortuus.&lt;/p&gt;
+</summary><category term="conio"></category><category term="Linux"></category><category term="ncurses"></category><category term="Programming"></category></entry></feed>

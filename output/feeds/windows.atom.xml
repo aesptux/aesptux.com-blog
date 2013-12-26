@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/windows.atom.xml" rel="self"></link><id>/</id><updated>2012-03-14T10:54:00+01:00</updated><entry><title>How to unlock files on Windows 7</title><link href="/how-to-unlock-files-on-windows-7.html" rel="alternate"></link><updated>2012-03-14T10:54:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2012-03-14:how-to-unlock-files-on-windows-7.html</id><summary type="html">&lt;p&gt;It may happen that you are running several applications writing/reading
+on several files, then for example, you want to delete one of those
+files and you cannot because file is being used.&lt;/p&gt;
+&lt;p&gt;On Linux systems it allows you to know which application is using it,
+and close it. With Windows 7 (and Windows XP) you need to use a
+third-party software called &lt;strong&gt;Unlocker&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Using Unlocker is quite easy. When it is installed, it appears as an
+option in your context menu, so you just have to right click on the file
+and select Unlocker&lt;/p&gt;
+&lt;div class="mceTemp mceIEcenter" style="text-align: justify;"&gt;&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;`|Unlocker|`_&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Unlocker&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;&lt;p&gt;You can download Unlocker from &lt;a class="reference external" href="http://www.emptyloop.com/unlocker/#download"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-unlock-files-on-windows-7.rst&lt;/tt&gt;, line 26); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|unlocker|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="7"></category><category term="being"></category><category term="files"></category><category term="how"></category><category term="know"></category><category term="to"></category><category term="unlock"></category><category term="used"></category><category term="using"></category><category term="Windows"></category><category term="xp"></category></entry><entry><title>Backups: Duplicati y USB Image Tool</title><link href="/backups-duplicati-y-usb-image-tool.html" rel="alternate"></link><updated>2009-10-28T13:37:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2009-10-28:backups-duplicati-y-usb-image-tool.html</id><summary type="html">&lt;p&gt;Hace poco descubrí este interesante programa, llamado &lt;a class="reference external" href="http://usb-image-tool.softonic.com/"&gt;USB Image Tool&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Es un sencillo programa de creación de backups y restauración para
+dispositivos extraíbles.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;500&amp;quot; caption=&amp;quot;USB Image
+Tool&amp;quot;]&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|USB Image Tool|&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;La interfaz es bien sencilla... consta principalmente de tres botones&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Restore:&lt;/strong&gt;Para restaurar copias previamente creadas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rescan:&lt;/strong&gt;Volver a escanear en busca de otros dispositivos
+extraíbles&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Backup:&lt;/strong&gt;Crear la copia de seguridad que creará un archivo *.img&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://duplicati.softonic.com/"&gt;Duplicati&lt;/a&gt; es otro programa de creación de backups.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;505&amp;quot; caption=&amp;quot;Ventana
+principal&amp;quot;]&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;|Duplicati|&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Esta es la ventana principal. Para crear un nuevo backup, deberemos
+marcar la opción &lt;em&gt;Schedule a new backup.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;505&amp;quot; caption=&amp;quot;Elegir
+nombre&amp;quot;]&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;|image2|&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Aquí elegiremos un nombre para nuestra copia de seguridad.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;504&amp;quot; caption=&amp;quot;Carpetas a
+respaldar&amp;quot;]&lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;|image3|&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Elegimos las carpetas que deseamos respaldar.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;504&amp;quot; caption=&amp;quot;Elegir lugar de
+almacenamiento.&amp;quot;]&lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;|image4|&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Aquí podremos elegir donde se alojará nuestra copia de seguridad, como
+vemos, cuanta con una gran variedad.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;505&amp;quot; caption=&amp;quot;Finalizando el
+asistente&amp;quot;]&lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;|image5|&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Aquí nos hace un resumen de nuestras opciones, yo he marcado que haga
+copia cada semana, y cada mes una copia completa.&lt;/p&gt;
+&lt;p&gt;Si queremos que realice el backup inmediatamente deberemos marcar la
+opción &lt;em&gt;Run backup now.&lt;/em&gt;&lt;/p&gt;
+&lt;!-- |USB Image --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 94)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 95)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;Tool| image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2707/4052722036_df1e27d938_o.jpg"&gt;http://farm3.static.flickr.com/2707/4052722036_df1e27d938_o.jpg&lt;/a&gt;
+.. &lt;a href="#id13"&gt;&lt;span class="problematic" id="id14"&gt;|Duplicati|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2447/4052722088_82bb43bf76_o.jpg"&gt;http://farm3.static.flickr.com/2447/4052722088_82bb43bf76_o.jpg&lt;/a&gt;
+.. &lt;a href="#id15"&gt;&lt;span class="problematic" id="id16"&gt;|image2|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2429/4052722152_2f4593dc50_o.jpg"&gt;http://farm3.static.flickr.com/2429/4052722152_2f4593dc50_o.jpg&lt;/a&gt;
+.. &lt;a href="#id17"&gt;&lt;span class="problematic" id="id18"&gt;|image3|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2471/4052722216_6a1239e688_o.jpg"&gt;http://farm3.static.flickr.com/2471/4052722216_6a1239e688_o.jpg&lt;/a&gt;
+.. &lt;a href="#id19"&gt;&lt;span class="problematic" id="id20"&gt;|image4|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm4.static.flickr.com/3188/4052722310_487c16ce56_o.jpg"&gt;http://farm4.static.flickr.com/3188/4052722310_487c16ce56_o.jpg&lt;/a&gt;
+.. &lt;a href="#id21"&gt;&lt;span class="problematic" id="id22"&gt;|image5|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm4.static.flickr.com/3257/4052722358_4a39960b22_o.jpg"&gt;http://farm4.static.flickr.com/3257/4052722358_4a39960b22_o.jpg&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 18); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;USB Image Tool&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 36); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Duplicati&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 42); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image2&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 53); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image3&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id9"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image4&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id11"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 68); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image5&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id13"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 95); &lt;em&gt;&lt;a href="#id14"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Duplicati&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id15"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 95); &lt;em&gt;&lt;a href="#id16"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image2&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id17"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 95); &lt;em&gt;&lt;a href="#id18"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image3&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id19"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 95); &lt;em&gt;&lt;a href="#id20"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image4&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id21"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/backups-duplicati-y-usb-image-tool.rst&lt;/tt&gt;, line 95); &lt;em&gt;&lt;a href="#id22"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image5&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="backups"></category><category term="copias"></category><category term="duplicati"></category><category term="image"></category><category term="Security"></category><category term="tool"></category><category term="usb"></category><category term="Windows"></category></entry><entry><title>HashTab</title><link href="/hashtab.html" rel="alternate"></link><updated>2009-10-24T14:41:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-10-24:hashtab.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://beeblebrox.org/"&gt;HashTab&lt;/a&gt; es un programa que añade una pestaña en la opción Propiedades
+con el CRC32, MD5 y SHA-1 de un archivo.&lt;/p&gt;
+&lt;p&gt;Sirve para comprobar si un archivo se ha descargado correctamente, o
+para comprobar su veracidad y asegurarnos de que no sea algo que no
+deseamos.&lt;/p&gt;
+&lt;p&gt;Normalmente cuando descargamos archivos grandes, como por ejemplo la ISO
+de un sistema, en la propia página nos proporcionan el MD5 que debería
+tener el archivo correcto. Si nuestro MD5 no coincide, esque algo falla
+y deberemos descargarlo otra vez.&lt;/p&gt;
+&lt;p&gt;Para acceder a HashTab, es muy sencillo:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Botón derecho sobre el archivo-&amp;gt;Propiedades-&amp;gt; Pestaña Hash de Archivos&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;374&amp;quot;
+caption=&amp;quot;HashTab&amp;quot;]&lt;img alt="HashTab" src="http://farm3.static.flickr.com/2428/4038881135_01ffcd0e10_o.jpg" /&gt;[/caption]&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</summary><category term="comprobar"></category><category term="crc32"></category><category term="hash"></category><category term="hashtab"></category><category term="md5"></category><category term="sha-1"></category></entry><entry><title>Cambiar ubicación de las carpetas personales en Windows 7</title><link href="/cambiar-ubicacion-de-las-carpetas-personales-en-windows-7.html" rel="alternate"></link><updated>2009-09-28T15:46:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-09-28:cambiar-ubicacion-de-las-carpetas-personales-en-windows-7.html</id><summary type="html">&lt;p&gt;Cuando Windows muere y sólo se tiene una partición, la mayoría de los
+usuarios pierden sus datos importantes como fotografías de viajes,
+música, etc.&lt;/p&gt;
+&lt;p&gt;¿Solución?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Crear particiones&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Yo tengo creadas diferentes particiones. Recientemente cambié Windows XP
+por Windows 7 y no perdí nada. Ni música, ni películas ni juegos.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Diferentes particiones" src="http://farm4.static.flickr.com/3495/3961918347_6decb9eba7_o.jpg" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Para cambiar nuestra carpeta Mis Documentos de ubicación, y por ejemplo
+ponerla en la partición E: es tan simple como:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Carpetas personales" src="http://farm4.static.flickr.com/3501/3962694102_0caea7d466_o.jpg" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Hacer clic con el botón derecho sobre cualquier carpeta personal, ya sea
+Mis documentos o Mis imágenes.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Pestaña ubicación" src="http://farm3.static.flickr.com/2660/3962694246_3f80f2c9ae_o.jpg" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Clic en propiedades y después en la pestaña ubicación y en el campo de
+texto seleccionamos nuestra nueva ruta para la carpeta y listo!&lt;/p&gt;
+&lt;p&gt;Así de fácil es proteger un poco más nuestros datos a fallos del sistema
+o cualquier otro desperfecto.&lt;/p&gt;
+</summary><category term="cambiar"></category><category term="carpetas"></category><category term="personales"></category><category term="ubicaciones"></category></entry><entry><title>Cerrar rápidamente programas que no responden</title><link href="/cerrar-rapidamente-programas-que-no-responden.html" rel="alternate"></link><updated>2009-07-28T01:27:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-07-28:cerrar-rapidamente-programas-que-no-responden.html</id><summary type="html">&lt;p&gt;En Unix tenemos el comando kill que es muy rápido y efectivo. Sin
+embargo en Windows, es un engorro tener que abrir el Administrador de
+tareas, buscar el programa y finalizarlo.&lt;/p&gt;
+&lt;p&gt;Hay una solución aún más rápida:&lt;/p&gt;
+&lt;p&gt;En un bloc de notas escribimos &lt;strong&gt;taskkill /im programa&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Donde &lt;em&gt;programa&lt;/em&gt; es el nombre el programa que no responde. Una vez hecho
+lo guardamos como un &lt;em&gt;.bat&lt;/em&gt;. Para hacerlo más genérico podemos poner
+&lt;strong&gt;taskkill.exe /f /fi &amp;quot;status eq not responding&amp;quot;&lt;/strong&gt; que directamente
+cerrará aquellos programas que no estén respondiendo.&lt;/p&gt;
+</summary><category term="cerrar"></category><category term="programas"></category><category term="rapidamente"></category></entry><entry><title>Videotutorial creacion de usuarios y grupos + asignar permisos</title><link href="/videotutorial-creacion-de-usuarios-y-grupos-asignar-permisos.html" rel="alternate"></link><updated>2009-04-09T09:54:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-04-09:videotutorial-creacion-de-usuarios-y-grupos-asignar-permisos.html</id><summary type="html">&lt;p&gt;En el siguiente videotutorial aprenderemos a crear usuarios y grupos y a
+asignar determinados privilegios sobre una carpeta cualquiera.&lt;/p&gt;
+&lt;p&gt;[youtube=http://www.youtube.com/watch?v=j_fjYQJljFk&amp;amp;hl=es&amp;amp;fs=1]&lt;/p&gt;
+</summary><category term="asignar"></category><category term="grupos"></category><category term="permisos"></category><category term="usuarios"></category><category term="Windows"></category></entry></feed>

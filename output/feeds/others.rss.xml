@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/others.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 16 Dec 2009 14:38:00 +0100</lastBuildDate><item><title>Arquitectura del microprocesador: Buses (IV)</title><link>/arquitectura-del-microprocesador-buses-iv.html</link><description>&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/11/16/arquitectura-microprocesador-la-unidad-de-control/"&gt;Arquitectura del microprocesador: La unidad de control&lt;/a&gt; (I)&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/11/18/arquitectura-del-microprocesador-unidad-aritmetico-logica/"&gt;Arquitectura del microprocesador: Unidad aritmético-lógica&lt;/a&gt; (II)&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/11/23/arquitectura-del-microprocesador-el-banco-de-registros/"&gt;Arquitectura del microprocesador: El banco de registros (III)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Arquitectura del microprocesador: Buses (IV)&lt;/p&gt;
+&lt;p&gt;Para construir un sistema informático, ya sea un ordenador o cualquier
+otro tipo de equipo, además del microprocesador se precisan otros
+elementos de apoyo que faciliten el almacenamiento temporal de la
+información y la comunicación con el exterior.&lt;/p&gt;
+&lt;p&gt;El bus de datos está formado por una serie de líneas, físicamente salen
+del microprocesador en forma de patillas/pines que se conectan sobre un
+zócalo en una laca de circuito impreso, por las que se transmiten en
+paralelo un número determinado de bits, tantos como líneas existan. Al
+número de esas líneas a lo que se denomina ancho del bus que, por regla
+general, coincide con la capacidad del acumulador y una parte de los
+registros de propósito general. El bus de datos es bidireccional, de
+forma que permite tanto enviar datos desde el microprocesador hacia el
+exterior como a la inversa.&lt;/p&gt;
+&lt;p&gt;Mediante el bus de direcciones el microprocesador selecciona la posición
+de memoria en la que va a escribirse o de la que se quiere leer. También
+sirve para seleccionar dispositivos de E/S en caso de que éstos tengan
+asociado un espacio de entrada/salida en la memoria. A diferencia del
+bus de datos, el de direcciones es unidireccional. El número de líneas
+que lo forman determina el ancho del bus de direcciones que, a su vez,
+fijará el número máximo de direcciones que es posible componer y, en
+consecuencia, el límite de memoria al que puede accederse de manera
+directa.&lt;/p&gt;
+&lt;p&gt;Tanto el bus de datos como el de direcciones tienen una estructura
+homogénea, en el sentido de que sus líneas contribuyen por igual, con un
+bit, a generar el dato o la dirección que va a transferirse ocupando el
+bus completo. El bus de control, por el contrario, es heterogéneo y las
+líneas que lo forman tienen cada una un fin distinto, por lo que
+raramente se utilizan de manera simultánea. Algunas de dichas lineas son
+solamente de salida, otras únicamente de entrada y en raras ocasiones de
+entrada/salida.&lt;/p&gt;
+&lt;p&gt;A través de las líneas del bus de control el microprocesador comunicará
+al sistema si la dirección que está colocando en el bus de direcciones
+ha de ser enviada a la memoria o a un dispositivo de E/S o si lo que se
+quiere es efectuar una lectura o escritura.&lt;/p&gt;
+&lt;p&gt;Los dispositivos externos emplearán una cierta línea de este bus para
+comunicar al microprocesador que necesitan su atención, provocando una
+interrupción que, por ejemplo, recoja la última pulsación del teclado.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Wed, 16 Dec 2009 14:38:00 +0100</pubDate><guid>tag:,2009-12-16:arquitectura-del-microprocesador-buses-iv.html</guid><category>arquitectura</category><category>buses</category><category>microprocesador</category></item><item><title>Arquitectura del microprocesador: El banco de registros. (III)</title><link>/arquitectura-del-microprocesador-el-banco-de-registros.html</link><description>&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/11/16/arquitectura-microprocesador-la-unidad-de-control/"&gt;Arquitectura del microprocesador: La unidad de control&lt;/a&gt; (I)&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/11/18/arquitectura-del-microprocesador-unidad-aritmetico-logica/"&gt;Arquitectura del microprocesador: Unidad aritmético-lógica&lt;/a&gt; (II)&lt;/p&gt;
+&lt;p&gt;Arquitectura del microprocesador: El banco de registros (III)&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/12/16/arquitectura-del-microprocesador-buses-iv/"&gt;Arquitectura del microprocesador: Buses (IV)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Tradicionalmente el banco de registros se ha divido en dos grupos: los
+registros de propósito general y los que tienen una función específica.
+Al primer grupo pertenecen aquellos que el programador puede usar
+libremente para almacenar temporalmente datos, mientras que los segundos
+se utilizan de manera indirecta. Los registros con función específica
+más usuales son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Contador de programa:&lt;/strong&gt;Contiene la dirección de la memoria donde
+está alojada la siguiente instrucción a ejecutar. Actúa, por tanto,
+como un puntero y, de hecho en algunos microprocesadores se denomina
+puntero de instrucción. Es la unidad de control la que utiliza este
+registro para recuperar las instrucciones del programa, incrementando
+su contenido a medida que se avanza en la ejecución o modificándolo
+cuando se encuentra una instrucción de salto.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Puntero de pila:&lt;/strong&gt;En ocasiones es necesario guardar temporalmente
+el contador de programa, por ejemplo al saltar a una subrutina o
+cuando el microprocesador debe atender una interrupción externa, con
+la intención de recuperarlo posteriormente. Los primeros
+microprocesadores contaban con una pila interna, en el propio
+circuito integrado, que tenía una capacidad limitada y solía permitir
+5 u 8 niveles como máximo. Actualmente la pila se almacena en memoria
+principal, externa al microprocesador de forma que éste lo único que
+necesita es conocer la dirección donde está el tope o parte alta de
+la pila. Almacenar dicha dirección es el objetivo del registro del
+puntero de pila.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Acumulador:&lt;/strong&gt;Puede ser utilizado como registro de propósito
+general en muchas situaciones, pero en otras adquiere el papel de
+registro específico al ser el destinatario de diferentes operaciones
+aritméticas, lógicas o de entrada/salida.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Estado:&lt;/strong&gt;Su denominación cambia según el tipo de diseño y
+fabricante, pero su finalidad es siempre la misma: mantener una serie
+de bits indicando el estado en que se encuentra el microprocesador.
+Ese estado proviene normalmente de la ejecución de la última
+instrucción, pudiendo influir en cómo se ejecutarían las posteriores.
+También es posible que ciertos bits modifiquen el modo de
+funcionamiento del procesador, de forma general o ante determinadas
+instrucciones.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Otros registros:&lt;/strong&gt;Si bien los cuatro citados pueden considerarse
+los más importantes, todos los microprocesadores disponen además de
+otros registros de uso específico, ocultos en su mayor parte que
+emplean para almacenar el código de la instrucción que está
+ejecutándose, contener temporalmente datos procedentes de memoria que
+van a intervenir en un cálculo, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En un principio los microprocesadores contaban sólo con registros de 8 o
+16 bits pensados para operar con aritmética entera, pero en la
+actualidad el tamaño ha crecido hasta los 32, 64 e incluso 80 bits,
+contemplándose tanto la aritmética entera como la de punto flotante.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Mon, 23 Nov 2009 11:42:00 +0100</pubDate><guid>tag:,2009-11-23:arquitectura-del-microprocesador-el-banco-de-registros.html</guid><category>arquitectura</category><category>banco</category><category>microprocesador</category><category>registros</category></item><item><title>Arquitectura del microprocesador: Unidad aritmético-lógica (II)</title><link>/arquitectura-del-microprocesador-unidad-aritmetico-logica.html</link><description>&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/11/16/arquitectura-microprocesador-la-unidad-de-control/"&gt;Arquitectura del microprocesador: La unidad de control&lt;/a&gt; (I)&lt;/p&gt;
+&lt;p&gt;Arquitectura del microprocesador: Unidad aritmético-lógica (II)&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/11/23/arquitectura-del-microprocesador-el-banco-de-registros/"&gt;Arquitectura del microprocesador: El banco de registros&lt;/a&gt; (III)&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/12/16/arquitectura-del-microprocesador-buses-iv/"&gt;Arquitectura del microprocesador: Buses (IV)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Conocida también como ALU (Arithmetic Logic Unit), podría decirse que es
+la calculadora interna del microprocesador, con capacidad para realizar
+operaciones aritméticas pero también de tipo lógico.&lt;/p&gt;
+&lt;p&gt;Las operaciones aritmético-lógicas que puede ejecutar por sí mismo un
+procesador dependerán del diseño de la ALU. Los x86 hasta el 80386, por
+ejemplo, contaban con una ALU que ofrecía únicamente operaciones con
+aritmética entera y solamente se contemplaban las cuatro operaciones
+aritméticas básicas. Las aplicaciones que requerían trabajar con coma
+flotante, y realizar operaciones más complejas, tenían que hacerlo por
+software, lo cual era lento, o bien requerir que el sistema contase con
+un coprocesador matemático.&lt;/p&gt;
+&lt;p&gt;En la actualidad los microprocesadores disponen de una ALU preparada
+para operara con aritmética entera y de punto flotante, ejecutando por
+hardware operaciones complejas que, de ser implementadas mediante
+software, requerirían mucho más tiempo.&lt;/p&gt;
+&lt;p&gt;La ALU cuenta con dos entradas, asumiéndose que una de ellas siempre es
+el acumulador y que la otra, procedente de cualquier otro registro o e
+la memoria, está en un registro temporal. La única salida, en la parte
+superior, se dirige al acumulador. En el funcionamiento de la ALU
+también interviene el contenido del registro de estado, si bien éste no
+actúa como un tercer operando sino como un agente externo que puede
+influir en la operación que realice la ALU. Dicha operación vendrá
+dictada por la unidad de control que, a través del bus interno, controla
+también el funcionamiento de la ALU.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Wed, 18 Nov 2009 10:37:00 +0100</pubDate><guid>tag:,2009-11-18:arquitectura-del-microprocesador-unidad-aritmetico-logica.html</guid><category>alu</category><category>aritmético</category><category>arquitectura</category><category>lógica</category><category>microprocesador</category><category>unidad</category></item><item><title>Arquitectura microprocesador: La unidad de control (I)</title><link>/arquitectura-microprocesador-la-unidad-de-control.html</link><description>&lt;div id="_mcePaste"&gt;&lt;p&gt;[caption id=&amp;quot;attachment_271&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;300&amp;quot;
+caption=&amp;quot;Arquitectura Microprocesador&amp;quot;]&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;`|arquitectura
+microprocesador|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Arquitectura del microprocesador: La unidad de control (I)&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/11/18/arquitectura-del-microprocesador-unidad-aritmetico-logica/"&gt;Arquitectura del microprocesador: Unidad aritmético-lógica&lt;/a&gt; (II)&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/11/23/arquitectura-del-microprocesador-el-banco-de-registros/"&gt;Arquitectura del microprocesador: El banco de registros&lt;/a&gt; (III)&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://mortuux.wordpress.com/2009/12/16/arquitectura-del-microprocesador-buses-iv/"&gt;Arquitectura del microprocesador: Buses (IV)&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;div&gt;&lt;p&gt;Un microprocesador es un circuito integrado formado por millones de
+componentes lógicos que es necesario coordinar para que cada uno realice
+su trabajo en el momento que se espera, tarea que recae fundamentalmente
+en la conocida CU (Control Unit) o unidad de control.&lt;/p&gt;
+&lt;/div&gt;&lt;div id="_mcePaste"&gt;&lt;p&gt;Es tarea de la CU emitir las señales necesarias para que la siguiente
+instrucción de un programa, cuya localización &amp;nbsp;en memoria indica un
+registro específico al que suele llamarse &amp;quot;contador de programa&amp;quot; o
+&amp;quot;puntero de instrucción&amp;quot;, sea transferida hasta el interior del
+microprocesador (fase de captación). A continuación esa instrucción se
+analiza y se preparan los operandos que precise (fase de
+descodificación) para a continuación ejecutarla (fase de ejecución) y
+generar los resultados que correspondan (fases de escritura en memoria y
+registros).&lt;/p&gt;
+&lt;/div&gt;&lt;div id="_mcePaste"&gt;&lt;p&gt;A través de un bus interno la unidad de control se comnica con el resto
+de elementos del microprocesador, estableciendo por ejemplo los
+registros que han de utilizarse como operandos en un cálculo o fijando
+la operación que debe llevar acabo la ALU sobre dichos operandos.&lt;/p&gt;
+&lt;/div&gt;&lt;div&gt;&lt;p&gt;Un microprocesador es un circuito integrado formado por millones de
+componentes lógicos que es necesario coordinar para que cada uno realice
+su trabajo en el momento que se espera, tarea que recae fundamentalmente
+en la conocida CU (Control Unit)o unidad de control.Es tarea de la CU
+emitir las señales necesarias para que la siguiente instrucción de un
+programa, cuya localización &amp;nbsp;en memoria indica un registro específico al
+que suele llamarse &amp;quot;contador de programa&amp;quot; o &amp;quot;puntero de instrucción&amp;quot;,
+sea transferida hasta el interior del microprocesador (fase de
+captación). A continuación esa instrucción se analiza y se preparan los
+operandos que precise (fase de descodificación) para a continuación
+ejecutarla (fase de ejecución) y generar los resultados que correspondan
+(fases de escritura en memoria y registros).A través de un bus interno
+la unidad de control se comnica con el resto de elementos del
+microprocesador, estableciendo por ejemplo los registros que han de
+utilizarse como operandos en un cálculo o fijando la operación que debe
+llevar acabo la ALU sobre dichos operandos.&lt;/p&gt;
+&lt;/div&gt;&lt;!-- |arquitectura --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arquitectura-microprocesador-la-unidad-de-control.rst&lt;/tt&gt;, line 103)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arquitectura-microprocesador-la-unidad-de-control.rst&lt;/tt&gt;, line 104)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;microprocesador| image:: &lt;a class="reference external" href="http://mortuux.files.wordpress.com/2009/11/arquitectura-microprocesador.png?w=300"&gt;http://mortuux.files.wordpress.com/2009/11/arquitectura-microprocesador.png?w=300&lt;/a&gt;
+.. &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|image1|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://mortuux.files.wordpress.com/2009/11/arquitectura-microprocesador.png?w=300"&gt;http://mortuux.files.wordpress.com/2009/11/arquitectura-microprocesador.png?w=300&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arquitectura-microprocesador-la-unidad-de-control.rst&lt;/tt&gt;, line 104); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image1&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arquitectura-microprocesador-la-unidad-de-control.rst&lt;/tt&gt;, line 13); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|arquitectura microprocesador|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Mon, 16 Nov 2009 17:17:00 +0100</pubDate><guid>tag:,2009-11-16:arquitectura-microprocesador-la-unidad-de-control.html</guid><category>arquitectura</category><category>control</category><category>microprocesador</category><category>unidad</category></item><item><title>Conceptos básicos sobre criptografía</title><link>/conceptos-basicos-sobre-criptografia.html</link><description>&lt;p&gt;Según el Diccionario de la Real Academia, la palabra criptografía
+significa: &lt;em&gt;&amp;quot;Arte de escribir con clave secreta o de un modo
+enigmático&amp;quot;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Existen dos documentos fundamentales, uno escrito por Claude Shannon en
+1948 (&amp;quot;&lt;em&gt;A Mathematical Theory of Communication&lt;/em&gt;&amp;quot;), en el que se
+sentaban las bases de la Teoría de la Información, y que junto con otro
+artículo posterior del mismo autor, sirvió de base para la criptografía
+moderna. El otro trabajo, publicado por Whitfield Diffie en 1975,
+introducía el concepto de criptografía de llave pública, abriendo
+enormemente el abanico de aplicación de esta disciplina.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Criptosistema&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Definiremos criptosistema como una quíntupla (M, C, K, E, D), donde:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;M&lt;/strong&gt;representa el conjunto de todos los mensajes sin cifrar que
+pueden ser enviados.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt;representa el conjunto de todos&amp;nbsp; los posibles mensajes
+cifrados , o criptogramas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;K&lt;/strong&gt;representa el conjunto de claves que se pueden emplear en el
+criptosistema.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;E&lt;/strong&gt;es el conjunto de transformaciones de cifrado&amp;nbsp; o familia de
+funciones que se aplica a cada elemento M para obtener un elemento de
+C. Existe una transformación diferente E&lt;sub&gt;k&lt;/sub&gt; para cada valor
+posible de la k&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;D&lt;/strong&gt; es el conjunto de transformaciones de descifrado, análogo a E.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Todo criptosistema ha de cumplir la siguiente condición:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;D:sub:`k`(E:sub:`k`(m)) = m&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Es decir, si tenemos un mensaje m, lo ciframos empleando la clave k y
+luego lo desciframos empleando la misma clave, obtenemos de nuevo el
+mensaje original m.&lt;/p&gt;
+&lt;p&gt;Existen dos tipos fundamentales de criptosistemas:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Criptosistemas simétricos o de clave privada.&lt;/strong&gt;Son aquellos que
+emplean la misma clave k tanto para cifrar como para descifrar.
+Presentan el inconveniente de que para ser&amp;nbsp; empleados en canales de
+transmisión la clave k debe estar tanto en el emisor como en el
+receptor, lo cual nos lleva a como transmitir la clave de forma
+segura.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Criptosistemas asimétricos o de clave pública,&lt;/strong&gt;que emplean una
+doble clave (K:sub:&lt;cite&gt;p&lt;/cite&gt;,K&lt;sub&gt;p1&lt;/sub&gt;) siendo la primera la clave
+privada y la segunda la clave pública. Una de ellas sirve para la
+transformación E de cifrado y la otra para la transformación D de
+descifrado. Estos criptosistemas deben cumplir además que el
+conocimiento de la clave pública no permita calcular la clave
+privada.&lt;/li&gt;
+&lt;/ul&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Sun, 09 Aug 2009 23:42:00 +0200</pubDate><guid>tag:,2009-08-09:conceptos-basicos-sobre-criptografia.html</guid><category>basica</category><category>criptografia</category></item><item><title>Fondos de Escritorio</title><link>/fondos-de-escritorio.html</link><description>&lt;dl class="docutils"&gt;
+&lt;dt&gt;Aquí os dejo algunos fondos de escritorio:&lt;/dt&gt;
+&lt;dd&gt;&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;`|51958-Blue-Fryze|`_&lt;/span&gt;&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;`|61428-waterfire|`_&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;`|71793-firefox\_nebula\_1920\_1200|`_&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;`|86769-Breakthrough01|`_&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/fondos-de-escritorio.rst&lt;/tt&gt;, line 10); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|51958-blue-fryze|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/fondos-de-escritorio.rst&lt;/tt&gt;, line 12); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|61428-waterfire|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/fondos-de-escritorio.rst&lt;/tt&gt;, line 14); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|71793-firefox_nebula_1920_1200|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/fondos-de-escritorio.rst&lt;/tt&gt;, line 16); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|86769-breakthrough01|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Thu, 09 Jul 2009 12:19:00 +0200</pubDate><guid>tag:,2009-07-09:fondos-de-escritorio.html</guid><category>escritorio</category><category>fondos</category></item><item><title>Ha fallecido un grande.</title><link>/ha-fallecido-un-grande.html</link><description>&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignleft&amp;quot; width=&amp;quot;450&amp;quot; caption=&amp;quot;David
+Carradine&amp;quot;]&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|David Carradine|&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Ha fallecido John Arthur Carradine, más como David Carradine.&lt;/p&gt;
+&lt;p&gt;Fue famoso por su serie de televisión Kung Fu.&lt;/p&gt;
+&lt;p&gt;De entre sus últimas interpretaciones en la gran pantalla cabe destacar
+su papel de Bill en la película de Quentin Tarantino Kill Bill, actuando
+junto a Uma Thuman . Además fue parte de una serie de &amp;quot;fantasmas&amp;quot; en la
+que famosos ingresaban a distintos lugares donde se encontraban con
+espiritus, y David, era parte guía y persona de experiencia para ello
+llamado &amp;quot;Celebrity Paranormal Project&amp;quot; en el canal VH1. También actuará
+en la segunda temporada de Tiempo Final, serie latinoamericana
+trasmitida por el canal Fox.&lt;/p&gt;
+&lt;p&gt;En 2009 se estrenó la película &amp;quot;Big Stan&amp;quot; (&amp;quot;El gran Stan&amp;quot; en España, &amp;quot;A
+prueba de hombres&amp;quot; en Hispanoamérica), en la que David hace el papel de
+cruel maestro de artes marciales del protagonista, recordando a su étapa
+en la serie Kung Fu.&lt;/p&gt;
+&lt;p&gt;Carradine fue hallado muerto en la habitación de su hotel en Bangkok,
+los medios especulaban en un principio que fue hallado ahorcado, pero
+más tarde su agente desmintió esto contando que su muerte se produjo por
+causas naturales.&lt;/p&gt;
+&lt;p&gt;D.E.P David Carradine (1936-2009)&lt;/p&gt;
+&lt;p&gt;EDIT de última hora:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;attachment_36&amp;quot; align=&amp;quot;alignright&amp;quot; width=&amp;quot;220&amp;quot;
+caption=&amp;quot;Shih Kien&amp;quot;]&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;|Shih Kien|&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Leyendo &lt;a class="reference external" href="http://www.pitodoble.com/"&gt;El pito doble&lt;/a&gt; me encuentro con que también ha fallecido Shih
+Kien, un acto de origen chino, que aunque no sea conocido su nombre,
+seguro que todos le hemos visto alguna película de artes marciales.
+Trabajó por ejemplo con Bruce Lee en Operación Dragón y con Jackie Chan
+en The Young Master.&lt;/p&gt;
+&lt;p&gt;D.E.P Shih Kien (1 de Enero 1913 - 3 de Junio 2009)&lt;/p&gt;
+&lt;p&gt;Fuente | &lt;a class="reference external" href="http://es.wikipedia.org/wiki/David_Carradine"&gt;Wikipedia&lt;/a&gt;, &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Shek_Kin"&gt;Wikipedia(EN)&lt;/a&gt;&lt;/p&gt;
+&lt;!-- |David --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/ha-fallecido-un-grande.rst&lt;/tt&gt;, line 56)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/ha-fallecido-un-grande.rst&lt;/tt&gt;, line 57)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;Carradine| image:: &lt;a class="reference external" href="http://www.sptimes.com/2004/04/20/images/xlarge/FLO_1_td20cardn_LA301_0420.jpg"&gt;http://www.sptimes.com/2004/04/20/images/xlarge/FLO_1_td20cardn_LA301_0420.jpg&lt;/a&gt;
+.. &lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;|Shih
+Kien|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://mortuux.files.wordpress.com/2009/06/220px-shihkienwuxia.jpg"&gt;http://mortuux.files.wordpress.com/2009/06/220px-shihkienwuxia.jpg&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/ha-fallecido-un-grande.rst&lt;/tt&gt;, line 9); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;David Carradine&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/ha-fallecido-un-grande.rst&lt;/tt&gt;, line 39); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Shih Kien&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/ha-fallecido-un-grande.rst&lt;/tt&gt;, line 57); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Shih Kien&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Thu, 04 Jun 2009 22:32:00 +0200</pubDate><guid>tag:,2009-06-04:ha-fallecido-un-grande.html</guid><category>carradine</category><category>david</category><category>fallecido</category><category>kien</category><category>shih</category></item></channel></rss>

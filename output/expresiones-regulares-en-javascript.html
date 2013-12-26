@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="expresiones, JavaScript, regulares">
+
+  <title>
+Expresiones regulares en JavaScript  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Thu 03 September 2009</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/expresiones-regulares-en-javascript.html">Expresiones regulares en JavaScript</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Una expresión regular es una cadena de caracteres que nos permitirá
+buscar coincidencias dentro de un texto o comprobar que una cadena tiene
+un formato concreto. En JavaScript se identifican colocando <em>&quot;/&quot;</em>al
+principio y al final de la cadena.</p>
+<p>Consiste en escribir un conjunto de caracteres &nbsp;para después encontrar
+coincidencias con él. Por ejemplo en la frase <em>&quot;el volante del coche&quot;</em>
+si nuestro patrón es <em>/el/</em>obtendríamos que las palabras &quot;el y &quot;del&quot;
+lo cumplen.</p>
+<p>Para hacer más útiles los patrones, hay una serie de estructuras y
+caracteres especiales:</p>
+<p><strong>Caracteres de repetición</strong></p>
+<ul class="simple">
+<li><strong>Asterisco(*):</strong>El caracter que le precede aparecerá cero o más
+veces.</li>
+<li><strong>Más(+):</strong>El caracter que le precede aparecerá una o más veces.</li>
+<li><strong>Interrogación(?):</strong>Igual que las opciones anteriores, pero el
+caracter puede aparecer ninguna o una vez.</li>
+<li><strong>{n}:</strong>Siendo <strong>n</strong> un número entero positivo, indicamos que el
+caracter se debe repetir al menos n veces.</li>
+<li><strong>{n,}:</strong>Similar al anterior, pero esta vez indicamos que al menos
+se debe repetir n veces.</li>
+<li><strong>{n, m}:</strong>El caracter debe repetirse entre n y m veces.</li>
+</ul>
+<p><strong>Caracteres especiales</strong></p>
+<ul class="simple">
+<li><strong>Punto(.):</strong>Coincidirá con cualquier caracter simple excepto el
+salto de línea.</li>
+<li><strong>n :</strong>Salto de línea.</li>
+<li><strong>r :</strong>Retorno de carro.</li>
+<li><strong>t :</strong>Caracter de tabulado.</li>
+<li><strong>v :</strong> Tabulado vertical.</li>
+<li><strong>f :</strong>Avance de página.</li>
+<li><strong>uxxxx :</strong>Caracter unicode.</li>
+<li><strong>b :</strong>Coincide con un separador de palabras.</li>
+<li><strong>B :</strong>Coincide con un caracter que no sea separador de palabras.</li>
+<li><strong>d :</strong>Dígito entre cero y nueve.</li>
+<li><strong>D :</strong>Caracter que no sea un dígito.</li>
+<li><strong>s :</strong>Coincide con un único caracter de separación.</li>
+<li><strong>S :</strong>Coincide con un único caracter que no sea de separación.</li>
+<li><strong>w :</strong>Coincide con cualquier caracter alfanumérico (De la &quot;a&quot; a la
+&quot;z&quot; en máyusculas y minúsculas, números del cero al nueve) o el
+subrayado.</li>
+<li><strong>W:</strong>Coincide con cualquier caracter no alfanumérico ni subrayado.</li>
+</ul>
+<p><strong>Agrupaciones de valores</strong></p>
+<ul class="simple">
+<li><strong>[xxx]:</strong>Coincide con los caracteres entre corchetes. También se
+puede especificar un rango <em>contiguo</em>de caracteres: [0-6] que esto
+equivale a [0123456].</li>
+<li><strong>[^xxx]:</strong>El acento circunflejo indica que coincidirán cualquier
+caracter salvo los especificados en los corchetes.</li>
+<li><strong>Barra vertical ( x | y ):</strong>O una cosa o la otra. Por ejemplo:
+/<em>cara|cruz/, /perr[o|a]/</em></li>
+</ul>
+<p><strong>Modificadores</strong></p>
+<p>Los modificadores se colocan detras de la última barra, por ejemplo:
+<em>/hola/g</em>.</p>
+<ul class="simple">
+<li><strong>g :</strong>Fuerza a que se sigan buscando coincidencias después de
+encontrar la primera</li>
+<li><strong>i :</strong>Elimina distinción entre mayúsculas y minúsculas.</li>
+<li><strong>x :</strong>Fuerza que los espacios escritos sean ignorados.</li>
+</ul>
+<p><strong>Ejemplos útiles</strong></p>
+<ol class="arabic simple">
+<li>/d{9}/ -&gt; Número teléfono</li>
+<li>/d{8}[a-zA-Z]/ -&gt; Número DNI</li>
+<li>/d{2}-d{2}-d{4} -&gt; Fecha DD/MM/AAAA</li>
+<li><a class="reference external" href="mailto:/w+&#64;w+.w{2">/w+&#64;w+.w{2</a>,3}/ -&gt; Dirección correo electrónico.</li>
+</ol>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/javascript-programming.html">JavaScript, Programming</a></p>
+    <p>Tags:
+      <a href="/tag/expresiones.html">expresiones</a>,      <a href="/tag/javascript.html">JavaScript</a>,      <a href="/tag/regulares.html">regulares</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "expresiones-regulares-en-javascript.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

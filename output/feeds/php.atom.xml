@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/php.atom.xml" rel="self"></link><id>/</id><updated>2011-07-12T12:38:00+02:00</updated><entry><title>PHP Deprecated: Comments starting with '#' are deprecated</title><link href="/php-deprecated-comments-starting-with-are-deprecated.html" rel="alternate"></link><updated>2011-07-12T12:38:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2011-07-12:php-deprecated-comments-starting-with-are-deprecated.html</id><summary type="html">&lt;p&gt;Si estáis tratando de ejecutar algún script php desde la terminal de
+linux o crontab, y os sale algún error como este:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+PHP Deprecated:  Comments starting with '#' are deprecated in /etc/php5/cli/conf.d/ming.ini on line 1 in Unknown on line 0
+&lt;/pre&gt;
+&lt;p&gt;Debemos ir al archivo o archivos (en algunos foros los usuarios
+comentaban que podían ser varios) y hacer los siguientes cambios:&lt;/p&gt;
+&lt;p&gt;Contenido de ming.ini inicial:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# configuration for php MING module
+extension=ming.so
+&lt;/pre&gt;
+&lt;p&gt;Como vemos, el comentario se hace con &amp;quot;#&amp;quot;, lo que ya está en desuso,
+pues la solución es tan simple como cambiar '#' por '//' que es como se
+hacen los comentarios en php.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+//configuration for php MING module
+extension=ming.so
+&lt;/pre&gt;
+&lt;p&gt;Una vez hecho esto, debería funcionar correctamente.&lt;/p&gt;
+</summary><category term="#"></category><category term="/etc/php5/cli/conf.d/ming.ini"></category><category term="are"></category><category term="arreglar"></category><category term="comments"></category><category term="configuration"></category><category term="deprecated"></category><category term="error"></category><category term="fixear"></category><category term="help. ayuda"></category><category term="in"></category><category term="line"></category><category term="ming"></category><category term="on"></category><category term="php"></category><category term="php5"></category><category term="solventar"></category><category term="starting"></category><category term="unknown"></category><category term="warning"></category><category term="with"></category></entry></feed>

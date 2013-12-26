@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+
+  <title>
+Author: aesptux  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Author: aesptux</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/cambiar-el-sistema-operativo-por-defecto-en-grub2.html">Cambiar el sistema operativo por defecto en GRUB2</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Por defecto arranca siempre el sistema operativo numero 0, es decir el
+primero.</p>
+<p>Si queremos cambiar esto, tenemos que editar el fichero
+<strong>/etc/default/grub.</strong>En este archivo encontraremos una línea que
+pondrá:</p>
+<blockquote>
+GRUB_DEFAULT=0</blockquote>
+<p>Pues simplemente cambiamos ese número por la entrada que queramos,
+teniendo en cuenta que el ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/mover-home-a-su-propia-particion.html">Mover /home a su propia partición.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Crear una partición para /home desde la instalación es bastante
+sencillo, pero ¿Y si queremos hacerlo cuando ya tenemos instalado todo
+el sistema en una sola partición?</p>
+<p>El siguiente método sirve tanto para /home como para cualquier otra
+partición que queramos hacer (con sus respectivos cambios, por
+supuesto). Es algo ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/nuevo-script-para-realizar-backups.html">Nuevo script para realizar backups</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Ayer estuve escribiendo un nuevo script para realizar los backups en mi
+sistema, ya que mis necesidades han cambiado.</p>
+<p>El script está adaptado a mi sistema y como digo, mis necesidades, pero
+quizás os pueda servir a vosotros.</p>
+<pre class="literal-block">
+#!/bin/bash
+#    Backup for my system.
+#    Copyright (C) &lt;2011&gt;  &lt;Adrian 'aesptux' Espinosa ...</pre>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/encontrar-fallos-e-inconsistencias-en-los-ficheros-passwd-y-shadow.html">Encontrar fallos e inconsistencias en los ficheros passwd y shadow</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Con el comando <strong>pwck</strong>podremos verificar que la información existente
+en <strong>/etc/passwd</strong>y en <strong>/etc/shadow</strong>&nbsp;es <strong>correcta.</strong>&nbsp;Para poder
+ejecutarlo debemos ser root.</p>
+<p>Este comando verifica la integridad de los usuarios y la información de
+autenticación. Comprueba que todas las entradas en /etc/passwd y
+/etc/shadow tengan ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/comenzando-con-git-primeros-pasos.html">Comenzando con Git. Primeros pasos</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Lo primero será registrarnos en <a class="reference external" href="http://www.github.com">http://www.github.com</a>&nbsp;y una vez
+tengamos la cuenta, procedemos a instalarlo si no lo tenemos instalado.</p>
+<blockquote>
+$ sudo apt-get install git</blockquote>
+<p>Ahora tenemos que generar nuestra clave SSH (antes tenemos que tener
+instalado ssh)</p>
+<blockquote>
+$ ssh-keygen -t rsa -C &quot;<a class="reference external" href="mailto:nuestroemail&#64;email.com">nuestroemail&#64;email.com</a>&quot;</blockquote>
+<p>Introducimos la passphrase ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/condiciones-en-php.html">Condiciones en PHP.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Una condición es básicamente una decisión, resultado de una condición
+específica. Por ejemplo:</p>
+<pre class="literal-block">
+&lt;?php
+    $edad = 16;
+    print &quot;Tu edad es $edad\n&quot;;
+    if ($edad &lt; 18 ) {
+        print &quot;Eres joven, disfruta.\n&quot;;
+    } else {
+        print &quot;No eres menor de 18\n&quot;;
+    }
+
+    if ($edad  &gt;= 18 &amp;&amp; $edad &lt; 50) {
+        print &quot;Estas en la flor de la ...</pre>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/php-deprecated-comments-starting-with-are-deprecated.html">PHP Deprecated:  Comments starting with '#' are deprecated</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Si estáis tratando de ejecutar algún script php desde la terminal de
+linux o crontab, y os sale algún error como este:</p>
+<pre class="literal-block">
+PHP Deprecated:  Comments starting with '#' are deprecated in /etc/php5/cli/conf.d/ming.ini on line 1 in Unknown on line 0
+</pre>
+<p>Debemos ir al archivo o ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/operadores-en-php.html">Operadores en PHP.</a></h3>
+  </div>
+  <div id="article_text">
+    <p><strong>Operadores aritméticos</strong></p>
+<pre class="literal-block">
+// Suma
+$a + $b;
+
+// Resta
+$a - $b;
+
+// Multiplicación
+$a * $b;
+
+// División
+$a / $b;
+
+// Módulo
+$a % $b;
+
+// Sumar y asignar
+// Para sumar $b al valor actual de $a, hariamos
+$a = $a + $b;
+// Pues con este operador podría hacerse así
+$a += $b;
+
+// Restar y asignar
+$a -= $b;
+
+//Multiplicar y asignar
+$a ...</pre>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/componentes-de-un-proceso-en-unixlinux.html">Componentes de un proceso en Unix/Linux.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Un proceso consiste de un espacio de dirección y un conjunto de
+estructuras de datos en el kernel. La dirección es un conjunto de
+páginas de la memoria que el kernel ha marcado para el uso de ese
+proceso. Contiene el código y las librerías que el proceso utiliza, sus ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
+    <h3><a href="/un-poco-mas-sobre-redirecciones-y-pipes.html">Un poco más sobre redirecciones y pipes.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Cada proceso tiene al menos tres canales de comunicación disponibles:</p>
+<ul style="text-align: justify;"><ul class="simple">
+<li>Standard input (STDIN)</li>
+<li>Standard output (STDOUT)</li>
+<li>Standard error (STDERR)</li>
+</ul>
+</ul><div style="text-align: justify;"><p>El kernel establece estos canales en nombre del proceso. Como ya comenté
+en una <a class="reference external" href="http://aesptux.com/2010/05/10/redirecciones-en-linux/">entrada anterior</a>&nbsp;tenemos varios descriptores que identificar a
+cada canal de comunicación:</p>
+</div><ul style="text-align: justify;"><ul class="simple">
+<li>STDIN: 0</li>
+<li>STDOUT: 1</li>
+<li>STDERR ...</li></ul></ul>
+  </div>
+</article>
+
+    <footer>
+<div id="paginator">
+<a href="/author/aesptux5.html" class="button_accent">&larr; Older Posts</a>
+
+<a href="/author/aesptux3.html" class="button_accent">Newer Posts &rarr;</a>
+</div>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

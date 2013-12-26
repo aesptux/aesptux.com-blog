@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="red, topologías">
+
+  <title>
+Topologías de red  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Fri 17 July 2009</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/topologias-de-red.html">Topologías de red</a></h3>
+  </div>
+  <div id="article_text">
+    <p>La <strong>topología</strong> de una red es la propiedad que indica la forma física
+de la red, es decir, el modo en que se disponen los equipos y el sistema
+de cableado&nbsp; que los interconecta para cumplir su función.</p>
+<ul class="simple">
+<li>Topologías en estrella.</li>
+</ul>
+<p>Las estaciones se conectan entre sí a través de un nodo especialmente
+privilegiado que ocupa la posición central de la red, formando con el
+resto de las estaciones una estrella. A este nodo se le denomina
+<strong>estación concentradora de la estrella</strong>.</p>
+<p>La ventaja pricipal de una red en estrella reside en la seguridad. El
+concentrador tiene las funciones tanto de intercomunicador entre
+cualesquiera dos estaciones, como de aislador de los problemas que
+pudieran surgir en cualquiera de los segmentos, de modo que si un
+segmento se deteriora, sólo él se queda sin servicio de red.</p>
+<p>Sin embargo, el problema de la topología en estrella se presenta en el
+entorno del concentrador, ya que todos los segmentos deben terminar en
+él, lo que conlleva una importante madeja de cables.</p>
+<ul class="simple">
+<li>Topología en anillo</li>
+</ul>
+<p>Una red en anillo conecta todos sus equipos en torno a un anillo físico.
+Sin embargo, una rotura en el anillo produce el fallo general de la red.
+Un ejemplo de red en anillo es la red <strong>Token Ring</strong>, que sigue el
+estándar IEEE 802.5.</p>
+<p>Las redes de anillo utilizan protocolos libres de colisiones. Las
+señales recorren el anillo a la velocidad de la luz en el medio de
+transporte y requieren retardadores para evitar que unos bits se
+superpongan a otros, no hay que olvidar que la transmisión en una red en
+anillo, es secuencial, y es posible que cuando una estación quiera poner
+en la red el bit siguiente, todavía no se haya terminado de transmitir
+por el anillo anterior. También son necesarios elementos
+bidireccionalmente selectivos para&nbsp; conseguir que la trasmisión se
+produzca en un sólo sentido en el anillo. Podemos deducir que un anillo
+no es simplemente un bus cerrado por sus extremos, sino que requiere una
+tecnología electrónica avanzada.</p>
+<p>El dispositivo encargado de realizar físicamente el anillo se
+llama<strong>MAU</strong> (Multistation Access Unit), que no es má que un tipo de
+concentrador especializado al que se conectan las estaciones. Este
+hardware tiene una serie de componentes de conmutación que crean un
+nuevo anillo cada vez que sae conecta una nueva estación como segmento
+de la estrella.</p>
+<ul class="simple">
+<li>Topología en bus</li>
+</ul>
+<p>Los puestos&nbsp; de una red en bus se conectan a una única&nbsp; línea de
+transmisión (bus) que recorre la ubicación física de todos los
+ordenadores. Esta red es muy simple en su funcionamiento, pero es muy
+sensible a problemas de tráfico o a las roturas de los cables.</p>
+<p>El medio de transmisión que forma la red es un único bus multiacceso
+compartido por todos los nodos, y se debe establecer una contienda para
+determinar quién tiene derechos de acceso a los recursos de comunicación
+en cada instante. Este sistema de contienda determina el tipo de red. El
+bus tiene una estructura lineal. Con el fin de evitar ecos o reflexiones
+no deseadas que perjudiquen las condiciones eléctricas de transmisión,
+los extremos de este bus deben estar terminados con unos acopladores de
+impedancia eléctrica o terminadores, específicos para el tipo de cable
+que se trate. Son típicos los cables coaxiales RG-58. La ruptura del bus
+impide totalmente la comunicación entre cualesquiera dos nodos de la
+red.</p>
+<ul class="simple">
+<li>Topología en malla</li>
+</ul>
+<p>Se trata de construir una malla de cableado situando los nodos de la red
+en las intersecciones de la malla. De este modo, cada nodo está a
+siempre conectado con líneas punto a punto con cualquier otro nodo
+adyacente.</p>
+<ul class="simple">
+<li>Topología en árbol</li>
+</ul>
+<p>Es una extensión de la topología en bus. Consiste en la conexión de
+distintos buses lineales (ramas) a un nuevo bus troncal del que reparte
+la señal hacia las ramas.</p>
+<ul class="simple">
+<li>Topología de interconexión total</li>
+</ul>
+<p>Consiste en conectar todos los ordenadores, de una red entre sí a través
+de líneas punto a punto.</p>
+<ul class="simple">
+<li>Topologías mixtas</li>
+</ul>
+<p>En este caso, la topología de la red es una mezcla de las topologías
+básicas describidas anteriormente.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/networking-notes.html">Networking, Notes</a></p>
+    <p>Tags:
+      <a href="/tag/red.html">red</a>,      <a href="/tag/topologias.html">topologías</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "topologias-de-red.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

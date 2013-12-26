@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="declaración, JavaScript, variables">
+
+  <title>
+Declaración de variables en JavaScript  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Tue 01 September 2009</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/declaracion-de-variables-en-javascript.html">Declaración de variables en JavaScript</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Para utilizar una variable en nuestro código debe estar indicado en
+alguna parte de éste cuál es su nombre y/o valor. A esto se le conoce
+como declarar una variable.</p>
+<p>En la mayoría de los lenguajes de programación es obligatorio declarar
+cada variable antes de utilizarla en el código mientras que en
+JavaScript se puede hacer sobre la marcha según las vayamos necesitando.
+Hay dos maneras de declarar variables:</p>
+<ol class="arabic simple">
+<li>Declaración explícita: Consiste en usar la sentencia <em>var</em>seguida
+del nombre de la variable. Esta opción es la más recomendada, para
+que el código sea más legible, personalmente la recomiendo.</li>
+<li>Declaración implícita: Es cuando escribimos directamente el nombre de
+la variable. En este caso debe ir acompañada obligatoriamente de un
+valor.</li>
+</ol>
+<p>`` // declaración explícita var nombre; // declaración implícita nombre = &quot;Paco&quot;; // declaración explícita múltiple var nombre, edad, apellido; // declaración explícita múltiple con inicialización var nombre = &quot;paco&quot;, edad = 20, apellido = &quot;ruiz&quot;; // declaración implícita múltiple con inicialización nombre = &quot;paco&quot;, edad = 20, apellido = &quot;ruiz&quot;;``</p>
+<p>También se pueden declarar constantes, por ejemplo el numero pi, o un
+valor máximo. Se declaran con la sentencia <em>const.</em>Pero es
+recomendable no usarlo porque sólo es soportado a partir del motor 1.5
+de JavaScript.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/javascript-programming.html">JavaScript, Programming</a></p>
+    <p>Tags:
+      <a href="/tag/declaracion.html">declaración</a>,      <a href="/tag/javascript.html">JavaScript</a>,      <a href="/tag/variables.html">variables</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "declaracion-de-variables-en-javascript.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

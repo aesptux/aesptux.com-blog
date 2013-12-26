@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/linux-windows.atom.xml" rel="self"></link><id>/</id><updated>2009-12-11T16:38:00+01:00</updated><entry><title>Kon-Boot. Accede a un sistema sin conocer la contraseña</title><link href="/kon-boot-accede-a-un-sistema-sin-conocer-la-contrasena.html" rel="alternate"></link><updated>2009-12-11T16:38:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2009-12-11:kon-boot-accede-a-un-sistema-sin-conocer-la-contrasena.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Kon-Boot&lt;/strong&gt; es un software gratuito que nos permite acceder a cualquier
+equipo sin conocer la contraseña y sin tener que eliminarla o cambiarla,
+ya sea de Windows o de Linux. Su funcionamiento está basado en el cambio
+del contenido del kernel durante el arranque del sistema y ocupa
+solamente 110 KB.&lt;/p&gt;
+&lt;p&gt;Descargamos la ISO de Kon-Boot y la iniciamos en nuestro equipo.&lt;/p&gt;
+&lt;p&gt;He hecho un video para que observen su funcionamiento:&lt;/p&gt;
+&lt;p&gt;[youtube=http://www.youtube.com/watch?v=dq7WdTY0XKg]&lt;/p&gt;
+</summary><category term="conocer"></category><category term="contraseña"></category><category term="kon-boot"></category><category term="password"></category><category term="sin"></category></entry><entry><title>Videotutorial: Dual boot con Windows y Linux + Personalizar Menú</title><link href="/videotutorial-dual-boot-con-windows-y-linux-personalizar-menu.html" rel="alternate"></link><updated>2009-04-02T23:41:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-04-02:videotutorial-dual-boot-con-windows-y-linux-personalizar-menu.html</id><summary type="html">&lt;p&gt;El siguiente videotutorial, consta de dos partes en las cuales se
+aprenderá a realizar un Arranque Dual con Windows y Linux, y también a
+personalizar el menú de boot a nuestro gusto.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Parte 1&lt;/dt&gt;
+&lt;dd&gt;[youtube=http://www.youtube.com/watch?v=h5twSpTdgoc&amp;amp;hl=es&amp;amp;fs=1]&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Un saludo,&lt;/p&gt;
+&lt;p&gt;Mortuus.&lt;/p&gt;
+</summary><category term="arranque"></category><category term="boot"></category><category term="dual"></category><category term="Linux"></category><category term="videotutorial"></category><category term="Windows"></category></entry></feed>

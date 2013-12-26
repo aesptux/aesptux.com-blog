@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/javascript-programming-project.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 22 Oct 2013 20:13:00 +0200</lastBuildDate><item><title>Lath. A real time webchat with LaTeX support.</title><link>/lath-a-real-time-webchat-with-latex-support.html</link><description>&lt;p&gt;Lath is a real-time minimalistic webchat with LaTeX support (I know the
+name is not the best, it comes from LaTeX + Math). Rooms are predefined,
+and right now there are three: Calculus, Discrete Mathematics and Logic,
+because it is focused to CS students (based in Spain courses). Lath is
+built with NodeJS and ExpressJS, MathJax for LaTeX and it stores each
+message to a MySQL database. The code has three parts:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;index.html:&lt;/strong&gt; the html served with ExpressJS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;index.js:&lt;/strong&gt; Server side JS, a.k.a NodeJS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;client.js:&amp;nbsp;&lt;/strong&gt;Client side JS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can find the complete source code on &lt;a class="reference external" href="http://www.github.com/aesptux/lath"&gt;Github&lt;/a&gt;. I'm going to comment
+only some parts of the code: The most interesting part of the index.html
+is the JavaScript:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+MathJax.Hub.Config({
+        extensions: [&amp;quot;tex2jax.js&amp;quot;,&amp;quot;TeX/AMSmath.js&amp;quot;,&amp;quot;TeX/AMSsymbols.js&amp;quot;],
+        jax: [&amp;quot;input/TeX&amp;quot;, &amp;quot;output/HTML-CSS&amp;quot;],
+        tex2jax: {
+            inlineMath: [ ['$','$'], [&amp;quot;\\(&amp;quot;,&amp;quot;\\)&amp;quot;] ],
+            displayMath: [ ['$$','$$'], [&amp;quot;\\[&amp;quot;,&amp;quot;\\]&amp;quot;] ],
+            processEscapes: true
+        },
+        &amp;quot;HTML-CSS&amp;quot;: { availableFonts: [&amp;quot;TeX&amp;quot;] }
+    });
+&lt;/pre&gt;
+&lt;p&gt;This is the configuration required for MathJax. It is interesting to
+have the&amp;nbsp;&lt;em&gt;processEscapes&lt;/em&gt;&amp;nbsp;&lt;em&gt;= true,&amp;nbsp;&lt;/em&gt;so you can escape LaTeX. Server
+side:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+var express = require('express');
+var path = require('path');
+var mysql = require('mysql');
+var app = express();
+var port = 3700;
+var pool = mysql.createPool({
+    host     : '',
+    user     : '',
+    password : '',
+    database : 'lath'
+});
+
+// statics
+app.use(express.static(path.join(__dirname, 'public')));
+
+// define usernames
+var usernames = {};
+
+// define rooms
+var rooms = ['Calculus', 'Discrete Mathematics', 'Logic'];
+
+// routes
+app.get('/', function (req, res) {
+    res.sendfile(__dirname + '/index.html');
+});
+
+// socket
+var io = require('socket.io').listen(app.listen(port));
+
+// define events
+io.sockets.on('connection', function (socket) {
+
+    // when clients emit...
+
+    socket.on('sendchat', function(data) {
+        io.sockets.to(socket.room).emit('updatechat', socket.username, data);
+        data = data.replace(/\\/g, '\\\\');
+        pool.getConnection(function(err, connection) {
+          // Use the connection
+          connection.query('INSERT INTO chat_log(username, message, room) \
+            VALUES (&amp;quot;' + socket.username + '&amp;quot;, &amp;quot;' + data + '&amp;quot;, &amp;quot;' +
+                socket.room + '&amp;quot;)', function(err, rows) {
+            // release connection, do not close
+            connection.release();
+
+          });
+        });
+
+    });
+
+    socket.on('adduser', function(username) {
+        socket.username = username;
+        if (usernames[socket.username]) {
+            socket.emit('connect', true);
+            return 0;
+        }
+        socket.room = 'Calculus';
+        usernames[username] = username;
+        socket.join('Calculus');
+        socket.emit('updatechat', 'SERVER', 'You have connected to Calculus.');
+        // broadcast to all users
+        socket.broadcast.to('Calculus').emit('updatechat', 'SERVER',
+            username + ' has connected.');
+        // update list client side
+        io.sockets.emit('updateusers', usernames);
+        socket.emit('updaterooms', rooms, 'Calculus');
+    });
+
+    socket.on('switchroom', function (newroom) {
+        socket.leave(socket.room);
+        socket.join(newroom);
+        socket.emit('updatechat', 'SERVER', 'You have connected to ' +
+            newroom + '.');
+        socket.broadcast.to(socket.room).emit('updatechat', 'SERVER',
+            socket.username + ' has left the room.');
+        socket.room = newroom;
+        socket.broadcast.to(socket.room).emit('updatechat', 'SERVER',
+            socket.username + ' has joined the room');
+        socket.emit('updaterooms', rooms, newroom);
+
+    });
+
+    // sad panda is sad with this event
+    socket.on('disconnect', function() {
+        delete usernames[socket.username];
+        io.sockets.emit('updateusers', usernames);
+        // broadcast
+        socket.broadcast.emit('updatechat', 'SERVER',
+            socket.username + ' has disconnected.');
+        socket.leave(socket.room);
+    });
+
+});
+
+console.log('Listening...');
+&lt;/pre&gt;
+&lt;p&gt;This is the entire server-side part. I create a connection pool and not
+a regular connection, because the regular one would be always active,
+ending up in timeout due the keep alive. With the connection pool, the
+connection is released after each query.&lt;/p&gt;
+&lt;p&gt;After defining some variables and routes (ExpressJS), we get to the
+socket.io part. It reacts to certain events. For example, if it receives
+a sendchat event, it stores the message on the DB. With sockets you can
+also emit broadcast messages to all users, or to certain users (given a
+room, for example).&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+socket.broadcast.emit // will emit to all users
+
+socket.broadcast.to('myroom').emit // will emit to the users on that room (channel)
+&lt;/pre&gt;
+&lt;p&gt;Client part:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+var socket = io.connect('http://localhost:3700');
+
+
+// get elements
+var users = document.getElementById('users');
+var rooms_list = document.getElementById('rooms');
+var conversation = document.getElementById('conversation');
+var txt = document.getElementById('data');
+var btnsend = document.getElementById('datasend');
+var content = document.getElementById('content');
+
+
+socket.on('connect', function (exists) {
+    var username = null;
+    console.log(exists);
+    while (username == null) {
+        if (exists) {
+            username = prompt('The username is taken. Please, choose another.');
+        } else {
+            username = prompt('Set your username');
+        }
+
+    }
+    socket.emit('adduser', username);
+});
+
+
+socket.on('updatechat', function (username, data) {
+    conversation.innerHTML += '&amp;lt;b class=&amp;quot;user&amp;quot;&amp;gt;' + username +
+        ': &amp;lt;/b&amp;gt;&amp;lt;span class=&amp;quot;message&amp;quot;&amp;gt;' + data + '&amp;lt;/span&amp;gt;&amp;lt;br /&amp;gt;';
+    // update MathJax with new DOM elements
+    MathJax.Hub.Queue([&amp;quot;Typeset&amp;quot;,MathJax.Hub,&amp;quot;conversation&amp;quot;]);
+    content.scrollTop = content.scrollHeight;
+
+});
+
+
+socket.on('updaterooms', function (rooms, current_room) {
+    console.log('Updating rooms');
+    rooms_list.innerHTML = &amp;quot;&amp;quot;;
+    console.log(rooms);
+    for (var room in rooms) {
+        if (rooms[room] == current_room) {
+            rooms_list.innerHTML += '&amp;lt;div&amp;gt;&amp;lt;b&amp;gt;' + rooms[room] + '&amp;lt;/b&amp;gt;&amp;lt;/div&amp;gt;';
+        } else {
+            rooms_list.innerHTML += '&amp;lt;div&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot; \
+            onclick=&amp;quot;switchRoom(\''+rooms[room]+'\')&amp;quot;&amp;gt;' + rooms[room] +
+            '&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;';
+        }
+    }
+});
+
+
+socket.on('updateusers', function (data) {
+    users.innerHTML = &amp;quot;&amp;quot;;
+    for (var user in data) {
+        users.innerHTML += &amp;quot;&amp;lt;div class='user'&amp;gt;&amp;quot; + data[user] + &amp;quot;&amp;lt;/div&amp;gt;&amp;quot;;
+    }
+});
+
+
+function switchRoom(room) {
+    console.log('Changing room');
+    socket.emit('switchroom', room);
+}
+
+
+window.onload = function () {
+    btnsend.addEventListener('click', function () {
+        console.log('asfsd');
+        socket.emit('sendchat', document.getElementById('data').value);
+        document.getElementById('data').value = '';
+
+    }, false);
+
+    txt.addEventListener('keypress', function (e) {
+        if (e.keyCode == 13) {
+            btnsend.click();
+        }
+
+    }, false)
+
+}
+&lt;/pre&gt;
+&lt;p&gt;It does not use jQuery as you can see, although it can ease the code
+sometimes, for a project like this I think it is not necessary and it
+will only be an overhead. This part starts with the connection to the
+web socket and then getting the HTML elements we will be working with.
+Then, I define some event listeners and emitters. &amp;nbsp;It is quite similar
+to the server-side, only that here we can also work with the DOM
+elements.&lt;/p&gt;
+&lt;p&gt;And that's all the code.&lt;/p&gt;
+&lt;p&gt;This is behind a nginx acting as a reverse proxy. The minimum version of
+nginx for a project using web sockets is 1.3 (I have 1.4).&lt;/p&gt;
+&lt;p&gt;Once it is installed, it's pretty similar to other configurations:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+upstream app_server_lath {
+    server localhost:3700 fail_timeout=0;
+}
+
+server {
+        listen 80;
+        server_name lath.aesptux.com www.lath.aesptux.com;
+
+    keepalive_timeout 5;
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        # the following is required as well for WebSockets
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &amp;quot;upgrade&amp;quot;;
+
+        if (!-f $request_filename) {
+            proxy_pass http://app_server_lath;
+            break;
+        }
+    }
+
+   location /socket.io/ {
+        proxy_pass http://localhost:3700;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+}
+
+}
+&lt;/pre&gt;
+&lt;p&gt;Thanks.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Tue, 22 Oct 2013 20:13:00 +0200</pubDate><guid>tag:,2013-10-22:lath-a-real-time-webchat-with-latex-support.html</guid></item></channel></rss>

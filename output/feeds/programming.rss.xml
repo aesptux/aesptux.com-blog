@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/programming.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 09 Sep 2011 13:46:00 +0200</lastBuildDate><item><title>Functions: How to return more than one value.</title><link>/functions-how-to-return-more-than-one-value.html</link><description>&lt;p&gt;We cannot return two variables from a function, but &lt;strong&gt;we could use an
+array for that&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;So for example, in JavaScript, it would be like this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+function foo() {
+    // do something here
+    // whatever
+    return [myvalue, myothervalue, otherthing];
+}
+&lt;/pre&gt;
+&lt;p&gt;And then, for use those values:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+foo()[0] // this is myvalue
+foo()[1] // this is myothervalue
+foo()[2] // this is otherthing
+&lt;/pre&gt;
+&lt;p&gt;This can be applied to any other language &amp;nbsp;you may know. And that's how
+we return more than one value from a function&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Fri, 09 Sep 2011 13:46:00 +0200</pubDate><guid>tag:,2011-09-09:functions-how-to-return-more-than-one-value.html</guid><category>c</category><category>development</category><category>how to</category><category>JavaScript</category><category>more</category><category>one</category><category>php</category><category>Programming</category><category>return</category><category>several</category><category>two values</category><category>value</category></item><item><title>Comparación de cadenas en php</title><link>/comparacion-de-cadenas-en-php.html</link><description>&lt;p&gt;Comparar cadenas en php no es tan fácil como hacerlo con números. Si
+examinamos una cadena basándonos en su forma binaria, &amp;quot;Juan&amp;quot; y &amp;quot;juan&amp;quot;
+serán completamente diferentes. El valor de &amp;quot;Juan&amp;quot; en binario es:
+&lt;em&gt;010010100111010101100001011011100000110100001010&lt;/em&gt;y para &amp;quot;juan&amp;quot; es:
+&lt;em&gt;01**1*&lt;/em&gt;010100111010101100001011011100000110100001010*.&lt;/p&gt;
+&lt;p&gt;La primera función de comparación es strcmp(). El valor devuelto por
+esta función depende de la relación alfabética entre las dos cadenas. Si
+$val1 y $val2 son idénticas, strcmp() devolverá 0. strcmp() distingue
+entre mayúsculas y minúsculas. Si no son igualesm el valor devuelto
+estará determinado por las reglas de orden alfabético. Si $val1 es
+alfabéticamente inferior a $val2, el resultado será negativo, en caso
+contrario, será positivo.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/comparacion-de-cadenas-en-php.rst&lt;/tt&gt;, line 22)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+`` echo strcmp(&amp;quot;Alvaro&amp;quot;, &amp;quot;Benito&amp;quot;); // Devuelve &amp;lt; 0 ``&lt;/blockquote&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;echo &lt;span class="pre"&gt;strcmp(&amp;quot;manzana&amp;quot;,&lt;/span&gt; &lt;span class="pre"&gt;&amp;quot;Manzana&amp;quot;);&lt;/span&gt; // Devuelve &amp;gt; 0&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Los números tienen un valor contexual más bajo que las letras, y las
+letras mayúsculas un valor contextual más bajo que las minúsculas. Si
+queremos comparar cadenas sin distinción entre mayúsculas y minúsculas,
+debemos usar la función strcasecmp();&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;echo &lt;span class="pre"&gt;strcasecmp(&amp;quot;Juan&amp;quot;,&lt;/span&gt; &lt;span class="pre"&gt;&amp;quot;juan&amp;quot;);&lt;/span&gt; // devuelve 0;&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Aún no existe una solución que se acerque a la capacidad del cerebro
+humano, pero se han desarrollado varios algoritmos que nos proporcionan
+un método para medir la &amp;quot;similitud&amp;quot; entre dos cadenas. Uno de estos
+ejemplos es el algoritmo soundex. Soundex funciona asignando un valor a
+cada constante del alfabeto y calculando posteriormente el valor total
+de una palabra basándose en sus sílabas iniciales y componentes. En php
+se implanta mediante la función soundex();&lt;/p&gt;
+&lt;p&gt;`` echo soundex(&amp;quot;Mortuus&amp;quot;); //Devuelve M632 echo soundex(&amp;quot;Mortiis&amp;quot;); // Devuelve M632 echo soundex(&amp;quot;Mortem&amp;quot;); // Devuelve M635``&lt;/p&gt;
+&lt;p&gt;Otro algoritmo para comparar dos palabras basándonos en sus
+representaciones fonéticas es el metáfono. Este algoritmo funciona
+asignando un valor fonético a combinaciones de caracteres basándose en
+su uso típico en inglés. Php lo implanta a través de la función
+metaphone();&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;echo &lt;span class="pre"&gt;metaphone(&amp;quot;Mortuus&amp;quot;);&lt;/span&gt; // Devuelve MRTS echo &lt;span class="pre"&gt;metaphone(&amp;quot;Mortiis&amp;quot;);&lt;/span&gt; // Devuelve MRTS echo &lt;span class="pre"&gt;metaphone(&amp;quot;Mortem&amp;quot;);&lt;/span&gt; //Devuelve MRTM&lt;/tt&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Wed, 08 Jul 2009 14:46:00 +0200</pubDate><guid>tag:,2009-07-08:comparacion-de-cadenas-en-php.html</guid><category>cadenas</category><category>comparar</category><category>php</category></item><item><title>C: Hallar max y min de una serie de numeros</title><link>/hallar-max-min-serie-numeros.html</link><description>&lt;p&gt;`` #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;conio.h&amp;gt; int main () {``&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;int n,max,min,num;&lt;/dt&gt;
+&lt;dd&gt;printf(&amp;quot;introduce un numero :n&amp;quot;);
+scanf (&amp;quot;%d&amp;quot;,&amp;amp;num);
+max=num;
+min=num;
+for (n=1;n&amp;lt;11;n++)
+{
+printf(&amp;quot;Introduce otro numero :n&amp;quot;);
+scanf(&amp;quot;%d&amp;quot;,&amp;amp;num);
+if (num&amp;gt;max)
+max=num;
+else;
+if (num&amp;lt;min)
+min=num;
+else;
+}
+printf(&amp;quot;El mayor es %d.n&amp;quot;,max);
+printf(&amp;quot;El menor es %d.n&amp;quot;,min);
+getch();
+}
+Un ejemplo bastante sencillo, se introducen una serie de numeros, el&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/hallar-max-min-serie-numeros.rst&lt;/tt&gt;, line 32)&lt;/p&gt;
+Definition list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;primer número introducido, se iguala a la variable max y min, porque de
+momento como no hay más números, ese es el máximo y el mínimo. Se siguen
+introduciendo números, y si el número introducido es mayor que el actual
+max, entonces se igualará a max, si es menor que min, se igualará a min.
+Y así sucesivamente hasta completar la serie de números.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Wed, 17 Jun 2009 14:17:00 +0200</pubDate><guid>tag:,2009-06-17:hallar-max-min-serie-numeros.html</guid><category>max</category><category>min</category><category>numeros</category></item><item><title>C: Ejercicio calcular datos de una circunferencia.</title><link>/c-ejercicio-calcular-datos-de-una-circunferencia.html</link><description>&lt;p&gt;Aquí os dejo un ejercicio propuesto y resuelto, para los interesados en
+la programación C.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/c-ejercicio-calcular-datos-de-una-circunferencia.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+En el ejemplo resulto explico todo lo que puedo, para que sea fácil de&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/c-ejercicio-calcular-datos-de-una-circunferencia.rst&lt;/tt&gt;, line 12)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;entender.&lt;/p&gt;
+&lt;p&gt;Programa que a partir del radio introducido por el usuario, calcule el
+área, volumen y longitud.&lt;/p&gt;
+&lt;p&gt;Ejercicio Resuelto:&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/dt&gt;
+&lt;dd&gt;#include &amp;lt;conio.h&amp;gt;
+#include &amp;lt;math.h&amp;gt;
+int main()
+{&lt;/dd&gt;
+&lt;dt&gt;//Declaracion de variables&lt;/dt&gt;
+&lt;dd&gt;float pi = 3.14159265;
+float radio;
+float longitud;
+float volumen;
+float area;&lt;/dd&gt;
+&lt;dt&gt;//En esta seccion recogemos el dato introducido por el usuario&lt;/dt&gt;
+&lt;dd&gt;printf(&amp;quot;Escribe el radio del circulon&amp;quot;);
+scanf(&amp;quot;%f&amp;quot;, &amp;amp;radio);&lt;/dd&gt;
+&lt;dt&gt;// Las respectivas operaciones&lt;/dt&gt;
+&lt;dd&gt;longitud = 2 * pi * radio;
+volumen = (4/3) * pi * pow(radio,3);
+area = pi * pow(radio,2);&lt;/dd&gt;
+&lt;dt&gt;// A continuacion muestra los resultados por pantalla&lt;/dt&gt;
+&lt;dd&gt;printf(&amp;quot;La longitud es : %fn&amp;quot;, longitud);
+printf(&amp;quot;El volumen es: %fn&amp;quot;, volumen);
+printf(&amp;quot;El area es: %fn&amp;quot;, area);
+getch();&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;Como veis, para declarar las variables he utilizado float y no int, que
+sería para un entero. Pow(x,y)&amp;nbsp; equivale a elevar una base(x) a un
+exponente(y).&lt;/p&gt;
+&lt;p&gt;Cualquier duda podeis preguntar.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Sat, 06 Jun 2009 01:00:00 +0200</pubDate><guid>tag:,2009-06-06:c-ejercicio-calcular-datos-de-una-circunferencia.html</guid><category>c</category><category>circunferencia</category></item></channel></rss>

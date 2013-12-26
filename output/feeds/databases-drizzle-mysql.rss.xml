@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/databases-drizzle-mysql.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 21 Mar 2011 13:00:00 +0100</lastBuildDate><item><title>Drizzle. Fork de MySQL</title><link>/drizzle-fork-de-mysql.html</link><description>&lt;p&gt;Como bien indica el título Drizzle es un fork de MySQL, concretamente de
+la versión 6.0.&lt;/p&gt;
+&lt;p&gt;Desde entonces ha habido muchos cambios, como los siguientes:&lt;/p&gt;
+&lt;div class="section" id="uso"&gt;
+&lt;h2&gt;Uso&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;No hay un servidor embebido. El servidor Drizzle no se puede cargar
+como librería compartida&lt;/li&gt;
+&lt;li&gt;Drizzle está optimizado para entornos concurrentes masivos&lt;/li&gt;
+&lt;li&gt;Diseñado para sistemas POSIX modernos&lt;/li&gt;
+&lt;li&gt;Windows, HP-UX e IRIX no son soportados&lt;/li&gt;
+&lt;li&gt;Drizzle no utiliza timezones. Todo es UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="instalacion"&gt;
+&lt;h2&gt;Instalación&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;No hay scripts/mysql_install_db o similar. Drizzle se basa en una
+instalación conocida como &amp;quot;just works&amp;quot; (simplemente funciona)&lt;/li&gt;
+&lt;li&gt;Drizzle puede escuchar en el puerto Drizzle (4427) y/o en el puerto
+MySQL (3306) y entender los respectivos protocolos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="procedimientos-almacenados"&gt;
+&lt;h2&gt;Procedimientos Almacenados&lt;/h2&gt;
+&lt;p&gt;Drizzle actualmente no tiene ningún plugin que implemente procedimientos
+almacenados. La implementación en MySQL no era óptima&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="comandos-eliminados"&gt;
+&lt;h2&gt;Comandos eliminados&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;ALTER TABLE UPGRADE&lt;/li&gt;
+&lt;li&gt;REPAIR TABLE&lt;/li&gt;
+&lt;li&gt;CREATE FUNCTION&lt;/li&gt;
+&lt;li&gt;CONVERT&lt;/li&gt;
+&lt;li&gt;SET NAMES&lt;/li&gt;
+&lt;li&gt;Borrado y actualizado multi-tabla&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="funciones-eliminadas"&gt;
+&lt;h2&gt;Funciones eliminadas&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;crypt()&lt;/li&gt;
+&lt;li&gt;bit_length()&lt;/li&gt;
+&lt;li&gt;bit_count()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="palabras-clave-eliminadas"&gt;
+&lt;h2&gt;Palabras clave eliminadas&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;CIPHER&lt;/li&gt;
+&lt;li&gt;CLIENTE&lt;/li&gt;
+&lt;li&gt;CODE&lt;/li&gt;
+&lt;li&gt;CONTRIBUTORS&lt;/li&gt;
+&lt;li&gt;CPU&lt;/li&gt;
+&lt;li&gt;DEFINER&lt;/li&gt;
+&lt;li&gt;DES_KEY_FILE&lt;/li&gt;
+&lt;li&gt;ENGINES&lt;/li&gt;
+&lt;li&gt;EVERY&lt;/li&gt;
+&lt;li&gt;IO&lt;/li&gt;
+&lt;li&gt;IPC&lt;/li&gt;
+&lt;li&gt;ISSUER&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="objetos-eliminados"&gt;
+&lt;h2&gt;Objetos eliminados&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;No hay requerimiento de un schema mysql&lt;/li&gt;
+&lt;li&gt;No hay SET datatype, hay que usar ENUM&lt;/li&gt;
+&lt;li&gt;No hay comando SET NAMES, UTF-8 por defecto&lt;/li&gt;
+&lt;li&gt;No hay CHARACTER o CHARACTER SET, todo está por defecto en UTF-8&lt;/li&gt;
+&lt;li&gt;No hay TIME, DATETIME o INT&lt;/li&gt;
+&lt;li&gt;No hay TINYINT, SMALLINT o MEDIUMINT. Las operaciones de enteros han
+sido optimizadas para 32 y 64 bits&lt;/li&gt;
+&lt;li&gt;No hay TINYBLOB, MEDIUMBLOB o LONGBLOB. Hay un BLOB optimizado&lt;/li&gt;
+&lt;li&gt;No hay TINYTEXT, MEDIUMTEXT o LONGTEXT. Usar TEXT o BLOB&lt;/li&gt;
+&lt;li&gt;No hay UNSIGNED&lt;/li&gt;
+&lt;li&gt;No hay tipos de datos espaciales (GEOMETRY, POINT, LINESTRING,
+POLYGON)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hay bastantes más cambios, pero con estos nos hacemos una idea de más o
+menos lo que ha cambiado en este nuevo fork que acaba de publicar su
+primera versión estable.&lt;/p&gt;
+&lt;p&gt;Podéis ver la lista de cambios completos aquí (inglés): &lt;a class="reference external" href="http://docs.drizzle.org/mysql_differences.html"&gt;Drizzle
+differences&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Mon, 21 Mar 2011 13:00:00 +0100</pubDate><guid>tag:,2011-03-21:drizzle-fork-de-mysql.html</guid><category>con</category><category>datos</category><category>diferencias</category><category>drizzle</category><category>eliminadas</category><category>estable</category><category>fork</category><category>funciones</category><category>mysql</category><category>objetos</category><category>primera</category><category>tipos</category><category>version</category></item></channel></rss>

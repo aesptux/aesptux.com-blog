@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/others-tutorial-windows.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 13 Dec 2009 15:40:00 +0100</lastBuildDate><item><title>Trinity Rescue Kit: Eliminar contraseña de Windows</title><link>/trinity-rescue-kit-eliminar-contrasena-de-windows.html</link><description>&lt;p&gt;Este magnífico kit nos permite, entre otras cosas eliminar nuestra
+contraseña de Windows.&lt;/p&gt;
+&lt;p&gt;Imagínense que hemos olvidado nuestra contraseña, pues con unos
+sencillos pasos la podremos dejar en blanco para más tarde volver a
+acceder y cambiarla otra vez.&lt;/p&gt;
+&lt;p&gt;Lo primero es cargar el teclado en español:&lt;/p&gt;
+&lt;blockquote&gt;
+loadkeys es&lt;/blockquote&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;429&amp;quot; caption=&amp;quot;Cargamos el
+teclado en español.&amp;quot;]&lt;a href="#id13"&gt;&lt;span class="problematic" id="id14"&gt;`|loadkeys|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Ahora listamos las cuentas de windows. También nos pedirá especificar en
+que partición se encuentra windows, por si tenemos más de un sistema
+operativo. Para listar las cuentas:&lt;/p&gt;
+&lt;blockquote&gt;
+winpass -l&lt;/blockquote&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;503&amp;quot; caption=&amp;quot;Aquí vemos las
+cuentas listadas.&amp;quot;]&lt;a href="#id15"&gt;&lt;span class="problematic" id="id16"&gt;`|listar cuentas|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Ahora que sabemos el nombre exacto de nuestra cuenta, procederemos a
+dejar en blanco la contraseña en este caso, de la cuenta
+&amp;quot;Administrator&amp;quot;:&lt;/p&gt;
+&lt;blockquote&gt;
+winpass -u Administrator&lt;/blockquote&gt;
+&lt;p&gt;Nos pedirá otra vez elegir la partición&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;632&amp;quot; caption=&amp;quot;Atención con
+syskey!&amp;quot;]&lt;a href="#id17"&gt;&lt;span class="problematic" id="id18"&gt;`|syskey|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Atención con esta pregunta, debemos responder que &lt;strong&gt;no&lt;/strong&gt;queremos
+deshabilitar syskey.&lt;/p&gt;
+&lt;p&gt;Y a continuación nos saldrá un menú:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Limpiar contraseña del usuario (dejarla en blanco)&lt;/li&gt;
+&lt;li&gt;Editar (poner una nueva) contraseña (Cuidado con esto en XP o Vista)&lt;/li&gt;
+&lt;li&gt;Promocionar usuario (hacerle administrador)&lt;/li&gt;
+&lt;li&gt;Desbloquear y activar cuenta&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;En nuestro caso, elegimos la opción 1 y si todo sale bien saldrá algo
+así:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;557&amp;quot; caption=&amp;quot;Operación
+exitosa!&amp;quot;]&lt;a href="#id19"&gt;&lt;span class="problematic" id="id20"&gt;`|resultado|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;!-- |listar --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 65)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 66)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;cuentas| image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2695/4180756279_450ef72ce4_o.png"&gt;http://farm3.static.flickr.com/2695/4180756279_450ef72ce4_o.png&lt;/a&gt;
+.. &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|syskey|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2543/4180756359_547a1b18bf_o.png"&gt;http://farm3.static.flickr.com/2543/4180756359_547a1b18bf_o.png&lt;/a&gt;
+.. &lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;|resultado|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2495/4180756465_f8f9e2fa3f_o.png"&gt;http://farm3.static.flickr.com/2495/4180756465_f8f9e2fa3f_o.png&lt;/a&gt;
+.. &lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;|image4|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2728/4180756203_cc3ffc83d9_o.png"&gt;http://farm3.static.flickr.com/2728/4180756203_cc3ffc83d9_o.png&lt;/a&gt;
+.. &lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;|image5|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2695/4180756279_450ef72ce4_o.png"&gt;http://farm3.static.flickr.com/2695/4180756279_450ef72ce4_o.png&lt;/a&gt;
+.. &lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;|image6|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2543/4180756359_547a1b18bf_o.png"&gt;http://farm3.static.flickr.com/2543/4180756359_547a1b18bf_o.png&lt;/a&gt;
+.. &lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;|image7|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2495/4180756465_f8f9e2fa3f_o.png"&gt;http://farm3.static.flickr.com/2495/4180756465_f8f9e2fa3f_o.png&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 66); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;syskey&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 66); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;resultado&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 66); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image4&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 66); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image5&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id9"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 66); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image6&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id11"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 66); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image7&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id13"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 20); &lt;em&gt;&lt;a href="#id14"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|loadkeys|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id15"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 29); &lt;em&gt;&lt;a href="#id16"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|listar cuentas|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id17"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 40); &lt;em&gt;&lt;a href="#id18"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|syskey|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id19"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/trinity-rescue-kit-eliminar-contrasena-de-windows.rst&lt;/tt&gt;, line 56); &lt;em&gt;&lt;a href="#id20"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|resultado|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Sun, 13 Dec 2009 15:40:00 +0100</pubDate><guid>tag:,2009-12-13:trinity-rescue-kit-eliminar-contrasena-de-windows.html</guid><category>contraseña</category><category>eliminar</category><category>kit</category><category>olvidada</category><category>rescue</category><category>trinity</category><category>Windows</category></item><item><title>Utilizando dos monitores</title><link>/utilizando-dos-monitores.html</link><description>&lt;p&gt;Me he decidido a probar como es eso de utilizar dos pantallas
+simultáneas, a ver si es cierto lo que &amp;nbsp;dicen de que aumenta la
+productividad. Como no tengo un segundo monitor disponible, utilicé una
+televisión que tenía por casa con conexión VGA.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Material que he utilizado&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Primer monitor&lt;/li&gt;
+&lt;li&gt;Segundo monitor&lt;/li&gt;
+&lt;li&gt;Cable VGA y adaptor DVI para primer monitor&lt;/li&gt;
+&lt;li&gt;Cable VGA-DVI para el segundo monitor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;500&amp;quot; caption=&amp;quot;Cable
+VGA-DVI&amp;quot;]&lt;a href="#id23"&gt;&lt;span class="problematic" id="id24"&gt;`|Cable VGA-DVI|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Conectamos los dos monitores&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignleft&amp;quot; width=&amp;quot;614&amp;quot; caption=&amp;quot;Monitores
+conectados&amp;quot;]&lt;a href="#id25"&gt;&lt;span class="problematic" id="id26"&gt;`|Monitores conectados|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Una vez conectados la configuración es realmente sencilla:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignleft&amp;quot; width=&amp;quot;775&amp;quot;
+caption=&amp;quot;Configuración&amp;quot;]&lt;a href="#id27"&gt;&lt;span class="problematic" id="id28"&gt;`|Configuración|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Yo he puesto el monitor secundario a la izquierda porque es su posición
+real en mi escritorio de momento. Para cambiar el orden basta con
+arrastrarlo al lado opuesto.&lt;/p&gt;
+&lt;p&gt;Si es necesario ajustaremos la resolución.&lt;/p&gt;
+&lt;p&gt;Ahora podremos utilizar dos monitores simultáneamente:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;614&amp;quot; caption=&amp;quot;Los dos
+escritorios. Click para ampliar&amp;quot;]&lt;a href="#id29"&gt;&lt;span class="problematic" id="id30"&gt;`|Los dos escritorios. Click para
+ampliar|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;614&amp;quot; caption=&amp;quot;Click para
+ampliar&amp;quot;]&lt;a href="#id31"&gt;&lt;span class="problematic" id="id32"&gt;`|Click para ampliar|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;614&amp;quot; caption=&amp;quot;Click para
+ampliar&amp;quot;]&lt;a href="#id33"&gt;&lt;span class="problematic" id="id34"&gt;`|image5|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Ahora sólo me queda organizar mi escritorio para un uso adecuado.&lt;/p&gt;
+&lt;p&gt;En mi opinión, aumenta notablemente la productividad, ahora podré
+trabajar con bases de datos (por ejemplo) más cómodamente.&lt;/p&gt;
+&lt;!-- |Cable --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 63)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;VGA-DVI| image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2791/4019208886_d489e81384.jpg"&gt;http://farm3.static.flickr.com/2791/4019208886_d489e81384.jpg&lt;/a&gt;
+.. &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|Monitores
+conectados|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2662/4019212286_9bef48ff30_b.jpg"&gt;http://farm3.static.flickr.com/2662/4019212286_9bef48ff30_b.jpg&lt;/a&gt;
+.. &lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;|Configuración|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2789/4019205340_29f9ce50d7_o.jpg"&gt;http://farm3.static.flickr.com/2789/4019205340_29f9ce50d7_o.jpg&lt;/a&gt;
+.. &lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;|Los dos escritorios. Click para
+ampliar|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2570/4018447679_4ea6ff351a_b.jpg"&gt;http://farm3.static.flickr.com/2570/4018447679_4ea6ff351a_b.jpg&lt;/a&gt;
+.. &lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;|Click para
+ampliar|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2764/4019209580_856c64450c_b.jpg"&gt;http://farm3.static.flickr.com/2764/4019209580_856c64450c_b.jpg&lt;/a&gt;
+.. &lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;|image5|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2668/4018450147_da50943663_b.jpg"&gt;http://farm3.static.flickr.com/2668/4018450147_da50943663_b.jpg&lt;/a&gt;
+.. &lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;|image6|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2791/4019208886_d489e81384.jpg"&gt;http://farm3.static.flickr.com/2791/4019208886_d489e81384.jpg&lt;/a&gt;
+.. &lt;a href="#id13"&gt;&lt;span class="problematic" id="id14"&gt;|image7|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2662/4019212286_9bef48ff30_b.jpg"&gt;http://farm3.static.flickr.com/2662/4019212286_9bef48ff30_b.jpg&lt;/a&gt;
+.. &lt;a href="#id15"&gt;&lt;span class="problematic" id="id16"&gt;|image8|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2789/4019205340_29f9ce50d7_o.jpg"&gt;http://farm3.static.flickr.com/2789/4019205340_29f9ce50d7_o.jpg&lt;/a&gt;
+.. &lt;a href="#id17"&gt;&lt;span class="problematic" id="id18"&gt;|image9|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2570/4018447679_4ea6ff351a_b.jpg"&gt;http://farm3.static.flickr.com/2570/4018447679_4ea6ff351a_b.jpg&lt;/a&gt;
+.. &lt;a href="#id19"&gt;&lt;span class="problematic" id="id20"&gt;|image10|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2764/4019209580_856c64450c_b.jpg"&gt;http://farm3.static.flickr.com/2764/4019209580_856c64450c_b.jpg&lt;/a&gt;
+.. &lt;a href="#id21"&gt;&lt;span class="problematic" id="id22"&gt;|image11|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2668/4018450147_da50943663_b.jpg"&gt;http://farm3.static.flickr.com/2668/4018450147_da50943663_b.jpg&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Monitores conectados&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Configuración&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Los dos escritorios. Click para ampliar&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Click para ampliar&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id9"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image5&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id11"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image6&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id13"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id14"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image7&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id15"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id16"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image8&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id17"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id18"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image9&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id19"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id20"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image10&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id21"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id22"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image11&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id23"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 20); &lt;em&gt;&lt;a href="#id24"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|cable vga-dvi|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id25"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 25); &lt;em&gt;&lt;a href="#id26"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|monitores conectados|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id27"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 30); &lt;em&gt;&lt;a href="#id28"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|configuración|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id29"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 41); &lt;em&gt;&lt;a href="#id30"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|los dos escritorios. click para ampliar|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id31"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 45); &lt;em&gt;&lt;a href="#id32"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|click para ampliar|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id33"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/utilizando-dos-monitores.rst&lt;/tt&gt;, line 48); &lt;em&gt;&lt;a href="#id34"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image5|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Sat, 17 Oct 2009 13:48:00 +0200</pubDate><guid>tag:,2009-10-17:utilizando-dos-monitores.html</guid></item></channel></rss>

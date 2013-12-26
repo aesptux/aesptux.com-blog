@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="comandos, editor, Linux, vi">
+
+  <title>
+Comandos más importantes del editor vi  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Thu 16 April 2009</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/comandos-mas-importantes-del-editor-vi.html">Comandos más importantes del editor vi</a></h3>
+  </div>
+  <div id="article_text">
+    <p>¿Qué es vi?</p>
+<p>vi es un simple procesador de texto, no formatea texto. Es un procesador
+incluido es sistemas basados en Unix.</p>
+<dl class="docutils">
+<dt>Comandos más importantes:</dt>
+<dd>dd -&gt; Para borrar una línea entera. También podemos borrar un numero x</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/opt/aesptux.com/content/comandos-mas-importantes-del-editor-vi.rst</tt>, line 16)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>de líneas, con el comando xdd, por ejemplo para borrar 6 líneas: 6dd</p>
+<p>i - &gt; Inserta texto antes de la posición del cursor. Ejemplo: El cursor
+estará representado con negrita,y vamos a escribir una Q: hola -&gt; holqa</p>
+<p>a -&gt; Inserta texto después de la posición del cursor. Siguiendo con el
+ejemplo anterior: hola -&gt; holaq</p>
+<p>I -&gt; Inserta texto al principio de la línea en la que está el cursor.</p>
+<p>A -&gt; Inserta texto al final de la línea en la que está el cursor.</p>
+<p>#G -&gt; Ir al número de línea indicado. Por ejemplo, 10G, irá a la línea
+10. Para ir al final, sería con $ -&gt; $G</p>
+<p>x -&gt; Borra el carácter sobre el que está situado el cursor</p>
+<p>yy -&gt; Copiar línea actual</p>
+<p>p -&gt; Pegar detrás del cursor</p>
+<p>P -&gt; Pegar delante del cursor</p>
+<p>u -&gt; Deshacer último comando</p>
+<p>:r archivo -&gt; Inserta el archivo indicado detrás del cursor</p>
+<p>:w -&gt; Guardar Archivo</p>
+<p>:q -&gt; Salir ( Si no hay cambios )</p>
+<p>:q! -&gt; Salir sin guardar cambios</p>
+<p>:wq -&gt; Guardar y salir</p>
+<p>Eso es todo.</p>
+<p>Un saludo,</p>
+<p>Mortuus.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/linux.html">Linux</a></p>
+    <p>Tags:
+      <a href="/tag/comandos.html">comandos</a>,      <a href="/tag/editor.html">editor</a>,      <a href="/tag/linux.html">Linux</a>,      <a href="/tag/vi.html">vi</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "comandos-mas-importantes-del-editor-vi.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

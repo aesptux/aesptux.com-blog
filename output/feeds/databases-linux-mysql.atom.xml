@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/databases-linux-mysql.atom.xml" rel="self"></link><id>/</id><updated>2012-10-29T23:43:00+01:00</updated><entry><title>Quick tip: MySQL disallow database creation which certain name</title><link href="/quick-tip-mysql-disallow-database-creation-which-certain-name.html" rel="alternate"></link><updated>2012-10-29T23:43:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2012-10-29:quick-tip-mysql-disallow-database-creation-which-certain-name.html</id><summary type="html">&lt;p&gt;If we want to prevent a name to be used as a schema name, it is pretty
+easy to accomplish:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# move to your mysql data folder, default /var/lib/mysql
+cd /var/lib/mysql
+# create an empty folder with the desired name
+mkdir dontusethisname
+# set permissions to 000
+chmod 000 dontusethisname
+# change ownership to mysql user
+chown mysql:mysql dontusethisname
+&lt;/pre&gt;
+&lt;p&gt;If you try to create this schema now, you will receive the following
+error:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+mysql&amp;gt; create schema dontusethisname;
+ERROR 1007 (HY000): Can't create database
+&lt;/pre&gt;
+</summary><category term="as"></category><category term="certain"></category><category term="database"></category><category term="disallow"></category><category term="forbid"></category><category term="name"></category><category term="prevent"></category><category term="quick tip"></category><category term="schema"></category><category term="use"></category><category term="using"></category></entry><entry><title>How to install MySQL 5.1 on Ubuntu</title><link href="/how-to-install-mysql-5-1-on-ubuntu.html" rel="alternate"></link><updated>2011-11-01T14:33:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2011-11-01:how-to-install-mysql-5-1-on-ubuntu.html</id><summary type="html">&lt;pre class="literal-block"&gt;
+# apt-get install mysql-client-5.1 mysql-client-core-5.1 mysql-common mysql-server-5.1 mysql-server-core-5.1 mysql-admin mysql-gui-tools-common mysql-query-browser
+&lt;/pre&gt;
+&lt;p&gt;With this packages we install mysql client, mysql server and some
+administration tools.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;attachment_742&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;545&amp;quot;
+caption=&amp;quot;Packages to install&amp;quot;]&lt;a href="#id19"&gt;&lt;span class="problematic" id="id20"&gt;`|Packages to install|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Later, we will be asked to set up a root password:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;attachment_743&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;545&amp;quot;
+caption=&amp;quot;Asking for root password&amp;quot;]&lt;a href="#id21"&gt;&lt;span class="problematic" id="id22"&gt;`|Asking for root
+password|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Be sure to remember that password.&lt;/p&gt;
+&lt;p&gt;Once it is installed we can run MySQL Administrator to manage our
+recently installed server.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;attachment_744&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;480&amp;quot;
+caption=&amp;quot;MySQL Administrator Connection&amp;quot;]&lt;a href="#id23"&gt;&lt;span class="problematic" id="id24"&gt;`|MySQL Administrator
+Connection|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;It's highly recommended to create other user to work&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;attachment_745&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;561&amp;quot;
+caption=&amp;quot;Creating a new user&amp;quot;]&lt;a href="#id25"&gt;&lt;span class="problematic" id="id26"&gt;`|Creating a new user|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;With MySQL Administrator you also can manage backups or check server's
+health for example.&lt;/p&gt;
+&lt;p&gt;And finally, with MySQL Query Browser you can que to your server; create
+new databases, insert values, sql queries, etc.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;attachment_746&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;593&amp;quot;
+caption=&amp;quot;Creating a new database with Query Browser&amp;quot;]&lt;a href="#id27"&gt;&lt;span class="problematic" id="id28"&gt;`|Creating a new
+database with Query Browser|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;!-- |Packages to --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 59)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;install| image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id29"&gt;&lt;span class="problematic" id="id30"&gt;Snap_2011.11.01_13h07m18s_001_&lt;/span&gt;&lt;/a&gt;.png
+.. &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|Asking for root
+password|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id31"&gt;&lt;span class="problematic" id="id32"&gt;Snap_2011.11.01_13h13m19s_002_&lt;/span&gt;&lt;/a&gt;.png
+.. &lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;|MySQL Administrator
+Connection|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id33"&gt;&lt;span class="problematic" id="id34"&gt;Snap_2011.11.01_13h21m26s_003_&lt;/span&gt;&lt;/a&gt;.png
+.. &lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;|Creating a new
+user|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id35"&gt;&lt;span class="problematic" id="id36"&gt;Snap_2011.11.01_13h24m53s_004_&lt;/span&gt;&lt;/a&gt;.png
+.. &lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;|Creating a new database with Query
+Browser|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id37"&gt;&lt;span class="problematic" id="id38"&gt;Snap_2011.11.01_13h28m45s_005_&lt;/span&gt;&lt;/a&gt;.png
+.. &lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;|image5|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id39"&gt;&lt;span class="problematic" id="id40"&gt;Snap_2011.11.01_13h07m18s_001_&lt;/span&gt;&lt;/a&gt;.png
+.. &lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;|image6|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id41"&gt;&lt;span class="problematic" id="id42"&gt;Snap_2011.11.01_13h13m19s_002_&lt;/span&gt;&lt;/a&gt;.png
+.. &lt;a href="#id13"&gt;&lt;span class="problematic" id="id14"&gt;|image7|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id43"&gt;&lt;span class="problematic" id="id44"&gt;Snap_2011.11.01_13h21m26s_003_&lt;/span&gt;&lt;/a&gt;.png
+.. &lt;a href="#id15"&gt;&lt;span class="problematic" id="id16"&gt;|image8|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id45"&gt;&lt;span class="problematic" id="id46"&gt;Snap_2011.11.01_13h24m53s_004_&lt;/span&gt;&lt;/a&gt;.png
+.. &lt;a href="#id17"&gt;&lt;span class="problematic" id="id18"&gt;|image9|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/"&gt;http://aesptux.com/wp-content/uploads/2011/11/&lt;/a&gt;&lt;a href="#id47"&gt;&lt;span class="problematic" id="id48"&gt;Snap_2011.11.01_13h28m45s_005_&lt;/span&gt;&lt;/a&gt;.png&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Asking for root password&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;MySQL Administrator Connection&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Creating a new user&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Creating a new database with Query Browser&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id9"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image5&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id11"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image6&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id13"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id14"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image7&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id15"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id16"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image8&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id17"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id18"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image9&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id19"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 18); &lt;em&gt;&lt;a href="#id20"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|packages to install|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id21"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 23); &lt;em&gt;&lt;a href="#id22"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|asking for root password|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id23"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 32); &lt;em&gt;&lt;a href="#id24"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|mysql administrator connection|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id25"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 38); &lt;em&gt;&lt;a href="#id26"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|creating a new user|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id27"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 47); &lt;em&gt;&lt;a href="#id28"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|creating a new database with query browser|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id29"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id30"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h07m18s_001&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id31"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id32"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h13m19s_002&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id33"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id34"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h21m26s_003&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id35"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id36"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h24m53s_004&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id37"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id38"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h28m45s_005&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id39"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id40"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h07m18s_001&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id41"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id42"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h13m19s_002&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id43"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id44"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h21m26s_003&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id45"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id46"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h24m53s_004&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id47"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/how-to-install-mysql-5-1-on-ubuntu.rst&lt;/tt&gt;, line 60); &lt;em&gt;&lt;a href="#id48"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;snap_2011.11.01_13h28m45s_005&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="5.1"></category><category term="administrator"></category><category term="browser"></category><category term="how"></category><category term="install"></category><category term="installing"></category><category term="Linux"></category><category term="mysql"></category><category term="query"></category><category term="sql"></category><category term="to"></category><category term="ubuntu"></category></entry></feed>

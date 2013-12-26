@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="encaminador, router">
+
+  <title>
+El encaminador  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Sat 25 July 2009</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/el-encaminador.html">El encaminador</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Los encaminadores, enrutadores o routers son dispositivos software o
+hardware que se pueden configurar para encaminar paquetes entre sus
+distintos puertos de red utilizando la dirección lógica correspondiente
+a la internet.</p>
+<p>El encaminador interconecta redes de área local operando en el nivel 3
+de OSI, por tanto su funcionalidad está fuertemente condicionada por el
+protocolo de red.&nbsp; Esto hace que su rendimiento sea menor, ya que gasta
+menos tiempo de proceso en analizar los paquetes de nivel de red que
+llegan.</p>
+<p>Los routers confeccionan una tabla de encaminamientoen donde registran
+qué nodos y redes son alcanzables por cada uno de sus puertos de salida.</p>
+<ul class="simple">
+<li><strong>Algoritmos de encaminamiento estático.</strong> Requiren que la tabla de
+encaminamiento sea programada por el administrador de red.</li>
+<li><strong>Algoritmos de encaminamiento adaptativo.</strong>Son capaces de aprender
+por sí mismos la topología de la red. Son mucho más flexibles que los
+estáticos, aunque su rendimiento es menor.</li>
+</ul>
+<p><strong>Protocolos de encaminamiento</strong></p>
+<ul class="simple">
+<li><strong>RIP</strong><em>(Routing Information Protocol)</em>es un algoritmo&nbsp; de tipo
+vector basado en la RFC 1058 apropiado para encaminamiento en redes
+IP pequeñas. RIP utiliza el puerto UDP número 520 para el intercambio
+de la información de encaminamiento con otros enrutadores, que se
+calcula como el cómputo de saltos de red necesarios para que un
+paquete dado alcance su destino.</li>
+<li><strong>OSPF</strong><em>(Open Shortest Path First)</em>es otro algoritmo
+caracterizado por que el envío de paquetes siempre se realiza por la
+ruta más corta entre las disponibles.</li>
+<li><strong>BGP</strong><em>(Border Gateway Protocol)</em>es un protocolo de frontera
+exterior, es decir, se ejecuta en los encaminadores que forman el
+perímetro de la red y facilitan extraodinariamente el interambio de
+rutas con los encaminadores exteriores.</li>
+</ul>
+<p><strong>Características fundamentales de los encaminadores</strong></p>
+<ul class="simple">
+<li>Interpretan las direcciones lógicas de capa 3</li>
+<li>Son capaces de cambiar el formato de la trama, ya que operan a un
+nivel superior a ésta</li>
+<li>Poseen un elevado nivel de inteligencia y pueden manejar distintos
+protocolos</li>
+<li>Proporcionan seguridad a la red puesto que se pueden configurar para
+restringir accesos a la red.</li>
+<li>Reducen la congestión de la red aislando de tráfico las distintas
+subredes que interconectan.</li>
+</ul>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/networking-notes.html">Networking, Notes</a></p>
+    <p>Tags:
+      <a href="/tag/encaminador.html">encaminador</a>,      <a href="/tag/router.html">router</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "el-encaminador.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

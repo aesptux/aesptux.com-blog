@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/linux-python.atom.xml" rel="self"></link><id>/</id><updated>2013-01-03T13:20:00+01:00</updated><entry><title>Fix yum error TypeError: can't multiply sequence by non-int of type 'float'</title><link href="/fix-yum-error-typeerror-cant-multiply-sequence-by-non-int-of-type-float.html" rel="alternate"></link><updated>2013-01-03T13:20:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2013-01-03:fix-yum-error-typeerror-cant-multiply-sequence-by-non-int-of-type-float.html</id><summary type="html">&lt;p&gt;I ran into this bug which prevented me to update yum packages, and after
+a quick search, this helped to fix it:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# vim /usr/lib/python2.7/site-packages/urlgrabber/grabber.py
+&lt;/pre&gt;
+&lt;p&gt;Go to line 1539, with vim you can use &lt;strong&gt;:1539&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Replace the line with this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+if cur &amp;gt; (float(max_size)*1.10):
+&lt;/pre&gt;
+</summary><category term="bug"></category><category term="can't"></category><category term="fedora"></category><category term="float"></category><category term="Linux"></category><category term="multiply"></category><category term="non-int"></category><category term="package"></category><category term="python"></category><category term="sequence"></category><category term="TypeError"></category><category term="update"></category><category term="yum"></category></entry></feed>

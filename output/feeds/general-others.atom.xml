@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/general-others.atom.xml" rel="self"></link><id>/</id><updated>2011-02-01T12:30:00+01:00</updated><entry><title>Hacking videojuegos. Trucos para casi cualquier juego en offline. Ejemplo Dead Space 2.</title><link href="/hacking-videojuegos-trucos-para-casi-cualquier-juego-en-offline-ejemplo-dead-space-2.html" rel="alternate"></link><updated>2011-02-01T12:30:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2011-02-01:hacking-videojuegos-trucos-para-casi-cualquier-juego-en-offline-ejemplo-dead-space-2.html</id><summary type="html">&lt;p&gt;En algunas ocasiones, se nos atasca algún juego, y tiramos de alguna
+combinación de teclas para aumentar munición o lo que necesitemos.&lt;/p&gt;
+&lt;p&gt;En algunos juegos eso no es posible, como es el caso del Dead Space 2,
+en el cuál el truco para aumentar munición, dinero o nodos brilla por su
+ausencia.&lt;/p&gt;
+&lt;p&gt;En este caso podemos utilizar &lt;a class="reference external" href="http://www.cheatengine.org/downloads.php"&gt;Cheat Engine&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Una breve explicación:&lt;/p&gt;
+&lt;p&gt;Cuando ejecutamos un juego, se carga el proceso en la ram. Ese proceso
+tiene unas variables en la ram, que pueden ser editadas mediante Cheat
+Engine. Estas variables pueden ser la munición, vida, dinero, etc.
+cualquiera que tenga el juego (¿ya pilláis por dónde va la cosa?)&lt;/p&gt;
+&lt;p&gt;&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;`|image0|`_&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Esta es la interfaz de Cheat Engine.&amp;nbsp; El botón que está recuadrado en
+verde es el que tenemos que pinchar para cargar el proceso, en este caso
+el juego que nos interese&lt;/p&gt;
+&lt;p&gt;Empezamos los pasos a seguir:&lt;/p&gt;
+&lt;p&gt;1- Abrimos el juego que nos interese, en este caso voy a abrir Dead
+Space 2&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;761&amp;quot; caption=&amp;quot;Munición antes de
+editar la variable&amp;quot;]&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;`|image1|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;2- Abrimos Cheat Engine y seleccionamos el proceso del juego&lt;/p&gt;
+&lt;p&gt;&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;`|image2|`_&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3- Como sabemos que tenemos 9 balas, buscamos 9 en el buscador. Vemos
+que hay muchas variables. Entonces lo que haremos será gastar una bala,
+y dar &lt;strong&gt;Next scan&lt;/strong&gt; poniendo el numero actual de balas tras el disparo,
+es decir 8. Y así, hasta que logremos aislar la(s) variable(s) en las
+que se almacena la munición&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;631&amp;quot; caption=&amp;quot;Click para
+ampliar&amp;quot;]&lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;`|image3|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;4- Una vez aislada la variable la arrastramos al cajón de abajo y con el
+botón derecho sacamos el menú desplegable y hacemos click en Change
+Record -&amp;gt; Value&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;584&amp;quot; caption=&amp;quot;Click para
+ampliar&amp;quot;]&lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;`|image4|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;5- Establecer el nuevo valor, en mi caso voy a poner 999, y como vemos
+&lt;strong&gt;¡En el juego también tenemos 999 de munición!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;629&amp;quot; caption=&amp;quot;Click para
+ampliar&amp;quot;]&lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;`|image5|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;6 - Jugar!&lt;/p&gt;
+&lt;p&gt;Yo lo he probado en el Counter Strike, modificando satisfactoriamente el
+dinero y la munición&lt;/p&gt;
+&lt;p&gt;Con Dead Space 2 he modificado la munición de todas las armas, el
+dinero, y la cantidad de nodos.&lt;/p&gt;
+&lt;p&gt;Quizás sea un poco engorroso, pero útil para cuando nos quedamos
+atascados.&lt;/p&gt;
+&lt;p&gt;Espero que os sirva :D&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/hacking-videojuegos-trucos-para-casi-cualquier-juego-en-offline-ejemplo-dead-space-2.rst&lt;/tt&gt;, line 25); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image0|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/hacking-videojuegos-trucos-para-casi-cualquier-juego-en-offline-ejemplo-dead-space-2.rst&lt;/tt&gt;, line 36); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image1|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/hacking-videojuegos-trucos-para-casi-cualquier-juego-en-offline-ejemplo-dead-space-2.rst&lt;/tt&gt;, line 41); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image2|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/hacking-videojuegos-trucos-para-casi-cualquier-juego-en-offline-ejemplo-dead-space-2.rst&lt;/tt&gt;, line 49); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image3|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id9"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/hacking-videojuegos-trucos-para-casi-cualquier-juego-en-offline-ejemplo-dead-space-2.rst&lt;/tt&gt;, line 56); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image4|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id11"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/hacking-videojuegos-trucos-para-casi-cualquier-juego-en-offline-ejemplo-dead-space-2.rst&lt;/tt&gt;, line 62); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image5|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="cheat engine"></category><category term="cheats"></category><category term="dead"></category><category term="dead space 2"></category><category term="hackear"></category><category term="hacking"></category><category term="pc"></category><category term="space"></category><category term="trucos"></category><category term="videojuegos"></category></entry></feed>

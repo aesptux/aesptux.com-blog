@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/programming-web.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 18 Jun 2009 15:36:00 +0200</lastBuildDate><item><title>Mostrar propiedades de un objeto window</title><link>/mostrar-propiedades-de-un-objeto-window.html</link><description>&lt;p&gt;Un pequeño truquillo para mostrar las propiedades de un objeto window:&lt;/p&gt;
+&lt;p&gt;`` &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt; for (property in window) { document.write(property) document.write('&amp;lt;br /&amp;gt;') } &amp;lt;/script&amp;gt;``&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Thu, 18 Jun 2009 15:36:00 +0200</pubDate><guid>tag:,2009-06-18:mostrar-propiedades-de-un-objeto-window.html</guid></item></channel></rss>

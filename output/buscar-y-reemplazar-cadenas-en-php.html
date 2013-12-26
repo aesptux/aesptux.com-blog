@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="buscar, cadenas, php, reemplazar">
+
+  <title>
+Buscar y reemplazar cadenas en php  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Sat 11 July 2009</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/buscar-y-reemplazar-cadenas-en-php.html">Buscar y reemplazar cadenas en php</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Esta tarea normalmente se realiza a través de la función
+strpos(cadena_donde_se_busca,subcadena_a_buscar) que devuelve false
+si no encuentra nada, o devuelve la posión del primer carácter buscado
+dentro de la cadena.</p>
+<p>`` $cadena = &quot;Hola que tal estoy probando las cadenas&quot; $pos = strpos($cadena, &quot;estoy&quot;); if (!$pos) echo &quot;No se ha encontrado nadan&quot;); else echo &quot;Posición: $posn&quot;);``</p>
+<p>Eso devolvería el valor 13.</p>
+<p>También se puede indicar que empiece a buscar desde la derecha, para
+ello existe la función strrpos(). Como ya esperabas, strpos() es
+sensible a las mayúscualas y minúsculas, pero curiosamente no hay otra
+alternativa para esta función. Pero en php existe la función strstr()
+que funciona de manera similar a strpos() y tiene una variante sin
+sensibilidad a mayúsculas denominada stristr(). La diferencia entre
+strstr() y strpos(), es que strstr() devuelve la parte posterior de la
+subcadena buscada. En el ejemplo anterior, strpos() devolvía 13, pues
+bien, utilizando la función strstr():</p>
+<dl class="docutils">
+<dt>`` $cadena = &quot;Hola que tal estoy probando las cadenas&quot; $pos = strstr($cadena, &quot;estoy&quot;); if (!$pos) echo &quot;No se ha encontrado nadan&quot;); else echo &quot;Posición: $posn&quot;);``</dt>
+<dd>Eso devolvería &quot;estoy probando las cadenas&quot;</dd>
+</dl>
+<p>Para reemplazar cadenas existen dos funcionaes. Una de ellas es
+substr_replace, que podrá ser utilizada siempre que conozcamos la
+posición y la longitud de la sub cadena a reemplazar.</p>
+<p>`` $cadena = &quot;Hola que tal estoy probando las cadenas&quot;; $nueva = substr_replace($cadena, &quot;estoy&quot;, 13, 5); echo &quot;$nuevan&quot;;``</p>
+<p>Pero no tenemos porque conocer la longitud ni la posición, para estos
+casos tenemos la función str_replace(subcadena_buscada,
+subcadena_nueva, cadena)</p>
+<p>`` $cadena = &quot;Hola que tal estoy probando las cadenas&quot;; $nueva = str_replace(&quot;probando&quot;, &quot;quemando&quot;, $cadena); echo &quot;$nuevan&quot;;``</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/php-programming.html">Php, Programming</a></p>
+    <p>Tags:
+      <a href="/tag/buscar.html">buscar</a>,      <a href="/tag/cadenas.html">cadenas</a>,      <a href="/tag/php.html">php</a>,      <a href="/tag/reemplazar.html">reemplazar</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "buscar-y-reemplazar-cadenas-en-php.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

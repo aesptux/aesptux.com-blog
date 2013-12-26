@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="abstraccion, apuntes, bases de datos, datos, lenguajes, objetivos, procedimientos almacenados, relacionales, Security, sql, teoria, triggers">
+
+  <title>
+Bases de datos relacionales.  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Mon 08 November 2010</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/bases-de-datos-relacionales.html">Bases de datos relacionales.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>?</p>
+<ol class="arabic">
+<li><p class="first"><strong>Bases de datos relacionales</strong></p>
+<p><strong>Objetivos y ventajas del modelo relacional</strong></p>
+</li>
+</ol>
+<p>El principal objetivo del modelo relacional es traducir el modelo de
+negocio (realidad) para que el modelo de base de datos sea lo más
+parecido posible.</p>
+<p><strong>Abstracción del almacenamiento físico</strong></p>
+<p>Separación entre el nivel de almacenamiento físico y el nivel conceptual</p>
+<p>Utilizando bases de datos relacionales, el depósito de información es
+compacto, está gestionado de forma transparente. Todas las entidades
+residen en mismo depósito de información.</p>
+<p><strong>Relaciones reflexivas y recursividad</strong></p>
+<p>Permite relaciones reflexivas.</p>
+<p>Una entidad puede relacionarse consigo misma, lo cual nos lleva pensar
+en esquemas recursivos.</p>
+<p><strong>Abstracción de tablas y vistas</strong></p>
+<p>Podemos tener entidades almacenadas en tablas (filas y columnas) y
+también podemos componer vistas empleando los contenidos de diferentes
+tablas.</p>
+<p><strong>Relaciones y reglas de integridad referencial</strong></p>
+<p>Son las líneas que vinculan unas entidades con otras.</p>
+<p>Las reglas de integridad referencial se generan a partir de relaciones
+entre tablas.</p>
+<p>Dependiendo de si el campo es clave en origen o en destino podemos tener
+relaciones fuertes o débiles. Las relaciones fuertes implican reglas de
+integridad referencial.</p>
+<p>Las reglas de integridad referencial sirven para exigir coherencia entre
+los datos.</p>
+<p><strong>Relaciones fuertes y relaciones débiles. Cardinalidad.</strong></p>
+<p>Hay varios tipos de relaciones, pueden ser 1 a N o N a M.</p>
+<p>Si la relación es NM, se debe crear una tabla de cruce con los campos
+clave de ambas tablas</p>
+<p>Relación fuerte: Porque se trata de una relación de uno a muchos. El
+hecho de que exista un sello implica que debe estar guardado en un
+álbum.</p>
+<p><strong>Procedimientos almacenados y disparadores (triggers)</strong></p>
+<p>Los procedimientos almacenados son funciones y métodos que amplían las
+posibilidades de manejo de la base de datos.</p>
+<p>Estos procedimientos constituyen una capa de programación intermedia muy
+cercana a la base de datos.</p>
+<p>Ejemplos de tareas:</p>
+<p>Dar de alta entidades. Una empresa tiene como norma que un cliente nunca
+pueda darse de alta si no se le ha realizado un análisis de riesgo de
+cobro. El procedimiento de alta de un cliente verificará que el valor de
+la columna Riesgo no sea nulo.</p>
+<p>Distribuir datos lógicos a lo largo de diferentes tablas físicas sin que
+externamente se modifique nada.</p>
+<p>Obtener datos de hardware o controlar dispositivos externos.</p>
+<p>Los disparadores o triggers son procedimientos almacenados que se ponen
+en marcha automáticamente cuando sucede un acontecimiento previsto. Por
+ejemplo, la inserción de un nuevo registro sobre una tabla.</p>
+<p>Más ejemplos:</p>
+<p>Llamar a los técnicos de control cuando se ha insertado un registro en
+la tabla de incidencias de maquinaria</p>
+<p>Para enviar un mensaje de correo electrónico a un cliente cuando su
+mercancía está lista para salir de almacén</p>
+<p><strong>Transacciones</strong></p>
+<p>Una transacción es un bloque diferenciado de operaciones de escritura
+sobre una o más tablas, cuyo resultado puede ser confirmado o revocado
+en su totalidad.</p>
+<p>La inserción de una factura implica a su vez la inserción de una
+cabecera de factura y de unas líneas de factura.</p>
+<p>Imaginemos que intentan entrar una línea de factura con una cantidad 0
+de unidades o que estamos trabajando con albaranes/factura y las
+unidades facturadas superan las unidades que tenemos en stock para
+entregar.</p>
+<p>Lo que sucede en este caso es que se revoca la escritura de la cabecera,
+de las líneas anteriormente grabadas de esa factura y se retorna al
+estado anterior.</p>
+<p>Debe respetar las condiciones ACID.</p>
+<ul>
+<li><p class="first"><strong>A de atomización</strong>: la palabra átomo quiere decir indivisible.
+Una factura es una entidad lógica indivisible, por ejemplo.</p>
+</li>
+<li><p class="first"><strong>C de consistencia</strong>: se garantiza que sólo se realizará el
+bloque si no se rompe ninguna regla de integridad referencial ni
+ninguna regla de negocio explícitamente guardada en la base de datos.</p>
+</li>
+<li><p class="first"><strong>I de Isolation</strong>: una operación no puede afectar a otras. Dos
+transacciones sobre la misma información son independientes y no
+generan errores.</p>
+</li>
+<li><p class="first"><strong>D de durabilidad</strong>: una vez que la transacción se ha
+confirmado, se mantiene en disco completamente grabada aunque haya un
+fallo de sistema</p>
+<p><p><strong>Seguridad</strong></p>
+</li>
+</ul>
+<p>Pueden establecer normas de seguridad para proporcionar acceso de
+lectura, escritura, inserción y borrado de sus usuarios, así como
+establecer seguridad también sobre los derechos de administración, como
+por ejemplo creación y destrucción de tablas.</p>
+<p>En programación orientada a objetos, una tabla equivale a una entidad o
+un tipo de objeto: una clase. La seguridad es a nivel de tipos, y no de
+registro.</p>
+<p>Existe una segunda forma de seguridad que no está implementada en las
+bases de datos relacionales que es la seguridad a nivel de instancias;
+la seguridad a nivel de filas individuales de las tablas.</p>
+<p><strong>Lenguajes propias para la gestión de datos y recursos</strong></p>
+<p>Lenguaje unificado. Se trata del lenguaje SQL del cual han surgido
+variaciones y dialectos propias de cada fabricante:</p>
+<ul class="simple">
+<li><strong>DDL (Data Definition Language):</strong> Lenguaje de definición de
+estructuras de datos. Permite crear tablas, modificarlas y
+eliminarlas</li>
+<li><strong>DML (Data Management Language):</strong> Lenguaje de manipulación de
+datos. Permite dar de alta filas, modificar contenido de columnas y
+borrar filas y columnas</li>
+<li><strong>DCL (Data Control Language):</strong> Lenguaje de control de datos.
+Permite administrar la seguridad de quién puede leer, escribir o
+borrar datos en una tabla; quién puede crear o eliminar tablas, etc.</li>
+</ul>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/databases-notes.html">Databases, Notes</a></p>
+    <p>Tags:
+      <a href="/tag/abstraccion.html">abstraccion</a>,      <a href="/tag/apuntes.html">apuntes</a>,      <a href="/tag/bases-de-datos.html">bases de datos</a>,      <a href="/tag/datos.html">datos</a>,      <a href="/tag/lenguajes.html">lenguajes</a>,      <a href="/tag/objetivos.html">objetivos</a>,      <a href="/tag/procedimientos-almacenados.html">procedimientos almacenados</a>,      <a href="/tag/relacionales.html">relacionales</a>,      <a href="/tag/security.html">Security</a>,      <a href="/tag/sql.html">sql</a>,      <a href="/tag/teoria.html">teoria</a>,      <a href="/tag/triggers.html">triggers</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "bases-de-datos-relacionales.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>
