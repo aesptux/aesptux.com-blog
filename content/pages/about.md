@@ -9,6 +9,7 @@ My main interests are **programming**, **databases** and **operative systems**. 
 I studied **Computer Systems Use** (2008-2010) and **Computer Network Systems Management** (2010-2012), and currently I'm studying a **BSc in Computer Science and Engineering**.
 
 My favourite **GNU/Linux** distributions are **Fedora** and **Ubuntu**. Proud owner of an **Android** (<s>HTC Hero</s> <s>Samsung Galaxy S II</s> LG Nexus 4).
+I also own an awesome Nexus 7 2013.
 
 When I have spare time (not often) I like to play games like Half life, Team Fortress 2, Left 4 Dead, Counter Strike and Mass Effect. 
 
