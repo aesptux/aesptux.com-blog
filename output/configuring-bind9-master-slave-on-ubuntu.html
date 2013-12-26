@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="bind, bind9, desktop, dns, error, fix, Linux, master, permission, replicate, slave, solution, solve, transfer, ubuntu, zone">
+
+  <title>
+Configuring BIND9 Master / Slave on Ubuntu.  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Tue 08 November 2011</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/configuring-bind9-master-slave-on-ubuntu.html">Configuring BIND9 Master / Slave on Ubuntu.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>I know it is strange to set up this type of configuration on an Ubuntu
+Desktop, but we had to do it for Internet Services class, and it gave
+problems to me and most of my class.</p>
+<p>I am going to use two virtual machines, both running Ubuntu Desktop.
+First step is installing bind9.</p>
+<pre class="literal-block">
+# apt -get install bind9
+</pre>
+<p>The test domain will be &quot;etg.local&quot;</p>
+<ul><li><p><strong>Master dns:</strong></p>
+</li><ul class="simple">
+<li>IP:&nbsp; 192.168.7.1</li>
+<li>name: dns1</li>
+</ul>
+<li><p><strong>Slave dns:</strong></p>
+</li><ul class="simple">
+<li>IP: 192.168.7.2</li>
+<li>name: pc02 (with dns2 CNAME)</li>
+</ul>
+</ul><p><em>Be careful with using underscore on names.</em></p>
+<div class="section" id="master">
+<h2><strong>MASTER</strong></h2>
+<p>We are going to start by editing /etc/bind/named.conf.local, to define
+our zone. I am going to define just one zone. You may want to define
+also a reverse zone.</p>
+<p>[caption id=&quot;attachment_753&quot; align=&quot;aligncenter&quot; width=&quot;567&quot;
+caption=&quot;named.conf.local&quot;]<a href="#id29"><span class="problematic" id="id30">`|named.conf.local|`_</span></a>[/caption]</p>
+<p>Notice that the &quot;type&quot; of this host is <strong>master</strong>, that is important. We
+also can see that I used absolute path to the file, because I did not
+specified any directory on the options.</p>
+<p>Allow-transfer, allow-update and also-notify are allowing our slave dns
+to transfer the zone(s) file(s).</p>
+<p>This is my zone file:</p>
+<p>[caption id=&quot;attachment_754&quot; align=&quot;aligncenter&quot; width=&quot;463&quot;
+caption=&quot;Zone file&quot;]<a href="#id31"><span class="problematic" id="id32">`|Zone file|`_</span></a>[/caption]</p>
+<p>We must pay attention to thenames to be fully qualified if they include
+domain name, and both servers must be declared with NS register.</p>
+<p>Finally we configure our DNS, this is my configuration file
+/etc/resolv.conf</p>
+<p>[caption id=&quot;attachment_755&quot; align=&quot;aligncenter&quot; width=&quot;306&quot;
+caption=&quot;/etc/resolv.conf&quot;]<a href="#id33"><span class="problematic" id="id34">`|/etc/resolv.con|`_</span></a>[/caption]</p>
+</div>
+<div class="section" id="slave">
+<h2><strong>SLAVE</strong></h2>
+<p>Here comes the tricky part, at least with Ubuntu Desktop.</p>
+<p>First, we configure /etc/resolv.conf to be equally as in master. Search
+parameter must be &quot;etg.local&quot; and nameserver &quot;127.0.0.1&quot;</p>
+<p>Now, we declare our zone, pay attention:</p>
+<p>[caption id=&quot;attachment_756&quot; align=&quot;aligncenter&quot; width=&quot;488&quot;
+caption=&quot;Zone declaration on slave&quot;]<a href="#id35"><span class="problematic" id="id36">`|Zone declaration on
+slave|`_</span></a>[/caption]</p>
+<p>As you may see, we declared the type of this server as <strong>slave,</strong> and we
+set who is its master(s).</p>
+<p>Now it should replicate our zone from master server, but it won't until
+we do a couple more of steps to avoid errors of writing permission.</p>
+<p>We have to edit the file <strong>/etc/apparmor.d/usr.sbin.named</strong></p>
+<p>[caption id=&quot;attachment_757&quot; align=&quot;aligncenter&quot; width=&quot;562&quot;
+caption=&quot;Default usr.sbin.named&quot;]<a href="#id37"><span class="problematic" id="id38">`|Default
+usr.sbin.named|`_</span></a>[/caption]</p>
+<p>We have to find the line highlighted in red.</p>
+<p>r stands for read, read permission. So we can deduce that it does not
+have permission to write the zone, that is the because it gives us
+permission errors.</p>
+<p>We change that line to this:</p>
+<p>[caption id=&quot;attachment_758&quot; align=&quot;aligncenter&quot; width=&quot;308&quot;
+caption=&quot;Modified usr.sbin.named&quot;]<a href="#id39"><span class="problematic" id="id40">`|Modified
+usr.sbin.named|`_</span></a>[/caption]</p>
+<p>And the last step is giving all permissions to the the bind group in the
+bind folder:</p>
+<pre class="literal-block">
+# chmod -R 775 /etc/bind
+</pre>
+<p>Now we restart first the bind server of the master and then the slave
+with:</p>
+<pre class="literal-block">
+# /etc/init.d/bind9 restart
+</pre>
+<p>Then if we want to check the log file to see if everything went fine
+(slave):</p>
+<pre class="literal-block">
+# tail -f /var/log/syslog
+</pre>
+<p>[caption id=&quot;attachment_759&quot; align=&quot;aligncenter&quot; width=&quot;566&quot;
+caption=&quot;Syslog&quot;]<a href="#id41"><span class="problematic" id="id42">`|Syslog|`_</span></a>[/caption]</p>
+<p>I highlighted some important messages. It tells us that the zone
+transfer went fine. Now we finally take a look to our recently
+replicated zone file.</p>
+<p><em>Note: In the next screenshot you will se that the serial is 2. You can
+transfer with serial, I just added another register (see www) to show
+you that it really works</em></p>
+<p>[caption id=&quot;attachment_760&quot; align=&quot;aligncenter&quot; width=&quot;515&quot;
+caption=&quot;Replicated zone&quot;]<a href="#id43"><span class="problematic" id="id44">`|Replicated zone|`_</span></a>[/caption]</p>
+<p>And that's all, it should work now.</p>
+<!-- |Zone -->
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 178)</p>
+malformed substitution definition.</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179)</p>
+Explicit markup ends without a blank line; unexpected unindent.</div>
+<p>file| image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id45"><span class="problematic" id="id46">Snap_2011.11.08_00h23m41s_030_</span></a>.png
+.. <a href="#id1"><span class="problematic" id="id2">|/etc/resolv.con|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id47"><span class="problematic" id="id48">Snap_2011.11.08_00h30m52s_031_</span></a>.png
+.. <a href="#id3"><span class="problematic" id="id4">|Zone declaration on
+slave|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id49"><span class="problematic" id="id50">Snap_2011.11.08_00h40m47s_032_</span></a>.png
+.. <a href="#id5"><span class="problematic" id="id6">|Default
+usr.sbin.named|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id51"><span class="problematic" id="id52">Snap_2011.11.08_00h45m01s_033_</span></a>.png
+.. <a href="#id7"><span class="problematic" id="id8">|Modified
+usr.sbin.named|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id53"><span class="problematic" id="id54">Snap_2011.11.08_00h49m25s_034_</span></a>.png
+.. <a href="#id9"><span class="problematic" id="id10">|Syslog|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id55"><span class="problematic" id="id56">Snap_2011.11.08_00h54m50s_035_</span></a>.png
+.. <a href="#id11"><span class="problematic" id="id12">|Replicated
+zone|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id57"><span class="problematic" id="id58">Snap_2011.11.08_00h57m33s_036_</span></a>.png
+.. <a href="#id13"><span class="problematic" id="id14">|image8|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id59"><span class="problematic" id="id60">Snap_2011.11.08_00h13m01s_028_</span></a>.png
+.. <a href="#id15"><span class="problematic" id="id16">|image9|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id61"><span class="problematic" id="id62">Snap_2011.11.08_00h23m41s_030_</span></a>.png
+.. <a href="#id17"><span class="problematic" id="id18">|image10|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id63"><span class="problematic" id="id64">Snap_2011.11.08_00h30m52s_031_</span></a>.png
+.. <a href="#id19"><span class="problematic" id="id20">|image11|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id65"><span class="problematic" id="id66">Snap_2011.11.08_00h40m47s_032_</span></a>.png
+.. <a href="#id21"><span class="problematic" id="id22">|image12|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id67"><span class="problematic" id="id68">Snap_2011.11.08_00h45m01s_033_</span></a>.png
+.. <a href="#id23"><span class="problematic" id="id24">|image13|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id69"><span class="problematic" id="id70">Snap_2011.11.08_00h49m25s_034_</span></a>.png
+.. <a href="#id25"><span class="problematic" id="id26">|image14|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id71"><span class="problematic" id="id72">Snap_2011.11.08_00h54m50s_035_</span></a>.png
+.. <a href="#id27"><span class="problematic" id="id28">|image15|</span></a> image:: <a class="reference external" href="http://aesptux.com/wp-content/uploads/2011/11/">http://aesptux.com/wp-content/uploads/2011/11/</a><a href="#id73"><span class="problematic" id="id74">Snap_2011.11.08_00h57m33s_036_</span></a>.png</p>
+</div>
+<div class="system-messages section">
+<h2>Docutils System Messages</h2>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id2">backlink</a></em></p>
+Undefined substitution referenced: &quot;/etc/resolv.con&quot;.</div>
+<div class="system-message" id="id3">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id4">backlink</a></em></p>
+Undefined substitution referenced: &quot;Zone declaration on slave&quot;.</div>
+<div class="system-message" id="id5">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id6">backlink</a></em></p>
+Undefined substitution referenced: &quot;Default usr.sbin.named&quot;.</div>
+<div class="system-message" id="id7">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id8">backlink</a></em></p>
+Undefined substitution referenced: &quot;Modified usr.sbin.named&quot;.</div>
+<div class="system-message" id="id9">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id10">backlink</a></em></p>
+Undefined substitution referenced: &quot;Syslog&quot;.</div>
+<div class="system-message" id="id11">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id12">backlink</a></em></p>
+Undefined substitution referenced: &quot;Replicated zone&quot;.</div>
+<div class="system-message" id="id13">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id14">backlink</a></em></p>
+Undefined substitution referenced: &quot;image8&quot;.</div>
+<div class="system-message" id="id15">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id16">backlink</a></em></p>
+Undefined substitution referenced: &quot;image9&quot;.</div>
+<div class="system-message" id="id17">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id18">backlink</a></em></p>
+Undefined substitution referenced: &quot;image10&quot;.</div>
+<div class="system-message" id="id19">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id20">backlink</a></em></p>
+Undefined substitution referenced: &quot;image11&quot;.</div>
+<div class="system-message" id="id21">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id22">backlink</a></em></p>
+Undefined substitution referenced: &quot;image12&quot;.</div>
+<div class="system-message" id="id23">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id24">backlink</a></em></p>
+Undefined substitution referenced: &quot;image13&quot;.</div>
+<div class="system-message" id="id25">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id26">backlink</a></em></p>
+Undefined substitution referenced: &quot;image14&quot;.</div>
+<div class="system-message" id="id27">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id28">backlink</a></em></p>
+Undefined substitution referenced: &quot;image15&quot;.</div>
+<div class="system-message" id="id29">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 65); <em><a href="#id30">backlink</a></em></p>
+Unknown target name: &quot;|named.conf.local|&quot;.</div>
+<div class="system-message" id="id31">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 77); <em><a href="#id32">backlink</a></em></p>
+Unknown target name: &quot;|zone file|&quot;.</div>
+<div class="system-message" id="id33">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 88); <em><a href="#id34">backlink</a></em></p>
+Unknown target name: &quot;|/etc/resolv.con|&quot;.</div>
+<div class="system-message" id="id35">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 101); <em><a href="#id36">backlink</a></em></p>
+Unknown target name: &quot;|zone declaration on slave|&quot;.</div>
+<div class="system-message" id="id37">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 113); <em><a href="#id38">backlink</a></em></p>
+Unknown target name: &quot;|default usr.sbin.named|&quot;.</div>
+<div class="system-message" id="id39">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 125); <em><a href="#id40">backlink</a></em></p>
+Unknown target name: &quot;|modified usr.sbin.named|&quot;.</div>
+<div class="system-message" id="id41">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 150); <em><a href="#id42">backlink</a></em></p>
+Unknown target name: &quot;|syslog|&quot;.</div>
+<div class="system-message" id="id43">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 161); <em><a href="#id44">backlink</a></em></p>
+Unknown target name: &quot;|replicated zone|&quot;.</div>
+<div class="system-message" id="id45">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id46">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h23m41s_030&quot;.</div>
+<div class="system-message" id="id47">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id48">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h30m52s_031&quot;.</div>
+<div class="system-message" id="id49">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id50">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h40m47s_032&quot;.</div>
+<div class="system-message" id="id51">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id52">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h45m01s_033&quot;.</div>
+<div class="system-message" id="id53">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id54">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h49m25s_034&quot;.</div>
+<div class="system-message" id="id55">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id56">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h54m50s_035&quot;.</div>
+<div class="system-message" id="id57">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id58">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h57m33s_036&quot;.</div>
+<div class="system-message" id="id59">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id60">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h13m01s_028&quot;.</div>
+<div class="system-message" id="id61">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id62">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h23m41s_030&quot;.</div>
+<div class="system-message" id="id63">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id64">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h30m52s_031&quot;.</div>
+<div class="system-message" id="id65">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id66">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h40m47s_032&quot;.</div>
+<div class="system-message" id="id67">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id68">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h45m01s_033&quot;.</div>
+<div class="system-message" id="id69">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id70">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h49m25s_034&quot;.</div>
+<div class="system-message" id="id71">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id72">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h54m50s_035&quot;.</div>
+<div class="system-message" id="id73">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/configuring-bind9-master-slave-on-ubuntu.rst</tt>, line 179); <em><a href="#id74">backlink</a></em></p>
+Unknown target name: &quot;snap_2011.11.08_00h57m33s_036&quot;.</div>
+</div>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/dns-linux.html">DNS, Linux</a></p>
+    <p>Tags:
+      <a href="/tag/bind.html">bind</a>,      <a href="/tag/bind9.html">bind9</a>,      <a href="/tag/desktop.html">desktop</a>,      <a href="/tag/dns.html">dns</a>,      <a href="/tag/error.html">error</a>,      <a href="/tag/fix.html">fix</a>,      <a href="/tag/linux.html">Linux</a>,      <a href="/tag/master.html">master</a>,      <a href="/tag/permission.html">permission</a>,      <a href="/tag/replicate.html">replicate</a>,      <a href="/tag/slave.html">slave</a>,      <a href="/tag/solution.html">solution</a>,      <a href="/tag/solve.html">solve</a>,      <a href="/tag/transfer.html">transfer</a>,      <a href="/tag/ubuntu.html">ubuntu</a>,      <a href="/tag/zone.html">zone</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "configuring-bind9-master-slave-on-ubuntu.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

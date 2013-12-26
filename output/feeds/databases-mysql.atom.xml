@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/databases-mysql.atom.xml" rel="self"></link><id>/</id><updated>2012-01-19T13:53:00+01:00</updated><entry><title>Transactions with MySQL.</title><link href="/transactions-with-mysql.html" rel="alternate"></link><updated>2012-01-19T13:53:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2012-01-19:transactions-with-mysql.html</id><summary type="html">&lt;p&gt;If you want to use transactions with MySQL, you will have to use InnoDB
+engine, because the default engine on MySQL 5.1 (MyISAM) does not
+support transactions. Otherwise, if you use MySQL 5.5 you do not have to
+worry about it, because default engine is InnoDB.&lt;/p&gt;
+&lt;p&gt;A transaction is a set of SQL instructions which are run as a unit and
+can be cancelled if it is required.There are confirm and cancel
+operations&lt;/p&gt;
+&lt;p&gt;Transactional systems are characterized by their features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Atomicity: Transaction's instructions form a logic unit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Coherence: Database must coherent before and after transaction. Can't
+affect negatively.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Isolation: Transactions are not affected among them&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Durability: If the transaction was executed succesfully, changes will
+be stored permanently.&lt;/p&gt;
+&lt;p&gt;To start a transaction you can use &lt;strong&gt;BEGIN&lt;/strong&gt;or &lt;strong&gt;START
+TRANSACTION&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To create a savepoint use &lt;strong&gt;SAVEPOINT savepointname&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;And for rollback use whether &lt;strong&gt;ROLLBACK&lt;/strong&gt;(to return to the BEGIN
+point) or &lt;strong&gt;ROLLBACK TO savepointname&lt;/strong&gt;(to return another specific
+point)&lt;/p&gt;
+&lt;p&gt;Example of use:&lt;/p&gt;
+&lt;div class="mceTemp mceIEcenter" style="text-align: justify;"&gt;&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;`|Example of transactions use with MySQL|`_&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first last"&gt;Example of transactions use with MySQL&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;&lt;p style="text-align: justify;"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- |Example of transactions use with --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/transactions-with-mysql.rst&lt;/tt&gt;, line 58)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/transactions-with-mysql.rst&lt;/tt&gt;, line 59)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;MySQL| image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2012/01/Selection_205.png"&gt;http://aesptux.com/wp-content/uploads/2012/01/Selection_205.png&lt;/a&gt;
+.. &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|image1|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://aesptux.com/wp-content/uploads/2012/01/Selection_205.png"&gt;http://aesptux.com/wp-content/uploads/2012/01/Selection_205.png&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/transactions-with-mysql.rst&lt;/tt&gt;, line 59); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image1&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/transactions-with-mysql.rst&lt;/tt&gt;, line 46); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|example of transactions use with mysql|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="acid"></category><category term="database"></category><category term="how to"></category><category term="mysql"></category><category term="rollback"></category><category term="savepoint"></category><category term="transactions"></category><category term="use"></category></entry><entry><title>Cambiar la contraseña de un usuario en MySQL.</title><link href="/cambiar-la-contrasena-de-un-usuario-en-mysql.html" rel="alternate"></link><updated>2011-07-25T17:16:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2011-07-25:cambiar-la-contrasena-de-un-usuario-en-mysql.html</id><summary type="html">&lt;p&gt;Para cambiar la contraseña de root, podemos hacer:&lt;/p&gt;
+&lt;blockquote&gt;
+# mysqladmin -u root -p'contraseñaantigua' password
+'nuevacontraseña'&lt;/blockquote&gt;
+&lt;p&gt;También podemos cambiar con una sentencia SQL:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$ mysql -u root -p&lt;/p&gt;
+&lt;p&gt;mysql&amp;gt; use mysql;&lt;/p&gt;
+&lt;p&gt;mysql&amp;gt;UPDATE user SET password=PASSWORD(&amp;quot;nuevacontraseña&amp;quot; ) WHERE
+user='adrian';&lt;/p&gt;
+&lt;p&gt;flush privileges;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Utilizamos la base de datos mysql, y actualizamos el usuario que
+queramos. Después el comando flush privileges sirve para recargar los
+privilegios.&lt;/p&gt;
+</summary><category term="bases"></category><category term="cambiar"></category><category term="contraseña"></category><category term="datos"></category><category term="flush"></category><category term="mysql"></category><category term="otros"></category><category term="root"></category><category term="usuario"></category></entry><entry><title>Cómo crear un usuario en MySQL.</title><link href="/como-crear-un-usuario-en-mysql.html" rel="alternate"></link><updated>2011-07-20T10:59:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2011-07-20:como-crear-un-usuario-en-mysql.html</id><summary type="html">&lt;p&gt;Cuando trabajamos con bases de datos para algún cliente, o incluso
+trabajando desde PHP, necesitamos crear un usuario para la base de datos
+que vayamos a utilizar.&lt;/p&gt;
+&lt;p&gt;Primero tenemos que loguearnos como root:&lt;/p&gt;
+&lt;blockquote&gt;
+$ mysql -u root -p&lt;/blockquote&gt;
+&lt;p&gt;Creamos una base de datos nueva (si no la tenemos ya)&lt;/p&gt;
+&lt;blockquote&gt;
+mysql&amp;gt; CREATE DATABASE prueba;&lt;/blockquote&gt;
+&lt;p&gt;Ahora creamos el usuario, y le asignamos todos los permisos sólo a la
+base de datos que hemos creado, no podrá acceder a ninguna otra&lt;/p&gt;
+&lt;blockquote&gt;
+mysql&amp;gt; GRANT ALL ON prueba.* TO &lt;a class="reference external" href="mailto:usuarioprueba&amp;#64;localhost"&gt;usuarioprueba&amp;#64;localhost&lt;/a&gt; IDENTIFIED
+BY 'supassword';&lt;/blockquote&gt;
+&lt;p&gt;Con eso indicamos que el usuario 'usuarioprueba' podrá acceder con la
+contraseña 'supassword' únicamente a la base de datos llamada prueba.&lt;/p&gt;
+&lt;div class="mceTemp mceIEcenter" style="text-align: justify;"&gt;&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;`|image0|`_&lt;/span&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Creación de un usuario en MySQL. Click para aumentar&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/como-crear-un-usuario-en-mysql.rst&lt;/tt&gt;, line 35); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|image0|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="all"></category><category term="como"></category><category term="crear"></category><category term="en"></category><category term="grant"></category><category term="Linux"></category><category term="mysql"></category><category term="nuevos"></category><category term="privileges"></category><category term="usuarios"></category><category term="Windows"></category></entry></feed>

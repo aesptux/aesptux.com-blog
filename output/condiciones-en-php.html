@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="case, condiciones, elif, else, if, limpio, operador, ordenado, php, si, si no, switch">
+
+  <title>
+Condiciones en PHP.  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Wed 13 July 2011</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/condiciones-en-php.html">Condiciones en PHP.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Una condición es básicamente una decisión, resultado de una condición
+específica. Por ejemplo:</p>
+<pre class="literal-block">
+&lt;?php
+    $edad = 16;
+    print &quot;Tu edad es $edad\n&quot;;
+    if ($edad &lt; 18 ) {
+        print &quot;Eres joven, disfruta.\n&quot;;
+    } else {
+        print &quot;No eres menor de 18\n&quot;;
+    }
+
+    if ($edad  &gt;= 18 &amp;&amp; $edad &lt; 50) {
+        print &quot;Estas en la flor de la vida!\n&quot;;
+    } else {
+        print &quot;No estas en la flor de la vida\n&quot;;
+    }
+
+    if ($edad &gt;= 50) {
+        print &quot;Te queda poco para retirarte\n&quot;;
+    } else {
+        print &quot;No te queda poco para retirarte\n&quot;;
+    }
+?&gt;
+</pre>
+<p>&nbsp;Se entiende fácilmente, pero aún así lo explico un poco.</p>
+<p>Es una simple condición que evalúa una edad y muestra unos mensajes en
+función de la edad.</p>
+<p>La condición del medio, lleva el operador lógico AND. Si quieres saber
+más sobre los operadores de php, en <a class="reference external" href="http://aesptux.com/2011/07/11/operadores-en-php/">esta entrada</a>&nbsp;hablo un poco sobre
+ellos.</p>
+<p>Si (if) se cumple la condición, ejecuta el primer bloque de
+instrucciones, si no se cumple (else) ejecuta el segundo bloque.</p>
+<p>También podemos utilizar esta forma:</p>
+<pre class="literal-block">
+&lt;?php
+    $edad = 23;
+
+    if ($edad &lt; 10) {
+        echo &quot;Tienes menos de 10.&quot;;
+    } elseif ($edad &lt; 20 ) {
+        echo &quot;Tienes menos de 20.&quot;;
+    } elseif ($edad &lt; 30 ) {
+        echo &quot;Tienes menos de 30.&quot;;
+    } elseif ($edad &lt; 40 ) {
+        echo &quot;Tienes menos de 40.&quot;;
+    } elseif ($edad &lt; 40 ) {
+        echo &quot;Tienes menos de 40.&quot;;
+    } else {
+        echo &quot;Tienes mas de 40&quot;;
+    }
+
+?&gt;
+</pre>
+<p>Con la instrucción <strong>elif</strong>nos ahorramos hacer varios bloques.</p>
+<p>Sin embargo cuando nos encontramos con que tenemos que trabajar con
+numerosos elif, la cosa puede complicarse y podemos liarnos. Para ello
+tenemos la instrucción case, los dos siguientes ejemplos, actúan de la
+misma manera:</p>
+<pre class="literal-block">
+&lt;?php
+    $nombre = &quot;Bob&quot;;
+    if ($nombre == &quot;Bob&quot;) {
+        echo &quot;Te llamas Bob\n&quot;;
+    } elseif ($nombre == &quot;Linda&quot;) {
+        echo &quot;Te llamas Linda\n&quot;;
+    } elseif ($nombre == &quot;Jim&quot;) {
+        echo &quot;Te llamas Jim\n&quot;;
+    } elseif ($nombre == &quot;Sally&quot;) {
+        echo &quot;Te llamas Sally\n&quot;;
+    } else {
+        echo &quot;No se como te llamas&quot;;
+    }
+
+?&gt;
+</pre>
+<pre class="literal-block">
+&lt;?php
+    $nombre = &quot;Linda&quot;;
+    switch($nombre){
+        case &quot;Bob&quot;:
+            echo &quot;Te llamas Bob\n&quot;;
+            break;
+        case &quot;Linda&quot;:
+            echo &quot;Te llamas Linda\n&quot;;
+            break;
+        case &quot;Jim&quot;:
+            echo &quot;Te llamas Jim\n&quot;;
+            break;
+        case &quot;Sally&quot;:
+            echo &quot;Te llamas Sally\n&quot;;
+            break;
+        default:
+            echo &quot;No se como te llamas&quot;;
+    }
+
+?&gt;
+</pre>
+<p>Como podemos observar, cuando se trata de varios elif, utilizar case
+queda más ordenado y es de más fácil lectura.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/php-programming.html">Php, Programming</a></p>
+    <p>Tags:
+      <a href="/tag/case.html">case</a>,      <a href="/tag/condiciones.html">condiciones</a>,      <a href="/tag/elif.html">elif</a>,      <a href="/tag/else.html">else</a>,      <a href="/tag/if.html">if</a>,      <a href="/tag/limpio.html">limpio</a>,      <a href="/tag/operador.html">operador</a>,      <a href="/tag/ordenado.html">ordenado</a>,      <a href="/tag/php.html">php</a>,      <a href="/tag/si.html">si</a>,      <a href="/tag/si-no.html">si no</a>,      <a href="/tag/switch.html">switch</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "condiciones-en-php.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/linux-windows.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 11 Dec 2009 16:38:00 +0100</lastBuildDate><item><title>Kon-Boot. Accede a un sistema sin conocer la contraseña</title><link>/kon-boot-accede-a-un-sistema-sin-conocer-la-contrasena.html</link><description>&lt;p&gt;&lt;strong&gt;Kon-Boot&lt;/strong&gt; es un software gratuito que nos permite acceder a cualquier
+equipo sin conocer la contraseña y sin tener que eliminarla o cambiarla,
+ya sea de Windows o de Linux. Su funcionamiento está basado en el cambio
+del contenido del kernel durante el arranque del sistema y ocupa
+solamente 110 KB.&lt;/p&gt;
+&lt;p&gt;Descargamos la ISO de Kon-Boot y la iniciamos en nuestro equipo.&lt;/p&gt;
+&lt;p&gt;He hecho un video para que observen su funcionamiento:&lt;/p&gt;
+&lt;p&gt;[youtube=http://www.youtube.com/watch?v=dq7WdTY0XKg]&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Fri, 11 Dec 2009 16:38:00 +0100</pubDate><guid>tag:,2009-12-11:kon-boot-accede-a-un-sistema-sin-conocer-la-contrasena.html</guid><category>conocer</category><category>contraseña</category><category>kon-boot</category><category>password</category><category>sin</category></item><item><title>Videotutorial: Dual boot con Windows y Linux + Personalizar Menú</title><link>/videotutorial-dual-boot-con-windows-y-linux-personalizar-menu.html</link><description>&lt;p&gt;El siguiente videotutorial, consta de dos partes en las cuales se
+aprenderá a realizar un Arranque Dual con Windows y Linux, y también a
+personalizar el menú de boot a nuestro gusto.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Parte 1&lt;/dt&gt;
+&lt;dd&gt;[youtube=http://www.youtube.com/watch?v=h5twSpTdgoc&amp;amp;hl=es&amp;amp;fs=1]&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Un saludo,&lt;/p&gt;
+&lt;p&gt;Mortuus.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Thu, 02 Apr 2009 23:41:00 +0200</pubDate><guid>tag:,2009-04-02:videotutorial-dual-boot-con-windows-y-linux-personalizar-menu.html</guid><category>arranque</category><category>boot</category><category>dual</category><category>Linux</category><category>videotutorial</category><category>Windows</category></item></channel></rss>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/backup-bash-linux-programming.atom.xml" rel="self"></link><id>/</id><updated>2011-07-17T12:27:00+02:00</updated><entry><title>Nuevo script para realizar backups</title><link href="/nuevo-script-para-realizar-backups.html" rel="alternate"></link><updated>2011-07-17T12:27:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2011-07-17:nuevo-script-para-realizar-backups.html</id><summary type="html">&lt;p&gt;Ayer estuve escribiendo un nuevo script para realizar los backups en mi
+sistema, ya que mis necesidades han cambiado.&lt;/p&gt;
+&lt;p&gt;El script está adaptado a mi sistema y como digo, mis necesidades, pero
+quizás os pueda servir a vosotros.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+#!/bin/bash
+#    Backup for my system.
+#    Copyright (C) &amp;lt;2011&amp;gt;  &amp;lt;Adrian 'aesptux' Espinosa&amp;gt;
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+
+#    Check if the folder with the ID name exists
+#    Mount the device
+#    Backup our files
+#    Unmount the device
+NOW=$(date +%Y-%m-%d)
+LOGPATH=&amp;quot;/root/backup/&amp;quot;
+LOGFILE=&amp;quot;$NOW.backup.log&amp;quot;
+ERRORMSG=&amp;quot;zenity --error --title Error --text &amp;quot;
+INFOMSG=&amp;quot;zenity --info --title Information --text &amp;quot;
+RSYNC=&amp;quot;rsync -avuz --progress --delete &amp;quot;
+# Device info
+DEV1=&amp;quot;/dev/sda2/&amp;quot;
+LABEL1=&amp;quot;Multimedia&amp;quot;
+ID1=&amp;quot;A61052121051EA37&amp;quot;
+PATH1=&amp;quot;Backup/actual&amp;quot;
+
+clear
+if [ $UID -ne 0 ]; then
+    $ERRORMSG &amp;quot;Sorry you have to run this script as root&amp;quot;
+    exit 1
+else
+    if [ ! -d /media/$ID1 ]; then
+        mkdir /media/$ID1
+        if [ $? -eq 0 ]; then
+            echo &amp;quot;Folder created&amp;quot; | tee -a $LOGPATH$LOGFILE
+        else
+            $ERRORMSG &amp;quot;Error creating folder. Exiting&amp;quot;
+            echo &amp;quot;Error creating folder. Exiting&amp;quot; | tee -a $LOGPATH$LOGFILE
+            exit 2
+        fi
+    fi
+    mount $DEV1 /media/$ID1
+    if [ $? -eq 0 ]; then
+        echo &amp;quot;Disk mounted.&amp;quot; | tee -a $LOGPATH$LOGFILE
+        $INFOMSG &amp;quot;Backup started&amp;quot;
+        $RSYNC /etc /media/$ID1/$PATH1 2&amp;gt;&amp;gt; $LOGPATH$LOGFILE
+        $RSYNC /var /media/$ID1/$PATH1 --exclude &amp;quot;/var/cache/*&amp;quot; 2&amp;gt;&amp;gt; $LOGPATH$LOGFILE
+        $RSYNC /home /media/$ID1/$PATH1 --exclude &amp;quot;/home/mortuus/Downloads/*&amp;quot; --exclude &amp;quot;/home/mortuus/Videos/*&amp;quot; --exclude &amp;quot;/home/mortuus/.VirtualBox/HardDisks/*&amp;quot; --exclude &amp;quot;/home/mortuus/.local/share/Trash/*&amp;quot; --exclude &amp;quot;/home/mortuus/.cache/*&amp;quot; --exclude &amp;quot;/home/mortuus/.thumbnails/*&amp;quot; --exclude &amp;quot;/home/mortuus/Dropbox&amp;quot; 2&amp;gt;&amp;gt; $LOGPATH$LOGFILE
+        ###### MYSQL DATABASES DUMP
+        mysqldump --all-databases -u root -p123456789a &amp;gt; /media/$ID1/$PATH1/$NOW.mysqldump.sql 2&amp;gt;&amp;gt; $LOGPATH$LOGFILE
+        umount $DEV1
+        $INFOMSG &amp;quot;Backup finished&amp;quot;
+    else
+        $ERRORMSG &amp;quot;Disk failed to mount. Exiting&amp;quot;
+        echo &amp;quot;Disk failed to mount. Exiting&amp;quot; | tee -a $LOGPATH$LOGFILE
+        exit 3
+    fi
+fi
+&lt;/pre&gt;
+&lt;p&gt;También podéis encontrarlo en mi &lt;a class="reference external" href="https://github.com/aesptux/bash-scripts/blob/master/backup.sh"&gt;Github&lt;/a&gt;&lt;/p&gt;
+</summary><category term="backup"></category><category term="copia"></category><category term="ejemplo"></category><category term="Linux"></category><category term="script"></category><category term="Security"></category></entry></feed>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/humor-linux-windows.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 09 Jun 2009 13:34:00 +0200</lastBuildDate><item><title>He aquí la verdadera diferencia entre Windows y GNU/Linux</title><link>/he-aqui-la-verdadera-diferencia-entre-windows-y-gnulinux.html</link><description>&lt;p&gt;Hace unos días vi esta &lt;a class="reference external" href="http://img10.imageshack.us/img10/8000/a255f6be65ed5754a83b975.jpg"&gt;tira cómica&lt;/a&gt; que mostraba la diferencia que
+muchos usuarios ven entre Windows y GNU/Linux. Pero esa viñeta está
+desactualizada, y no es real actualmente. El blog de&amp;nbsp; &lt;a href="#id4"&gt;&lt;span class="problematic" id="id5"&gt;`Uptodown`_&lt;/span&gt;&lt;/a&gt; ha
+publicado un viñeta &lt;strong&gt;real&lt;/strong&gt; de la diferencia actual entre Windows y
+GNU/Linux que los usuarios finales deberían ver:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;attachment_70&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;119&amp;quot;
+caption=&amp;quot;Uptodown ha dado en el clavo.&amp;quot;]&lt;a href="#id6"&gt;&lt;span class="problematic" id="id7"&gt;`|Uptodown ha dado en el
+clavo.|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Fuente: &lt;a href="#id8"&gt;&lt;span class="problematic" id="id9"&gt;`Uptodown`_&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/he-aqui-la-verdadera-diferencia-entre-windows-y-gnulinux.rst&lt;/tt&gt;, line 24); &lt;em&gt;&lt;a href="#id1"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Duplicate explicit target name: &amp;quot;uptodown&amp;quot;.&lt;/div&gt;
+&lt;!-- |Uptodown ha dado en el --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/he-aqui-la-verdadera-diferencia-entre-windows-y-gnulinux.rst&lt;/tt&gt;, line 26)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/he-aqui-la-verdadera-diferencia-entre-windows-y-gnulinux.rst&lt;/tt&gt;, line 27)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;clavo.| image:: &lt;a class="reference external" href="http://mortuux.files.wordpress.com/2009/06/izup7m.jpg?w=119"&gt;http://mortuux.files.wordpress.com/2009/06/izup7m.jpg?w=119&lt;/a&gt;
+.. &lt;a href="#id2"&gt;&lt;span class="problematic" id="id3"&gt;|image1|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://mortuux.files.wordpress.com/2009/06/izup7m.jpg?w=119"&gt;http://mortuux.files.wordpress.com/2009/06/izup7m.jpg?w=119&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id2"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/he-aqui-la-verdadera-diferencia-entre-windows-y-gnulinux.rst&lt;/tt&gt;, line 27); &lt;em&gt;&lt;a href="#id3"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image1&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id4"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/he-aqui-la-verdadera-diferencia-entre-windows-y-gnulinux.rst&lt;/tt&gt;, line 9); &lt;em&gt;&lt;a href="#id5"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Duplicate target name, cannot be used as a unique reference: &amp;quot;uptodown&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id6"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/he-aqui-la-verdadera-diferencia-entre-windows-y-gnulinux.rst&lt;/tt&gt;, line 15); &lt;em&gt;&lt;a href="#id7"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|uptodown ha dado en el clavo.|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id8"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/he-aqui-la-verdadera-diferencia-entre-windows-y-gnulinux.rst&lt;/tt&gt;, line 19); &lt;em&gt;&lt;a href="#id9"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Duplicate target name, cannot be used as a unique reference: &amp;quot;uptodown&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Tue, 09 Jun 2009 13:34:00 +0200</pubDate><guid>tag:,2009-06-09:he-aqui-la-verdadera-diferencia-entre-windows-y-gnulinux.html</guid><category>diferencia</category><category>Linux</category><category>Windows</category></item></channel></rss>

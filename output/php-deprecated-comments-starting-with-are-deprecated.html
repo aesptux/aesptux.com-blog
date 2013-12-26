@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="#, /etc/php5/cli/conf.d/ming.ini, are, arreglar, comments, configuration, deprecated, error, fixear, help. ayuda, in, line, ming, on, php, php5, solventar, starting, unknown, warning, with">
+
+  <title>
+PHP Deprecated:  Comments starting with '#' are deprecated  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Tue 12 July 2011</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/php-deprecated-comments-starting-with-are-deprecated.html">PHP Deprecated:  Comments starting with '#' are deprecated</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Si estáis tratando de ejecutar algún script php desde la terminal de
+linux o crontab, y os sale algún error como este:</p>
+<pre class="literal-block">
+PHP Deprecated:  Comments starting with '#' are deprecated in /etc/php5/cli/conf.d/ming.ini on line 1 in Unknown on line 0
+</pre>
+<p>Debemos ir al archivo o archivos (en algunos foros los usuarios
+comentaban que podían ser varios) y hacer los siguientes cambios:</p>
+<p>Contenido de ming.ini inicial:</p>
+<pre class="literal-block">
+# configuration for php MING module
+extension=ming.so
+</pre>
+<p>Como vemos, el comentario se hace con &quot;#&quot;, lo que ya está en desuso,
+pues la solución es tan simple como cambiar '#' por '//' que es como se
+hacen los comentarios en php.</p>
+<pre class="literal-block">
+//configuration for php MING module
+extension=ming.so
+</pre>
+<p>Una vez hecho esto, debería funcionar correctamente.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/php.html">Php</a></p>
+    <p>Tags:
+      <a href="/tag/.html">#</a>,      <a href="/tag/etcphp5cliconfdmingini.html">/etc/php5/cli/conf.d/ming.ini</a>,      <a href="/tag/are.html">are</a>,      <a href="/tag/arreglar.html">arreglar</a>,      <a href="/tag/comments.html">comments</a>,      <a href="/tag/configuration.html">configuration</a>,      <a href="/tag/deprecated.html">deprecated</a>,      <a href="/tag/error.html">error</a>,      <a href="/tag/fixear.html">fixear</a>,      <a href="/tag/help-ayuda.html">help. ayuda</a>,      <a href="/tag/in.html">in</a>,      <a href="/tag/line.html">line</a>,      <a href="/tag/ming.html">ming</a>,      <a href="/tag/on.html">on</a>,      <a href="/tag/php.html">php</a>,      <a href="/tag/php5.html">php5</a>,      <a href="/tag/solventar.html">solventar</a>,      <a href="/tag/starting.html">starting</a>,      <a href="/tag/unknown.html">unknown</a>,      <a href="/tag/warning.html">warning</a>,      <a href="/tag/with.html">with</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "php-deprecated-comments-starting-with-are-deprecated.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

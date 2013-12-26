@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/programming-python.atom.xml" rel="self"></link><id>/</id><updated>2013-08-08T20:14:00+02:00</updated><entry><title>Mail client: An easy smtplib wrapper.</title><link href="/mail-client-an-easy-smtplib-wrapper.html" rel="alternate"></link><updated>2013-08-08T20:14:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2013-08-08:mail-client-an-easy-smtplib-wrapper.html</id><summary type="html">&lt;p&gt;I published to github &lt;a class="reference external" href="https://github.com/aesptux/mailclient"&gt;mailclient&lt;/a&gt;, a wrapper for the standard smtplib
+and email libraries.&lt;/p&gt;
+&lt;p&gt;Smtplib and email are no fun to work with, for example if you want to
+attach a file, you have to import the right MIMEType.&lt;/p&gt;
+&lt;p&gt;I built this wrapper to make sending emails with Python easier, for
+example:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# create message
+msg = mail.Message('This will be the subject', 'This will be the body content',
+ 'sender&amp;#64;sender.com', 'to&amp;#64;you.com, and&amp;#64;you.com, foryou&amp;#64;too.com')
+
+# create server connection
+s = mail.Server('localhost', '25')
+
+# attach file
+msg.attach('/path/to/file')
+# send
+s.send(msg)
+&lt;/pre&gt;
+&lt;p&gt;Mailclient is on pypi, so if you want to install, just use pip:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install mailclient
+&lt;/pre&gt;
+&lt;p&gt;For full documentation, examples and source code, please refer to the
+project on &lt;a class="reference external" href="https://github.com/aesptux/mailclient"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+</summary><category term="easy"></category><category term="email"></category><category term="mailclient"></category><category term="module"></category><category term="pip"></category><category term="python"></category><category term="send"></category><category term="smtpd"></category><category term="wrapper"></category></entry></feed>

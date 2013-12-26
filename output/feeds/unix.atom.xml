@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/unix.atom.xml" rel="self"></link><id>/</id><updated>2011-07-08T10:27:00+02:00</updated><entry><title>Labores esenciales de un administrador de sistemas</title><link href="/labores-esenciales-de-un-administrador-de-sistemas-2.html" rel="alternate"></link><updated>2011-07-08T10:27:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2011-07-08:labores-esenciales-de-un-administrador-de-sistemas-2.html</id><summary type="html">&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Aprovisionamiento de cuentas&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El administrador de sistemas añade cuentas para los nuevos usuarios,
+elimina las cuentas de los usuarios que ya no están activos y gestiona
+todos los problemas posibles en relación a las cuentas, como por ejemplo
+contraseñas olvidadas. El proceso de añadir y eliminar puede ser
+automatizado, pero algunas decisiones (donde poner el home del usuario,
+en que máquina, etc) deben hacerse antes &amp;nbsp;de añadir el usuario.&lt;/p&gt;
+&lt;p&gt;Cuando un usuario deje de pertenecer al sistema, su cuenta debe ser
+deshabilitada. Se debe hacer una copia de seguridad de sus archivos y
+sacarlos fuera del sistema para no acumular basura.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&amp;nbsp;&lt;strong&gt;Añadir y eliminar hardware&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cuando se compra nuevo hardware o cuando el hardware es movido de una
+máquina a otra, el sistema debe ser configurado para que reconozca y
+utilice ese hardware. La dificultad de esta tarea puede variar por
+ejemplo, desde instalar una impresora, hasta configurar un array de
+discos.&lt;/p&gt;
+&lt;p&gt;Ahora con la virtualización, las configuraciones de hardware se
+complican todavía más.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Realizar copias de seguridad&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Quizás sea la tarea más importante del administrador de sistemas, y
+también es la tarea más ignorada y que da más pereza realizar. Hacer
+backups es aburrido y consume tiempo, pero son increíblemente
+necesarias. Se pueden automatizar o delegar, pero sigue siendo
+responsabilidad del administrador de sistemas cerciorarse de que se
+ejectuan correctamente y en el tiempo planeado.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&amp;nbsp;&lt;strong&gt;Instalar y actualizar software&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cuando se adquiere nuevo software, debe instalarse y probarse, a menudo
+bajo diferentes sistemas operativos y diferente hardware.&amp;nbsp; Cuando el
+software funciona correctamente, los usuarios deben ser informados de su
+disponibilidad y localización. Si se trata de parches y actualizaciones
+de seguridad, deben implementarse gentilmente en el entorno local.&lt;/p&gt;
+&lt;p&gt;El software local y los scripts administrativos deberían ser gestionados
+de manera que sean compatibles con los procedimientos de actualización
+utilizados.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Monitorizar el sistema&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Las instalaciones grandes requieren de supervisión. No esperes que los
+usuarios reporten sus problemas a no ser que sean graves. Regularmente
+comprueba que el correo y servicio web funcionan correctamente, revisa
+los ficheros log en busca de fallos o problemas, cerciórate de que las
+redes locales están conectadas correctamente y mantén un ojo a la
+disponibilidad de recursos en el sistema, como el espacio en disco. Todo
+esto, se puede automatizar.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Resolución de problemas&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Los fallos en el sistema son inevitables. Es el trabajo de un
+administrador diagnosticar estos problemas y llamar a expertos si es
+necesario. Normalmente es más difícil encontrar el problema que
+solucionarlo.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Mantener una documentación local&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Un sistema suele variar con las necesidades de la organización, y
+comienza a diferir de lo que inicialmente se documentó. Como el
+administrador de sistemas es responsable de estos cambios, también lo es
+documentar los cambios.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&amp;nbsp;&lt;strong&gt;Seguridad&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El administrador es responsable de implementar una política de seguridad
+y comprobar periódicamente que la seguridad no ha sido violada.&lt;/p&gt;
+</summary><category term="actualizar"></category><category term="backups"></category><category term="copias"></category><category term="cuentas"></category><category term="hardware"></category><category term="instalar"></category><category term="kernel"></category><category term="monitorizar"></category><category term="operativos"></category><category term="problemas"></category><category term="resolucion"></category><category term="Security"></category><category term="sistemas"></category><category term="software"></category><category term="unix"></category><category term="usuario"></category></entry><entry><title>Visión general de los Kernel Unix (I): Modelo Proceso/Kernel.</title><link href="/vision-general-de-los-kernel-unix-i-modelo-procesokernel.html" rel="alternate"></link><updated>2011-07-06T11:30:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2011-07-06:vision-general-de-los-kernel-unix-i-modelo-procesokernel.html</id><summary type="html">&lt;p&gt;Proveen un entorno de ejecución donde las aplicaciones se ejecutan.
+Luego, el kernel debe implementar un conjunto de servicios y sus
+correspondientes interfaces. Las aplicaciones utilizan esas interfaces y
+normalmente no interactuan directamente con los recursos hardware.&lt;/p&gt;
+&lt;p&gt;Una CPU puede ejecutarse en modo Usuario o en modo Kernel. En realidad,
+algunas CPUs pueden tener más de dos modos de ejecución, pero todos los
+kernel estándar de Unix utilizan los dos modos mencionados
+anteriormente.&lt;/p&gt;
+&lt;p&gt;Cuando un programa es ejecutado en modo usuario, no puede acceder
+directamente a las estructuras del kernel o a los programas de éste.
+Cuando se ejecuta en modo Kernel, sin embargo, esas restricciones
+desaparecen. Cada modelo de CPU provee instrucciones especiales para
+cambiar de modo Usuario a modo Kernel y vice versa. Un programa
+normalmente se ejecuta en modo Usuario y cambia a modo Kernel sólo
+cuando requiere de un servicio que provee el kernel. Cuando el kernel ha
+completado la petición del programa, vuelve a modo Usuario.&lt;/p&gt;
+&lt;p&gt;Los procesos son entidades dinámicas que normalmente tienen una vida
+limitada en el sistema. La tarea de crear, eliminar y sincronizar los
+procesos existentes se delega a un grupo de rutinas del kernel.&lt;/p&gt;
+&lt;p&gt;El kernel como tal, no es un proceso si no un gestor de procesos. El
+modelo proceso/kernel asume que los procesos que requieren un servicio
+kernel utilizan lo que se conoce como llamadas al sistema. Cada llamada
+al sistema establece el grupo de parámetros que identifican la petición
+del proceso y después ejecuta la instrucción CPU independiente del
+hardware para cambiar de modo Usuario a modo Kernel.&lt;/p&gt;
+&lt;p&gt;Además de los procesos de usuario, los sistemas Unix incluyen unos pocos
+procesos privilegiados llamados hilos kernel (kernel threads) con las
+siguientes características:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Se ejecutan en modo Kernel en el espacio de direcciones Kernel&lt;/li&gt;
+&lt;li&gt;No interactuan con usuarios, no requiere dispositivos terminales.&lt;/li&gt;
+&lt;li&gt;Normalmente son creados durante el inicio del sistema y permanecen
+vivos hasta que el sistema se apaga.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style="text-align: justify;"&gt;&lt;p&gt;Los kernel Unix hacen mucho más que gestionar llamadas al sistema; de
+hecho, las rutinas kernel pueden ser activadas de diferentes formas:&lt;/p&gt;
+&lt;/div&gt;&lt;div&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;Un proceso invoca una llamada al sistema&lt;/li&gt;
+&lt;li&gt;La CPU recibe una excepción mientras ejecuta un proceso, lo cual es
+una condición inusual así como una instrucción no valida. El kernel
+gestiona la excepcion en nombre del proceso que la causó.&lt;/li&gt;
+&lt;li&gt;Un hilo kernel es ejecutado. Como se ejecuta en modo Kernel, el
+programa correspondiente debe ser considerado parte del kernel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</summary><category term="excepciones"></category><category term="general"></category><category term="hilo"></category><category term="kernel"></category><category term="modelo"></category><category term="proceso"></category><category term="thread"></category><category term="unix"></category><category term="usuario"></category><category term="vision"></category></entry></feed>

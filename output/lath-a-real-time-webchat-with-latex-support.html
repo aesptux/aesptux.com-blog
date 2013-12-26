@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="">
+
+  <title>
+Lath. A real time webchat with LaTeX support.  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Tue 22 October 2013</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/lath-a-real-time-webchat-with-latex-support.html">Lath. A real time webchat with LaTeX support.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Lath is a real-time minimalistic webchat with LaTeX support (I know the
+name is not the best, it comes from LaTeX + Math). Rooms are predefined,
+and right now there are three: Calculus, Discrete Mathematics and Logic,
+because it is focused to CS students (based in Spain courses). Lath is
+built with NodeJS and ExpressJS, MathJax for LaTeX and it stores each
+message to a MySQL database. The code has three parts:</p>
+<ul class="simple">
+<li><strong>index.html:</strong> the html served with ExpressJS</li>
+<li><strong>index.js:</strong> Server side JS, a.k.a NodeJS</li>
+<li><strong>client.js:&nbsp;</strong>Client side JS.</li>
+</ul>
+<p>You can find the complete source code on <a class="reference external" href="http://www.github.com/aesptux/lath">Github</a>. I'm going to comment
+only some parts of the code: The most interesting part of the index.html
+is the JavaScript:</p>
+<pre class="literal-block">
+MathJax.Hub.Config({
+        extensions: [&quot;tex2jax.js&quot;,&quot;TeX/AMSmath.js&quot;,&quot;TeX/AMSsymbols.js&quot;],
+        jax: [&quot;input/TeX&quot;, &quot;output/HTML-CSS&quot;],
+        tex2jax: {
+            inlineMath: [ ['$','$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
+            displayMath: [ ['$$','$$'], [&quot;\\[&quot;,&quot;\\]&quot;] ],
+            processEscapes: true
+        },
+        &quot;HTML-CSS&quot;: { availableFonts: [&quot;TeX&quot;] }
+    });
+</pre>
+<p>This is the configuration required for MathJax. It is interesting to
+have the&nbsp;<em>processEscapes</em>&nbsp;<em>= true,&nbsp;</em>so you can escape LaTeX. Server
+side:</p>
+<pre class="literal-block">
+var express = require('express');
+var path = require('path');
+var mysql = require('mysql');
+var app = express();
+var port = 3700;
+var pool = mysql.createPool({
+    host     : '',
+    user     : '',
+    password : '',
+    database : 'lath'
+});
+
+// statics
+app.use(express.static(path.join(__dirname, 'public')));
+
+// define usernames
+var usernames = {};
+
+// define rooms
+var rooms = ['Calculus', 'Discrete Mathematics', 'Logic'];
+
+// routes
+app.get('/', function (req, res) {
+    res.sendfile(__dirname + '/index.html');
+});
+
+// socket
+var io = require('socket.io').listen(app.listen(port));
+
+// define events
+io.sockets.on('connection', function (socket) {
+
+    // when clients emit...
+
+    socket.on('sendchat', function(data) {
+        io.sockets.to(socket.room).emit('updatechat', socket.username, data);
+        data = data.replace(/\\/g, '\\\\');
+        pool.getConnection(function(err, connection) {
+          // Use the connection
+          connection.query('INSERT INTO chat_log(username, message, room) \
+            VALUES (&quot;' + socket.username + '&quot;, &quot;' + data + '&quot;, &quot;' +
+                socket.room + '&quot;)', function(err, rows) {
+            // release connection, do not close
+            connection.release();
+
+          });
+        });
+
+    });
+
+    socket.on('adduser', function(username) {
+        socket.username = username;
+        if (usernames[socket.username]) {
+            socket.emit('connect', true);
+            return 0;
+        }
+        socket.room = 'Calculus';
+        usernames[username] = username;
+        socket.join('Calculus');
+        socket.emit('updatechat', 'SERVER', 'You have connected to Calculus.');
+        // broadcast to all users
+        socket.broadcast.to('Calculus').emit('updatechat', 'SERVER',
+            username + ' has connected.');
+        // update list client side
+        io.sockets.emit('updateusers', usernames);
+        socket.emit('updaterooms', rooms, 'Calculus');
+    });
+
+    socket.on('switchroom', function (newroom) {
+        socket.leave(socket.room);
+        socket.join(newroom);
+        socket.emit('updatechat', 'SERVER', 'You have connected to ' +
+            newroom + '.');
+        socket.broadcast.to(socket.room).emit('updatechat', 'SERVER',
+            socket.username + ' has left the room.');
+        socket.room = newroom;
+        socket.broadcast.to(socket.room).emit('updatechat', 'SERVER',
+            socket.username + ' has joined the room');
+        socket.emit('updaterooms', rooms, newroom);
+
+    });
+
+    // sad panda is sad with this event
+    socket.on('disconnect', function() {
+        delete usernames[socket.username];
+        io.sockets.emit('updateusers', usernames);
+        // broadcast
+        socket.broadcast.emit('updatechat', 'SERVER',
+            socket.username + ' has disconnected.');
+        socket.leave(socket.room);
+    });
+
+});
+
+console.log('Listening...');
+</pre>
+<p>This is the entire server-side part. I create a connection pool and not
+a regular connection, because the regular one would be always active,
+ending up in timeout due the keep alive. With the connection pool, the
+connection is released after each query.</p>
+<p>After defining some variables and routes (ExpressJS), we get to the
+socket.io part. It reacts to certain events. For example, if it receives
+a sendchat event, it stores the message on the DB. With sockets you can
+also emit broadcast messages to all users, or to certain users (given a
+room, for example).</p>
+<pre class="literal-block">
+socket.broadcast.emit // will emit to all users
+
+socket.broadcast.to('myroom').emit // will emit to the users on that room (channel)
+</pre>
+<p>Client part:</p>
+<pre class="literal-block">
+var socket = io.connect('http://localhost:3700');
+
+
+// get elements
+var users = document.getElementById('users');
+var rooms_list = document.getElementById('rooms');
+var conversation = document.getElementById('conversation');
+var txt = document.getElementById('data');
+var btnsend = document.getElementById('datasend');
+var content = document.getElementById('content');
+
+
+socket.on('connect', function (exists) {
+    var username = null;
+    console.log(exists);
+    while (username == null) {
+        if (exists) {
+            username = prompt('The username is taken. Please, choose another.');
+        } else {
+            username = prompt('Set your username');
+        }
+
+    }
+    socket.emit('adduser', username);
+});
+
+
+socket.on('updatechat', function (username, data) {
+    conversation.innerHTML += '&lt;b class=&quot;user&quot;&gt;' + username +
+        ': &lt;/b&gt;&lt;span class=&quot;message&quot;&gt;' + data + '&lt;/span&gt;&lt;br /&gt;';
+    // update MathJax with new DOM elements
+    MathJax.Hub.Queue([&quot;Typeset&quot;,MathJax.Hub,&quot;conversation&quot;]);
+    content.scrollTop = content.scrollHeight;
+
+});
+
+
+socket.on('updaterooms', function (rooms, current_room) {
+    console.log('Updating rooms');
+    rooms_list.innerHTML = &quot;&quot;;
+    console.log(rooms);
+    for (var room in rooms) {
+        if (rooms[room] == current_room) {
+            rooms_list.innerHTML += '&lt;div&gt;&lt;b&gt;' + rooms[room] + '&lt;/b&gt;&lt;/div&gt;';
+        } else {
+            rooms_list.innerHTML += '&lt;div&gt;&lt;a href=&quot;#&quot; \
+            onclick=&quot;switchRoom(\''+rooms[room]+'\')&quot;&gt;' + rooms[room] +
+            '&lt;/a&gt;&lt;/div&gt;';
+        }
+    }
+});
+
+
+socket.on('updateusers', function (data) {
+    users.innerHTML = &quot;&quot;;
+    for (var user in data) {
+        users.innerHTML += &quot;&lt;div class='user'&gt;&quot; + data[user] + &quot;&lt;/div&gt;&quot;;
+    }
+});
+
+
+function switchRoom(room) {
+    console.log('Changing room');
+    socket.emit('switchroom', room);
+}
+
+
+window.onload = function () {
+    btnsend.addEventListener('click', function () {
+        console.log('asfsd');
+        socket.emit('sendchat', document.getElementById('data').value);
+        document.getElementById('data').value = '';
+
+    }, false);
+
+    txt.addEventListener('keypress', function (e) {
+        if (e.keyCode == 13) {
+            btnsend.click();
+        }
+
+    }, false)
+
+}
+</pre>
+<p>It does not use jQuery as you can see, although it can ease the code
+sometimes, for a project like this I think it is not necessary and it
+will only be an overhead. This part starts with the connection to the
+web socket and then getting the HTML elements we will be working with.
+Then, I define some event listeners and emitters. &nbsp;It is quite similar
+to the server-side, only that here we can also work with the DOM
+elements.</p>
+<p>And that's all the code.</p>
+<p>This is behind a nginx acting as a reverse proxy. The minimum version of
+nginx for a project using web sockets is 1.3 (I have 1.4).</p>
+<p>Once it is installed, it's pretty similar to other configurations:</p>
+<pre class="literal-block">
+upstream app_server_lath {
+    server localhost:3700 fail_timeout=0;
+}
+
+server {
+        listen 80;
+        server_name lath.aesptux.com www.lath.aesptux.com;
+
+    keepalive_timeout 5;
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        # the following is required as well for WebSockets
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &quot;upgrade&quot;;
+
+        if (!-f $request_filename) {
+            proxy_pass http://app_server_lath;
+            break;
+        }
+    }
+
+   location /socket.io/ {
+        proxy_pass http://localhost:3700;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+}
+
+}
+</pre>
+<p>Thanks.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/javascript-programming-project.html">JavaScript, Programming, Project</a></p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "lath-a-real-time-webchat-with-latex-support.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

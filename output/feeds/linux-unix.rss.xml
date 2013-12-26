@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/linux-unix.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 09 Jul 2011 12:37:00 +0200</lastBuildDate><item><title>Un poco más sobre redirecciones y pipes.</title><link>/un-poco-mas-sobre-redirecciones-y-pipes.html</link><description>&lt;p&gt;Cada proceso tiene al menos tres canales de comunicación disponibles:&lt;/p&gt;
+&lt;ul style="text-align: justify;"&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;Standard input (STDIN)&lt;/li&gt;
+&lt;li&gt;Standard output (STDOUT)&lt;/li&gt;
+&lt;li&gt;Standard error (STDERR)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/ul&gt;&lt;div style="text-align: justify;"&gt;&lt;p&gt;El kernel establece estos canales en nombre del proceso. Como ya comenté
+en una &lt;a class="reference external" href="http://aesptux.com/2010/05/10/redirecciones-en-linux/"&gt;entrada anterior&lt;/a&gt;&amp;nbsp;tenemos varios descriptores que identificar a
+cada canal de comunicación:&lt;/p&gt;
+&lt;/div&gt;&lt;ul style="text-align: justify;"&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;STDIN: 0&lt;/li&gt;
+&lt;li&gt;STDOUT: 1&lt;/li&gt;
+&lt;li&gt;STDERR: 2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/ul&gt;&lt;div style="text-align: justify;"&gt;&lt;p&gt;La shell interpreta&lt;strong&gt;'&amp;lt;'&lt;/strong&gt;, &lt;strong&gt;'&amp;gt;'&lt;/strong&gt; y &lt;strong&gt;'&amp;gt;&amp;gt;'&lt;/strong&gt; como instrucciones para
+redirigir la entrada o salida de un comando a o desde un archivo.&lt;/p&gt;
+&lt;/div&gt;&lt;ul style="text-align: justify;"&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;'&amp;lt;' redirecciona STDIN&lt;/li&gt;
+&lt;li&gt;'&amp;gt;' redirecciona STDOUT (Reemplazando el contenido existente)&lt;/li&gt;
+&lt;li&gt;'&amp;gt;&amp;gt;' redirecciona STDOUT (Añade al final del contenido existente)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/ul&gt;
+
+ .. raw:: html
+
+    &lt;div&gt;
+
+ $ echo "Mensaje de prueba" &gt; /tmp/mensaje
+
+ .. raw:: html
+
+    &lt;/div&gt;&lt;p&gt;Este comando almacena el texto en el archivo indicado, creando el
+archivo si no existiese. Ahora podemos utilizar ese archivo para enviar
+un correo.&lt;/p&gt;
+&lt;blockquote&gt;
+$ mail -s &amp;quot;Probando&amp;quot; usuario &amp;lt; /tmp/mensaje&lt;/blockquote&gt;
+&lt;p&gt;En el comando anterior, indicamos que la entrada de datos sea el
+archivo.&lt;/p&gt;
+&lt;p&gt;Para redireccionar STDOUT y STDERR al mismo sitio, utilizamos &lt;strong&gt;'&amp;amp;&amp;gt;'&lt;/strong&gt;.
+Para redireccionar sólo STDERR, utilizaremos su descriptor, es decir
+&lt;strong&gt;'2&amp;gt;'&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para probar cómodamente éstas salidas, podemos utilizar el comando
+&lt;strong&gt;find&lt;/strong&gt;, ya que produce salidas en varios canales. Si ejecutamos:&lt;/p&gt;
+&lt;blockquote&gt;
+$ find / -name core&lt;/blockquote&gt;
+&lt;p&gt;Nos devolverá varios &amp;quot;Permission denied&amp;quot; por falta de permisos. Para
+&amp;nbsp;descartar estos errores, haríamos lo siguiente:&lt;/p&gt;
+&lt;blockquote&gt;
+$ find / -name core 2&amp;gt; /dev/null&lt;/blockquote&gt;
+&lt;p&gt;Ahora, sólo nos mostrará la STDOUT, es decir, los resultados favorables.&lt;/p&gt;
+&lt;p&gt;También podemos redireccionar la STDOUT a un archivo para que sea más
+cómodo revisarlo.&lt;/p&gt;
+&lt;blockquote&gt;
+$ find / -name core &amp;gt; /tmp/archivoscore 2&amp;gt; /dev/null&lt;/blockquote&gt;
+&lt;p&gt;En el ejemplo anterior, redireccionamos STDOUT a un archivo para su
+posterior revisión, y seguimos descartando los errores enviándolos a
+/dev/null.&lt;/p&gt;
+&lt;p&gt;Para conectar la STDOUT de un comando con la STDIN de otro, utilizamos
+el símbolo &lt;strong&gt;'|'&lt;/strong&gt;conocido como &amp;quot;Pipe&amp;quot;.&lt;/p&gt;
+&lt;blockquote&gt;
+$ ps -ef | grep apache&lt;/blockquote&gt;
+&lt;p&gt;El comando &lt;strong&gt;ps&lt;/strong&gt;nos muestra una lista de todos los procesos activos,
+y redirecciona su salida al comando &lt;strong&gt;grep&lt;/strong&gt;que lo que hace es
+seleccionar las líneas que contengan la palabra apache.&lt;/p&gt;
+&lt;p&gt;Para ejecutar dos comandos ordenadamente en la misma línea, utilizamos
+el operador &lt;strong&gt;'&amp;amp;&amp;amp;'.&lt;/strong&gt;&amp;nbsp;El segundo comando se ejecutará &lt;strong&gt;sólo&lt;/strong&gt;&amp;nbsp;si la
+STDOUT del primero ha sido satisfactoria.&lt;/p&gt;
+&lt;blockquote&gt;
+$ mail -s &amp;quot;Mail importante&amp;quot; jefe &amp;lt; /tmp/contenido &amp;amp;&amp;amp; echo &amp;quot;Correo
+enviado&amp;quot;&lt;/blockquote&gt;
+&lt;p&gt;Sin embargo, si nos interesa que el segundo comando se ejecute sólo si
+el primero ha fallado (STDOUT != 0), utilizaremos el operador &lt;strong&gt;'||'&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+$ mail -s &amp;quot;Mail importante&amp;quot; jefe &amp;lt; /tmp/contenido || echo
+&amp;quot;Atención: El correo NO se ha enviado&amp;quot;&lt;/blockquote&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Sat, 09 Jul 2011 12:37:00 +0200</pubDate><guid>tag:,2011-07-09:un-poco-mas-sobre-redirecciones-y-pipes.html</guid><category>and</category><category>apache</category><category>canal</category><category>comandos</category><category>comunicacion</category><category>find</category><category>Linux</category><category>lógicos</category><category>mail</category><category>operador</category><category>operadores</category><category>or</category><category>pipes</category><category>ps</category><category>redirecciones</category><category>stderr</category><category>stdin</category><category>stdout</category><category>tuberías</category><category>unix</category></item></channel></rss>

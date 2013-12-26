@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/linux-networking.atom.xml" rel="self"></link><id>/</id><updated>2012-03-30T23:24:00+02:00</updated><entry><title>Reset NICs by unloading / loading network drivers</title><link href="/reset-nics-by-unloading-loading-network-drivers.html" rel="alternate"></link><updated>2012-03-30T23:24:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2012-03-30:reset-nics-by-unloading-loading-network-drivers.html</id><summary type="html">&lt;p&gt;This script is specially useful when you clone VMs, but can be used in
+any other kind of situation where you have problems with network cards,
+say, duplicated cards for X reason.&lt;/p&gt;
+&lt;p&gt;Try to run this script I wrote:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+if [ $UID -ne 0 ]
+then
+    echo &amp;quot;Sorry, you have to run this script as root&amp;quot;
+else
+    cat /etc/udev/rules.d/70-persistent-net.rules | grep PCI | cut -d' ' -f5 | cut -b 2-6 | uniq &amp;gt; /tmp/drivers
+    for driver in $(cat /tmp/drivers); do
+        rm -rf /etc/udev/rules.d/70-persistent-net.rules &amp;amp;&amp;amp; echo &amp;quot;Removing 70-persistent-net.rules&amp;quot;
+        rmmod $driver &amp;amp;&amp;amp; echo &amp;quot;Removing $driver&amp;quot;
+        modprobe $driver &amp;amp;&amp;amp; echo &amp;quot;Loading $driver&amp;quot;
+    done
+    echo &amp;quot;Done.&amp;quot;
+    rm -rf /tmp/drivers
+fi
+&lt;/pre&gt;
+&lt;p&gt;Tested under Debian and Fedora, but should work fine on other
+distributions.&lt;/p&gt;
+&lt;p&gt;The code is also on my &lt;a class="reference external" href="https://github.com/aesptux/bash-scripts/blob/master/reset-nic.sh"&gt;github&lt;/a&gt;&lt;/p&gt;
+</summary><category term="bash"></category><category term="card"></category><category term="delete"></category><category term="driver"></category><category term="Linux"></category><category term="load"></category><category term="modprobe"></category><category term="network"></category><category term="Networking"></category><category term="nic"></category><category term="remove"></category><category term="reset"></category><category term="rmmod"></category><category term="rules.d"></category><category term="script"></category><category term="shell"></category><category term="udev"></category><category term="unload"></category></entry><entry><title>Reducir el tiempo de espera para utilizar el DNS Secundario. Balanceo de carga</title><link href="/reducir-el-tiempo-de-espera-para-utilizar-el-dns-secundario.html" rel="alternate"></link><updated>2011-05-06T14:17:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2011-05-06:reducir-el-tiempo-de-espera-para-utilizar-el-dns-secundario.html</id><summary type="html">&lt;p&gt;En el archivo&lt;strong&gt;/etc/resolv.conf&lt;/strong&gt; se encuentran definidos los
+servidores dns, por ejemplo:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nameserver 192.168.1.10&lt;/p&gt;
+&lt;p&gt;nameserver 192.168.1.11&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Éstos actuarían como dns primario y secundario respectivamente. En caso
+de que falle el primero, se utilizaría el segundo.&lt;/p&gt;
+&lt;p&gt;El problema se encuentra en que el tiempo de espera (&lt;strong&gt;timeout&lt;/strong&gt;) es
+alto, alrededor de unos 5 segundos, por lo que la utilización del
+segundo dns no será instantánea.&lt;/p&gt;
+&lt;p&gt;Esto se puede solventar utilizando la directiva &lt;strong&gt;options&lt;/strong&gt; y el
+parámetro&lt;strong&gt;timeout&lt;/strong&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nameserver 192.168.1.10&lt;/p&gt;
+&lt;p&gt;nameserver 192.168.1.11&lt;/p&gt;
+&lt;p&gt;options timeout:1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Aquí lo que estamos indicando es que el tiempo de espera, sea de 1
+segundo.&lt;/p&gt;
+&lt;p&gt;Si queremos distribuir la carga entre los dos servidores lo haremos de
+la siguiente manera:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nameserver 192.168.1.10&lt;/p&gt;
+&lt;p&gt;nameserver 192.168.1.11&lt;/p&gt;
+&lt;p&gt;options timeout:1 rotate attempts:1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Así, la carga se distribuirá entre los dos servidores evitando saturar
+siempre el primero.&lt;/p&gt;
+&lt;p&gt;Vía | &lt;a class="reference external" href="http://rm-rf.es/hacer-que-etcresolv-conf-utilice-el-dns-secundario-o-balancee-carga/"&gt;rm-rf.es&lt;/a&gt;&lt;/p&gt;
+</summary><category term="attempts"></category><category term="balancear"></category><category term="carga"></category><category term="distribuir"></category><category term="dns"></category><category term="Linux"></category><category term="nameserver"></category><category term="primario"></category><category term="resolv.conf"></category><category term="rotate"></category><category term="secundario"></category></entry><entry><title>Script para obtener la dirección ip de uno o varios websites.</title><link href="/script-para-obtener-la-direccion-ip-de-uno-o-varios-websites.html" rel="alternate"></link><updated>2011-02-03T12:00:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2011-02-03:script-para-obtener-la-direccion-ip-de-uno-o-varios-websites.html</id><summary type="html">&lt;p&gt;Si por algún casual como pasó con Wikileaks, a nuestros websites
+favoritos les quitan el dominio, sólo podremos acceder mediante ip.&lt;/p&gt;
+&lt;p&gt;He escrito un sencillo script para obtener la ip de nuestros websites
+favoritos:&lt;/p&gt;
+&lt;p&gt;Tiene tres modos&lt;/p&gt;
+&lt;p&gt;1 - Obtener dirección ip de un sólo dominio&lt;/p&gt;
+&lt;p&gt;2 - Importar un archivo de texto con varios dominios&lt;/p&gt;
+&lt;p&gt;3 - Importar un archivo OPML de Google Reader.&lt;/p&gt;
+&lt;p&gt;Aquí os dejo el enlace para descargar el script: &lt;a class="reference external" href="http://dl.dropbox.com/u/1301915/getip.sh"&gt;Descargar script&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para ejecutarlo:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;chmod +x getip.sh&lt;/p&gt;
+&lt;p&gt;./getip.sh&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary><category term="caida"></category><category term="direccion"></category><category term="dns"></category><category term="favoritos"></category><category term="ip"></category><category term="Linux"></category><category term="obtener"></category><category term="script"></category><category term="websites"></category></entry><entry><title>Estadísticas del consumo de datos de una interfaz de red.</title><link href="/estadisticas-del-consumo-de-datos-de-una-interfaz-de-red.html" rel="alternate"></link><updated>2011-01-07T12:00:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2011-01-07:estadisticas-del-consumo-de-datos-de-una-interfaz-de-red.html</id><summary type="html">&lt;p&gt;Debo admitir que soy un gran fan de las estadísticas, así que me gusta
+también tener controlado el tráfico web de mis descargas.&lt;/p&gt;
+&lt;p&gt;En Windows utilizo Jc Net Meter, y en linux vnstat&lt;/p&gt;
+&lt;p&gt;Para instalar vnstat hacemos lo siguiente:&lt;/p&gt;
+&lt;blockquote&gt;
+# apt-get install vnstat&lt;/blockquote&gt;
+&lt;p&gt;Y una vez tengamos datos suficientes, bastará con escribir 'vnstat' en
+la terminal para que nos muestre la cantidad de GB descargados y que nos
+haga una estimación.&lt;/p&gt;
+</summary><category term="consumo"></category><category term="datos"></category><category term="descargados"></category><category term="descargar"></category><category term="estadísticas"></category><category term="interfaz"></category><category term="red"></category></entry><entry><title>Túnel para el tráfico web. Proxy socks</title><link href="/tunel-para-el-trafico-web-proxy-socks.html" rel="alternate"></link><updated>2011-01-03T11:55:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2011-01-03:tunel-para-el-trafico-web-proxy-socks.html</id><summary type="html">&lt;p&gt;A través de un compañero de clase, descubrí esta forma de tunelizar
+nuestro tráfico web de una red insegura. Este túnel encripta cualquier
+dato, por lo que estaría fuera del alcance de cualquier sniffer también.&lt;/p&gt;
+&lt;p&gt;Necesitaremos dos máquinas: Una será el servidor SSH que hará el
+forwarding de puertos, y otro será la máquina que creará el túnel hacia
+el servidor&lt;/p&gt;
+&lt;p&gt;En el servidor debe estar instalado openssh.&lt;/p&gt;
+&lt;blockquote&gt;
+# apt-get install openssh&lt;/blockquote&gt;
+&lt;p&gt;En el servidor, editamos el archivo &lt;strong&gt;/etc/ssh/sshd_config&lt;/strong&gt;y al
+final añadimos las siguientes líneas:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AllowTcpForwarding yes&lt;/p&gt;
+&lt;p&gt;GatewayPorts yes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Y guardamos el archivo.&lt;/p&gt;
+&lt;p&gt;Ahora tenemos activado el forwarding de puertos en el servidor.&lt;/p&gt;
+&lt;p&gt;Ahora en la máquina que creará el túnel y en la cuál queremos que el
+tráfico sea seguro, hacemos lo siguiente&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div&gt;&lt;p&gt;ssh -N -p PORT &lt;a class="reference external" href="mailto:user&amp;#64;sshserver"&gt;user&amp;#64;sshserver&lt;/a&gt; -D 2080 -v&lt;/p&gt;
+&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div&gt;&lt;p&gt;Donde:&lt;/p&gt;
+&lt;/div&gt;&lt;div&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;ul class="first"&gt;
+&lt;li&gt;N -&amp;gt; Impide que se ejecuten comandos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;-p -&amp;gt; Indica el puerto SSH a usar en caso que no sea el 22&lt;/li&gt;
+&lt;li&gt;-D -&amp;gt; Indica un puerto dinámico. He puesto 2080 sin ningún motivo en
+especial&lt;/li&gt;
+&lt;li&gt;-v -&amp;gt; Verbose mode.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;div&gt;&lt;p&gt;Y ahora en Mozilla Firefox, establecemos el proxy socks v5 a &amp;quot;localhost&amp;quot;
+y el puerto &amp;quot;2080&amp;quot;&lt;/p&gt;
+&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;p&gt;Y con eso tendríamos nuestro tráfico web protegido.&lt;/p&gt;
+&lt;/div&gt;</summary><category term="datos"></category><category term="encriptar"></category><category term="firefox"></category><category term="proxy"></category><category term="socks"></category><category term="ssh"></category><category term="trafico"></category><category term="túnel"></category><category term="tunneling"></category><category term="web"></category></entry><entry><title>Detectar intrusos en nuestra red privada.</title><link href="/detectar-intrusos-en-nuestra-red-privada.html" rel="alternate"></link><updated>2009-12-15T10:29:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2009-12-15:detectar-intrusos-en-nuestra-red-privada.html</id><summary type="html">&lt;p&gt;Todos nos hemos preguntado alguna vez si alguien se conectará sin
+nuestro permiso a nuestra red... Pues para averiguar si hay algún
+intruso es bastante simple:&lt;/p&gt;
+&lt;blockquote&gt;
+nmap -sP x.x.x.x/xx&lt;/blockquote&gt;
+&lt;p&gt;o&lt;/p&gt;
+&lt;blockquote&gt;
+nmap -sP x.x.x.x-xx&lt;/blockquote&gt;
+&lt;p&gt;Donde -sP indica que es un simple escaneo por ping, para determinar si
+un host está online o no. Por ejemplo:&lt;/p&gt;
+&lt;blockquote&gt;
+nmap -sP 172.26.0.0/24&lt;/blockquote&gt;
+&lt;p&gt;Para este caso deberemos conocer los bits que se utilizan para construir
+la subred.&lt;/p&gt;
+&lt;blockquote&gt;
+nmap -sP 172.26.0.1-255&lt;/blockquote&gt;
+&lt;p&gt;En este caso basta con indicar un rango de direcciones ip.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;alignnone&amp;quot; width=&amp;quot;655&amp;quot;
+caption=&amp;quot;Resultado.&amp;quot;]&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;`|nmap|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;También podemos usar netdiscover:&lt;/p&gt;
+&lt;blockquote&gt;
+netdiscover -i interfaz -r x.x.x.x/xx -s tiempo&lt;/blockquote&gt;
+&lt;p&gt;Por ejemplo, en mi caso:&lt;/p&gt;
+&lt;blockquote&gt;
+netdiscover -i wlan0 -r 172.26.0.0/24 -s 0.5&lt;/blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;-i =&amp;gt; Indica el interfaz de red que estamos usando&lt;/li&gt;
+&lt;li&gt;-r =&amp;gt; rango a escanear&lt;/li&gt;
+&lt;li&gt;-s =&amp;gt; tiempo de espera entre cada petición ARP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Y sólo con eso podremos estar informados de las conexiones que se
+produzcan a nuestra red.&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/detectar-intrusos-en-nuestra-red-privada.rst&lt;/tt&gt;, line 31); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|nmap|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="casa"></category><category term="detectar"></category><category term="intrusos"></category><category term="netdiscover"></category><category term="nmap"></category><category term="privada"></category><category term="red"></category><category term="wifi"></category></entry></feed>

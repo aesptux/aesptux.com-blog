@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/linux-operative-systems-unix.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 10 Jul 2011 19:33:00 +0200</lastBuildDate><item><title>Componentes de un proceso en Unix/Linux.</title><link>/componentes-de-un-proceso-en-unixlinux.html</link><description>&lt;p&gt;Un proceso consiste de un espacio de dirección y un conjunto de
+estructuras de datos en el kernel. La dirección es un conjunto de
+páginas de la memoria que el kernel ha marcado para el uso de ese
+proceso. Contiene el código y las librerías que el proceso utiliza, sus
+variables, sus pilas e información extra utiliza por el kernel mientras
+el proceso se está ejecutando. Dado que Unix y Linux son sistemas de
+memorias virtuales, no hay ninguna correlación entre la localización de
+las páginas en el espacio de direcciones del proceso y su localización
+dentro de la memoria física o swap.&lt;/p&gt;
+&lt;p&gt;Las estructuras de datos internas del kernel registran información sobre
+cada proceso. Algunas de las más importantes son:&lt;/p&gt;
+&lt;ul style="text-align: justify;"&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;El mapa del espacio de direcciones del proceso.&lt;/li&gt;
+&lt;li&gt;El estado actual del proceso (durmiendo, detenido, etc.)&lt;/li&gt;
+&lt;li&gt;La prioridad de ejecución&lt;/li&gt;
+&lt;li&gt;Información sobre los recursos que ha utilizado el proceso&lt;/li&gt;
+&lt;li&gt;Información sobre los archivos y los puertos de red que el proceso ha
+abierto&lt;/li&gt;
+&lt;li&gt;El dueño del proceso&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/ul&gt;&lt;p&gt;Un hilo de ejecución, normalmente conocido simplemente como hilo
+(&lt;strong&gt;thread&lt;/strong&gt;) es el resultado de un &lt;strong&gt;fork&lt;/strong&gt; (bifurcación) del proceso.
+Un thread hereda muchos de los atributos del proceso que lo contiene, y
+múltiples threads pueden ejecutarse concurremente en un único proceso
+bajo un modelo llamado &lt;strong&gt;multithreading&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;La ejecución concurrente es simulada por el kernel en un sistema de un
+único procesador, pero en los sistemas de varios núcleos o procesadores
+(&lt;strong&gt;multicore&lt;/strong&gt; o &lt;strong&gt;multi-cpu&lt;/strong&gt;) la concurrencia se reparte entre los
+diferentes núcleos. Las aplicaciones &lt;strong&gt;multithread&lt;/strong&gt; como pueden ser
+Apache o BIND obtienen su máximo rendimiento en sistemas multicore.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PID: Process ID Number&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El kernel asigna un ID único a cada proceso. Es asignado a la vez que el
+proceso es creado.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PPID: Parent PID&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Ni Unix ni Linux tienen una llamada al sistema que inicie un nuevo
+proceso ejecutando un programa en particular. En vez de eso, un proceso
+existente debe clonarse a si mismo para crear un nuevo proceso. Luego el
+clon, puede intercambiar el proceso que está ejecutando por otro
+diferente. El PPID identifica el proceso del que se clonó (proceso
+padre)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UID and EUID&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;La UID de un proceso es la identificación del usuario que lo ha creado.&lt;/p&gt;
+&lt;p&gt;La EUID es la identificación del usuario &amp;quot;efectiva&amp;quot;, es una UID extra
+usada para determinar que recursos y archivos puede acceder el proceso.
+Para la mayoría de los procesos, la UID y EUID son idénticos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Niceness&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;La prioridad del proceso determina cuánto tiempo de CPU recibe. El
+kernel utiliza un algoritmo dinámico para computar las prioridades. El
+kernel también presta atención a un valor que puede ser establecido por
+el administrador llamado 'nice value' o 'niceness'. Llamado así del
+inglés nice porque nos dice como de nice (buenos) vamos a ser con el
+resto de usuarios del sistema.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Sun, 10 Jul 2011 19:33:00 +0200</pubDate><guid>tag:,2011-07-10:componentes-de-un-proceso-en-unixlinux.html</guid><category>apache</category><category>bind</category><category>componentes</category><category>cpu</category><category>direcciones</category><category>espacio</category><category>estado</category><category>euid</category><category>hilo</category><category>kernel</category><category>Linux</category><category>multithread</category><category>nice</category><category>niceness</category><category>pid</category><category>ppid</category><category>prioridad</category><category>proceso</category><category>quantum</category><category>thread</category><category>tiempo</category><category>time</category><category>uid</category><category>unix</category></item></channel></rss>

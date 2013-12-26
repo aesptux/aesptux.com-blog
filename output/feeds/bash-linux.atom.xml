@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/bash-linux.atom.xml" rel="self"></link><id>/</id><updated>2011-11-28T12:30:00+01:00</updated><entry><title>Short and useful tip: How to make "tail -f" beep on each new line.</title><link href="/short-and-useful-tip-how-to-make-tail-f-beep-on-each-new-line.html" rel="alternate"></link><updated>2011-11-28T12:30:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2011-11-28:short-and-useful-tip-how-to-make-tail-f-beep-on-each-new-line.html</id><summary type="html">&lt;p&gt;Just in case you do not know, &lt;strong&gt;tail&lt;/strong&gt;prints the last ten lines of the
+indicated file. Like this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+tail /var/log/yum.log
+&lt;/pre&gt;
+&lt;p&gt;Furthermore, if you want to print more lines you can do it with
+&lt;strong&gt;-n&lt;/strong&gt;&amp;nbsp;parameter:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+tail -n 20 /var/log/yum.log
+&lt;/pre&gt;
+&lt;p&gt;But I think the most interesting parameter for &lt;strong&gt;tail&lt;/strong&gt;&amp;nbsp;is &lt;strong&gt;-f&lt;/strong&gt;. This
+parameter allows tail to &amp;quot;&lt;strong&gt;f&lt;/strong&gt;ollow&amp;quot; the file. New data is displayed
+as the file grows.&lt;/p&gt;
+&lt;p&gt;Now, using &lt;strong&gt;sed&lt;/strong&gt;&amp;nbsp;we can append to each new line, a bell sound:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+tail -f /var/log/yum.log | sed -e $'s/$/\a/'
+&lt;/pre&gt;
+&lt;p&gt;Notice that '$' escape sequences will only work on bash.&lt;/p&gt;
+&lt;p&gt;This was tested on Fedora 16.&lt;/p&gt;
+</summary><category term="-f"></category><category term="bash"></category><category term="beep"></category><category term="each"></category><category term="fedora"></category><category term="file"></category><category term="follow"></category><category term="how"></category><category term="line"></category><category term="make"></category><category term="realtime"></category><category term="short"></category><category term="tail"></category><category term="tip"></category><category term="to"></category><category term="ubuntu"></category><category term="useful"></category></entry><entry><title>10 herramientas para dar más vida a tus scripts en shell</title><link href="/10-herramientas-para-dar-mas-vida-a-tus-scripts-en-shell.html" rel="alternate"></link><updated>2010-04-22T13:00:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2010-04-22:10-herramientas-para-dar-mas-vida-a-tus-scripts-en-shell.html</id><summary type="html">&lt;p&gt;En la mayoría de nuestros scripts, no utilizamos para nada una GUI, pero
+a veces, si es un script que va a ir enfocado al usuario, es mejor
+intentar usar una GUI para que sea más amigable.&lt;/p&gt;
+&lt;p&gt;Es una tarea que a lo mejor cuesta más porque hay que dedicarle un poco
+más de tiempo, pero es algo que merece la pena, no todos aprecian la
+belleza de la consola :D&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Notify-send&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Comando que envía notificaciones a través del daemon de notificaciones
+(por defecto, se muestran casi en la esquina superior derecha). Para
+poder utilizar ese comando, debemos instalar:&lt;/p&gt;
+&lt;blockquote&gt;
+$ sudo apt-get install libnotify-bin&lt;/blockquote&gt;
+&lt;p&gt;Después basta con un simple:&lt;/p&gt;
+&lt;blockquote&gt;
+$ notify-send &amp;quot;texto&amp;quot;&lt;/blockquote&gt;
+&lt;p&gt;Esto puede ser útil para mensajes que no tengan por qué interferir en la
+actividad, del usuario... por ejemplo para informarle de algo.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;463&amp;quot;
+caption=&amp;quot;notify-send&amp;quot;]&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;`|notify-send|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Comando setleds&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cambiar el estado de los leds del teclado&lt;/p&gt;
+&lt;blockquote&gt;
+$ setleds -D +num&lt;/blockquote&gt;
+&lt;p&gt;Activaría el NumLock&lt;/p&gt;
+&lt;blockquote&gt;
+$ setleds -D -caps&lt;/blockquote&gt;
+&lt;p&gt;Desactivaría el CapsLock&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Zenity&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Uno de mis favoritos. Muestra diálogos utilizando GTK+. Nos permite
+mostrar información, pedir datos al usuario, etc...&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;721&amp;quot;
+caption=&amp;quot;Zenity&amp;quot;]&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;`|Zenity|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;El resto de las herramientas, las&amp;nbsp;podéis&amp;nbsp;encontrar &lt;a class="reference external" href="http://www.cyberciti.biz/tips/spice-up-your-unix-linux-shell-scripts.html"&gt;aquí&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Enlace | &lt;a class="reference external" href="http://www.cyberciti.biz/tips/spice-up-your-unix-linux-shell-scripts.html"&gt;nixCraft&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/10-herramientas-para-dar-mas-vida-a-tus-scripts-en-shell.rst&lt;/tt&gt;, line 32); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|notify-send|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/10-herramientas-para-dar-mas-vida-a-tus-scripts-en-shell.rst&lt;/tt&gt;, line 52); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|zenity|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="bash"></category><category term="gui"></category><category term="herramientas"></category><category term="mas"></category><category term="mejorar"></category><category term="scripts"></category><category term="shell"></category><category term="vida"></category></entry></feed>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="2, ammo, be, call, cheat, counter strike, crysis, dead space, duty, effect, engine, game, hacking, life, mass, modern, money, succesfull, videogame, warfare">
+
+  <title>
+Videogame hacking. Cheat on almost every offline game.  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Tue 29 November 2011</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/videogame-hacking-cheat-on-almost-every-offline-game.html">Videogame hacking. Cheat on almost every offline game.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Sometimes we get stuck on a game, and we use <strong>cheats</strong>, that is ok. But
+in certain cases there is no cheats or are very limited.</p>
+<p>In games like Dead Space 2 it is not possible, I did not find any cheat.</p>
+<p>We can use &nbsp;<a class="reference external" href="http://www.cheatengine.org/downloads.php">Cheat Engine</a>.</p>
+<p>Brief explanation:</p>
+<p>When a game is running, the process is loaded into the <strong>RAM</strong>. This
+process reserves some space on the memory for the variables. A variable
+is like a box, it stores a value which can be integer, string, float,
+etc. Well, this variables can be for example, our money or ammunition,
+or even life and can be edited with <strong>Cheat Engine&nbsp;</strong></p>
+<p><a href="#id21"><span class="problematic" id="id22">`|image0|`_</span></a></p>
+<p>This is the interface of Cheat Engine. Clicking on the button with green
+borders, will open a process selector, in which we have to select our
+game process.</p>
+<p>Steps:</p>
+<p>1- Open our desired game, in this case Dead Space 2</p>
+<p><a href="#id23"><span class="problematic" id="id24">`|Ammo before editing|`_</span></a></p>
+<p>2- Open Cheat Engine and select the correct process.</p>
+<p><a href="#id25"><span class="problematic" id="id26">`|image2|`_</span></a></p>
+<p>3- We know we have 9 shoots available, we are going to search that
+number on the browser. We will see thousands of results, that is not
+interesting because we do not know what variable is.</p>
+<p><em>Warning: Editing an unknown variable can result in a game crash.</em></p>
+<p>So now we go back to the game and shoot just one time, now our ammo will
+be 8. &nbsp;On Cheat Engine, put 8 and click <strong>Next scan</strong>, to indicate we
+are still scanning for the same variable with before was 9, but now it
+is 8. And so on, until we isolate our variable(s) (maybe two or three).</p>
+<div class="mceTemp mceIEcenter"><dl class="docutils">
+<dt><a href="#id27"><span class="problematic" id="id28">`|Isolated variable|`_</span></a></dt>
+<dd>Isolated variable</dd>
+</dl>
+</div><p>4- Once it is isolated, we drag to the underneath field and click with
+right button to drop the menu and then click on Change Record --&gt; Value.</p>
+<div class="mceTemp mceIEcenter"><dl class="docutils">
+<dt><a href="#id29"><span class="problematic" id="id30">`|Changing the value|`_</span></a></dt>
+<dd>Changing the value</dd>
+</dl>
+</div><p>5- We set up a new value, not to high, we can provoke an overflow and
+crash the game. I put 999 and it worked fine.Now we go back to the game
+and see the result.&nbsp;<strong>¡999 ammo!</strong></p>
+<div class="mceTemp mceIEcenter"><dl class="docutils">
+<dt><a href="#id31"><span class="problematic" id="id32">`|Final result|`_</span></a></dt>
+<dd>Final result</dd>
+</dl>
+</div><p>6 - Play!</p>
+<p>I have tested it with Counter Strike (offline) modifying money and ammo.
+Also with Modern Warfare 2, Mass Effect, Crysis, and more games.</p>
+<p>In Dead Space 2 I have modified ammo of all weapons, money and node
+quantity.</p>
+<p>It may be a bit thorny, but useful if there is no other way.</p>
+<!-- |Ammo before -->
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 112)</p>
+malformed substitution definition.</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113)</p>
+Explicit markup ends without a blank line; unexpected unindent.</div>
+<p>editing| image:: <a class="reference external" href="http://files.droplr.com/files/21931279/Wv2E.screenshot_01-02-2011_1-11.png">http://files.droplr.com/files/21931279/Wv2E.screenshot_01-02-2011_1-11.png</a>
+.. <a href="#id1"><span class="problematic" id="id2">|image2|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/QtTI.screenshot_01-02-2011_1-13.png">http://files.droplr.com/files/21931279/QtTI.screenshot_01-02-2011_1-13.png</a>
+.. <a href="#id3"><span class="problematic" id="id4">|Isolated
+variable|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/zO9s.screenshot_01-02-2011_1-17.png">http://files.droplr.com/files/21931279/zO9s.screenshot_01-02-2011_1-17.png</a>
+.. <a href="#id5"><span class="problematic" id="id6">|Changing the
+value|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/rFq1.screenshot_01-02-2011_1-20.png">http://files.droplr.com/files/21931279/rFq1.screenshot_01-02-2011_1-20.png</a>
+.. <a href="#id7"><span class="problematic" id="id8">|Final
+result|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/cdtH.screenshot_01-02-2011_1-23.png">http://files.droplr.com/files/21931279/cdtH.screenshot_01-02-2011_1-23.png</a>
+.. <a href="#id9"><span class="problematic" id="id10">|image6|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/JCYt.screenshot_01-02-2011_0-35.png">http://files.droplr.com/files/21931279/JCYt.screenshot_01-02-2011_0-35.png</a>
+.. <a href="#id11"><span class="problematic" id="id12">|image7|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/Wv2E.screenshot_01-02-2011_1-11.png">http://files.droplr.com/files/21931279/Wv2E.screenshot_01-02-2011_1-11.png</a>
+.. <a href="#id13"><span class="problematic" id="id14">|image8|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/QtTI.screenshot_01-02-2011_1-13.png">http://files.droplr.com/files/21931279/QtTI.screenshot_01-02-2011_1-13.png</a>
+.. <a href="#id15"><span class="problematic" id="id16">|image9|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/zO9s.screenshot_01-02-2011_1-17.png">http://files.droplr.com/files/21931279/zO9s.screenshot_01-02-2011_1-17.png</a>
+.. <a href="#id17"><span class="problematic" id="id18">|image10|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/rFq1.screenshot_01-02-2011_1-20.png">http://files.droplr.com/files/21931279/rFq1.screenshot_01-02-2011_1-20.png</a>
+.. <a href="#id19"><span class="problematic" id="id20">|image11|</span></a> image:: <a class="reference external" href="http://files.droplr.com/files/21931279/cdtH.screenshot_01-02-2011_1-23.png">http://files.droplr.com/files/21931279/cdtH.screenshot_01-02-2011_1-23.png</a></p>
+<div class="system-messages section">
+<h2>Docutils System Messages</h2>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id2">backlink</a></em></p>
+Undefined substitution referenced: &quot;image2&quot;.</div>
+<div class="system-message" id="id3">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id4">backlink</a></em></p>
+Undefined substitution referenced: &quot;Isolated variable&quot;.</div>
+<div class="system-message" id="id5">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id6">backlink</a></em></p>
+Undefined substitution referenced: &quot;Changing the value&quot;.</div>
+<div class="system-message" id="id7">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id8">backlink</a></em></p>
+Undefined substitution referenced: &quot;Final result&quot;.</div>
+<div class="system-message" id="id9">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id10">backlink</a></em></p>
+Undefined substitution referenced: &quot;image6&quot;.</div>
+<div class="system-message" id="id11">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id12">backlink</a></em></p>
+Undefined substitution referenced: &quot;image7&quot;.</div>
+<div class="system-message" id="id13">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id14">backlink</a></em></p>
+Undefined substitution referenced: &quot;image8&quot;.</div>
+<div class="system-message" id="id15">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id16">backlink</a></em></p>
+Undefined substitution referenced: &quot;image9&quot;.</div>
+<div class="system-message" id="id17">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id18">backlink</a></em></p>
+Undefined substitution referenced: &quot;image10&quot;.</div>
+<div class="system-message" id="id19">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 113); <em><a href="#id20">backlink</a></em></p>
+Undefined substitution referenced: &quot;image11&quot;.</div>
+<div class="system-message" id="id21">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 24); <em><a href="#id22">backlink</a></em></p>
+Unknown target name: &quot;|image0|&quot;.</div>
+<div class="system-message" id="id23">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 34); <em><a href="#id24">backlink</a></em></p>
+Unknown target name: &quot;|ammo before editing|&quot;.</div>
+<div class="system-message" id="id25">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 38); <em><a href="#id26">backlink</a></em></p>
+Unknown target name: &quot;|image2|&quot;.</div>
+<div class="system-message" id="id27">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 56); <em><a href="#id28">backlink</a></em></p>
+Unknown target name: &quot;|isolated variable|&quot;.</div>
+<div class="system-message" id="id29">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 70); <em><a href="#id30">backlink</a></em></p>
+Unknown target name: &quot;|changing the value|&quot;.</div>
+<div class="system-message" id="id31">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/videogame-hacking-cheat-on-almost-every-offline-game.rst</tt>, line 85); <em><a href="#id32">backlink</a></em></p>
+Unknown target name: &quot;|final result|&quot;.</div>
+</div>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/general.html">General</a></p>
+    <p>Tags:
+      <a href="/tag/2.html">2</a>,      <a href="/tag/ammo.html">ammo</a>,      <a href="/tag/be.html">be</a>,      <a href="/tag/call.html">call</a>,      <a href="/tag/cheat.html">cheat</a>,      <a href="/tag/counter-strike.html">counter strike</a>,      <a href="/tag/crysis.html">crysis</a>,      <a href="/tag/dead-space.html">dead space</a>,      <a href="/tag/duty.html">duty</a>,      <a href="/tag/effect.html">effect</a>,      <a href="/tag/engine.html">engine</a>,      <a href="/tag/game.html">game</a>,      <a href="/tag/hacking.html">hacking</a>,      <a href="/tag/life.html">life</a>,      <a href="/tag/mass.html">mass</a>,      <a href="/tag/modern.html">modern</a>,      <a href="/tag/money.html">money</a>,      <a href="/tag/succesfull.html">succesfull</a>,      <a href="/tag/videogame.html">videogame</a>,      <a href="/tag/warfare.html">warfare</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "videogame-hacking-cheat-on-almost-every-offline-game.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

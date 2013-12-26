@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/cisco-networking-notes.atom.xml" rel="self"></link><id>/</id><updated>2010-11-12T12:30:00+01:00</updated><entry><title>Comunicación a través de la red.</title><link href="/comunicacion-a-traves-de-la-red.html" rel="alternate"></link><updated>2010-11-12T12:30:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2010-11-12:comunicacion-a-traves-de-la-red.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;2. Comunicación a través de la red&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.1. Plataforma para las comunicaciones&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.1.1. Elementos de la comunicación&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;La comunicación comienza con un mensaje o información que se debe enviar
+de una persona o dispositivo a otro. Existen varios elementos&lt;/p&gt;
+&lt;p&gt;El primero de estos elementos es el origen del mensaje, o emisor. El
+segundo elemento de la comunicación es el destino o receptor del
+mensaje. Y el tercer elemento, es el canal, que está formado por los
+medios que proporcionan el camino por el que el mensaje viaja desde el
+origen hasta el destino.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Canal: Medio utilizado para transportar información de un emisor a un
+receptor&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;El término red en este curso se refiere a las redes de datos o
+información capaces de transmitir muchos tipos diferentes de
+comunicaciones, incluyendo datos computacionales tradicionales, voz
+interactiva, vídeo y productos de entretenimiento.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;strong&gt;2.1.2.Comunicación de mensajes&lt;/strong&gt;&lt;/blockquote&gt;
+&lt;p&gt;Los mensajes no pueden mandarse como grandes streams, porque generarían
+retrasos, ya que todo sería secuencial.&lt;/p&gt;
+&lt;p&gt;Un método mejor es dividir los datos en partes ?más pequeñas y
+manejables para enviarlas por la red. La división del stream de datos en
+partes más pequeñas se denomina segmentación. La segmentación de
+mensajes tiene dos beneficios principales.&lt;/p&gt;
+&lt;p&gt;Primero, al enviar partes individuales más pequeñas del origen al
+destino, se pueden intercalar diversas conversaciones en la red. El
+proceso que se utiliza para intercalar las piezas de conversaciones
+separadas en la red se denomina multiplexación.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Multiplexación: Proceso en el que se combinan múltiples corrientes de
+datos digitales en una señal.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Segundo, la segmentación puede aumentar la confiabilidad de las
+comunicaciones de red. No es necesario que las partes separadas de cada
+mensajes sigan el mismo recorrido a través de la red desde el origen
+hasta el destino. Si una ruta de satura con el tráfico de datos, se
+pueden direccionar mediante recorridos alternativos.&lt;/p&gt;
+&lt;p&gt;La desventaja de utilizar segmentación y multiplexación para transmitir
+mensajes a través de la red es el nivel de complejidad que se agrega al
+proceso.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;strong&gt;2.1.3. Componentes de la red&lt;/strong&gt;&lt;/blockquote&gt;
+&lt;p&gt;Los dispositivos y los medios son los elementos físicos o hardware de la
+red. El hardware es generalmente el componente visible de la plataforma
+de red, como una computadora portátil o personal, un switch, o el
+cableado que se usa conectar estos dispositivos. También existen los
+medios inalámbricos, que se transmiten a través del aire mediante radio
+frecuencias.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Switch: Dispositivo de red que filtra, reenvía o inunda frames
+basándose en&lt;/em&gt;&lt;em&gt;la dirección destino de cada frame. Opera en la capa
+data-link (Nivel 2)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Los servicios y procesos son los programas de comunicación, que se
+ejecutan en dispositivos conectados a la red. Como por ejemplo
+servidores de correo, web hosting, etc.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;strong&gt;2.1.4. Dispositivos finales y su función en la red&lt;/strong&gt;&lt;/blockquote&gt;
+&lt;p&gt;Algunos ejemplos de dispositivos finales son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Máquinas ( estaciones de trabajo, portátiles, servidores, etc)&lt;/li&gt;
+&lt;li&gt;Impresoras de red&lt;/li&gt;
+&lt;li&gt;Teléfonos VoIP&lt;/li&gt;
+&lt;li&gt;Cámaras de seguridad&lt;/li&gt;
+&lt;li&gt;Dispositivos portátiles móviles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Dispositivos finales ? Hosts&lt;/p&gt;
+&lt;p&gt;Un host puede ser el origen o el destino.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;strong&gt;2.1.5. Dispositivos intermediarios y su función en la red&lt;/strong&gt;&lt;/blockquote&gt;
+&lt;p&gt;Algunos dispositivos dependen de dispositivos intermediarios.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Dispositivo intermediario: Dispositivo que conecta&lt;/em&gt;&lt;em&gt;de forma
+directa con los dispositivos de usuario final o brinda enrutamiento de
+usuario final a otras redes. Como el router.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ejemplos de dispositivos de red intermediarios:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Dispositivos de acceso a la red (hubs, switches y puntos de acceso
+inalámbricos)&lt;/li&gt;
+&lt;li&gt;Dispositivos de internetwork (routers)&lt;/li&gt;
+&lt;li&gt;Servidores y módems de comunicación&lt;/li&gt;
+&lt;li&gt;Dispositivos de seguridad (firewalls)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Estos dispositivos utilizan la dirección de host de destino
+conjuntamente con información sobre las interconexiones de la red, para
+determinar la ruta que deben tomar los mensajes a través de la red.
+Realizan las siguientes funciones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Volver a generar y transmitir las señales de datos&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Conservar información acerca de las rutas que existen a través de red
+y de internetwork&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Notificar a otros dispositivos los errores y las fallas de
+comunicación&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Dirigir los datos a lo largo de rutas alternativas cuando hay una
+falla en el enlace&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Clasificar y dirigir mensajes de acuerdo a las prioridades de QoS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Permitir o denegar el flujo de datos de acuerdo a los parámetros de
+seguridad&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2.1.6. Medios de red&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El medio proporciona el canal por el cual viaje el mensaje desde el
+origen hasta el destino.&lt;/p&gt;
+&lt;p&gt;Los medios más comunes son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Hilos metálicos dentro de cables&lt;/li&gt;
+&lt;li&gt;Fibras de vidrio y plástico (cable de fibra óptica)&lt;/li&gt;
+&lt;li&gt;Transmisión inalámbrica&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Codificación: El proceso de transformación de datos de una forma a
+otra.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Tienen diferentes características y beneficios. Los criterios para
+elegir un medio de red son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;La distancia en la cual el medio puede transportar exitosamente una
+señal&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;El ambiente en el cual se instalará el medio&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;La cantidad de datos y la velocidad a la que se deben transmitir&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;El costo del medio y de la instalación&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2.2.LAN, WAN e Internetworks&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2.2.1. Redes de área local&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Las infraestructuras de red pueden variar en gran medida en términos de:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;El tamaño del área cubierta&lt;/li&gt;
+&lt;li&gt;El número de usuarios conectados&lt;/li&gt;
+&lt;li&gt;El número y los tipos de servicios disponibles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una red individual generalmente cubre una única área geográfica y
+proporciona servicios y aplicaciones a personas dentro de una estructura
+organizacional común.&lt;/p&gt;
+&lt;p&gt;Este tipo de red se denomina LAN. Una LAN por lo general está
+administrada por una organización única.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Red de área local (LAN): Red local o grupo de redes locales
+interconectadas que están bajo el mismo control administrativo.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.2.2. Redes de área amplia&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Estas redes conectan las LAN separadas geográficamente.&lt;/p&gt;
+&lt;p&gt;Las WAN está utilizan dispositivos de red diseñados específicamente para
+realizar las interconexiones entre las LAN.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;strong&gt;2.2.3. Internet: una red de redes&lt;/strong&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Internetwork&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Una malla mundial de redes interconectadas que cumple estas necesidades
+de comunicación humana. Internet se crea por la interconexión de redes
+que pertenecen a los proveedores de servicios de internet (ISP)&lt;/p&gt;
+&lt;p&gt;Estas redes ISP se conectan entre sí para proporcionar acceso.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Intranet&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El término intranet con frecuencia se utiliza para hacer referencia a
+una conexión privada de LAN y WAN que pertenece a una organización y
+está diseñada para que accedan a ella sólo los miembros y los empleados.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Intranet: Sistema interno de una organización, como un sitio web,
+expresamente utilizado por empleados internos o estudiantes. También se
+puede acceder de forma remota.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.2.4. Representaciones de red&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Términos importantes para recordar son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Tarjeta de interfaz de red(NIC):&lt;/strong&gt; Una NIC, o adaptador de LAN,
+proporciona la conexión física a la red en la computadora personal u
+otra dispositivo host.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Puerto físico:&lt;/strong&gt; Un conector o conexión en un dispositivo de
+networking donde se conectan los medios a un host u otro dispositivo
+de networking&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Interfaz:&lt;/strong&gt; Puertos especializados en un dispositivo de
+internetworking que se conecta a redes individuales. Puesto que los
+routers se utilizan para interconectar redes, los puertos de un
+router se conocen como interfaces de red.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2.3. Protocolos&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2.3.1. Reglas que rigen las comunicaciones&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Son reglas que rigen la comunicación.&lt;/p&gt;
+&lt;p&gt;La comunicación exitosa entre los hosts de una red requiere la
+interacción de gran cantidad de protocolos diferentes. Un grupo de
+protocolos interrelacionados que son necesarios para realizar una
+función de comunicación se denomina suite de protocolos. Estos
+protocolos se implementan en el software y hardware que está cargado en
+cada host y dispositivo de red.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;strong&gt;2.3.2. Protocolos de red&lt;/strong&gt;&lt;/blockquote&gt;
+&lt;p&gt;Para que los dispositivos se puedan comunicar en forma exitosa, un nuevo
+conjunto de aplicaciones de protocolos debe describir los requerimientos
+e interacciones precisos.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Conjunto de aplicaciones: Grupo de componentes que trabajan de forma
+cooperativa. TCP/IP es un ejemplo de una suite de protocolos.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Las suites de protocolos de networking describen procesos como los
+siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;El formato o estructura del mensaje&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;El método por el cual los dispositivos de networking comparten
+información sobre las rutas con otras redes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Cómo y cuándo se transmiten mensajes de error y del sistema entre los
+dispositivos&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;La configuración y la terminación de sesiones de transferencia de
+datos.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2.3.3. Interacción de los protocolos&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Un ejemplo del uso de una suite de protocolos en comunicaciones de red
+es la interacción entre un servidor web y un explorador web. Algunos
+ejemplos de protocolos son:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Protocolo de aplicación:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El protocolo de transferencia de hipertexto (HTTP) es un protocolo común
+que rige la forma en que interactúan un servidor web y un cliente web.
+Define el contenido y el formato de las solicitudes web&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Protocolo de transporte:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El protocolo de control de transmisión (TCP) es el protocolo de
+transporte que administra las conversaciones individuales entre
+servidores web y clientes web. TCP divide los mensajes HTTP en pequeñas
+partes, denominadas segmentos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Protocolo de internetwork:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El protocolo de internetwork más común es el protocolo de internet (IP).
+El IP es responsable de tomar los segmentos formateados del TCP,
+encapsularlos en paquetes y asignar las direcciones apropiadas y
+seleccionar la mejor ruta al host de destino.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Protocolos de acceso a la red:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Los protocolos de acceso a la red describen dos funciones principales,
+la administración de enlace de datos y la transmisión física de datos en
+los medios. Los protocolos de administración de enlace de datos toman
+los paquetes IP y los formatean para transmitirlos por los medios.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;strong&gt;2.3.4. Protocolos independientes de la tecnología&lt;/strong&gt;&lt;/blockquote&gt;
+&lt;p&gt;Los protocolos describen que funciones se requieren en una regla de
+comunicación, pero no se describe cómo realizarlas, es posible que la
+implementación de un protocolo sea independiente de la tecnología. Por
+ejemplo, http no especifica en que lenguaje debe estar escrito una
+página, ni el software de servidor web, ni el sistema operativo.
+Significa que se puede acceder a un servidor desde cualquier dispositivo
+con cualquier sistema operativo, mientras tenga soporte http.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.4. Uso de modelos en capas&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.4.1.&lt;/strong&gt;&lt;strong&gt;Beneficios del uso de un modelo en capas&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Beneficios:&lt;/p&gt;
+&lt;p&gt;Ayuda en el diseño de protocolos, ya que los protocolos que operan en
+una capa específica tienen información definida según la cual actúan.&lt;/p&gt;
+&lt;p&gt;Fomenta competencia, ya que los productos de distintos proveedores
+pueden trabajar en conjunto&lt;/p&gt;
+&lt;p&gt;Evita que los cambios en la tecnología o en las capacidades de una capa
+afecten otras capas&lt;/p&gt;
+&lt;p&gt;Proporciona un lenguaje común para describir las funciones y capacidades
+de networking&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.4.2.&lt;/strong&gt;&lt;strong&gt;Modelos de protocolo y referencia&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El modelo de interconexión de sistema abierto (OSI) es el modelo de
+referencia de internetwork más conocido. Se usa para diseño de redes de
+datos, especificaciones y resolución de problemas.&lt;/p&gt;
+&lt;p&gt;TCP/IP es un protocolo modelo porque describe las funciones que ocurren
+en cada capa de protocolos dentro de una suite de TCP/IP&lt;/p&gt;
+&lt;p&gt;Equivalencia entre ambos:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.4.3 Modelo TCP/IP&lt;/strong&gt;&lt;/p&gt;
+&lt;div&gt;&lt;p&gt;El modelo TCP/IP (modelo de Internet ) se creó a principios de la década
+de los setenta y se conoce con el nombre de modelo de Internet.
+Define cuatro categorías de funciones, 4 capas.
+El modelo TCP/IP es un estándar abierto, ninguna compañía controla la
+definición del modelo.
+Las definiciones del estándar y los protocolos TCP/IP se explican en un
+foro público y se definen en un conjunto de documentos disponibles al
+público, denominados Solicitudes de comentarios (RFC, Request For
+Comments).&lt;/p&gt;
+&lt;/p&gt;&lt;p&gt;&lt;p&gt;Capa Aplicación: datos del usuario, control de codificación y de
+diálogo.
+Capa Transporte: comunicación entre dispositivos de distintas redes
+(distintas LAN).
+Capa Internet: determina la mejor ruta a través de la red.
+Capa Acceso a red: dispositivos y medios de la red (comunicación dentro
+de LAN).&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;2.4.4. Proceso de comunicación&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El modelo TCP/IP describe la funcionalidad de los protocolos que forman
+la suite.&lt;/p&gt;
+&lt;p&gt;Un proceso de comunicación completo incluye estos pasos:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Creación de datos en la capa de aplicación del dispositivo final de
+origen&lt;/li&gt;
+&lt;li&gt;Segmentación y encapsulación de datos a medida que pasan por el stack
+de protocolos en el dispositivo final de origen&lt;/li&gt;
+&lt;li&gt;Generación de datos en los medios en la capa de acceso a la red del
+stack&lt;/li&gt;
+&lt;li&gt;Transportación de los datos a través de internetwork, la cual está
+compuesta por medios y por cualquier dispositivo intermediario&lt;/li&gt;
+&lt;li&gt;Recepción de los datos en la capa de acceso en la red del dispositivo
+final de destino&lt;/li&gt;
+&lt;li&gt;Desencapsulación y reensamblaje de los datos a medida que pasan por
+el stack en el dispositivo final de destino&lt;/li&gt;
+&lt;li&gt;Transmisión de estos datos a la aplicación de destino en la capa de
+aplicación del dispositivo final de destino&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;2.4.5.&lt;/strong&gt;&lt;strong&gt;Unidad de datos del protocolo y encapsulación&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Proceso de encapsulación.&lt;/p&gt;
+&lt;p&gt;La forma que adopta una sección de datos en cualquier capa se denomina
+Unidad de datos del protocolo (PDU). En cada etapa del proceso, una PDU
+tiene un nombre distinto para reflejar su nuevo aspecto. Se denominan:&lt;/p&gt;
+&lt;p&gt;Datos: Término general que se utiliza en la capa de aplicación para la
+PDU&lt;/p&gt;
+&lt;p&gt;Segmento: PDU de la capa de transporte&lt;/p&gt;
+&lt;p&gt;Paquete: PDU de la capa de internetwork&lt;/p&gt;
+&lt;p&gt;Trama: PDU de la capa de acceso de red&lt;/p&gt;
+&lt;p&gt;Bits: PDU que se utiliza cuando se transmiten datos físicamente por el
+medio&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.4.6.&lt;/strong&gt;&lt;strong&gt;Proceso de envío y recepción&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;En el ejemplo de la aplicación http:&lt;/p&gt;
+&lt;p&gt;El protocolo de la capa aplicación, HTTP, comienza el proceso entregando
+los datos de la página Web con formato HTML a la capa de transporte.
+Allí, los datos de aplicación se dividen en segmentos de TCP. A cada
+segmento de TCP se le otorga una etiqueta, denominada encabezado, que
+contiene información sobre qué procesos que se ejecutan en la
+computadora de destino deben recibir el mensaje.&lt;/p&gt;
+&lt;p&gt;La capa de transporte encapsula los datos HTML de la página Web dentro
+del segmento y los envía a la capa de Internet, donde se implementa el
+protocolo IP. Aquí, el segmento de TCP se encapsula en su totalidad
+dentro de un paquete IP que agrega otro rótulo denominado encabezado IP.
+El encabezado IP contiene las direcciones IP de host de origen y de
+destino&lt;/p&gt;
+&lt;p&gt;Luego el paquete IP se envía al protocolo Ethernet de la capa de acceso
+a la red, donde se encapsula en un encabezado de trama. Cada encabezado
+de trama contiene una dirección física de origen y de destino. La
+dirección física identifica de forma exclusiva los dispositivos en la
+red local. Finalmente, los bits se codifican en el medio Ethernet
+mediante la NIC del servidor.&lt;/p&gt;
+&lt;p&gt;Este proceso se invierte en el host receptor. Los datos se desencapsulan
+mientras suben al stack hacia la aplicación del usuario final.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.4.7.&lt;/strong&gt;&lt;strong&gt;Modelo OSI&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Es un modelo de referencia. Describe cada interacción entre cada capa.&lt;/p&gt;
+&lt;p&gt;7. Aplicación: Proporciona los medios para la conectividad de extremo a
+extremo entre individuos de la red humana que usan redes de datos&lt;/p&gt;
+&lt;p&gt;6. Presentación: Proporciona una representación común de los datos
+transferidos entre los servicios de la capa de aplicación&lt;/p&gt;
+&lt;p&gt;5. Sesión: Proporciona servicios a la capa de presentación para
+organizar su diálogo y administrar el intercambio de datos.&lt;/p&gt;
+&lt;p&gt;4. Transporte: Define los servicios para segmentar, transferir y
+reensamblar los datos para las comunicaciones individuales entre
+dispositivos finales. (extremo a extremo)&lt;/p&gt;
+&lt;p&gt;3. Red: Proporciona servicios para intercambiar datos individuales en la
+red entre dispositivos finales identificados.&lt;/p&gt;
+&lt;p&gt;2. Enlace de datos: Los protocolos de la capa de enlace de datos
+describen los métodos para intercambiar tramas de datos entre
+dispositivos en un medio común.&lt;/p&gt;
+&lt;p&gt;1. Física: Describen los medios mecánicos, eléctricos, funcionales y de
+procedimiento para activar, mantener y desactivar conexiones físicas
+para la transmisión de bits.&lt;/p&gt;
+&lt;p&gt;**
+&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;**&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/comunicacion-a-traves-de-la-red.rst&lt;/tt&gt;, line 517); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;2.5 Direccionamiento de red&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.5.1 Direccionamiento en la red&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El modelo OSI describe los procesos de codificación, formateo,
+segmentación y encapsulación de datos para transmitir por la red. Un
+flujo de datos que se envía desde un origen hasta un destino se puede
+dividir en partes y entrelazar con los mensajes que viajan desde otros
+hosts hacia otros destinos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.5.2 Envío de datos al dispositivo final&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;El primer identificador, la dirección física del host, se incluye en el
+encabezado de la PDU de Capa 2 llamada trama. La Capa 2 está relacionada
+con la entrega de los mensajes en una red local única. La dirección de
+la Capa 2 es exclusiva en la red local y representa la dirección del
+dispositivo final en el medio físico. En una LAN que utiliza Ethernet,
+esta dirección se denomina dirección de Control de acceso a los medios
+(MAC). Cuando dos dispositivos se comunican en la red Ethernet local,
+las tramas que se intercambian entre ellos contienen las direcciones MAC
+de origen y de destino. Una vez que una trama se recibe
+satisfactoriamente por el host de destino, la información de la
+dirección de la Capa 2 se elimina mientras los datos se desencapsulan y
+suben el stack de protocolos a la Capa 3.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.5.3 Transporte de datos a través de Internetwork&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Los protocolos de Capa 3 están diseñados principalmente pata mover datos
+desde una red local a otra red local dentro de una internetwork.
+Mientras las direcciones de Capa 2 sólo se utilizan para comunicar entre
+dispositivos de una red local única, las direcciones de Capa 3 deben
+incluir identificadores que permitan a dispositivos de red
+intermediarios ubicar hosts en diferentes redes&lt;/p&gt;
+&lt;p&gt;Un dispositivo de red intermediario, por lo general un router,
+desencapsula la trama para leer la dirección host de destino contenida
+en el encabezado del paquete, la PDU de Capa 3. Los routers utilizan la
+porción del identificador de red de esta dirección para determinar qué
+ruta utilizar para llegar al host de destino. Una vez que se determina
+la ruta, el router encapsula el paquete en una nueva trama y lo envía
+por su trayecto hacia el dispositivo final de destino.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.5.4 Envío de datos a la aplicación correcta&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;En la Capa 4, la información contenida en el encabezado de la PDU no
+identifica un host de destino o una red de destino. Lo que sí identifica
+es el proceso o servicio específico que se ejecuta en el dispositivo
+host de destino que actuará en los datos que se entregan. Los hosts,
+sean clientes o servidores en Internet, pueden ejecutar múltiples
+aplicaciones de red simultáneamente. Cuando los datos se reciben en el
+host, se examina el número de puerto para determinar qué aplicación o
+proceso es el destino correcto de los datos.&lt;/p&gt;
+</summary><category term="capitulo 2"></category><category term="Cisco"></category><category term="comunicacion"></category><category term="internetworking"></category><category term="lan"></category><category term="modelo"></category><category term="osi"></category><category term="protocolos"></category><category term="red"></category><category term="tcp/ip"></category><category term="temario"></category><category term="wan"></category></entry></feed>

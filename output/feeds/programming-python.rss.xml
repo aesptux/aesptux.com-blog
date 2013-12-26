@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/programming-python.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 08 Aug 2013 20:14:00 +0200</lastBuildDate><item><title>Mail client: An easy smtplib wrapper.</title><link>/mail-client-an-easy-smtplib-wrapper.html</link><description>&lt;p&gt;I published to github &lt;a class="reference external" href="https://github.com/aesptux/mailclient"&gt;mailclient&lt;/a&gt;, a wrapper for the standard smtplib
+and email libraries.&lt;/p&gt;
+&lt;p&gt;Smtplib and email are no fun to work with, for example if you want to
+attach a file, you have to import the right MIMEType.&lt;/p&gt;
+&lt;p&gt;I built this wrapper to make sending emails with Python easier, for
+example:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# create message
+msg = mail.Message('This will be the subject', 'This will be the body content',
+ 'sender&amp;#64;sender.com', 'to&amp;#64;you.com, and&amp;#64;you.com, foryou&amp;#64;too.com')
+
+# create server connection
+s = mail.Server('localhost', '25')
+
+# attach file
+msg.attach('/path/to/file')
+# send
+s.send(msg)
+&lt;/pre&gt;
+&lt;p&gt;Mailclient is on pypi, so if you want to install, just use pip:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install mailclient
+&lt;/pre&gt;
+&lt;p&gt;For full documentation, examples and source code, please refer to the
+project on &lt;a class="reference external" href="https://github.com/aesptux/mailclient"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Thu, 08 Aug 2013 20:14:00 +0200</pubDate><guid>tag:,2013-08-08:mail-client-an-easy-smtplib-wrapper.html</guid><category>easy</category><category>email</category><category>mailclient</category><category>module</category><category>pip</category><category>python</category><category>send</category><category>smtpd</category><category>wrapper</category></item></channel></rss>

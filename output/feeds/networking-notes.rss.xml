@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/networking-notes.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 25 Jul 2009 16:15:00 +0200</lastBuildDate><item><title>El encaminador</title><link>/el-encaminador.html</link><description>&lt;p&gt;Los encaminadores, enrutadores o routers son dispositivos software o
+hardware que se pueden configurar para encaminar paquetes entre sus
+distintos puertos de red utilizando la dirección lógica correspondiente
+a la internet.&lt;/p&gt;
+&lt;p&gt;El encaminador interconecta redes de área local operando en el nivel 3
+de OSI, por tanto su funcionalidad está fuertemente condicionada por el
+protocolo de red.&amp;nbsp; Esto hace que su rendimiento sea menor, ya que gasta
+menos tiempo de proceso en analizar los paquetes de nivel de red que
+llegan.&lt;/p&gt;
+&lt;p&gt;Los routers confeccionan una tabla de encaminamientoen donde registran
+qué nodos y redes son alcanzables por cada uno de sus puertos de salida.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Algoritmos de encaminamiento estático.&lt;/strong&gt; Requiren que la tabla de
+encaminamiento sea programada por el administrador de red.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Algoritmos de encaminamiento adaptativo.&lt;/strong&gt;Son capaces de aprender
+por sí mismos la topología de la red. Son mucho más flexibles que los
+estáticos, aunque su rendimiento es menor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Protocolos de encaminamiento&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;RIP&lt;/strong&gt;&lt;em&gt;(Routing Information Protocol)&lt;/em&gt;es un algoritmo&amp;nbsp; de tipo
+vector basado en la RFC 1058 apropiado para encaminamiento en redes
+IP pequeñas. RIP utiliza el puerto UDP número 520 para el intercambio
+de la información de encaminamiento con otros enrutadores, que se
+calcula como el cómputo de saltos de red necesarios para que un
+paquete dado alcance su destino.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OSPF&lt;/strong&gt;&lt;em&gt;(Open Shortest Path First)&lt;/em&gt;es otro algoritmo
+caracterizado por que el envío de paquetes siempre se realiza por la
+ruta más corta entre las disponibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BGP&lt;/strong&gt;&lt;em&gt;(Border Gateway Protocol)&lt;/em&gt;es un protocolo de frontera
+exterior, es decir, se ejecuta en los encaminadores que forman el
+perímetro de la red y facilitan extraodinariamente el interambio de
+rutas con los encaminadores exteriores.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Características fundamentales de los encaminadores&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Interpretan las direcciones lógicas de capa 3&lt;/li&gt;
+&lt;li&gt;Son capaces de cambiar el formato de la trama, ya que operan a un
+nivel superior a ésta&lt;/li&gt;
+&lt;li&gt;Poseen un elevado nivel de inteligencia y pueden manejar distintos
+protocolos&lt;/li&gt;
+&lt;li&gt;Proporcionan seguridad a la red puesto que se pueden configurar para
+restringir accesos a la red.&lt;/li&gt;
+&lt;li&gt;Reducen la congestión de la red aislando de tráfico las distintas
+subredes que interconectan.&lt;/li&gt;
+&lt;/ul&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Sat, 25 Jul 2009 16:15:00 +0200</pubDate><guid>tag:,2009-07-25:el-encaminador.html</guid><category>encaminador</category><category>router</category></item><item><title>Familias de protocolos</title><link>/familias-de-protocolos.html</link><description>&lt;p&gt;Un &lt;strong&gt;protocolo&lt;/strong&gt; es un conjunto de reglas perfectamente organizadas y
+convenidas de mutuo acuerdo entre los participantes en una comunicación,
+cuya misión principal es regular algún aspecto de ésta.&lt;/p&gt;
+&lt;p&gt;Con el fin de simplificar la complejidad de cualquier red, los
+diseñadores de redes han convenido estructurar las diferentes funciones
+que realizan y los servicios que proveen en una serie de niveles o
+capas.&lt;/p&gt;
+&lt;p&gt;Las capas están jerarquizadas. De esta manera, cada capa debe ocuparase
+exclusivamente de su nivel inmediatamente inferior, a quién solicita
+servicios, y del nivel inmediatamente superior, a quien devuelve
+resultados.&lt;/p&gt;
+&lt;p&gt;Llamamos &lt;strong&gt;interfaz&lt;/strong&gt;o&lt;strong&gt;interface&lt;/strong&gt; de capa a las normas de
+intercomunicación entre capas.&lt;/p&gt;
+&lt;p&gt;El interfaz, entendido como la definición de los servicios y operaciones
+que la capa inferior ofrece a la superior, se gestiona como una
+estructura de primitivas. Las primitivas son llamadas entrantes o
+salientes en cada una de las capas que sirven para solicitar servicios,
+devolver resultados, confirmar las peticionesa, etcétera.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Familia SNA&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;SNA&lt;/strong&gt; &lt;em&gt;(Systems Network Architecture)&lt;/em&gt; es el nombre de la arquitectura
+de redes propia de IBM. El modelo OSI se configuró apartir de SNA; de
+esta arquitectura toma el número y funciones aproximadas para sus capas.&lt;/p&gt;
+&lt;p&gt;Una red SNA está constituida por un conjunto de máquinas conectables a
+la red que se denominan &lt;strong&gt;nodos&lt;/strong&gt;. SNA define cuatro tipos de nodos:
+terminales, controladores, procesadores frontales y hosts.&lt;/p&gt;
+&lt;p&gt;Cada uno de estos nodos tiene al menos una &lt;strong&gt;NAU&lt;/strong&gt; &lt;em&gt;(Network Adress
+Unit)&lt;/em&gt; que es el software por el que un proceso puede utilizar la red,
+es decir, un punto lógico de lared por el que alguien puede utilizar un
+servicio. Para poder utilizar la red, un proceso debe conectarse
+directamente a una NAU; a partir de aquí podrá utilizar los recursos de
+la red.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Familia NetWare&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;NetWare&lt;/strong&gt;, fabricado por Novell, ha sido el sistema operativo de red
+más utilizado del mundo. Los servidores NetWare han sido
+tradicionalmente dedicados. El resto de las estaciones son
+exclusivamente clientes de estos servidores. Otro factor que influye en
+el alto rendimiento de la red es el protocolo propietario desarrollado
+por Novell, denominado &lt;strong&gt;IPX/SPX&lt;/strong&gt; (&lt;em&gt;Internetwork Packet
+eXchange/Sequenced Packed eXchange)&lt;/em&gt; derivado de la red de Xerox &lt;strong&gt;XNS&lt;/strong&gt;
+&lt;em&gt;(Xerox Network Service)&lt;/em&gt;.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Familia AppleTalk&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AppleTalk&lt;/strong&gt; es el nombre de la red entre iguales, diseñada por Apple
+Computer Corporation, para su utilización en ordenadores Macintosh.
+Apple siempre ha tratado de consevar la facilidad de instalación y
+configuración en sus desarrollos. Los sistemas de red AppleTalk pueden
+ser clasificados según su capa física del modo siguiente:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;strong&gt;Red LocalTalk&lt;/strong&gt;. Es una red AppleTalk sobre cable serie que
+proporciona unas prestaciones de flujo moderadas. El sistema de
+cableado consiste en un bus lineal.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Red EtherTalk&lt;/strong&gt;. Cuando AppleTalk tiene una Ethernet en la capa
+física, recibe el nombre de EtherTalk.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Red TokenTalk&lt;/strong&gt;. Es una red AppleTalk sobre una red en anillo del
+tipo Token Ring.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Además las tecnologías Bluetooth y Wi-Fi.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Familia NetBeui&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;NetBeui&lt;/strong&gt; es un protocolo desarrollado por IBM en 1985. NetBeui es un
+protocolo que controla tanto a los datos como a los mensajes entre
+aplicaciones. Cuando un sistema operativo de red implementa el protocolo
+NetBeui, los servicios son alcanzados a través del interfaz NetBIOS&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Familia TCP/IP&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;La tecnología &lt;strong&gt;TCP/IP&lt;/strong&gt; &lt;em&gt;(Transmission Control Protocol/Internet
+Protocol)&lt;/em&gt; está definida en un conjunto de documentos denominados
+&lt;strong&gt;RFC&lt;/strong&gt;&lt;em&gt;(Request For Comments)&lt;/em&gt;. La importancia de TCP/IP es tan
+grande que la mayor parte de las redes hablan TCP/IP.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Tue, 21 Jul 2009 12:45:00 +0200</pubDate><guid>tag:,2009-07-21:familias-de-protocolos.html</guid><category>familias</category><category>protocolos</category></item><item><title>Topologías de red</title><link>/topologias-de-red.html</link><description>&lt;p&gt;La &lt;strong&gt;topología&lt;/strong&gt; de una red es la propiedad que indica la forma física
+de la red, es decir, el modo en que se disponen los equipos y el sistema
+de cableado&amp;nbsp; que los interconecta para cumplir su función.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Topologías en estrella.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Las estaciones se conectan entre sí a través de un nodo especialmente
+privilegiado que ocupa la posición central de la red, formando con el
+resto de las estaciones una estrella. A este nodo se le denomina
+&lt;strong&gt;estación concentradora de la estrella&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;La ventaja pricipal de una red en estrella reside en la seguridad. El
+concentrador tiene las funciones tanto de intercomunicador entre
+cualesquiera dos estaciones, como de aislador de los problemas que
+pudieran surgir en cualquiera de los segmentos, de modo que si un
+segmento se deteriora, sólo él se queda sin servicio de red.&lt;/p&gt;
+&lt;p&gt;Sin embargo, el problema de la topología en estrella se presenta en el
+entorno del concentrador, ya que todos los segmentos deben terminar en
+él, lo que conlleva una importante madeja de cables.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Topología en anillo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una red en anillo conecta todos sus equipos en torno a un anillo físico.
+Sin embargo, una rotura en el anillo produce el fallo general de la red.
+Un ejemplo de red en anillo es la red &lt;strong&gt;Token Ring&lt;/strong&gt;, que sigue el
+estándar IEEE 802.5.&lt;/p&gt;
+&lt;p&gt;Las redes de anillo utilizan protocolos libres de colisiones. Las
+señales recorren el anillo a la velocidad de la luz en el medio de
+transporte y requieren retardadores para evitar que unos bits se
+superpongan a otros, no hay que olvidar que la transmisión en una red en
+anillo, es secuencial, y es posible que cuando una estación quiera poner
+en la red el bit siguiente, todavía no se haya terminado de transmitir
+por el anillo anterior. También son necesarios elementos
+bidireccionalmente selectivos para&amp;nbsp; conseguir que la trasmisión se
+produzca en un sólo sentido en el anillo. Podemos deducir que un anillo
+no es simplemente un bus cerrado por sus extremos, sino que requiere una
+tecnología electrónica avanzada.&lt;/p&gt;
+&lt;p&gt;El dispositivo encargado de realizar físicamente el anillo se
+llama&lt;strong&gt;MAU&lt;/strong&gt; (Multistation Access Unit), que no es má que un tipo de
+concentrador especializado al que se conectan las estaciones. Este
+hardware tiene una serie de componentes de conmutación que crean un
+nuevo anillo cada vez que sae conecta una nueva estación como segmento
+de la estrella.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Topología en bus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Los puestos&amp;nbsp; de una red en bus se conectan a una única&amp;nbsp; línea de
+transmisión (bus) que recorre la ubicación física de todos los
+ordenadores. Esta red es muy simple en su funcionamiento, pero es muy
+sensible a problemas de tráfico o a las roturas de los cables.&lt;/p&gt;
+&lt;p&gt;El medio de transmisión que forma la red es un único bus multiacceso
+compartido por todos los nodos, y se debe establecer una contienda para
+determinar quién tiene derechos de acceso a los recursos de comunicación
+en cada instante. Este sistema de contienda determina el tipo de red. El
+bus tiene una estructura lineal. Con el fin de evitar ecos o reflexiones
+no deseadas que perjudiquen las condiciones eléctricas de transmisión,
+los extremos de este bus deben estar terminados con unos acopladores de
+impedancia eléctrica o terminadores, específicos para el tipo de cable
+que se trate. Son típicos los cables coaxiales RG-58. La ruptura del bus
+impide totalmente la comunicación entre cualesquiera dos nodos de la
+red.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Topología en malla&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Se trata de construir una malla de cableado situando los nodos de la red
+en las intersecciones de la malla. De este modo, cada nodo está a
+siempre conectado con líneas punto a punto con cualquier otro nodo
+adyacente.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Topología en árbol&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Es una extensión de la topología en bus. Consiste en la conexión de
+distintos buses lineales (ramas) a un nuevo bus troncal del que reparte
+la señal hacia las ramas.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Topología de interconexión total&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Consiste en conectar todos los ordenadores, de una red entre sí a través
+de líneas punto a punto.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Topologías mixtas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En este caso, la topología de la red es una mezcla de las topologías
+básicas describidas anteriormente.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Fri, 17 Jul 2009 13:16:00 +0200</pubDate><guid>tag:,2009-07-17:topologias-de-red.html</guid><category>red</category><category>topologías</category></item><item><title>El proceso telemático</title><link>/el-proceso-telematico.html</link><description>&lt;p&gt;Un &lt;strong&gt;proceso informático&lt;/strong&gt; es un procedimiento en ejecución que se
+encarga de realizar unas funciones concretas previamente definidas.&lt;/p&gt;
+&lt;p&gt;Un &lt;strong&gt;proceso telemático&lt;/strong&gt; podría ser una conversación telefónica, regida
+por las normas de establecimiento de la comunicación (marcar), de
+ruptura (colgar) y del transporte de la voz.&lt;/p&gt;
+&lt;p&gt;La base de cualquier comunicación es una transmisión de señal.&lt;/p&gt;
+&lt;p&gt;Se puede definir la &lt;strong&gt;telemática&lt;/strong&gt; como la técnica que trata la
+comunicación remote entre procesos.&lt;/p&gt;
+&lt;p&gt;La &lt;strong&gt;transmisión&lt;/strong&gt; es el proceso por el que se transportan señales de un
+lugar a otro. Las señales&amp;nbsp; son entidades de naturaleza diversa que se
+manifiestan cmo magnitudes físicas, principalmente electromagnéticas y
+mecánicas. Por ejemplo, en la comunicación telefónica de voz intervienen
+distintos tipos de señal: la voz genera una onda de presión de
+naturaleza mecánica; esta señal debe ser convertida en impulsos
+eléctricos de unas características determinadas a través de&amp;nbsp; un
+micrófono.&amp;nbsp; Esta señal eléctrica es transportada a través de unas líneas
+de transmisión&amp;nbsp; que proporcionan las compañías. Una vez que la señal
+eléctrica ha alcanzado su destino, se convierte de nuevo en una onda de
+presión por medio del auricular del teléfono receptor.&lt;/p&gt;
+&lt;p&gt;Podemos conrectar que la &lt;strong&gt;comunicación&lt;/strong&gt; es el proceso por el que se
+trasnporta información, sabiendo que esta información viaja sobre una
+señal que se transmite.&lt;/p&gt;
+&lt;p&gt;La &lt;strong&gt;transmisión&lt;/strong&gt; se refiere al transporte de las señales físicas
+necesarias para que se produzca un fenómeno telemático, mientras que la
+comunicació se refiere más bien al transpore de la información, de los
+datos que significan algo concreto tanto para el emisor como para el
+receptor. Se puede afirmar que la &lt;strong&gt;señal es a la transmisión lo que la
+información es a la comunicación&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Nos referiremos a las &lt;em&gt;líneas de transmisión&lt;/em&gt; duando hablemos sobre el
+transporte de señal; y a los &lt;em&gt;circuitos de datos&lt;/em&gt;, cuando consideremos
+el transporte de la información.&lt;/p&gt;
+&lt;p&gt;Los circuitos de datos expresan tanto el camino y el modo como la
+tecnología utilizada por la información que circula en una red de datos,
+con objeto de alcanzar un destino receptor.&lt;/p&gt;
+&lt;p&gt;Para que se produzca una comunicación es necesaria una fuente de
+información, un destinatario y un canal a través del cual se transmitan
+los datos.&lt;/p&gt;
+&lt;p&gt;El &lt;strong&gt;equipo terminal de datos&lt;/strong&gt; o &lt;strong&gt;ETD&lt;/strong&gt; es aquel componente del
+circuito de datos que hace de fuente o destino de la información. La
+característica definitoria de un ETD no es la eficiencia ni la potencia
+de cálculo, sino la función que realiza: ser origen o destino en una
+comunicación.&lt;/p&gt;
+&lt;p&gt;El &lt;strong&gt;equipo de terminación del circuito de datos&lt;/strong&gt; o &lt;strong&gt;ECD&lt;/strong&gt; es el
+componente de un circuito de datos que adecua las&amp;nbsp; señales que viajan
+por el canal de comuniaciones convirtiéndolas a un formato asequible al
+ETD.&lt;/p&gt;
+&lt;p&gt;Dos ECD cualesquiera en un circuito de datos se unen a través de una
+&lt;em&gt;línea de datos&lt;/em&gt;. La &lt;strong&gt;línea de datos&lt;/strong&gt; viene caracterizada por
+parámetros que la habilitan o no para según qué transmisiones.&lt;/p&gt;
+&lt;p&gt;El &lt;strong&gt;enlace de datos&lt;/strong&gt;está constituido por los ECD y las líneas que
+los interconectan considerados como un conjunto.&lt;/p&gt;
+&lt;p&gt;Se puede definir un &lt;strong&gt;circuito de datos&lt;/strong&gt; como el conjunto de ECD y
+líneas de transmisión encargado de la comunicación entre el ETD
+transmisor y el ETD receptor, de modo que tanto las señales como las
+informaciones que en ellas viajan sean entregadas de modo seguro.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Thu, 16 Jul 2009 16:02:00 +0200</pubDate><guid>tag:,2009-07-16:el-proceso-telematico.html</guid><category>proceso</category><category>telemático</category></item></channel></rss>

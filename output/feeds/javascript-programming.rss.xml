@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/javascript-programming.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 03 Sep 2009 17:00:00 +0200</lastBuildDate><item><title>Expresiones regulares en JavaScript</title><link>/expresiones-regulares-en-javascript.html</link><description>&lt;p&gt;Una expresión regular es una cadena de caracteres que nos permitirá
+buscar coincidencias dentro de un texto o comprobar que una cadena tiene
+un formato concreto. En JavaScript se identifican colocando &lt;em&gt;&amp;quot;/&amp;quot;&lt;/em&gt;al
+principio y al final de la cadena.&lt;/p&gt;
+&lt;p&gt;Consiste en escribir un conjunto de caracteres &amp;nbsp;para después encontrar
+coincidencias con él. Por ejemplo en la frase &lt;em&gt;&amp;quot;el volante del coche&amp;quot;&lt;/em&gt;
+si nuestro patrón es &lt;em&gt;/el/&lt;/em&gt;obtendríamos que las palabras &amp;quot;el y &amp;quot;del&amp;quot;
+lo cumplen.&lt;/p&gt;
+&lt;p&gt;Para hacer más útiles los patrones, hay una serie de estructuras y
+caracteres especiales:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Caracteres de repetición&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Asterisco(*):&lt;/strong&gt;El caracter que le precede aparecerá cero o más
+veces.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Más(+):&lt;/strong&gt;El caracter que le precede aparecerá una o más veces.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interrogación(?):&lt;/strong&gt;Igual que las opciones anteriores, pero el
+caracter puede aparecer ninguna o una vez.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;{n}:&lt;/strong&gt;Siendo &lt;strong&gt;n&lt;/strong&gt; un número entero positivo, indicamos que el
+caracter se debe repetir al menos n veces.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;{n,}:&lt;/strong&gt;Similar al anterior, pero esta vez indicamos que al menos
+se debe repetir n veces.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;{n, m}:&lt;/strong&gt;El caracter debe repetirse entre n y m veces.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Caracteres especiales&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Punto(.):&lt;/strong&gt;Coincidirá con cualquier caracter simple excepto el
+salto de línea.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;n :&lt;/strong&gt;Salto de línea.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;r :&lt;/strong&gt;Retorno de carro.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;t :&lt;/strong&gt;Caracter de tabulado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;v :&lt;/strong&gt; Tabulado vertical.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;f :&lt;/strong&gt;Avance de página.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;uxxxx :&lt;/strong&gt;Caracter unicode.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;b :&lt;/strong&gt;Coincide con un separador de palabras.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;B :&lt;/strong&gt;Coincide con un caracter que no sea separador de palabras.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;d :&lt;/strong&gt;Dígito entre cero y nueve.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;D :&lt;/strong&gt;Caracter que no sea un dígito.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;s :&lt;/strong&gt;Coincide con un único caracter de separación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;S :&lt;/strong&gt;Coincide con un único caracter que no sea de separación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;w :&lt;/strong&gt;Coincide con cualquier caracter alfanumérico (De la &amp;quot;a&amp;quot; a la
+&amp;quot;z&amp;quot; en máyusculas y minúsculas, números del cero al nueve) o el
+subrayado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;W:&lt;/strong&gt;Coincide con cualquier caracter no alfanumérico ni subrayado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Agrupaciones de valores&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;[xxx]:&lt;/strong&gt;Coincide con los caracteres entre corchetes. También se
+puede especificar un rango &lt;em&gt;contiguo&lt;/em&gt;de caracteres: [0-6] que esto
+equivale a [0123456].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[^xxx]:&lt;/strong&gt;El acento circunflejo indica que coincidirán cualquier
+caracter salvo los especificados en los corchetes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Barra vertical ( x | y ):&lt;/strong&gt;O una cosa o la otra. Por ejemplo:
+/&lt;em&gt;cara|cruz/, /perr[o|a]/&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Modificadores&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Los modificadores se colocan detras de la última barra, por ejemplo:
+&lt;em&gt;/hola/g&lt;/em&gt;.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;g :&lt;/strong&gt;Fuerza a que se sigan buscando coincidencias después de
+encontrar la primera&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;i :&lt;/strong&gt;Elimina distinción entre mayúsculas y minúsculas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;x :&lt;/strong&gt;Fuerza que los espacios escritos sean ignorados.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Ejemplos útiles&lt;/strong&gt;&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;/d{9}/ -&amp;gt; Número teléfono&lt;/li&gt;
+&lt;li&gt;/d{8}[a-zA-Z]/ -&amp;gt; Número DNI&lt;/li&gt;
+&lt;li&gt;/d{2}-d{2}-d{4} -&amp;gt; Fecha DD/MM/AAAA&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="mailto:/w+&amp;#64;w+.w{2"&gt;/w+&amp;#64;w+.w{2&lt;/a&gt;,3}/ -&amp;gt; Dirección correo electrónico.&lt;/li&gt;
+&lt;/ol&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Thu, 03 Sep 2009 17:00:00 +0200</pubDate><guid>tag:,2009-09-03:expresiones-regulares-en-javascript.html</guid><category>expresiones</category><category>JavaScript</category><category>regulares</category></item><item><title>Declaración de variables en JavaScript</title><link>/declaracion-de-variables-en-javascript.html</link><description>&lt;p&gt;Para utilizar una variable en nuestro código debe estar indicado en
+alguna parte de éste cuál es su nombre y/o valor. A esto se le conoce
+como declarar una variable.&lt;/p&gt;
+&lt;p&gt;En la mayoría de los lenguajes de programación es obligatorio declarar
+cada variable antes de utilizarla en el código mientras que en
+JavaScript se puede hacer sobre la marcha según las vayamos necesitando.
+Hay dos maneras de declarar variables:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Declaración explícita: Consiste en usar la sentencia &lt;em&gt;var&lt;/em&gt;seguida
+del nombre de la variable. Esta opción es la más recomendada, para
+que el código sea más legible, personalmente la recomiendo.&lt;/li&gt;
+&lt;li&gt;Declaración implícita: Es cuando escribimos directamente el nombre de
+la variable. En este caso debe ir acompañada obligatoriamente de un
+valor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;`` // declaración explícita var nombre; // declaración implícita nombre = &amp;quot;Paco&amp;quot;; // declaración explícita múltiple var nombre, edad, apellido; // declaración explícita múltiple con inicialización var nombre = &amp;quot;paco&amp;quot;, edad = 20, apellido = &amp;quot;ruiz&amp;quot;; // declaración implícita múltiple con inicialización nombre = &amp;quot;paco&amp;quot;, edad = 20, apellido = &amp;quot;ruiz&amp;quot;;``&lt;/p&gt;
+&lt;p&gt;También se pueden declarar constantes, por ejemplo el numero pi, o un
+valor máximo. Se declaran con la sentencia &lt;em&gt;const.&lt;/em&gt;Pero es
+recomendable no usarlo porque sólo es soportado a partir del motor 1.5
+de JavaScript.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Tue, 01 Sep 2009 11:09:00 +0200</pubDate><guid>tag:,2009-09-01:declaracion-de-variables-en-javascript.html</guid><category>declaración</category><category>JavaScript</category><category>variables</category></item></channel></rss>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/programming-xml.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 28 Mar 2011 13:30:00 +0200</lastBuildDate><item><title>Evitar los atributos en XML.</title><link>/evitar-los-atributos-en-xml.html</link><description>&lt;p&gt;Algunos de los problemas de (ab)usar de los atributos en XML son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Los atributos no pueden contener valores múltiples. (Los elementos
+sí)&lt;/li&gt;
+&lt;li&gt;Los atributos no pueden contener estructuras en árbol. (Los elementos
+sí)&lt;/li&gt;
+&lt;li&gt;Los atributos no se pueden extender fácilmente (para futuros cambios)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Los atributos son difíciles de leer y mantener. Para datos es mejor
+utilizar elementos. Usa atributos para información que no sea relevante
+para los datos.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;nota dia=&amp;quot;10&amp;quot; mes=&amp;quot;01&amp;quot; anio=&amp;quot;2008&amp;quot;
+para=&amp;quot;Marcos&amp;quot; de=&amp;quot;Adrian&amp;quot; asunto=&amp;quot;Recordatorio&amp;quot;
+contenido=&amp;quot;No te olvides de mi cumpleaños eh :P&amp;quot;&amp;gt;
+&amp;lt;/nota&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;El código anterior es complicado de leer, y ya que estamos no es para
+nada bonito. La forma más correcta sería:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;nota&amp;gt;
+  &amp;lt;fecha&amp;gt;
+  &amp;lt;dia&amp;gt;10&amp;lt;/dia&amp;gt;
+  &amp;lt;mes&amp;gt;01&amp;lt;/mes&amp;gt;
+  &amp;lt;anio&amp;gt;2008&amp;lt;/anio&amp;gt;
+&amp;lt;/fecha&amp;gt;
+&amp;lt;para&amp;gt;Marcos&amp;lt;/para&amp;gt;
+&amp;lt;de&amp;gt;Adrian&amp;lt;/de&amp;gt;
+&amp;lt;asunto&amp;gt;Recordatorio&amp;lt;/asunto&amp;gt;
+&amp;lt;contenido&amp;gt;No te olvides de mi cumpleaños eh &amp;lt;/contenido&amp;gt;
+&amp;lt;/nota&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;Un uso que podemos dar a los atributos en XML es para metadatos, es
+decir, datos sobre los datos. Por ejemplo:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;nota id=&amp;quot;200&amp;quot;&amp;gt;
+  &amp;lt;fecha&amp;gt;
+  &amp;lt;dia&amp;gt;10&amp;lt;/dia&amp;gt;
+  &amp;lt;mes&amp;gt;01&amp;lt;/mes&amp;gt;
+  &amp;lt;anio&amp;gt;2008&amp;lt;/anio&amp;gt;
+&amp;lt;/fecha&amp;gt;
+&amp;lt;para&amp;gt;Marcos&amp;lt;/para&amp;gt;
+&amp;lt;de&amp;gt;Adrian&amp;lt;/de&amp;gt;
+&amp;lt;asunto&amp;gt;Recordatorio&amp;lt;/asunto&amp;gt;
+&amp;lt;contenido&amp;gt;No te olvides de mi cumpleaños eh&amp;lt;/contenido&amp;gt;
+&amp;lt;/nota&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;Esta nota tiene un id &amp;quot;200&amp;quot;, y otra nota cualquiera tendrá otro id
+diferente, para así diferenciar las posibles notas que haya.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Mon, 28 Mar 2011 13:30:00 +0200</pubDate><guid>tag:,2011-03-28:evitar-los-atributos-en-xml.html</guid><category>atributos</category><category>datos</category><category>evitar</category><category>metadatos</category><category>xml</category></item></channel></rss>

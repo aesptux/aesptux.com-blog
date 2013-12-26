@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/internet.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 13 Aug 2009 11:46:00 +0200</lastBuildDate><item><title>Búsqueda Avanzada en Google</title><link>/busqueda-avanzada-en-google.html</link><description>&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;&amp;quot;Quiero comer algo&amp;quot; -&amp;gt;&lt;/strong&gt;&lt;em&gt;Buscará la frase exacta Quiero comer
+algo.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;computer -hoy -&amp;gt;&lt;/strong&gt;&lt;em&gt;La palabra computer, pero no la palabra hoy.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;casa ~glossary -&amp;gt;&lt;/strong&gt;&lt;em&gt;Glosarios, diccionarios, etc sobre la palabra
+casa.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;define:falacia -&amp;gt;&lt;/strong&gt;&lt;em&gt;Definiciones para la palabra falacia&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Calculadora&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;+ * - / -&amp;gt;&lt;/strong&gt;&lt;em&gt;Operaciones básicas. 4 + 2 -1&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;% of -&amp;gt;&lt;/strong&gt;&lt;em&gt;Porcentaje de. 65% of 78&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;^ o ** -&amp;gt;&lt;/strong&gt;&lt;em&gt;Elevar a una potencia. 2^4 o 2**4&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;unidad in nueva unidad -&amp;gt;&lt;/strong&gt;&lt;em&gt;Conversor de unidades. 250 Euros in
+USD, 55 kg in lbs, 72 in hex.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Búsqueda Restringida&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;mad bcn -&amp;gt;&lt;/strong&gt;&lt;em&gt;Vuelos entre Madrid y Barcelona.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;linux site:http://mortuux.wordpress.com -&amp;gt;&lt;/strong&gt;&lt;em&gt;Búsqueda de linux en
+mortuux.wordpress.com&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manual photoshop filetype:pdf -&amp;gt;&lt;/strong&gt;&lt;em&gt;Busca documentos del formato
+indicado.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;link:www.kernel.org -&amp;gt;&lt;/strong&gt;&lt;em&gt;Busca páginas que enlacen a la página
+indicada.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Información más específica&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;book: Zen Cotidiano -&amp;gt;&lt;/strong&gt;&lt;em&gt;Busca acerca del libro Zen Cotidiano.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;phonebook: Daniel -&amp;gt;&lt;/strong&gt;&lt;em&gt;Listín telefónico para Daniel.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;movie: G.I Joe -&amp;gt;&lt;/strong&gt;&lt;em&gt;Busca información sobre la película G.I Joe.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;weather 28982 -&amp;gt;&lt;/strong&gt;&lt;em&gt;Muestra la información meteorológica para
+28982. También se puede especificar una ciudad: weather Madrid.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;related:www.gmail.com -&amp;gt;&lt;/strong&gt;&lt;em&gt;Páginas parecidas o relacionadas con
+www.gmail.com&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;allintext: linux stallman -&amp;gt;&lt;/strong&gt;&lt;em&gt;Todas las palabras indicadas deben
+aparecer en la página.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;allintitle: Mortuux -&amp;gt;&lt;/strong&gt;&lt;em&gt;Todas las páginas que contengan de
+titulo Mortuux.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Thu, 13 Aug 2009 11:46:00 +0200</pubDate><guid>tag:,2009-08-13:busqueda-avanzada-en-google.html</guid><category>avanzada</category><category>busqueda</category><category>google</category></item><item><title>Evitar los virus del MSN</title><link>/evitar-los-virus-del-msn.html</link><description>&lt;p&gt;En el MSN hay muchos virus que afectan a muchas personas que no tienen
+un conocimiento mínimo en la informática, la ingeniería social de los
+bots malignos puede con ellos.&lt;/p&gt;
+&lt;p&gt;Para&amp;nbsp; ellos y para todos, os traigo WLM Safe. Un script para el famoso
+Plus!, que nos ayuda a mejorar la seguridad de MSN. Así dejarán de
+molestarnos los mensajitos de las fotos y demás patraña.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;435&amp;quot; caption=&amp;quot;WLM Safe&amp;quot;]&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|WLM
+Safe|&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Vía: &lt;a class="reference external" href="http://bitelia.com/2009/06/evita-los-virus-de-messenger-con-wlm-safe"&gt;Bitelia&lt;/a&gt;&lt;/p&gt;
+&lt;!-- |WLM --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/evitar-los-virus-del-msn.rst&lt;/tt&gt;, line 24)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/evitar-los-virus-del-msn.rst&lt;/tt&gt;, line 25)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;Safe| image:: &lt;a class="reference external" href="http://bitelia.com/wp-content/uploads/2009/06/wlm.png"&gt;http://bitelia.com/wp-content/uploads/2009/06/wlm.png&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/evitar-los-virus-del-msn.rst&lt;/tt&gt;, line 17); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;WLM Safe&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Mon, 15 Jun 2009 13:46:00 +0200</pubDate><guid>tag:,2009-06-15:evitar-los-virus-del-msn.html</guid><category>msn</category><category>virus</category><category>wlm safe</category></item><item><title>Red social para Geeks</title><link>/red-social-para-geeks.html</link><description>&lt;p&gt;Siempre he tenido una cierta debilidad por las redes sociales y las
+nuevas formas de comunicación. Hoy os presento una red social bastante
+curiosa que ya lleva un tiempo en funcionamiento, se llama &lt;a class="reference external" href="http://wakoopa.com"&gt;Wakoopa&lt;/a&gt;, y
+es una red social enfocada a Geeks.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;attachment_64&amp;quot; align=&amp;quot;alignleft&amp;quot; width=&amp;quot;150&amp;quot;
+caption=&amp;quot;Geek&amp;quot;]&lt;img alt="Geek" src="http://mortuux.files.wordpress.com/2009/06/geek-inside.jpg?w=150" /&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;El equipo de &lt;a class="reference external" href="http://wakoopa.com"&gt;Wakoopa&lt;/a&gt; ha desarrollado un tracker para Linux, Mac y
+Windows. Este tracker registra todos los programas que utilizas. También
+crea un gráfico con los programas más usados y el tiempo total de uso.&lt;/p&gt;
+&lt;p&gt;Podrás escribir reseñas de tus programas favoritos, conocer a gente que
+utilice los mismos programas que tú, descubrir nuevos programas, etc.
+&lt;a class="reference external" href="http://wakoopa.com"&gt;Wakoopa&lt;/a&gt; tiene un sistema basado en puntos y categorías, que según los
+puntos que tengas irás ascendiendo de categoría, desde Newbie hasta
+Overlord.&lt;/p&gt;
+&lt;p&gt;Una red que recomiendo al 100%.&lt;/p&gt;
+&lt;p&gt;Os dejo aquí mi perfil para que le mireis un poco: &lt;a class="reference external" href="http://wakoopa.com/Mortuus"&gt;Mortuus en Wakoopa&lt;/a&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Mon, 08 Jun 2009 22:59:00 +0200</pubDate><guid>tag:,2009-06-08:red-social-para-geeks.html</guid><category>geeks</category><category>red</category><category>social</category><category>wakoopa</category></item></channel></rss>

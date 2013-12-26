@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="archivos, fstab, Linux, montaje, opciones, particiones, sistemas">
+
+  <title>
+Sistemas de archivos en Linux  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Sat 12 March 2011</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/sistemas-de-archivos-en-linux.html">Sistemas de archivos en Linux</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Los sistemas de archivos de GNU/Linux se organizan de forma jerárquica,
+empezando desde el raíz (/)hacia abajo por una estructura de directorios
+y subdirectorios.</p>
+<p>Los sistemas de archivos no se organizan de igual forma en Linux que en
+Windows. En éste último se utilizan letras de unidad para cada
+“partición” en un disco local, en un sistema de archivos de red, cd-rom
+u otro medio de almacenamiento. En Linux se “encajan” dentro del sistema
+de archivos (son directorios) através de los “puntos de montaje”.</p>
+<p>Para acceder a las particiones actualmente configuradas en nuestro
+sistema (discos duros exclusivamente) utilizamos el comando fdisk
+-l.Para saber que particiones se están utilizando en este momento en
+nuestro sistema utilizamos el comando mount . Este comando nos mostrará
+tanto las particiones disponibles “montadas” como el lugar donde están
+montadas (punto de montaje).</p>
+<p>Punto de montaje: este término se refiere al directorio que se asocia
+con una partición de disco o concualquier otro dispositivo de
+almacenamiento secundario.</p>
+<p>GNU/Linux trata todos los dispositivos como archivos y tiene archivos
+reales que representan cada dispositivo. En Linux estos “archivos de
+dispositivo” se localizan en el directorio /dev. En este directorio
+podemos encontrar los siguientes “archivos de dispositivo”:</p>
+<p>/dev/hda Primera unidad IDE.</p>
+<p>/dev/hdb Segunda unidad IDE.</p>
+<p>/dev/sda Primera unidad SCSI (también utilizada para pendrive)</p>
+<p>/dev/sdb Segunda unidad SCSI</p>
+<p>/dev/fd0 Disquetera</p>
+<p>/dev/cdrom Unidad de CD-ROM</p>
+<p>Las “particiones” se nombran igual que el dispositivo pero seguidas del
+número de partición. Así si tuvieramos 3 particiones el el segundo disco
+IDE estas se nombrarían:</p>
+<p>/dev/hdb1</p>
+<p>/dev/hdb2</p>
+<p>/dev/hdb3</p>
+<p>Un sistema de archivos es una forma de escribir los datos en el disco
+físico.Los ficheros, en casi todos los sistemas de archivos Linux, son
+sensibles a mayúsculas, es decir, fichero.txt no es Fichero.txt.</p>
+<p>En Linux, cuando el sistema operativo entra a operar en modo kernel para
+resolver un acceso a discotrabaja con una capa intermedia de abstracción
+de sistema de ficheros que se denomina VFS (Virtual FileSystem). Cada
+sistema de archivos conoce cómo convertir una orden para VFS en algo que
+sea implementable en él. Esto permite a Linux trabajar con una cantidad
+realmente alta de sistemas de ficheros distintos de forma consistente y
+homogénea.</p>
+<p><strong>fichero /etc/fstab</strong></p>
+<p>Nos permite definir las particiones que se “montan” en el inicio de
+sistema, o las que son posible su montaje por parte de usuarios que no
+sean root. Cualquier dispositivo que no se encuentre en este fichero
+sólo podrá ser montado por el usuario root. Es un fichero con formato
+texto (podemos modificarlo con el editor vi) y la siguiente estructura:</p>
+<p>1ª columna: Nombre del dispositivo o partición a montar.</p>
+<p>2ª columna: punto de montaje.</p>
+<p>3ª columna: sistema de archivos</p>
+<p>.4ª columna: opciones de montaje</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">rw:</th><td class="field-body">lectura y escritura</td>
+</tr>
+</tbody>
+</table>
+<p>ro: sólo lectura</p>
+<p>sw: partición swap</p>
+<p>noexec: impide la ejecución</p>
+<p>auto: se montará al inicio del sistema</p>
+<p>noauto: no se montará en el inicio del sistema</p>
+<p>user: permitirá a un usuario normal montar o desmontar el dispositivo en
+el punto de montaje indicado en la columna 2.</p>
+<p>uid o gid: el usuario o grupo que tendrán control sobre los archivos.</p>
+<p>5ª columna: por defecto a 0, tiene relación con los errores producidos
+en el arranque del montaje.</p>
+<p>6ª columna: el número de este campo indica si el sistema de archivos
+necesita ser comprobado.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/linux.html">Linux</a></p>
+    <p>Tags:
+      <a href="/tag/archivos.html">archivos</a>,      <a href="/tag/fstab.html">fstab</a>,      <a href="/tag/linux.html">Linux</a>,      <a href="/tag/montaje.html">montaje</a>,      <a href="/tag/opciones.html">opciones</a>,      <a href="/tag/particiones.html">particiones</a>,      <a href="/tag/sistemas.html">sistemas</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "sistemas-de-archivos-en-linux.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

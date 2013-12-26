@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/access-databases.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 26 Oct 2009 14:45:00 +0100</lastBuildDate><item><title>Diseño de consultas en Access : QBE</title><link>/diseno-de-consultas-en-access-qbe.html</link><description>&lt;div&gt;&lt;p&gt;El diseño de las consultas en Access se realiza por un método llamado
+QBE (Query By Example) que consiste en la construcción de la consulta en
+un modo gráfico.&lt;/p&gt;
+&lt;/div&gt;&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Consultas &amp;nbsp;de selección:&lt;/strong&gt;Son las consultas que extraen datos de
+una o más tablas para mostrarlos en una vista diferente. Muestra
+aquellos datos de una tabla que cumplen los criterios especificados
+en la consulta.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consultas de parámetros:&lt;/strong&gt;Una consulta parametrizada es una
+consulta que, cuando se ejecuta muestra un cuadro de diálogo propio
+que solicita información por ejemplo, criterios para recuperar
+registros o un valor que desea insertar en un campo. Para diseñar la
+consulta basta con introducir nombres de variables entre &amp;quot;[]&amp;quot; para
+que Access solicite los datos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consultas de tabla de referencias cruzadas:&lt;/strong&gt;Las consultas de
+referencias cruzadas se utilizan para calcular y reestructurar datos
+de manera que su análisis sea más sencillo. Las consultas de
+referencias cruzadas calculan una suma, una media, un recuento u otro
+tipo de totales de datos, y agrupan los resultados en una tabla de
+dos entradas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consultas de acción:&lt;/strong&gt;Son consultas que realizan cambios sobre
+los registros de las tablas a los que hacen referencia. Hay cuatro
+tipos:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Consulta de eliminación:&lt;/strong&gt;Elimina un grupo de registros de una
+o más tablas. Por ejemplo, puede utilizar una consulta de
+eliminación para quitar productos que ya no se fabrican o de los
+que no hay pedidos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consulta de actualización:&lt;/strong&gt;Realiza cambios globales en un
+grupo de registros de una o más tablas. Por ejemplo, puede
+aumentar los precios un 10% para todos los productos lácteos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consulta de datos anexados:&lt;/strong&gt;Agrega un grupo de registros de
+una o más tablas al final de una o más tablas. Por ejemplo,
+suponga que consigue nuevos clientes y que tiene una base de datos
+que contiene una tabla con información acerca de esos clientes.
+Para evitar tener que escribir toda esta información otra vez,
+puede anexar dicha tabla a la tabla Clientes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consulta de creación de tabla:&lt;/strong&gt;Crea una tabla nueva a partir
+de la totalidad o una parte de los datos de una o más tablas. Las
+consultas de creación de tablas son útiles para crear una tabla
+que desee exportar a otra base de datos o a una tabla histórica
+que contenga registros antiguos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consultas específicas de SQL:&lt;/strong&gt;Son consultas que no se pueden
+definir desde la cuadrícula QBE de Access, si no que se tienen que
+definir directamente en SQL.&lt;/li&gt;
+&lt;/ul&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Mon, 26 Oct 2009 14:45:00 +0100</pubDate><guid>tag:,2009-10-26:diseno-de-consultas-en-access-qbe.html</guid><category>Access</category><category>consultas</category><category>diseño</category><category>qbe</category></item></channel></rss>

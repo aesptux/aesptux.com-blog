@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="c, circunferencia">
+
+  <title>
+C: Ejercicio calcular datos de una circunferencia.  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Sat 06 June 2009</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/c-ejercicio-calcular-datos-de-una-circunferencia.html">C: Ejercicio calcular datos de una circunferencia.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Aquí os dejo un ejercicio propuesto y resuelto, para los interesados en
+la programación C.</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/c-ejercicio-calcular-datos-de-una-circunferencia.rst</tt>, line 11)</p>
+Unexpected indentation.</div>
+<blockquote>
+En el ejemplo resulto explico todo lo que puedo, para que sea fácil de</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/opt/aesptux.com/content/c-ejercicio-calcular-datos-de-una-circunferencia.rst</tt>, line 12)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>entender.</p>
+<p>Programa que a partir del radio introducido por el usuario, calcule el
+área, volumen y longitud.</p>
+<p>Ejercicio Resuelto:</p>
+<dl class="docutils">
+<dt>#include &lt;stdio.h&gt;</dt>
+<dd>#include &lt;conio.h&gt;
+#include &lt;math.h&gt;
+int main()
+{</dd>
+<dt>//Declaracion de variables</dt>
+<dd>float pi = 3.14159265;
+float radio;
+float longitud;
+float volumen;
+float area;</dd>
+<dt>//En esta seccion recogemos el dato introducido por el usuario</dt>
+<dd>printf(&quot;Escribe el radio del circulon&quot;);
+scanf(&quot;%f&quot;, &amp;radio);</dd>
+<dt>// Las respectivas operaciones</dt>
+<dd>longitud = 2 * pi * radio;
+volumen = (4/3) * pi * pow(radio,3);
+area = pi * pow(radio,2);</dd>
+<dt>// A continuacion muestra los resultados por pantalla</dt>
+<dd>printf(&quot;La longitud es : %fn&quot;, longitud);
+printf(&quot;El volumen es: %fn&quot;, volumen);
+printf(&quot;El area es: %fn&quot;, area);
+getch();</dd>
+</dl>
+<p>}</p>
+<p>Como veis, para declarar las variables he utilizado float y no int, que
+sería para un entero. Pow(x,y)&nbsp; equivale a elevar una base(x) a un
+exponente(y).</p>
+<p>Cualquier duda podeis preguntar.</p>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/programming.html">Programming</a></p>
+    <p>Tags:
+      <a href="/tag/c.html">c</a>,      <a href="/tag/circunferencia.html">circunferencia</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "c-ejercicio-calcular-datos-de-una-circunferencia.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

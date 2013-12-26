@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/databases.atom.xml" rel="self"></link><id>/</id><updated>2009-10-22T14:37:00+02:00</updated><entry><title>Videotutorial ERwin 4.0</title><link href="/videotutorial-erwin-4-0.html" rel="alternate"></link><updated>2009-10-22T14:37:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-10-22:videotutorial-erwin-4-0.html</id><summary type="html">&lt;p&gt;Creando el diseño de una base de datos con ERwin 4.0&lt;/p&gt;
+&lt;p&gt;Parte 1:&lt;/p&gt;
+&lt;p&gt;[youtube=http://www.youtube.com/watch?v=401EoQ1HJF0]&lt;/p&gt;
+&lt;p&gt;Parte 2:&lt;/p&gt;
+&lt;p&gt;[youtube=http://www.youtube.com/watch?v=UxY8_8b5cBc]&lt;/p&gt;
+</summary></entry><entry><title>Diseño de bases de datos</title><link href="/diseno-de-bases-de-datos.html" rel="alternate"></link><updated>2009-09-23T01:48:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-09-23:diseno-de-bases-de-datos.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;1. Diseño de bases de datos&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;**&lt;/span&gt;&lt;/a&gt;1.1. Modelo de datos
+&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;**&lt;/span&gt;&lt;/a&gt;Un modelo de datos es un conjunto de conceptos, reglas y
+convenciones que nos permiten describir los datos, las relaciones entre
+los datos, las restricciones del mundo real y que nos permite manipular
+dichos datos.&lt;/p&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 11); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 11); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 16)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+Formalmente un modelo de datos sería MD = (R, O),
+Las Reglas serían la parte estática del modelo y las Operaciones la&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 18)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;parte dinámica&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;**&lt;/span&gt;&lt;/a&gt;1.1.1. Parte estática&lt;/p&gt;
+&lt;div class="last system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 19); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;**&lt;/span&gt;&lt;/a&gt;Está compuesta de dos cosas: objetos y restricciones&lt;/dt&gt;
+&lt;dd&gt;&lt;div class="first system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 21); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;p class="last"&gt;Objetos:
+• &lt;strong&gt;Entidades&lt;/strong&gt;: Objeto abstracto o concreto del mundo real con&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 23)&lt;/p&gt;
+Definition list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;existencia propia y fácilmente identificable (persona, lugar, suceso,
+etc.)&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 25)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Propiedades o atributos de las entidades&lt;/strong&gt;: Mínimo elemento lógico&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 26)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;de información que se puede encontrar en una entidad o relación entre
+entidades.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 28)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Dominio&lt;/strong&gt;: Rango de valores de cada atributo (nombre-&amp;gt;alfanumérico,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 29)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;cumpleaños-&amp;gt; fecha)&lt;/dt&gt;
+&lt;dd&gt;&lt;ul class="first last simple"&gt;
+&lt;li&gt;&lt;strong&gt;Relación o asociación entre entidades&lt;/strong&gt;: Por ejemplo un grupo de&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 31)&lt;/p&gt;
+Definition list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;alumnos se relaciona con un aula.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;strong&gt;1.1.2. Tipos de restricciones&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;•&lt;strong&gt;Las impuestas por el usuari&lt;/strong&gt;o las impone el mundo real (Por&lt;/dd&gt;
+&lt;dt&gt;ejemplo que los nº de teléfono tengan X números).&lt;/dt&gt;
+&lt;dd&gt;•&lt;strong&gt;Inherente al modelo&lt;/strong&gt;: El modelo de dato no nos permite&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 37)&lt;/p&gt;
+Definition list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;determinados objetos ni relaciones entre objetos.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;DDL: Lenguaje de definición de datos&lt;/dt&gt;
+&lt;dd&gt;Son órdenes que permiten describir la parte estática del modelo de&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 41)&lt;/p&gt;
+Definition list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;datos.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;strong&gt;1.1.3. Parte dinámica&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;Dinámica de un modelo de datos.
+Está compuesto por un conjunto de operaciones que se definen sobre la&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 46)&lt;/p&gt;
+Definition list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;estática del modelo y que se van a aplicar sobre los datos almacenados y
+que se denominan ocurrencias.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 48)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+Las operaciones pueden ser:
+• &lt;strong&gt;Selección&lt;/strong&gt;: Consiste seleccionar o localizar una o más&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 50)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;ocurrencias, por ejemplo de la entidad alumno localizar ocurrencia mayor
+20 años&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 52)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+•&lt;strong&gt;Acción&lt;/strong&gt;: Operaciones que se realizan sobre ocurrencias&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 53)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;previamente seleccionadas, por ejemplo mirar, modificar, ver, insertar.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;El lenguaje DML -&amp;gt; Lenguaje para la manipulación de datos&lt;/dt&gt;
+&lt;dd&gt;&lt;strong&gt;1.2. Pasos en el diseño de una base de datos&lt;/strong&gt;
+&lt;strong&gt;1.2.1. Nivel conceptual&lt;/strong&gt;
+Consiste en analizar el mundo real para describir las entidades,&lt;/dd&gt;
+&lt;dt&gt;atributos y dominios y las relaciones entre entidades.&lt;/dt&gt;
+&lt;dd&gt;Este modelo es totalmente independiente de cualquier sistema gestor de&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 61)&lt;/p&gt;
+Definition list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;base de datos (SGBD) El esquema conceptual es el modelo entidad-relación
+(E/R)&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 63)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;**&lt;/span&gt;&lt;/a&gt;1.2.2. Nivel lógico&lt;/p&gt;
+&lt;div class="system-message" id="id9"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 63); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 64)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;&lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;**&lt;/span&gt;&lt;/a&gt;Se realiza la adaptación del esquema conceptual al tipo de SGBD que
+vayamos a utilizar.&lt;/p&gt;
+&lt;div class="system-message" id="id11"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 64); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 66)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="#id13"&gt;&lt;span class="problematic" id="id14"&gt;**&lt;/span&gt;&lt;/a&gt;1.2.3. Nivel físico&lt;/p&gt;
+&lt;div class="system-message" id="id13"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 66); &lt;em&gt;&lt;a href="#id14"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 67)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;&lt;a href="#id15"&gt;&lt;span class="problematic" id="id16"&gt;**&lt;/span&gt;&lt;/a&gt;Se implementa el esquema relacional en el SGBD concreto (Access,
+Oracle, MySQL).&lt;/p&gt;
+&lt;div class="system-message" id="id15"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 67); &lt;em&gt;&lt;a href="#id16"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Inline strong start-string without end-string.&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;1.3. Modelo conceptual Entidad/Relación (E/R)
+**• **Restricciones Entidad&lt;/strong&gt;: Debe tener existencia propia, puede
+llevar asociado un predicado que deben cumplir todas las ocurrencias,
+cada ocurrencia de la entidad debe poder distinguirse de las demás,
+todas las ocurrencias de la entidad deben tener los mismos atributos.
+Representación cuadrado con nombre de entidad.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 76)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+•&lt;strong&gt;Restricciones atributo:&lt;/strong&gt; Cada atributo debe tener un significado&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 77)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;único y consistente, no es necesario especificar los atributos que se
+obtienen mediante cálculos. Representación -----O nombre. Si el redondel
+está en negrita, es el atributo principal (clave: identifica de forma
+única cada ocurrencia de la entidad. Puede haber atributos alternativos
+y atributos compuestos también. Por ejemplo Empleado-&amp;gt;Clave: Nif…
+alternativo: nº SS… Fecha nacimiento -&amp;gt;Día, mes, año: Compuesto&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;&lt;strong&gt;1.4. Relaciones&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;La relación se representa con un rombo.
+&lt;strong&gt;• Nombre:&lt;/strong&gt; Suele ser un verbo.
+&lt;strong&gt;• Grado:&lt;/strong&gt; Número de entidades que asocia
+o Una entidad ( Persona – casa )
+o Binaria: Dos entidades (Profesor – imparte – Grupo)
+o Ternaria: Tres entidades ( Cliente – Hotel – Vuelo – contrata)
+•&lt;strong&gt;Tipo de correspondencia:&lt;/strong&gt; Expresa el número de ocurrencias de la&lt;/dd&gt;
+&lt;dt&gt;entidad que pueden relacionarse con una ocurrencia de la otra entidad.&lt;/dt&gt;
+&lt;dd&gt;Un profesor puede impartir a N grupos
+1 profesor – N grupos
+N Grupos – 1 grupos NM
+1 persona casada con una persona -&amp;gt; 1 – 1
+Cliente realiza pedido
+Cliente N pedidos
+Pedidos 1 cliente -&amp;gt; 1 N&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;Cardinalidad&lt;/strong&gt; se expresa cómo (mínimo, máximo)&lt;/dt&gt;
+&lt;dd&gt;Un profesor como mínimo imparte 1 grupo, máximo N.
+Un grupo es impartido como mínimo por 1, maximo N.
+Una persona se casa como minimo con 0, como máximo con 1.
+Cliente realiza como mínimo 1 como máximo N. un pedido como mínimo 1&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/diseno-de-bases-de-datos.rst&lt;/tt&gt;, line 106)&lt;/p&gt;
+Definition list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;como maximo por 1&lt;/p&gt;
+</summary><category term="bases"></category><category term="datos"></category><category term="diseño"></category></entry></feed>

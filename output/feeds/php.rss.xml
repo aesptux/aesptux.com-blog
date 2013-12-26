@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Adrian Espinosa.</title><link>/</link><description></description><atom:link href="/feeds/php.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 12 Jul 2011 12:38:00 +0200</lastBuildDate><item><title>PHP Deprecated: Comments starting with '#' are deprecated</title><link>/php-deprecated-comments-starting-with-are-deprecated.html</link><description>&lt;p&gt;Si estáis tratando de ejecutar algún script php desde la terminal de
+linux o crontab, y os sale algún error como este:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+PHP Deprecated:  Comments starting with '#' are deprecated in /etc/php5/cli/conf.d/ming.ini on line 1 in Unknown on line 0
+&lt;/pre&gt;
+&lt;p&gt;Debemos ir al archivo o archivos (en algunos foros los usuarios
+comentaban que podían ser varios) y hacer los siguientes cambios:&lt;/p&gt;
+&lt;p&gt;Contenido de ming.ini inicial:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# configuration for php MING module
+extension=ming.so
+&lt;/pre&gt;
+&lt;p&gt;Como vemos, el comentario se hace con &amp;quot;#&amp;quot;, lo que ya está en desuso,
+pues la solución es tan simple como cambiar '#' por '//' que es como se
+hacen los comentarios en php.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+//configuration for php MING module
+extension=ming.so
+&lt;/pre&gt;
+&lt;p&gt;Una vez hecho esto, debería funcionar correctamente.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">aesptux</dc:creator><pubDate>Tue, 12 Jul 2011 12:38:00 +0200</pubDate><guid>tag:,2011-07-12:php-deprecated-comments-starting-with-are-deprecated.html</guid><category>#</category><category>/etc/php5/cli/conf.d/ming.ini</category><category>are</category><category>arreglar</category><category>comments</category><category>configuration</category><category>deprecated</category><category>error</category><category>fixear</category><category>help. ayuda</category><category>in</category><category>line</category><category>ming</category><category>on</category><category>php</category><category>php5</category><category>solventar</category><category>starting</category><category>unknown</category><category>warning</category><category>with</category></item></channel></rss>

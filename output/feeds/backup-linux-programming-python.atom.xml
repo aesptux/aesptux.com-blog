@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/backup-linux-programming-python.atom.xml" rel="self"></link><id>/</id><updated>2012-04-28T13:36:00+02:00</updated><entry><title>Python script to backup and restore rpm packages</title><link href="/python-script-to-backup-and-restore-rpm-packages.html" rel="alternate"></link><updated>2012-04-28T13:36:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2012-04-28:python-script-to-backup-and-restore-rpm-packages.html</id><summary type="html">&lt;p&gt;I've written a simple Python script to backup and restore installed rpm
+packages.&lt;/p&gt;
+&lt;p&gt;On Ubuntu, I used APTonCD for this matter, but in this case, for Fedora
+I decided to use my own script.&lt;/p&gt;
+&lt;p&gt;The usage is quite simple, only two parameters:&lt;/p&gt;
+&lt;p&gt;Backup:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+python rpm-backup.py --backup
+&lt;/pre&gt;
+&lt;p&gt;Restore:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+python rpm-backup.py --restore
+&lt;/pre&gt;
+&lt;p&gt;This is source code, although you can download it from my
+&lt;a class="reference external" href="http://aesptux.github.com/python-scripts/"&gt;github&lt;/a&gt;&amp;nbsp;(link to the gh-page of the entire repository)&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+#!/usr/bin/python
+
+''' Backup script for installed packages.
+Only RPM.
+Tested under Fedora
+Error list:
+Code 1: Missing modules
+Code 2: Not root
+Code 3: Tried to restore without backup file'''
+
+print &amp;quot;     ____  ____  __  ___&amp;quot;
+print &amp;quot;    / __ \/ __ \/  |/  /&amp;quot;
+print &amp;quot;   / /_/ / /_/ / /|_/ / &amp;quot;
+print &amp;quot;  / _, _/ ____/ /  / /  &amp;quot;
+print &amp;quot; /_/ |_/_/   /_/  /_/   &amp;quot;
+
+
+print &amp;quot;        ____  ___   ________ ____  ______ &amp;quot;
+print &amp;quot;       / __ )/   | / ____/ //_/ / / / __ \ &amp;quot;
+print &amp;quot;      / __  / /| |/ /   / ,&amp;lt; / / / / /_/ /&amp;quot;
+print &amp;quot;     / /_/ / ___ / /___/ /| / /_/ / ____/ &amp;quot;
+print &amp;quot;    /_____/_/  |_\____/_/ |_\____/_/      &amp;quot;
+
+#Import modules
+try:
+    import os
+    import argparse
+except ImportError:
+    print &amp;quot;Could not find required modules. Exiting...&amp;quot;
+    exit(1)
+
+# Create parser
+parser = argparse.ArgumentParser(description='Backup your installed packages.', epilog=&amp;quot;Written by Adrian Espinosa (aesptux).&amp;quot;)
+
+
+# if user types --backup it will be stored as true in variable backup
+#if user types --restore it will be stored as true in variable backup
+parser.add_argument('--backup', action='store_true', dest='backup', help='Backup your packages.')
+parser.add_argument('--restore',  action='store_true', dest='restore', help='Restore your packages.')
+
+
+args = parser.parse_args()
+#print args
+#print(args.option(args.integers))
+
+#variables
+userlogged = os.environ['LOGNAME']
+directory = '/%s' % (userlogged)
+filename = 'packages-installed.bak'
+path = directory + '/' + filename
+rpm_list = []
+print &amp;quot; &amp;quot;
+print &amp;quot;Hello %s!&amp;quot; % (userlogged)
+print &amp;quot;If you are having troubles using the script, use the argument '--help'&amp;quot;
+
+
+def dobackup():
+
+    ''' Create backup '''
+    print &amp;quot;Starting copy...&amp;quot;
+    command = 'rpm -qa &amp;gt; ' + path
+    #os.system('touch '+path)
+    os.system(command)
+    os.system('echo Total packages: ; cat ' + path + ' | wc -l ')
+    print &amp;quot;Done.&amp;quot;
+
+
+def dorestore():
+
+    ''' Restore packages'''
+    print &amp;quot;Starting restore...&amp;quot;
+    global rpm_list
+    # try, except, to see if the backup file exists
+    try:
+        for line in open(path, 'r'):
+            rpm_list.append(line)
+    except IOError:
+        print &amp;quot;The backup file does not exist. Please, create a backup first. &amp;quot;
+        exit(3)
+    # take the list and join it
+    rpm_list = ''.join(rpm_list)
+    # remove \n
+    rpm_list = rpm_list.replace('\n', ' ')
+    os.system('yum install ' + rpm_list)
+
+
+#This script must be run as root
+if userlogged != 'root':
+    print &amp;quot;You have to run the script as root&amp;quot;
+    exit(2)
+
+
+# if backup is true, dobackup. Else if restore is true, dorestore
+if args.backup == True:
+    dobackup()
+elif args.restore == True:
+    dorestore()
+&lt;/pre&gt;
+&lt;p&gt;Then, you can set up a cron job like this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+0 22 * * * /usr/bin/python /root/rpm-backup.py --backup
+&lt;/pre&gt;
+</summary><category term="backup"></category><category term="centos"></category><category term="fedora"></category><category term="installed"></category><category term="manage"></category><category term="packages"></category><category term="python"></category><category term="red hat"></category><category term="restore"></category><category term="rpm"></category><category term="script"></category></entry></feed>

@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/networking.atom.xml" rel="self"></link><id>/</id><updated>2010-04-18T22:01:00+02:00</updated><entry><title>Servicio SSH</title><link href="/servicio-ssh.html" rel="alternate"></link><updated>2010-04-18T22:01:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2010-04-18:servicio-ssh.html</id><summary type="html">&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;¿&lt;strong&gt;Qué es el servicio SSH?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Inicialmente la administración remota se hacía con la orden Telnet.&lt;/p&gt;
+&lt;p&gt;En la actualidad no se debería utilizar Telnet por los importantes
+agujeros de seguridad que presenta. La transmisión entre cliente y el
+servidor se realiza completamente en texto plano (sin cifrar), por lo
+que con cualquier sniffer es posible capturar tramas y obtener de ellas
+login y la contraseña del usuario.&lt;/p&gt;
+&lt;p&gt;En la actualidad la herramienta de administración remota más utilizada
+es Secure Shell (SSH). SSH es un protocolo para iniciar sesiones en
+máquinas remotas que ofrecen autenticación, confidencialidad e
+integridad.&lt;/p&gt;
+&lt;p&gt;SSH es una herramienta que permite realizar conexiones seguras entre
+equipos unidos mediante una red insegura, como puede ser Internet.
+Utiliza el puerto 22 y sigue el modelo cliente-servidor.&lt;/p&gt;
+&lt;p&gt;La seguridad de Ssh se basa en la utilización de mecanismo de
+criptografía, de forma que toda transmisión de información es cifrada y
+el mecanismo de autenticación es transparente al usuario.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ventajas de utilizar SSH&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Después de la primera conexión, el cliente puede saber que se está
+conectando al mismo servidor en futuras sesiones.&lt;/li&gt;
+&lt;li&gt;El cliente transmite al servidor la información necesaria para su
+autenticación en formato cifrado&lt;/li&gt;
+&lt;li&gt;Todos los datos que se envían y se reciben durante la conexión son
+cifrados&lt;/li&gt;
+&lt;li&gt;El cliente puede ejecutar aplicaciones gráficas desde el Shell.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;Encriptación. Tipos de encriptación.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La criptografía es una técnica utilizada para convertir un texto claro
+en otro, llamado criptograma, cuyo contenido informativo es igual al
+anterior pero sólo puede ser decodificado por personas autorizadas.&lt;/p&gt;
+&lt;p&gt;La criptografía se basa en algoritmos cada vez más sofisticados.&lt;/p&gt;
+&lt;p&gt;SSH utiliza varios algoritmos de encriptación y autenticación:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Para establecer la conexión con la máquina remota emplea algoritmos
+de encriptación asimétrica.&lt;/li&gt;
+&lt;li&gt;Para la transferencia de datos utiliza algoritmos de encriptación
+simétrica, que son más rápidos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Los tipos de encriptación son:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Encriptación simétrica o de clave compartida.&lt;/li&gt;
+&lt;li&gt;Encriptación asimétrica o de clave pública/privada.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Clave. Una clave es número codificado y encriptado en un archivo que
+sirve para encriptar/desencriptar los mensajes transmitidos/enviados&lt;/em&gt;&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;Encriptación simétrica o de clave compartida&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Esta técnica se basa en la utilización de una clave que es conocida
+tanto por el emisor como por el receptor o destinatario.&lt;/p&gt;
+&lt;p&gt;El usuario A y el usuario B conocen la clave K. El mensaje original,
+utilizando un algoritmo de encriptación simétrico y la clave K, genera
+el mensaje K que es transmitido al usuario B. Este, aplicando la misma
+clave y el algoritmo inverso, obtiene el mensaje original.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ventaja&lt;/strong&gt;: Es muy eficiente ya que los algoritmos utilizados son muy
+rápidos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Desventaja&lt;/strong&gt;: ambas partes deben conocer la clave.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;strong&gt;Encriptación asimétrica o de clave pública&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Las técnicas de cifrado asimétrico se basan en el uso de dos claves: una
+pública y otra privada.&lt;/p&gt;
+&lt;p&gt;Según esta técnica cada usuario tiene dos claves. La clave privada sólo
+la conoce el dueño de la clave y no se publica. La clave pública es
+conocida por otros usuarios en otras máquinas, es decir se publica.
+Estas claves se generan al mismo tiempo dando lugar a pares biunívocos,
+de tal forma que la combinación pública-privada es única.&lt;/p&gt;
+&lt;p&gt;La información que recibe un usuario será segura mientras él controle
+sus claves privadas. El usuario puede cambiar su clave privada en
+cualquier momento y puede publicar su clave pública asociada para
+sustituir la clave pública obsoleta.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ventaja:&lt;/strong&gt; La clave privada no se transmite&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Desventaja&lt;/strong&gt;: No utiliza algoritmos eficientes, ya que no son rápidos
+cifrando y descifrando.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Algoritmos de clave pública&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;El algoritmo RSA:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Es el algoritmo de cifrado de clave pública más utilizado&lt;/li&gt;
+&lt;li&gt;Puede utilizarse tanto para encriptar como para firmar documentos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El algoritmo DSA:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Puede utilizarse tanto para encriptar como para firmar documentos&lt;/li&gt;
+&lt;li&gt;Mayor grado de seguridad que RSA.&lt;/li&gt;
+&lt;/ul&gt;
+</summary><category term="algortimos"></category><category term="clave"></category><category term="Networking"></category><category term="privada"></category><category term="publica"></category><category term="servicio"></category><category term="ssh"></category></entry><entry><title>ARP Poisoning - Man in the Middle</title><link href="/arp-poisoning-man-in-the-middle.html" rel="alternate"></link><updated>2009-11-28T16:08:00+01:00</updated><author><name>aesptux</name></author><id>tag:,2009-11-28:arp-poisoning-man-in-the-middle.html</id><summary type="html">&lt;p&gt;Ahora aprenderemos a hacer y como funciona (básicamente) un ataque MITM.&lt;/p&gt;
+&lt;p&gt;Necesitamos ips y macs de los equipos implicados y de la gateway, en mi
+caso:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Atacante&lt;ul&gt;
+&lt;li&gt;IP: 172.26.0.34&lt;/li&gt;
+&lt;li&gt;MAC: 00:80:5a:38:3f:ed&lt;/li&gt;
+&lt;li&gt;S.O: GNU/Linux Ubuntu 9.10&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Victima&lt;ul&gt;
+&lt;li&gt;IP: 172.26.0.33&lt;/li&gt;
+&lt;li&gt;S.O: Windows 7&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Gateway&lt;ul&gt;
+&lt;li&gt;IP: 172.26.0.1&lt;/li&gt;
+&lt;li&gt;MAC: 00:60:b3:fb:43:b2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bien ahora desde el atacante, abriremos una sesión del sniffer Wireshark
+con el comando &lt;em&gt;wireshark &amp;amp;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Si no lo tienes instalado, en distribuciones basadas en Debian basta con
+un simple:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;em&gt;sudo apt-get install&lt;/em&gt; &lt;em&gt;wireshark&lt;/em&gt;&lt;/blockquote&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;500&amp;quot;
+caption=&amp;quot;Wireshark&amp;quot;]&lt;em&gt;`|Wireshark|`_&lt;/em&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Ahora en la víctima comprobaremos como está la tabla ARP, mediante el
+comando &lt;em&gt;arp -a:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;658&amp;quot; caption=&amp;quot;Tabla
+Arp&amp;quot;]&lt;em&gt;`|tabla arp|`_&lt;/em&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Y ahí podemos observar la IP y MAC del atacante y de la gateway.&lt;/p&gt;
+&lt;p&gt;Volvemos al equipo atacante y comenzamos el ataque con Ettercap:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;736&amp;quot;
+caption=&amp;quot;Ettercap&amp;quot;]&lt;a href="#id33"&gt;&lt;span class="problematic" id="id34"&gt;`|ettercap|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;-T =&amp;gt; Ataque desde consola&lt;/li&gt;
+&lt;li&gt;-q =&amp;gt; &amp;quot;Quiet Mode&amp;quot;... Es decir no mostrará nada.&lt;/li&gt;
+&lt;li&gt;-i =&amp;gt; Especificamos nuestra interfaz de red&lt;/li&gt;
+&lt;li&gt;-M =&amp;gt; Selección de MITM&lt;/li&gt;
+&lt;li&gt;/172.26.0.33/ y /172.26.0.1/ son las víctimas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;711&amp;quot; caption=&amp;quot;Replays Falsos.
+Click para ampliar&amp;quot;]&lt;a href="#id35"&gt;&lt;span class="problematic" id="id36"&gt;`|Replays Falsos|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Vemos como se envían Replays Falsos.&lt;/p&gt;
+&lt;p&gt;Ahora comprobemos la tabla ARP de la víctima:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;669&amp;quot; caption=&amp;quot;Equipo
+envenenado.&amp;quot;]&lt;a href="#id37"&gt;&lt;span class="problematic" id="id38"&gt;`|Envenenado.|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;La tabla está envenenada. La MAC del gateway queda cambiada a nuestra
+dirección MAC, por lo que podremos interceptar el tráfico de la víctima.&lt;/p&gt;
+&lt;p&gt;Desde la víctima, por ejemplo abrimos una página web.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;500&amp;quot; caption=&amp;quot;La victima en
+Internet&amp;quot;]&lt;a href="#id39"&gt;&lt;span class="problematic" id="id40"&gt;`|La victima en Internet|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Ahora desde el atacante vamos a mirar si Wireshark a interceptado algo:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;664&amp;quot; caption=&amp;quot;Tráfico
+interceptado. Click para ampliar&amp;quot;]&lt;a href="#id41"&gt;&lt;span class="problematic" id="id42"&gt;`|Tráfico
+interceptado|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Y efectivamente, estamos interceptando el tráfico de la víctima.&lt;/p&gt;
+&lt;p&gt;Ahora sólo nos queda terminar el ataque:&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;692&amp;quot; caption=&amp;quot;Terminando el
+ataque&amp;quot;]&lt;a href="#id43"&gt;&lt;span class="problematic" id="id44"&gt;`|Terminando el ataque|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Como vemos, Ettercap se encarga de restablecer los parámetros originales
+de la víctima.&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;quot;&amp;quot; align=&amp;quot;aligncenter&amp;quot; width=&amp;quot;669&amp;quot; caption=&amp;quot;Todo
+restablecido.&amp;quot;]&lt;a href="#id45"&gt;&lt;span class="problematic" id="id46"&gt;`|Restablecido|`_&lt;/span&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;Una vez finalizado el ataque, las MACs se reestablecen.&lt;/p&gt;
+&lt;!-- |tabla --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 114)&lt;/p&gt;
+malformed substitution definition.&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;arp| image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2780/4140074113_16dc133d44_o.png"&gt;http://farm3.static.flickr.com/2780/4140074113_16dc133d44_o.png&lt;/a&gt;
+.. &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;|ettercap|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2545/4140072665_fe02b56239_o.png"&gt;http://farm3.static.flickr.com/2545/4140072665_fe02b56239_o.png&lt;/a&gt;
+.. &lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;|Replays
+Falsos|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2774/4140073275_719731c31c_o.png"&gt;http://farm3.static.flickr.com/2774/4140073275_719731c31c_o.png&lt;/a&gt;
+.. &lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;|Envenenado.|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2766/4140833364_16acb05ab4_o.png"&gt;http://farm3.static.flickr.com/2766/4140833364_16acb05ab4_o.png&lt;/a&gt;
+.. &lt;a href="#id7"&gt;&lt;span class="problematic" id="id8"&gt;|La victima en
+Internet|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2667/4140833842_e3861ed015.jpg"&gt;http://farm3.static.flickr.com/2667/4140833842_e3861ed015.jpg&lt;/a&gt;
+.. &lt;a href="#id9"&gt;&lt;span class="problematic" id="id10"&gt;|Tráfico
+interceptado|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2675/4140072861_32043426dc_o.png"&gt;http://farm3.static.flickr.com/2675/4140072861_32043426dc_o.png&lt;/a&gt;
+.. &lt;a href="#id11"&gt;&lt;span class="problematic" id="id12"&gt;|Terminando el
+ataque|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2487/4140073447_0900002436_o.png"&gt;http://farm3.static.flickr.com/2487/4140073447_0900002436_o.png&lt;/a&gt;
+.. &lt;a href="#id13"&gt;&lt;span class="problematic" id="id14"&gt;|Restablecido|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2661/4140833438_450bb001dc_o.png"&gt;http://farm3.static.flickr.com/2661/4140833438_450bb001dc_o.png&lt;/a&gt;
+.. &lt;a href="#id15"&gt;&lt;span class="problematic" id="id16"&gt;|image9|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2686/4140832476_9d7b216bdd.jpg"&gt;http://farm3.static.flickr.com/2686/4140832476_9d7b216bdd.jpg&lt;/a&gt;
+.. &lt;a href="#id17"&gt;&lt;span class="problematic" id="id18"&gt;|image10|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2780/4140074113_16dc133d44_o.png"&gt;http://farm3.static.flickr.com/2780/4140074113_16dc133d44_o.png&lt;/a&gt;
+.. &lt;a href="#id19"&gt;&lt;span class="problematic" id="id20"&gt;|image11|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2545/4140072665_fe02b56239_o.png"&gt;http://farm3.static.flickr.com/2545/4140072665_fe02b56239_o.png&lt;/a&gt;
+.. &lt;a href="#id21"&gt;&lt;span class="problematic" id="id22"&gt;|image12|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2774/4140073275_719731c31c_o.png"&gt;http://farm3.static.flickr.com/2774/4140073275_719731c31c_o.png&lt;/a&gt;
+.. &lt;a href="#id23"&gt;&lt;span class="problematic" id="id24"&gt;|image13|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2766/4140833364_16acb05ab4_o.png"&gt;http://farm3.static.flickr.com/2766/4140833364_16acb05ab4_o.png&lt;/a&gt;
+.. &lt;a href="#id25"&gt;&lt;span class="problematic" id="id26"&gt;|image14|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2667/4140833842_e3861ed015.jpg"&gt;http://farm3.static.flickr.com/2667/4140833842_e3861ed015.jpg&lt;/a&gt;
+.. &lt;a href="#id27"&gt;&lt;span class="problematic" id="id28"&gt;|image15|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2675/4140072861_32043426dc_o.png"&gt;http://farm3.static.flickr.com/2675/4140072861_32043426dc_o.png&lt;/a&gt;
+.. &lt;a href="#id29"&gt;&lt;span class="problematic" id="id30"&gt;|image16|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2487/4140073447_0900002436_o.png"&gt;http://farm3.static.flickr.com/2487/4140073447_0900002436_o.png&lt;/a&gt;
+.. &lt;a href="#id31"&gt;&lt;span class="problematic" id="id32"&gt;|image17|&lt;/span&gt;&lt;/a&gt; image:: &lt;a class="reference external" href="http://farm3.static.flickr.com/2661/4140833438_450bb001dc_o.png"&gt;http://farm3.static.flickr.com/2661/4140833438_450bb001dc_o.png&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;ettercap&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Replays Falsos&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Envenenado.&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id7"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id8"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;La victima en Internet&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id9"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id10"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Tráfico interceptado&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id11"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id12"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Terminando el ataque&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id13"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id14"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;Restablecido&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id15"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id16"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image9&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id17"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id18"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image10&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id19"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id20"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image11&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id21"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id22"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image12&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id23"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id24"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image13&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id25"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id26"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image14&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id27"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id28"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image15&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id29"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id30"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image16&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id31"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 115); &lt;em&gt;&lt;a href="#id32"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Undefined substitution referenced: &amp;quot;image17&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id33"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 53); &lt;em&gt;&lt;a href="#id34"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|ettercap|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id35"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 62); &lt;em&gt;&lt;a href="#id36"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|replays falsos|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id37"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 71); &lt;em&gt;&lt;a href="#id38"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|envenenado.|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id39"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 79); &lt;em&gt;&lt;a href="#id40"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|la victima en internet|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id41"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 84); &lt;em&gt;&lt;a href="#id42"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|tráfico interceptado|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id43"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 92); &lt;em&gt;&lt;a href="#id44"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|terminando el ataque|&amp;quot;.&lt;/div&gt;
+&lt;div class="system-message" id="id45"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/arp-poisoning-man-in-the-middle.rst&lt;/tt&gt;, line 98); &lt;em&gt;&lt;a href="#id46"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;quot;|restablecido|&amp;quot;.&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="arp"></category><category term="ataque"></category><category term="man in the middle"></category><category term="mitm"></category><category term="poisoning"></category></entry><entry><title>Algunos tipos de xDSL</title><link href="/algunos-tipos-de-xdsl.html" rel="alternate"></link><updated>2009-10-07T13:23:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-10-07:algunos-tipos-de-xdsl.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;ADSL&lt;/strong&gt; son las siglas de Asymmetric Digital Subscriber Line (&amp;quot;Línea de
+Suscripción Digital Asimétrica&amp;quot;). ADSL es un tipo de línea DSL. Consiste
+en una transmisión de datos digitales (la transmisión es analógica)
+apoyada en el par simétrico de cobre que lleva la línea telefónica
+convencional o línea de abonado, siempre y cuando el alcance no supere
+los 5,5 km. medidos desde la Central Telefónica, o no haya otros
+servicios por el mismo cable que puedan interferir.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ADSL2 y ADSL2+&lt;/strong&gt; son unas tecnologías preparadas para ofrecer tasas de
+transferencia sensiblemente mayores que las proporcionadas por el ADSL
+convencional, haciendo uso de la misma infraestructura telefónica basada
+en cables de cobre. Así, si con ADSL tenemos unas tasas máximas de
+bajada/subida de 8/1 Mbps, con ADSL2 se consigue 12/2 Mbps y con ADSL2+
+24/2 Mbps. Además de la mejora del ancho de banda, este estándar
+contempla una serie de implementaciones que mejoran la supervisión de la
+conexión y la calidad de servicio (QoS) de los servicios demandados a
+través de la línea.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HDSL&lt;/strong&gt; es el acrónimo de High bit rate Digital Subscriber Line o Línea
+de abonado digital de alta velocidad binaria.&lt;/p&gt;
+&lt;p&gt;Ésta es una más de las tecnologías de la familia DSL, las cuales han
+permitido la utilización del clásico bucle de abonado telefónico,
+constituido por el par simétrico de cobre, para operar con tráfico de
+datos en forma digital.&lt;/p&gt;
+&lt;p&gt;Los módems HDSL permiten el establecimiento por un par telefónico de un
+circuito digital unidireccional de 1,544 Mbps (T1) ó 2,048 Mbps (E1),
+por lo que para la comunicación bidireccional son necesarios dos pares.
+En este caso por cada par se transmite y recibe un flujo de 1024Kbps.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HDSL2&lt;/strong&gt; es la segunda generación de HDSL con un margen de ruido de
+6dB, es otra forma proveer una línea T-1&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IDSL&lt;/strong&gt; son las siglas de ISDN Digital Subscriber Line, proporciona la
+tecnología DSL sobre líneas ISDN, o dicho de otro modo, ofrece un
+servicio básico de RDSI utilizando la tecnología DSL. Los circuitos de
+IDSL llevan los datos (no voz).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MSDSL&lt;/strong&gt; es una tecnología con una distancia máxima de 8.800 m. Es
+capaz de transmitir a múltiples velocidades estipuladas por isp,
+típicamente basados en el servicio/precio. La velocidad máxima 2MBit/s&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Power Line Communications&lt;/strong&gt;, también conocido por sus siglas PLC, es
+un término inglés que puede traducirse por comunicaciones mediante cable
+eléctrico y que se refiere a diferentes tecnologías que utilizan las
+líneas de energía eléctrica convencionales para transmitir señales de
+radio para propósitos de comunicación. La tecnología PLC aprovecha la
+red eléctrica para convertirla en una línea digital de alta velocidad de
+transmisión de datos, permitiendo, entre otras cosas, el acceso a
+Internet mediante banda ancha.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RADSL&lt;/strong&gt; ( Velocidad adaptativa DSL ) es una variación de la tecnología
+ADSL. Con RADSL el MODEM ajusta la velocidad de subida de la conexión
+dependiendo de la duración y calidad de la línea entre el DCE o la
+centralita y el DTE.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Symmetric Digital Subscriber Line (SDSL).&lt;/strong&gt; La tecnología SDSL es una
+variante de la DSL y se trata de una línea simétrica permanente con
+velocidades justamente de hasta 2.048 kbps.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Uni-DSL (UDSL&lt;/strong&gt;) es una tecnología DSL desarrollada por Texas
+Instruments la cual proveerá&amp;nbsp; una velocidad de hasta 200 mbits.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VDSL (o VHDSL&lt;/strong&gt;) son las siglas de Very high bit-rate Digital
+Subscriber Line (DSL de muy alta tasa de transferencia). Transmiten los
+impulsos sobre pares de cobre.&lt;/p&gt;
+&lt;p&gt;Se trata de una evolución del ADSL, que puede suministrarse de manera
+asimétrica (52 Mbit/s de descarga y 12 Mbit/s de subida) o de manera
+simétrica (26 Mbit/s tanto en subida como en bajada), en condiciones
+ideales sin resistencia de los pares de cobre y con una distancia nula a
+la central.&lt;/p&gt;
+&lt;p&gt;La tecnología VDSL utiliza 4 canales para la transmisión de datos, dos
+para descarga y 2 para subida, con lo cual se aumenta la potencia de
+transmisión de manera sustancial.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VDSL2&lt;/strong&gt; (Very-High-Bit-Rate Digital Subscriber Line 2) Línea digital
+de abonado de muy alta tasa de transferencia, que aprovecha la actual
+infraestructura telefónica de pares de cobre.&lt;/p&gt;
+</summary><category term="tipos"></category><category term="xdsl"></category></entry><entry><title>Líneas de acceso conmutado (II)</title><link href="/lineas-de-acceso-conmutado-ii.html" rel="alternate"></link><updated>2009-10-01T13:39:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-10-01:lineas-de-acceso-conmutado-ii.html</id><summary type="html">&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Características de las líneas terrestres.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;1.1.¿Cuáles son?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Este tipo de líneas son redes de telefonía conmutada guiadas por un
+medio físico normalmente un cable&amp;nbsp; de par trenzado. (RTC, RDSI)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.2.RTC&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.2.1.Usos&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Inicios: Llamadas telefónicas. La voz se encuentra entre los [300 y
+3400] Hz&lt;/p&gt;
+&lt;p&gt;En la actualidad el servicio se ha ampliado a los PC que utilizan
+señales digitales. Por lo cual se necesita un dispositivo llamado MODEM
+para hacer las conversiones analogico-digital. (fax, conexión a
+Internet, etc)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.2.2.Servicios (a los abonados)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Telefonía básica&lt;/p&gt;
+&lt;p&gt;Terminales&lt;/p&gt;
+&lt;p&gt;Red Privada Virtual&lt;/p&gt;
+&lt;p&gt;Voz sobre IP&lt;/p&gt;
+&lt;p&gt;Multiconferencia voz&lt;/p&gt;
+&lt;p&gt;Acceso a Internet&lt;/p&gt;
+&lt;p&gt;Fax&lt;/p&gt;
+&lt;p&gt;…&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.2.3.Ventajas vs Inconvenientes&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;*Ventajas*&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Fácil instalación&lt;/li&gt;
+&lt;li&gt;Fácil configuración&lt;/li&gt;
+&lt;li&gt;Bajo coste de mantenimiento (cuota)&lt;/li&gt;
+&lt;li&gt;Bajo coste de utilización&lt;/li&gt;
+&lt;li&gt;Acceso a “gratuito” a Internet (A través del MODEM se conecta… Se&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/opt/aesptux.com/content/lineas-de-acceso-conmutado-ii.rst&lt;/tt&gt;, line 59)&lt;/p&gt;
+Bullet list ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;llama a un 908, que llama al ISP que nos proporciona Internet. Se cobra
+por cuanto navegues)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Inconvenientes&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;-Baja velocidad de acceso&lt;/p&gt;
+&lt;p&gt;-Requiere hardware y software específico&lt;/p&gt;
+&lt;p&gt;-Incompatibilidad de servicios (O voz o Internet)&lt;/p&gt;
+&lt;p&gt;-Sistema analógico.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.2.4.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Velocidad de acceso a Internet ( ancho de banda,
+capacidad)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Se mide en bps.&lt;/p&gt;
+&lt;p&gt;Kbps&lt;/p&gt;
+&lt;p&gt;Mbps, etc&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;*Bit rate (tasa binaria)*&lt;/strong&gt;: Es la velocidad binaria por la que se
+transmiten los bits.&lt;/p&gt;
+</summary><category term="acceso"></category><category term="conmutado"></category><category term="líneas"></category><category term="rtc"></category></entry><entry><title>Líneas de acceso conmutado (I)</title><link href="/lineas-de-acceso-conmutado-i.html" rel="alternate"></link><updated>2009-09-25T23:42:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-09-25:lineas-de-acceso-conmutado-i.html</id><summary type="html">&lt;ol class="arabic simple"&gt;
+&lt;li&gt;¿Qué son?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;1.1.&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;strong&gt;Definición&lt;/strong&gt;: Son aquellas líneas que necesitan hacer una
+llamada al nodo de conexión.&lt;/p&gt;
+&lt;p&gt;Pasos:&lt;/p&gt;
+&lt;p&gt;1.1.1.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Establecer llamada&lt;/p&gt;
+&lt;p&gt;1.1.2.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Enviar información, establecer conexión&lt;/p&gt;
+&lt;p&gt;1.1.3.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Liberar llamada/comunicación&lt;/p&gt;
+&lt;p&gt;Por ejemplo la línea telefónica&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.2.Consideraciones sobre el funcionamiento&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Cuando hablamos de la línea telefónica los nodos se llaman central
+telefónica a nivel local.&lt;/p&gt;
+&lt;p&gt;El camino: Como un intercambiador . Llega la conexión por una línea, y
+dependiendo el destino y los recursos disponibles, elegirá un camino u
+otro.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.3.Tipos de líneas de acceso conmutado&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Terrestres (cableado)-&amp;gt; RTC (Red telefónica conmutada), RDSI (Red
+digital de servicios integrados) &amp;nbsp;y las móviles (aire)-&amp;gt; GSM (Global
+system comunication), GPRS (Global Packet Radio System, Sistema de
+global de paquetes por radio)&lt;/p&gt;
+&lt;p&gt;Analógicas VS Digitales:&lt;/p&gt;
+&lt;p&gt;Analógicas-&amp;gt; RTC&lt;/p&gt;
+&lt;p&gt;Digitales-&amp;gt; RDSI, GSM,&amp;nbsp; GPRS&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.4.Diferencias analógico y digital&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Los analógicos son valores continuos y son infinitos (Num.&amp;nbsp; Real) y los
+digitales&amp;nbsp; son valores discretos y no son infinitos (0,1).&lt;/p&gt;
+</summary><category term="acceso"></category><category term="conmutado"></category><category term="líneas"></category></entry></feed>

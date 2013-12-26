@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/notes.atom.xml" rel="self"></link><id>/</id><updated>2009-06-07T17:20:00+02:00</updated><entry><title>Ésta va de puertas</title><link href="/esta-va-de-puertas.html" rel="alternate"></link><updated>2009-06-07T17:20:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2009-06-07:esta-va-de-puertas.html</id><summary type="html">&lt;p&gt;Hoy revisando mis apuntes, me he vuelto a encontrar con las Puertas
+Lógicas, así que me pareció interesante escanear un par de hojas para
+compartirlas por si a alguien le pueden ayudar o simplemente quieren
+ojear un poco.&lt;/p&gt;
+&lt;p&gt;Por si no lo sabías una puerta lógica es un dispositivo electrónico que
+es la expresión física de un operador booleano en la lógica de
+conmutación.&lt;/p&gt;
+&lt;p&gt;Mi escritura no es muy buena, pero creo que se entiende. Cualquier duda,
+no duden en preguntar en un comentario.&lt;/p&gt;
+&lt;p&gt;Enlace: &lt;a class="reference external" href="http://www.scribd.com/doc/16195965/Puertas-Logicas"&gt;Apuntes Puertas Lógicas&lt;/a&gt;&lt;/p&gt;
+</summary><category term="logicas"></category><category term="puertas"></category></entry></feed>

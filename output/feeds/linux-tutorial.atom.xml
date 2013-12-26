@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Adrian Espinosa.</title><link href="/" rel="alternate"></link><link href="/feeds/linux-tutorial.atom.xml" rel="self"></link><id>/</id><updated>2010-10-21T12:30:00+02:00</updated><entry><title>¿Problemas al compilar driver fglrx 10.9? Solución aquí.</title><link href="/%c2%bfproblemas-al-compilar-driver-fglrx-10-9-solucion-aqui.html" rel="alternate"></link><updated>2010-10-21T12:30:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2010-10-21:%c2%bfproblemas-al-compilar-driver-fglrx-10-9-solucion-aqui.html</id><summary type="html">&lt;p&gt;Los desarrolladores del kernel han solucionado una vulnerabilidad
+crítica y una librería que utilizaba fglrx ha sido eliminada.&lt;/p&gt;
+&lt;p&gt;El error puede ser algo así:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+/usr/src/kernel-modules/fglrx /
+make: Entering directory `/usr/src/packages/BUILD/kernel-2.6.35.50.3desktop'
+  LD      /usr/src/kernel-modules/fglrx/built-in.o
+  CC [M]  /usr/src/kernel-modules/fglrx/firegl_public.o
+/usr/src/kernel-modules/fglrx/firegl_public.c: In function ‘KCL_GetInitKerPte’:
+/usr/src/kernel-modules/fglrx/firegl_public.c:2378:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c:2379:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c:2380:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c: In function ‘KCL_GetPageTableByVirtAddr’:
+/usr/src/kernel-modules/fglrx/firegl_public.c:2425:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c:2428:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c:2429:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c: In function ‘KCL_TestAndClearPageDirtyFlag’:
+/usr/src/kernel-modules/fglrx/firegl_public.c:2598:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c: In function ‘KCL_GetDmaPhysAddr’:
+/usr/src/kernel-modules/fglrx/firegl_public.c:2636:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c:2637:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c:2638:5: warning: return makes integer from pointer without a cast
+/usr/src/kernel-modules/fglrx/firegl_public.c:2640:5: warning: return makes integer from pointer without a cast
+  CC [M]  /usr/src/kernel-modules/fglrx/kcl_acpi.o
+  CC [M]  /usr/src/kernel-modules/fglrx/kcl_agp.o
+  CC [M]  /usr/src/kernel-modules/fglrx/kcl_debug.o
+  CC [M]  /usr/src/kernel-modules/fglrx/kcl_ioctl.o
+/usr/src/kernel-modules/fglrx/kcl_ioctl.c: In function ‘KCL_IOCTL_AllocUserSpace32’:
+/usr/src/kernel-modules/fglrx/kcl_ioctl.c:196:5: error: implicit declaration of function ‘compat_alloc_user_space’
+/usr/src/kernel-modules/fglrx/kcl_ioctl.c:196:5: warning: return makes pointer from integer without a cast
+make[1]: *** [/usr/src/kernel-modules/fglrx/kcl_ioctl.o] Error 1
+make: *** [_module_/usr/src/kernel-modules/fglrx] Error 2
+make: Leaving directory `/usr/src/packages/BUILD/kernel-2.6.35.50.3desktop'
+&lt;/pre&gt;
+&lt;p&gt;Y la salida del comando 'glxinfo', así:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+root&amp;#64;normandy:~# glxinfo
+name of display: :0.0
+X Error of failed request:  BadRequest (invalid request code or no such operation)
+  Major opcode of failed request:  136 (GLX)
+  Minor opcode of failed request:  19 (X_GLXQueryServerString)
+  Serial number of failed request:  15
+  Current serial number in output stream:  15
+&lt;/pre&gt;
+&lt;p&gt;Solucionar esto, a pesar de que quizás parezca lo contrario, es bastante
+sencillo:&lt;/p&gt;
+&lt;p&gt;Nos movemos a la siguiente carpeta:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Debian: cd&amp;nbsp;/lib/modules/fglrx/build_mod&lt;/p&gt;
+&lt;p&gt;Otra posible localización: cd &amp;nbsp;/usr/src/kernel-modules/fglrx/&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ahora tenemos que editar el archivo &lt;strong&gt;kcl_ioctl.c&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+# gedit kcl_ioctl.c&lt;/blockquote&gt;
+&lt;p&gt;Buscamos la línea 197, el fragmento debe ser algo así:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+void* ATI_API_CALL KCL_IOCTL_AllocUserSpace32(long size)
+{
+    return compat_alloc_user_space(size);
+}
+
+#endif // __x86_64__
+&lt;/pre&gt;
+&lt;p&gt;Pues lo cambiamos por lo siguiente:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+void* ATI_API_CALL KCL_IOCTL_AllocUserSpace32(long size)
+{
+    return arch_compat_alloc_user_space(size);
+}
+
+#endif // __x86_64__
+&lt;/pre&gt;
+&lt;p&gt;Guardamos el archivo, y ahora tenemos que compilarlo otra vez, para
+ello:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# cd ..
+# ./make_install.sh
+&lt;/pre&gt;
+&lt;p&gt;Y eso es todo, yo así conseguí arreglarlo.&lt;/p&gt;
+</summary><category term="10.9"></category><category term="ati"></category><category term="bad request"></category><category term="debian"></category><category term="driver"></category><category term="fglrx"></category><category term="no funciona"></category><category term="opensuse"></category><category term="privativo"></category><category term="problema"></category><category term="server"></category><category term="ubuntu"></category><category term="xorg"></category></entry><entry><title>Optimizar Debian.</title><link href="/optimizar-debian.html" rel="alternate"></link><updated>2010-10-16T13:00:00+02:00</updated><author><name>aesptux</name></author><id>tag:,2010-10-16:optimizar-debian.html</id><summary type="html">&lt;p&gt;Antes de realizar cualquier cambio en el sistema, recomiendo hacer una
+copia de seguridad de vuestra configuración actual, por lo que puediera
+pasar.&lt;/p&gt;
+&lt;p&gt;Comenzamos:&lt;/p&gt;
+&lt;p&gt;El arranque secuencial tiene un pequeño problemilla: Si un servicio
+tarda demasiado en arrancar, retrasará a los demás servicios.&lt;/p&gt;
+&lt;p&gt;La solución a esto es el &lt;em&gt;arranque paralelo.&lt;/em&gt;Así un servicio que
+inicie despacio, no retrasará a los demás&lt;/p&gt;
+&lt;blockquote&gt;
+# apt-get install insserv&lt;/blockquote&gt;
+&lt;p&gt;Y ahora para activar el &lt;em&gt;arranque paralelo&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+# echo 'CONCURRENCY=shell' &amp;gt;&amp;gt; /etc/default/rcS&lt;/blockquote&gt;
+&lt;p&gt;Ahora pasamos a la parte de las aplicaciones&lt;/p&gt;
+&lt;p&gt;Preload corre como un daemon, monitorea lo que estás haciendo, los
+programas que más usas y &amp;nbsp;se adapta. Esto significa que inicialmente no
+verás ningún beneficio aparente, pero al cabo de unos días o semanas, la
+diferencia será notable.&lt;/p&gt;
+&lt;blockquote&gt;
+# apt-get install preload&lt;/blockquote&gt;
+&lt;p&gt;La configuración por defecto suele ser suficiente.&lt;/p&gt;
+&lt;p&gt;El siguiente cambio afectará al modo en que el kernel libera la cache de
+dispositivos frente a las entradas del filesystem. Tener cacheadas las
+entradas del filesystem hace que los filemanagers y otras aplicaciones
+sean más receptivos. El valor por defecto es 100. Probaremos esto:&lt;/p&gt;
+&lt;blockquote&gt;
+# echo 'vm.vfs_cache_pressure=50' &amp;gt;&amp;gt; /etc/sysctl.conf&lt;/blockquote&gt;
+&lt;p&gt;Con eso es suficiente, hay otras optimizaciones, pero yo no las he
+implementado en mi sistema, así que no sé muy bien como reaccionarían.
+Tampoco tengo el suficiente conocimiento técnico como para saber como
+afectará esto a todos los sistemas.&lt;/p&gt;
+</summary><category term="arranque paralelo"></category><category term="cache"></category><category term="debian"></category><category term="optimizar"></category><category term="parallel starting"></category><category term="preload"></category><category term="receptivo"></category><category term="responsive"></category></entry></feed>

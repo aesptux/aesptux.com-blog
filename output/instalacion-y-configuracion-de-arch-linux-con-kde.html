@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="/theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono"> -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <meta name="author" content="Adrian Espinosa">
+  <meta name="description" content="Posts and writings by Adrian Espinosa">
+
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Adrian Espinosa. Full Atom Feed" />
+
+<meta name="keywords" content="alsa, arch linux, configuracion, instalacion, kde, Tutorial, xorg">
+
+  <title>
+Instalación y configuración de Arch Linux con KDE.  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24400876-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="">
+        <img src="/theme/images/logo.jpg" alt="logo" height='65%' width='65%'>
+      </a>
+      <h2><a href="">Adrian Espinosa</a></h2>
+      <p>Software Developer</p>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="http://www.twitter.com/aesptux" target="_blank">Twitter</a></li>
+        <li><a href="http://www.github.com/aesptux" target="_blank">Github</a></li>
+        <li><a href="mailto:aespinosamoreno@gmail.com" target="_blank">Email</a></li>
+        <li><a href="http://www.linkedin.com/in/aespinosamoreno/en" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+<p>Posted on Fri 15 January 2010</p>
+    </header>
+
+<article>
+  <div id="article_title">
+    <h3><a href="/instalacion-y-configuracion-de-arch-linux-con-kde.html">Instalación y configuración de Arch Linux con KDE.</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Arch Linux es una distribución simple (que no fácil de instalar ni
+configurar) y que da total libertad al usuario para configurarlo a sus
+necesidades. También predomina la precisión de código ante la comodidad.
+Una vez tengamos el archivo iso con la arquitectura que queramos, en mi
+caso la i686, procederemos a instalarlo. Como bien nos indica, debemos
+loguearnos como root para iniciar la instalación <a href="#id7"><span class="problematic" id="id8">`|image0|`_</span></a> Para
+configurar el teclado y elegir tipo de fuente, escribimos:</p>
+<blockquote>
+km</blockquote>
+<p><a href="#id9"><span class="problematic" id="id10">`|image1|`_</span></a> Para iniciar la instalación:</p>
+<blockquote>
+/arch/setup</blockquote>
+<p>Este es el menú principal de la instalación: <a href="#id11"><span class="problematic" id="id12">`|image2|`_</span></a>El primer paso
+es bien sencillo, debemos elegir en <strong>Select Sources -&gt; CD</strong>. Para
+utilizar el CD como repositorio en la instalación. En <strong>Set Clock</strong>
+elegimos nuestra zona horaria adecuada <a href="#id13"><span class="problematic" id="id14">`|image3|`_</span></a> El tercer paso es
+preparar el disco duro. Yo voy a hacer una instalación limpia, sin
+ningún otro sistema operativo, así que lo más fácil es elegir
+Auto-Prepare. <strong>Pero mucho ojo, no seleccionar ésta opción si se tienen
+otros sistemas operativos, ya que formatea todo</strong> <a href="#id15"><span class="problematic" id="id16">`|image4|`_</span></a> La opción
+Auto-Prepare nos da a elegir el tamaño para una partición de /boot,
+swap, / y /home <a href="#id17"><span class="problematic" id="id18">`|image5|`_</span></a> En el siguiente paso, debemos elegir los
+paquetes a instalar. Si no queremos complicarnos demasiado, o si estamos
+seguros de que no vamos a necesitar más paquetes, bastará con los que
+vienen ya seleccionados. <a href="#id19"><span class="problematic" id="id20">`|image6|`_</span></a> Una vez seleccionados, procedemos a
+instalarlos. <a href="#id21"><span class="problematic" id="id22">`|image7|`_</span></a> Una vez esté todo instalado <a href="#id23"><span class="problematic" id="id24">`|image8|`_</span></a> Ahora
+nos toca la parte más &quot;crítica&quot;: La configuración del sistema Entramos
+en la opción de configuración del sistema y elegimos nuestro editor
+favorito, en mi caso voy a usar <em>vi</em> <em>`|image9|`_</em> Menú de
+configuración: <a href="#id25"><span class="problematic" id="id26">`|image10|`_</span></a> Editamos primeramente <strong>/etc/rc.conf</strong></p>
+<ul class="simple">
+<li>Debemos cambiar <em>LOCALE=&quot;en_US.utf8&quot;</em> por lo siguiente:
+<em>LOCALE=&quot;es_ES.utf8&quot;.</em></li>
+<li>Cambiar <em>HOSTNAME=&quot;myhost&quot;</em> por el nombre que queramos poner a
+nuestra máquina</li>
+<li>También tendremos que configurar la red en caso de que sea necesario,
+en mi caso solo cambiaré el gateway, usaré dhcp con la interfaz eth0</li>
+</ul>
+<p><strong>/etc/fstab</strong> Aquí sólo debemos miar que esté todo bien configurado por
+el instalador. <strong>/etc/resolv.conf</strong> Aquí escribimos las ips de los dns
+Los archivos de configuración <strong>/etc/pacman.conf</strong>y
+<strong>/etc/pacman.d/mirrorlist</strong> los configuraremos más adelante. Ahora
+debemos establecer nuestra contraseña de root. Una vez configurado todo,
+sólo nos queda instalar el Bootloader. Lo instalamos en la partición
+adecuada. <a href="#id27"><span class="problematic" id="id28">`|image11|`_</span></a> ¡Ya tenemos Arch Linux instalado! Ahora queda
+reiniciar. <a href="#id29"><span class="problematic" id="id30">`|image12|`_</span></a> Como vemos, no tenemos ningún entorno gráfico.
+Nos logueamos como root, que es la única cuenta que tenemos activa.
+Ahora vamos a añadir algunos repositorios bastante conocidos. Editamos
+<strong>/etc/pacman.conf</strong> Repositorio Archlinuxfr, agregamos el de nuestra
+arquitectura correspondiente:</p>
+<pre class="literal-block">
+[archlinuxfr]
+Server = http://repo.archlinux.fr/i686
+
+[archlinuxfr]
+Server = http://repo.archlinux.fr/x86_64
+</pre>
+<p>KDE Mod, agregar el de nuestra arquitectura:</p>
+<pre class="literal-block">
+[kdemod-core]
+Server = http://chakra-project.org/repo/core/i686/
+[kdemod-core]
+Server = http://chakra-project.org/repo/core/x86_64/
+[kdemod-extragear]
+Server = http://chakra-project.org/repo/extragear/i686/
+[kdemod-extragear]
+Server = http://chakra-project.org/repo/extragear/x86_64/
+</pre>
+<p><a href="#id31"><span class="problematic" id="id32">`|image13|`_</span></a> Ahora debemos establecer los mirrors. En el archivo
+<strong>/etc/pacman.d/mirrors</strong>hay un montón de mirrors y nos llevaría mucho
+tiempo saber cuáles son los más recomendados para nuestro Arch, por
+suerte hay un script llamado rankmirrors que nos elige los mejores
+mirrors. Para utilizar rankmirrors debemos instalar python, por lo que
+si no &nbsp;lo tenemos instalado, tenemos que activar al menos un mirror para
+poder poder descargarlo. Muy sencillo, del archivo anteriormente
+nombrado, descomentamos (quitar #) un mirror de Francia por ejemplo,
+después:</p>
+<blockquote>
+pacman -Syu pacman -S python</blockquote>
+<p><strong>Volvemos a comentar el mirror anterior.</strong> Nos movemos a la carpeta
+<strong>/etc/pacman.d/</strong></p>
+<blockquote>
+cd /etc/pacman.d/ cp mirrorlist mirrorlist.bak</blockquote>
+<p>Y hacemos una copia del archivo. Ahora ejecutamos:</p>
+<blockquote>
+rankmirrors -n 5 mirrorlist.bak &gt; mirrorlist</blockquote>
+<p>Donde -n 5 indica el número de mirrors. Ahora procedemos a instalar
+yaourt</p>
+<blockquote>
+pacman -S yaourt</blockquote>
+<p>Bien, como trabajar como root es un tanto... peligroso, vamos a crear un
+nuevo usuario:</p>
+<blockquote>
+adduser</blockquote>
+<p>Después hay que añadirlo a ciertos grupos :</p>
+<blockquote>
+gpasswd -a&nbsp;<strong>*usuario*</strong> audio gpasswd -a&nbsp;<strong>*usuario*</strong> wheel
+gpasswd -a&nbsp;<strong>*usuario*</strong> storage gpasswd -a&nbsp;<strong>*usuario*</strong> video
+gpasswd -a&nbsp;<strong>*usuario*</strong> optical gpasswd -a&nbsp;<strong>*usuario*</strong> floppy
+gpasswd -a&nbsp;<strong>*usuario*</strong> lp</blockquote>
+<p>Ahora instalamos y configuramos SUDO</p>
+<blockquote>
+pacman -S sudo</blockquote>
+<p>Para configurar, ejecutamos:</p>
+<blockquote>
+visudo</blockquote>
+<p>Y añadimos:</p>
+<blockquote>
+usuario ALL = (ALL) ALL</blockquote>
+<p>Y guardamos. Ahora procedemos a instalar ALSA, para el sonido:</p>
+<blockquote>
+pacman -S alsa-utils alsa-oss</blockquote>
+<p>Para configurarlo ejecutamos:</p>
+<blockquote>
+alsaconf</blockquote>
+<p>Y seguimos los pasos. Es turno de instalar el servidor gráfico XORG.</p>
+<blockquote>
+pacman -S xorg</blockquote>
+<p>(Nota: Si da conflicto con el paquete e2fsprogs, instalar éste primero
+mediante pacman -S e2fsprogs) Ahora instalamos kde:</p>
+<blockquote>
+pacman -S kde</blockquote>
+<p><a href="#id33"><span class="problematic" id="id34">`|image14|`_</span></a> Instalar idioma español:</p>
+<blockquote>
+pacman -S kde-l10n-es</blockquote>
+<p><a href="#id35"><span class="problematic" id="id36">`|image15|`_</span></a> Ahora editamos el archivo <strong>/etc/inittab/</strong>para cambiar
+los niveles de ejecución. Por defecto el sistema entra en el nivel de
+ejecución (runlevel) 3, que es el de monousuario. Debemos comentar esta
+línea, y descomentar la línea de nivel 5 que es el nivel que utiliza
+X11. Con el cambio realizado quedaría así:</p>
+<pre class="literal-block">
+#id:3:initdefault:
+# Boot to X11
+id:5:initdefault:
+</pre>
+<p>Más abajo debemos especificar que utilizaremos una pantalla de login
+KDM, por lo tanto comentamos XDM y descomentamos la de KDM. Con el
+cambio realizado quedaría así:</p>
+<pre class="literal-block">
+#x:5:respawn:/usr/bin/xdm -nodaemon
+#x:5:respawn:/usr/sbin/gdm -nodaemon
+x:5:respawn:/usr/bin/kdm -nodaemon
+#x:5:respawn:/usr/bin/slim &gt;&amp; /dev/null
+</pre>
+<p><a href="#id37"><span class="problematic" id="id38">`|image16|`_</span></a> Importante: En el archivo <strong>/etc/rc.conf</strong>debemos añadir
+el daemon <strong>*hal.*</strong></p>
+<p><strong>Traducir completamente al español:</strong></p>
+<p>Aparte de lo que modificamos en rc.conf, debemos hacer lo siguiente:</p>
+<p>en <strong>/etc/locale.gen</strong>debemos descomentar las dos líneas es_ES.</p>
+<p>Después regenaramos los locales:</p>
+<blockquote>
+locale-gen</blockquote>
+<p>Y lo comprobamos:</p>
+<blockquote>
+locale -a</blockquote>
+<p>Para traducir KDE hace falta instalar los siguientes paquetes:</p>
+<blockquote>
+<dl class="docutils">
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a><a href="#id3"><span class="problematic" id="id4">*</span></a><tt class="docutils literal"><span class="pre">language-pack-eslanguage-pack-es-base</span> <span class="pre">language-pack-kde-es</span> <span class="pre">language-pack-kde-es-base</span> <span class="pre">language-support-es</span> <span class="pre">language-support-translations-es</span> <span class="pre">language-support-writing-es</span></tt></dt>
+<dd><div class="first system-message" id="id1">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 197); <em><a href="#id2">backlink</a></em></p>
+Inline strong start-string without end-string.</div>
+<div class="system-message" id="id3">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 197); <em><a href="#id4">backlink</a></em></p>
+Inline emphasis start-string without end-string.</div>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a>kde-l10n-es``***</p>
+<div class="last system-message" id="id5">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 197); <em><a href="#id6">backlink</a></em></p>
+Inline literal start-string without end-string.</div>
+</dd>
+</dl>
+</blockquote>
+<p>Y eso es todo! Ya tenemos nuestro Arch Linux instalado!</p>
+<div class="system-messages section">
+<h2>Docutils System Messages</h2>
+<div class="system-message" id="id7">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 9); <em><a href="#id8">backlink</a></em></p>
+Unknown target name: &quot;|image0|&quot;.</div>
+<div class="system-message" id="id9">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 19); <em><a href="#id10">backlink</a></em></p>
+Unknown target name: &quot;|image1|&quot;.</div>
+<div class="system-message" id="id11">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 23); <em><a href="#id12">backlink</a></em></p>
+Unknown target name: &quot;|image2|&quot;.</div>
+<div class="system-message" id="id13">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 23); <em><a href="#id14">backlink</a></em></p>
+Unknown target name: &quot;|image3|&quot;.</div>
+<div class="system-message" id="id15">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 23); <em><a href="#id16">backlink</a></em></p>
+Unknown target name: &quot;|image4|&quot;.</div>
+<div class="system-message" id="id17">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 23); <em><a href="#id18">backlink</a></em></p>
+Unknown target name: &quot;|image5|&quot;.</div>
+<div class="system-message" id="id19">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 23); <em><a href="#id20">backlink</a></em></p>
+Unknown target name: &quot;|image6|&quot;.</div>
+<div class="system-message" id="id21">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 23); <em><a href="#id22">backlink</a></em></p>
+Unknown target name: &quot;|image7|&quot;.</div>
+<div class="system-message" id="id23">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 23); <em><a href="#id24">backlink</a></em></p>
+Unknown target name: &quot;|image8|&quot;.</div>
+<div class="system-message" id="id25">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 23); <em><a href="#id26">backlink</a></em></p>
+Unknown target name: &quot;|image10|&quot;.</div>
+<div class="system-message" id="id27">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 49); <em><a href="#id28">backlink</a></em></p>
+Unknown target name: &quot;|image11|&quot;.</div>
+<div class="system-message" id="id29">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 49); <em><a href="#id30">backlink</a></em></p>
+Unknown target name: &quot;|image12|&quot;.</div>
+<div class="system-message" id="id31">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 83); <em><a href="#id32">backlink</a></em></p>
+Unknown target name: &quot;|image13|&quot;.</div>
+<div class="system-message" id="id33">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 150); <em><a href="#id34">backlink</a></em></p>
+Unknown target name: &quot;|image14|&quot;.</div>
+<div class="system-message" id="id35">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 154); <em><a href="#id36">backlink</a></em></p>
+Unknown target name: &quot;|image15|&quot;.</div>
+<div class="system-message" id="id37">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/opt/aesptux.com/content/instalacion-y-configuracion-de-arch-linux-con-kde.rst</tt>, line 177); <em><a href="#id38">backlink</a></em></p>
+Unknown target name: &quot;|image16|&quot;.</div>
+</div>
+
+  </div>
+  <div id="article_meta">
+    <p>Category: <a href="/category/linux.html">Linux</a></p>
+    <p>Tags:
+      <a href="/tag/alsa.html">alsa</a>,      <a href="/tag/arch-linux.html">arch linux</a>,      <a href="/tag/configuracion.html">configuracion</a>,      <a href="/tag/instalacion.html">instalacion</a>,      <a href="/tag/kde.html">kde</a>,      <a href="/tag/tutorial.html">Tutorial</a>,      <a href="/tag/xorg.html">xorg</a>    </p>
+    <p>Comments: <a href="#" onclick="javascript:toggleComments();return false;">toggle</a></p>
+  </div>
+
+    <div id="article_comments" style="display:block">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "instalacion-y-configuracion-de-arch-linux-con-kde.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://aesptuxblog.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+
+</article>
+
+    <footer>
+<p><a href="/" class="button_accent">&larr; Back to Index</a></p>
+<script language="javascript">
+    function toggleComments() {
+        var commentDiv = document.getElementById("article_comments");
+        (commentDiv.style.display == "none") ? commentDiv.style.display = "block" : commentDiv.style.display = "none";
+        return false;
+    }
+</script>
+    </footer>
+
+    <div id="ending_message">
+      <p>&copy Adrian Espinosa. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p> Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>
